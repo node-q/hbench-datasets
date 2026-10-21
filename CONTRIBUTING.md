@@ -90,6 +90,18 @@ version is a generated one; see [`datasets/humaneval-plus/1.0`](datasets/humanev
    `images.lock.json` and `generated.lock.json` it writes, as the README describes. Only then can the
    version be published.
 
+When every task needs its own prebuilt environment, as in SWE-bench, the environment policy is
+`built-locally` instead (see the README's [Locally built environments](README.md#locally-built-environments)):
+
+- the adapter also defines `base_images(upstream_files, dataset)`, each task's upstream base image
+  by tag, and writes each task's `environment/Dockerfile` itself, starting `FROM` the image
+  `context.base_images` pins for that task;
+- `scripts/pin_images.py datasets/<name>/<version>/source.yaml <empty directory> --output
+  datasets/<name>/<version>/images.lock.json` pins the base images before the first generation, and
+  the lock is committed in the same pull request;
+- `verify_tasks` runs tasks with hbench and Docker, as `adapters/swebench/verification.py` does; the
+  Sample tasks workflow runs it on a sample of each such version.
+
 ## Versions are immutable
 
 - A published tag is never moved. A version is published once the publish workflow has finished:

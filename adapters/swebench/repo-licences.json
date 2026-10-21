@@ -1,0 +1,159 @@
+{
+  "astropy/astropy": {
+    "spdx_id": "BSD-3-Clause",
+    "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+    "license_file": "https://github.com/astropy/astropy/blob/main/LICENSE.rst",
+    "api_url": "https://api.github.com/repos/astropy/astropy/license",
+    "blob_sha": "5945355a71905c7f88387398591d1df67162e7a3",
+    "copyright": [
+      "Copyright (c) 2011-2026, Astropy Developers"
+    ],
+    "notice_file": null,
+    "notice": null
+  },
+  "django/django": {
+    "spdx_id": "BSD-3-Clause",
+    "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+    "license_file": "https://github.com/django/django/blob/main/LICENSE",
+    "api_url": "https://api.github.com/repos/django/django/license",
+    "blob_sha": "5f4f225dd282aa7e4361ec3c2750bbbaaed8ab1f",
+    "copyright": [
+      "Copyright (c) Django Software Foundation and individual contributors."
+    ],
+    "notice_file": null,
+    "notice": null
+  },
+  "matplotlib/matplotlib": {
+    "spdx_id": null,
+    "name": null,
+    "license_file": null,
+    "api_url": "https://api.github.com/repos/matplotlib/matplotlib/license",
+    "blob_sha": null,
+    "copyright": [],
+    "notice_file": null,
+    "notice": null,
+    "review": {
+      "spdx_id": "LicenseRef-Matplotlib-1.3.0",
+      "reason": "LICENSE/LICENSE is the Matplotlib License, a PSF-style licence that is permissive but neither OSI-approved nor an SPDX licence, and GitHub detects no licence, so it is not on the allow-list."
+    }
+  },
+  "mwaskom/seaborn": {
+    "spdx_id": "BSD-3-Clause",
+    "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+    "license_file": "https://github.com/mwaskom/seaborn/blob/master/LICENSE.md",
+    "api_url": "https://api.github.com/repos/mwaskom/seaborn/license",
+    "blob_sha": "86f5ad0986c90f85adb79a7964c3752d5d2d397b",
+    "copyright": [
+      "Copyright (c) 2012-2023, Michael L. Waskom"
+    ],
+    "notice_file": null,
+    "notice": null
+  },
+  "pallets/flask": {
+    "spdx_id": "BSD-3-Clause",
+    "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+    "license_file": "https://github.com/pallets/flask/blob/main/LICENSE.txt",
+    "api_url": "https://api.github.com/repos/pallets/flask/license",
+    "blob_sha": "9d227a0cc43c3268d15722b763bd94ad298645a1",
+    "copyright": [
+      "Copyright 2010 Pallets"
+    ],
+    "notice_file": null,
+    "notice": null
+  },
+  "psf/requests": {
+    "spdx_id": "Apache-2.0",
+    "name": "Apache License 2.0",
+    "license_file": "https://github.com/psf/requests/blob/main/LICENSE",
+    "api_url": "https://api.github.com/repos/psf/requests/license",
+    "blob_sha": "67db8588217f266eb561f75fae738656325deac9",
+    "copyright": [],
+    "notice_file": "https://github.com/psf/requests/blob/main/NOTICE",
+    "notice": "Requests\nCopyright 2019 Kenneth Reitz\n"
+  },
+  "pydata/xarray": {
+    "spdx_id": "Apache-2.0",
+    "name": "Apache License 2.0",
+    "license_file": "https://github.com/pydata/xarray/blob/main/LICENSE",
+    "api_url": "https://api.github.com/repos/pydata/xarray/license",
+    "blob_sha": "82fac1f1a63a9cba215d16d938090b6ecfce28bf",
+    "copyright": [
+      "Copyright 2014-2024 xarray Developers"
+    ],
+    "notice_file": null,
+    "notice": null
+  },
+  "pylint-dev/pylint": {
+    "spdx_id": "GPL-2.0",
+    "name": "GNU General Public License v2.0",
+    "license_file": "https://github.com/pylint-dev/pylint/blob/main/LICENSE",
+    "api_url": "https://api.github.com/repos/pylint-dev/pylint/license",
+    "blob_sha": "8c4c849e2321672c89cc1a58df54da6043021ca9",
+    "copyright": [
+      "Copyright (C) 1989, 1991 Free Software Foundation, Inc.",
+      "Gnomovision version 69, Copyright (C) year name of author"
+    ],
+    "notice_file": null,
+    "notice": null
+  },
+  "pytest-dev/pytest": {
+    "spdx_id": "MIT",
+    "name": "MIT License",
+    "license_file": "https://github.com/pytest-dev/pytest/blob/main/LICENSE",
+    "api_url": "https://api.github.com/repos/pytest-dev/pytest/license",
+    "blob_sha": "c3f1657fce94589bd1ec7cead810639047f3d359",
+    "copyright": [
+      "Copyright (c) 2004 Holger Krekel and others"
+    ],
+    "notice_file": null,
+    "notice": null
+  },
+  "scikit-learn/scikit-learn": {
+    "spdx_id": "BSD-3-Clause",
+    "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+    "license_file": "https://github.com/scikit-learn/scikit-learn/blob/main/COPYING",
+    "api_url": "https://api.github.com/repos/scikit-learn/scikit-learn/license",
+    "blob_sha": "3d7ee432c15b685eaa654b6abe8f8e3ea8126a8d",
+    "copyright": [
+      "Copyright (c) 2007-2026 The scikit-learn developers."
+    ],
+    "notice_file": null,
+    "notice": null
+  },
+  "sphinx-doc/sphinx": {
+    "spdx_id": "NOASSERTION",
+    "name": "Other",
+    "license_file": "https://github.com/sphinx-doc/sphinx/blob/master/LICENSE.rst",
+    "api_url": "https://api.github.com/repos/sphinx-doc/sphinx/license",
+    "blob_sha": "009a5cc97c0b549781e0095e6f228a7022466696",
+    "copyright": [
+      "Copyright (c) 2007-2026 by the Sphinx team (see AUTHORS file)."
+    ],
+    "notice_file": null,
+    "notice": null,
+    "review": {
+      "spdx_id": "BSD-2-Clause",
+      "reason": "LICENSE.rst licenses all code in the Sphinx project under the two-clause BSD licence unless otherwise indicated, then lists the other licences of bundled third-party code."
+    }
+  },
+  "sympy/sympy": {
+    "spdx_id": "NOASSERTION",
+    "name": "Other",
+    "license_file": "https://github.com/sympy/sympy/blob/master/LICENSE",
+    "api_url": "https://api.github.com/repos/sympy/sympy/license",
+    "blob_sha": "0744f229d697ca3ed1b1b257bfdb70e3eecf0b9e",
+    "copyright": [
+      "Copyright (c) 2006-2023 SymPy Development Team",
+      "Copyright (c) 2006-2018 SymPy Development Team,",
+      "Copyright (c) 2014 Matthew Rocklin",
+      "Copyright (c) 2009-2023, PyDy Authors",
+      "Copyright 2016, latex2sympy"
+    ],
+    "notice_file": null,
+    "notice": null,
+    "review": {
+      "spdx_id": "BSD-3-Clause",
+      "reason": "LICENSE holds three BSD-3-Clause texts, for SymPy, for the patches taken from Diofant and for the submodules taken from multipledispatch, which GitHub does not match as one licence."
+    }
+  }
+}

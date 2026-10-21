@@ -2,7 +2,7 @@
 
 validate_sources.py checks images.lock.json as it checks any lock; these add what is particular to a
 generated version: generated.lock.json, and an images.lock.json that pins exactly its generated tasks
-to its one built image.
+to its one built image or, for the built-locally policy, each to its own base image.
 """
 
 import json
@@ -14,6 +14,7 @@ from images_lock import IMAGES_LOCK_FILENAME, LockError, load_images_lock, refus
 from source_descriptor import REPOSITORY_ROOT
 
 GENERATED_KIND = "generated"
+BUILT_LOCALLY_POLICY = "built-locally"
 GENERATED_LOCK_FILENAME = "generated.lock.json"
 ADAPTER_FILES = ("__init__.py", "adapter.py")
 DIGEST_PATTERN = re.compile(r"^sha256:[0-9a-f]{64}$")
@@ -87,6 +88,22 @@ def built_image_problems(descriptor, version_directory, task_names):
     return [f"{IMAGES_LOCK_FILENAME}: {problem}" for problem in built_lock_problems(lock, tag, task_names)]
 
 
+def locked_tasks_problems(lock, task_names):
+    missing = sorted(set(task_names) - set(lock))
+    unexpected = sorted(set(lock) - set(task_names))
+    if missing or unexpected:
+        return [f"does not lock exactly the generated tasks: missing {missing[:10]}, unexpected {unexpected[:10]}"]
+    return []
+
+
+def base_images_problems(version_directory, task_names):
+    try:
+        lock = load_images_lock(version_directory / IMAGES_LOCK_FILENAME)
+    except (OSError, LockError):
+        return []
+    return [f"{IMAGES_LOCK_FILENAME}: {problem}" for problem in locked_tasks_problems(lock, task_names)] if lock else []
+
+
 def generated_problems(descriptor, version_directory):
     generated_lock_path = version_directory / GENERATED_LOCK_FILENAME
     if not is_generated(descriptor):
@@ -100,4 +117,6 @@ def generated_problems(descriptor, version_directory):
     except GeneratedLockError as error:
         return problems + [f"{error}; write it with scripts/generated_source.py generate --write-lock"]
     problems += generated_lock_problems(generated_lock, source["task_count"])
+    if descriptor["environment"]["policy"] == BUILT_LOCALLY_POLICY:
+        return problems + base_images_problems(version_directory, sorted(generated_lock))
     return problems + built_image_problems(descriptor, version_directory, sorted(generated_lock))

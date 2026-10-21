@@ -85,9 +85,16 @@ def task_toml(task_name, description, tables):
     sections = {"task": {"name": task_name, "description": description}, **tables}
     lines = [f"schema_version = {toml_string(TASK_SCHEMA_VERSION)}"]
     for table, entries in sections.items():
-        lines += ["", f"[{table}]"]
-        lines += [f"{key} = {toml_value(value)}" for key, value in entries.items() if value is not None]
+        for header, table_entries in table_blocks(table, entries):
+            lines += ["", header]
+            lines += [f"{key} = {toml_value(value)}" for key, value in table_entries.items() if value is not None]
     return "\n".join(lines) + "\n"
+
+
+def table_blocks(table, entries):
+    if isinstance(entries, (list, tuple)):
+        return [(f"[[{table}]]", item) for item in entries]
+    return [(f"[{table}]", entries)]
 
 
 def code_fence(code):

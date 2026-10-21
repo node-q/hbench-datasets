@@ -289,7 +289,7 @@ class GeneratedVersionDirectoryTest(VersionDirectoryTestCase):
 
     def test_a_generated_source_needs_the_built_policy_and_a_canary(self):
         self.replace_in_descriptor("  policy: built\n  image: humaneval-plus-1.0\n  images_lock: images.lock.json\n", "  policy: as-declared\n")
-        self.assertProblem("environment/policy: 'built' was expected")
+        self.assertProblem("environment/policy: 'as-declared' is not one of ['built', 'built-locally']")
         shutil.copy(GENERATED_DIRECTORY / "source.yaml", self.descriptor_path)
         text = self.descriptor_path.read_text(encoding="utf-8")
         canary_start = text.index("canary: >-")

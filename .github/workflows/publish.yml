@@ -129,6 +129,7 @@ jobs:
           case "$policy" in
             pinned-mirror) package="hbench-envs/$DATASET" ;;
             built) package="hbench-envs" ;;
+            built-locally) package="" ;;
             *)
               echo "The environment policy is $policy: no mirrored or built images to check."
               exit 0
@@ -141,6 +142,11 @@ jobs:
               unpullable=$((unpullable + 1))
             fi
           done < <(jq -r '[.[].pinned] | unique | .[]' "$images_lock")
+          if (( unpullable > 0 )) && [[ -z "$package" ]]; then
+            cat "$RUNNER_TEMP/mirror-pull.log" >&2
+            echo "::error title=Base images gone::$unpullable upstream base images in $images_lock cannot be pulled anonymously any more, so the tasks would not build. Pin them again with the Pin images workflow, as a new version. Nothing was pushed."
+            exit 1
+          fi
           if (( unpullable > 0 )); then
             cat "$RUNNER_TEMP/mirror-pull.log" >&2
             echo "::error title=Environment images not public::$unpullable images in $images_lock cannot be pulled anonymously. A new GHCR package starts private: make ghcr.io/node-q/$package public in its package settings (https://github.com/orgs/node-q/packages/container/${package//\//%2F}/settings). Nothing was pushed."
