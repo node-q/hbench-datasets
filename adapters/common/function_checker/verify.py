@@ -2,19 +2,24 @@
 
 For each task, verify_tasks copies tests/ to a fresh directory, as hbench uploads it to /tests, and runs
 tests/check_solution.py directly: on solution/solution.py, which must pass, and on a solution whose
-entry point raises NotImplementedError, which must fail. Adapters of function-completion datasets
+entry point raises NotImplementedError, which must fail. Checkers that run at the same time get
+different unprivileged user ids, since each kills every process of its own when its solution ends. Adapters of function-completion datasets
 call it from their own verify_tasks; python -m adapters.verify runs it. An adapter whose tasks have
 another checker, answer file or wrong solutions passes a Checker: the checker's path in the task, the
 oracle's, the name the answer is written under in /app, and wrong_answers(task), the texts that must
-fail.
+fail. Its checker takes the same arguments as check_solution.py's --solution, --summary and
+--unprivileged-id.
 """
 
 import collections.abc
 import concurrent.futures
+import contextlib
 import dataclasses
+import functools
 import json
 import os
 import pathlib
+import queue
 import shutil
 import subprocess
 import sys
@@ -25,6 +30,7 @@ import tomllib
 CHECKER_RELATIVE_PATH = pathlib.Path("tests") / "check_solution.py"
 ORACLE_RELATIVE_PATH = pathlib.Path("solution") / "solution.py"
 WRONG_SOLUTION_TEMPLATE = "def {entry_point}(*arguments, **keywords):\n    raise NotImplementedError\n"
+FIRST_UNPRIVILEGED_ID = 61000
 
 
 def raising_solution(task):
@@ -43,6 +49,21 @@ class Checker:
 FUNCTION_CHECKER = Checker()
 
 
+class UnprivilegedIds:
+    def __init__(self, count):
+        self.available = queue.Queue()
+        for offset in range(count):
+            self.available.put(FIRST_UNPRIVILEGED_ID + offset)
+
+    @contextlib.contextmanager
+    def borrowed(self):
+        unprivileged_id = self.available.get()
+        try:
+            yield unprivileged_id
+        finally:
+            self.available.put(unprivileged_id)
+
+
 def task_directories(tasks_directory, names):
     tasks = sorted(path for path in tasks_directory.iterdir() if (path / "task.toml").is_file())
     if not names:
@@ -58,7 +79,7 @@ def verifier_timeout(task):
         return tomllib.load(manifest)["verifier"]["timeout_sec"]
 
 
-def run_checker(task, solution_text, checker=FUNCTION_CHECKER):
+def run_checker(task, solution_text, unprivileged_id, checker=FUNCTION_CHECKER):
     with tempfile.TemporaryDirectory(prefix=f"{task.name}-") as workspace:
         workspace = pathlib.Path(workspace)
         shutil.copytree(task / "tests", workspace / "tests")
@@ -78,6 +99,8 @@ def run_checker(task, solution_text, checker=FUNCTION_CHECKER):
                 str(solution_path),
                 "--summary",
                 str(summary_path),
+                "--unprivileged-id",
+                str(unprivileged_id),
             ],
             env={**os.environ, "PYTHONHASHSEED": "0"},
             capture_output=True,
@@ -93,9 +116,10 @@ def phase_counts(summary):
     return "+".join(f"{phase['passed']}/{phase['inputs']}" for phase in summary.get("phases", []))
 
 
-def verify_task(task, checker=FUNCTION_CHECKER):
+def verify_task(task, unprivileged_ids, checker=FUNCTION_CHECKER):
     try:
-        return checked_task(task, checker)
+        with unprivileged_ids.borrowed() as unprivileged_id:
+            return checked_task(task, unprivileged_id, checker)
     except subprocess.TimeoutExpired as error:
         return task.name, [f"the checker ran longer than the verifier's {error.timeout}s"], ""
 
@@ -112,14 +136,15 @@ def wrong_answers_detail(count):
     return "a wrong solution failed" if count == 1 else f"{count} wrong solutions failed"
 
 
-def checked_task(task, checker=FUNCTION_CHECKER):
+def checked_task(task, unprivileged_id, checker=FUNCTION_CHECKER):
     problems = []
-    oracle, oracle_summary, oracle_seconds = run_checker(task, (task / checker.oracle).read_text(encoding="utf-8"), checker)
+    oracle_text = (task / checker.oracle).read_text(encoding="utf-8")
+    oracle, oracle_summary, oracle_seconds = run_checker(task, oracle_text, unprivileged_id, checker)
     if oracle.returncode != 0 or not (oracle_summary and oracle_summary["passed"]):
         problems.append(f"the oracle does not pass (exit {oracle.returncode}): {oracle.stdout.strip()} {oracle.stderr.strip()}")
     wrong_texts = checker.wrong_answers(task)
     for wrong_text in wrong_texts:
-        wrong, wrong_summary, _ = run_checker(task, wrong_text, checker)
+        wrong, wrong_summary, _ = run_checker(task, wrong_text, unprivileged_id, checker)
         if wrong.returncode != 1 or wrong_summary is None or wrong_summary["passed"] or "rejected" in wrong_summary:
             problems.append(f"a wrong solution does not fail (exit {wrong.returncode}): {wrong.stdout.strip()} {wrong.stderr.strip()}")
     detail = f"{oracle_detail(oracle_summary, oracle_seconds)}; {wrong_answers_detail(len(wrong_texts))}"
@@ -132,8 +157,10 @@ def verify_tasks(tasks_directory, jobs=1, names=(), checker=FUNCTION_CHECKER):
         print(f"no tasks in {tasks_directory}", file=sys.stderr)
         return 1
     failed = []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, jobs)) as executor:
-        for name, problems, detail in executor.map(lambda task: verify_task(task, checker), tasks):
+    workers = max(1, jobs)
+    verify = functools.partial(verify_task, unprivileged_ids=UnprivilegedIds(workers), checker=checker)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
+        for name, problems, detail in executor.map(verify, tasks):
             if problems:
                 failed.append(name)
                 for problem in problems:
