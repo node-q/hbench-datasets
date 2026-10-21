@@ -73,12 +73,19 @@ jobs:
           PYTHONPATH: scripts
         run: |
           python scripts/sample_tasks.py --shards "$SHARDS" --output "$RUNNER_TEMP/generated" \
-            "datasets/$DATASET/$VERSION" > "$RUNNER_TEMP/matrix.json"
+            --copy-to "$RUNNER_TEMP/tasks" "datasets/$DATASET/$VERSION" > "$RUNNER_TEMP/matrix.json"
           if [[ "$(jq '.include | length' "$RUNNER_TEMP/matrix.json")" == 0 ]]; then
             echo "::error title=Not built locally::$DATASET@$VERSION is not a built-locally dataset version."
             exit 1
           fi
           echo "matrix=$(jq -c . "$RUNNER_TEMP/matrix.json")" >> "$GITHUB_OUTPUT"
+      - name: Upload the tasks
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: sweep-tasks
+          path: ${{ runner.temp }}/tasks
+          if-no-files-found: error
+          retention-days: 7
 
   sweep:
     name: Shard ${{ matrix.shard }}
@@ -108,10 +115,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: scripts/install-hbench.sh "$HBENCH_VERSION" "$RUNNER_TEMP/hbench"
-      - name: Generate the dataset version
-        env:
-          PYTHONPATH: scripts
-        run: python scripts/generated_source.py generate "datasets/$DATASET/$VERSION/source.yaml" "$RUNNER_TEMP/generated"
+      - name: Download the tasks
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: sweep-tasks
+          path: ${{ runner.temp }}/tasks
       - name: Run the oracle and nop on each of the shard's tasks, removing its images after it
         env:
           HBENCH: ${{ runner.temp }}/hbench/hbench
@@ -120,7 +128,7 @@ jobs:
           for task in $TASKS; do
             started=$SECONDS
             mkdir -p "$RUNNER_TEMP/results/$task"
-            python -m adapters.verify "$ADAPTER" "$RUNNER_TEMP/generated/tasks" --task "$task" \
+            python -m adapters.verify "$ADAPTER" "$RUNNER_TEMP/tasks/$DATASET-$VERSION" --task "$task" \
               --summary "$RUNNER_TEMP/results/$task/summary.json" < /dev/null || true
             jq -n --arg task "$task" --argjson seconds "$((SECONDS - started))" \
               '{task: $task, seconds: $seconds}' > "$RUNNER_TEMP/results/$task/measurement.json"
