@@ -87,7 +87,8 @@ class ExercismPolyglotAdapterTest(unittest.TestCase):
     def test_the_verifier_restores_every_file_but_the_solution(self):
         self.assertEqual(self.files("go", "tests/workspace"), ["cases_test.go", "go.mod", "leap_test.go", "years.go"])
         self.assertTrue(self.text("go", "tests/workspace/go.mod").startswith(f"// {CANARY}\nmodule leap"))
-        self.assertEqual(self.files("rust", "tests/workspace"), [".gitignore", "tests/leap.rs"])
+        self.assertEqual(self.files("rust", "tests/workspace"), [".gitignore", "benches/benchmark.rs", "tests/leap.rs"])
+        self.assertTrue(self.text("rust", "tests/workspace/benches/benchmark.rs").startswith(f"// {CANARY}\n#![feature(test)]"))
         self.assertEqual(
             self.files("javascript", "tests/workspace"), ["babel.config.js", "jest.config.js", "leap.spec.js"]
         )

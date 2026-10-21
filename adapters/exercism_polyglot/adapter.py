@@ -307,7 +307,7 @@ def with_canary_comment(relative_path, data, canary):
     if prefix is None:
         return None
     text = data.decode("utf-8")
-    if text.startswith("#!"):
+    if text.startswith("#!") and not text.startswith("#!["):
         shebang, _, rest = text.partition("\n")
         return f"{shebang}\n{prefix} {canary}\n{rest}"
     return f"{prefix} {canary}\n{text}"
@@ -480,7 +480,11 @@ def files_under(directory):
 
 
 def without_canary_line(data):
-    return data.partition(b"\n")[2]
+    lines = data.split(b"\n")
+    for index in (0, 1):
+        if index < len(lines) and b"canary" in lines[index]:
+            return b"\n".join(lines[:index] + lines[index + 1 :])
+    return data
 
 
 def task_problems(task_directory):

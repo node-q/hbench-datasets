@@ -81,6 +81,7 @@ EXERCISES = {
             "Cargo.toml": '[package]\nname = "leap"\nversion = "0.1.0"\nedition = "2024"\n',
             "src/lib.rs": "pub fn is_leap_year(year: u64) -> bool {\n    todo!()\n}\n",
             "tests/leap.rs": "#[test]\n#[ignore]\nfn year_2015() {}\n",
+            "benches/benchmark.rs": "#![feature(test)]\nextern crate test;\n",
             ".gitignore": "/target\n",
             ".meta/example.rs": "pub fn is_leap_year(year: u64) -> bool {\n    year % 4 == 0\n}\n",
             ".meta/Cargo-example.toml": '[package]\nname = "leap"\nversion = "0.1.0"\nedition = "2024"\n\n[dependencies]\nitertools = "0.14"\n',
