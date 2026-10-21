@@ -105,8 +105,23 @@ jobs:
           python-version: "3.12"
       - name: Install the pinned Python packages
         run: python -m pip install --require-hashes -r requirements.txt
-      - name: Validate the descriptor
-        run: python scripts/validate_sources.py "$(dirname "$SOURCE_DESCRIPTOR")"
+      - name: Validate the descriptor, refusing an images.lock.json that is not filled yet
+        run: python scripts/validate_sources.py --for-publish "$(dirname "$SOURCE_DESCRIPTOR")"
+      - name: Refuse to publish while a built environment image cannot be pulled anonymously
+        run: |
+          policy="$(python -c 'import sys, yaml; print(yaml.safe_load(open(sys.argv[1]))["environment"]["policy"])' "$SOURCE_DESCRIPTOR")"
+          if [[ "$policy" != built ]]; then
+            echo "The environment policy is $policy: no built image to check."
+            exit 0
+          fi
+          images_lock="$(dirname "$SOURCE_DESCRIPTOR")/images.lock.json"
+          pinned="$(jq -r '[.[].pinned] | unique | .[]' "$images_lock")"
+          if ! docker buildx imagetools inspect "$pinned" > /dev/null 2>"$RUNNER_TEMP/built-image-pull.log"; then
+            cat "$RUNNER_TEMP/built-image-pull.log" >&2
+            echo "::error title=Built image not public::$pinned cannot be pulled anonymously. A new GHCR package starts private: make ghcr.io/node-q/hbench-envs public in its package settings (https://github.com/orgs/node-q/packages/container/hbench-envs/settings). Nothing was pushed."
+            exit 1
+          fi
+          echo "$pinned can be pulled anonymously."
       - name: Install hbench, verifying SHA256SUMS and its build provenance
         env:
           GH_TOKEN: ${{ github.token }}
@@ -151,11 +166,12 @@ jobs:
         run: |
           python scripts/fetch_source.py "$SOURCE_DESCRIPTOR" "$RUNNER_TEMP/source"
           echo "TASKS_DIRECTORY=$RUNNER_TEMP/source/tasks" >> "$GITHUB_ENV"
+          echo "PACKED_DESCRIPTOR=$RUNNER_TEMP/source/source.yaml" >> "$GITHUB_ENV"
       - name: Pack and push with hbench
         id: push
         run: |
           hbench datasets push "$TASKS_DIRECTORY" \
-            --descriptor "$SOURCE_DESCRIPTOR" \
+            --descriptor "$PACKED_DESCRIPTOR" \
             --to "oci://$REPOSITORY:$VERSION" 2>&1 | tee "$RUNNER_TEMP/push.log"
           digest="$(oras resolve "$REPOSITORY:$VERSION")"
           if ! [[ "$digest" =~ ^sha256:[0-9a-f]{64}$ ]]; then

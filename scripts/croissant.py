@@ -12,6 +12,7 @@ import json
 import re
 import sys
 
+from environment_images import tag_reference
 from source_descriptor import PUBLISHED_REPOSITORY_URL, load_descriptor
 
 CROISSANT_SPECIFICATION = "http://mlcommons.org/croissant/1.1"
@@ -110,6 +111,11 @@ def canary_use_case(canary):
 def environment_limitations(environment):
     if environment["policy"] == "pinned-by-digest":
         return ["Every task's prebuilt environment image is pinned by digest."]
+    if environment["policy"] == "built":
+        return [
+            f"Every task's environment image is {tag_reference(environment['image'])}, built by node-q from "
+            f"images/images.yaml in {PUBLISHED_REPOSITORY_URL} and pinned by digest."
+        ]
     limitations = []
     declared_image = environment.get("declared_image")
     if declared_image:
@@ -160,6 +166,13 @@ def checked_repository(repository, dataset_name):
     return repository
 
 
+def source_label(source):
+    if source.get("kind") == "generated":
+        urls = ", ".join(upstream_file["url"] for upstream_file in source["upstream_files"])
+        return f"the tasks {source['adapter']} generates from {urls}"
+    return f"{source['git_url']} at {source['commit']}"
+
+
 def build_croissant(descriptor, repository, digest, date_published, run_url=None):
     digest_hex = manifest_digest_hex(digest)
     repository = checked_repository(repository, descriptor["name"])
@@ -192,7 +205,7 @@ def build_croissant(descriptor, repository, digest, date_published, run_url=None
     if run_url:
         croissant["prov:wasGeneratedBy"] = {
             "@type": "prov:Activity",
-            "prov:label": f"hbench datasets push of {descriptor['source']['git_url']} at {descriptor['source']['commit']}",
+            "prov:label": f"hbench datasets push of {source_label(descriptor['source'])}",
             "url": run_url,
         }
     croissant.update(rai_properties(descriptor))

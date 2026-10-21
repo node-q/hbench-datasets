@@ -1,10 +1,14 @@
-"""Check dataset descriptors: schema, licence files, SPDX id, and name and version against the path.
+"""Check dataset descriptors: schema, licence files, SPDX id, name and version against the path, and locks.
 
-Usage: validate_sources.py [datasets/<name>/<version> ...]
+Usage: validate_sources.py [--for-publish] [datasets/<name>/<version> ...]
 
 With no arguments, checks every dataset version under datasets/ and the layout of datasets/ itself.
+A generated version also needs its adapter, its generated.lock.json and, for the built environment
+policy, its images.lock.json. One whose images.lock.json is not filled yet passes with a warning,
+unless --for-publish is given.
 """
 
+import argparse
 import json
 import os
 import pathlib
@@ -14,6 +18,7 @@ import jsonschema
 import yaml
 from license_expression import get_spdx_licensing
 
+from generated_checks import GENERATED_VERSION_ENTRIES, generated_problems, generated_warnings
 from source_descriptor import (
     DATASETS_DIR,
     DESCRIPTOR_FILENAME,
@@ -23,7 +28,7 @@ from source_descriptor import (
 )
 
 REQUIRED_LICENCE_FILES = ("LICENSE", "NOTICE")
-ALLOWED_VERSION_DIRECTORY_ENTRIES = {DESCRIPTOR_FILENAME, *REQUIRED_LICENCE_FILES}
+ALLOWED_VERSION_DIRECTORY_ENTRIES = {DESCRIPTOR_FILENAME, *REQUIRED_LICENCE_FILES, *GENERATED_VERSION_ENTRIES}
 
 
 def schema_validator():
@@ -99,7 +104,7 @@ def environment_problems(descriptor):
     return []
 
 
-def version_directory_problems(version_directory, validator, licensing):
+def version_directory_problems(version_directory, validator, licensing, for_publish=False):
     descriptor_path = version_directory / DESCRIPTOR_FILENAME
     if not descriptor_path.is_file():
         return [f"{DESCRIPTOR_FILENAME} is missing"]
@@ -110,11 +115,14 @@ def version_directory_problems(version_directory, validator, licensing):
     problems = licence_file_problems(version_directory) + unexpected_entry_problems(version_directory)
     if not isinstance(descriptor, dict):
         return problems + [f"{DESCRIPTOR_FILENAME} is not a mapping"]
-    problems += schema_problems(descriptor, validator)
+    descriptor_schema_problems = schema_problems(descriptor, validator)
+    problems += descriptor_schema_problems
     problems += path_problems(descriptor, version_directory)
     problems += environment_problems(descriptor)
     if isinstance(descriptor.get("license"), str):
         problems += spdx_id_problems(descriptor["license"], licensing)
+    if not descriptor_schema_problems:
+        problems += generated_problems(descriptor, version_directory, for_publish)
     return problems
 
 
@@ -130,22 +138,33 @@ def datasets_layout_problems():
     return problems
 
 
-def report(problems_by_path):
+def report(problems_by_path, level="error"):
     in_github_actions = os.environ.get("GITHUB_ACTIONS") == "true"
     for path, message in problems_by_path:
         relative_path = os.path.relpath(path)
         if in_github_actions:
-            print(f"::error file={relative_path}::{message}")
-        else:
+            print(f"::{level} file={relative_path}::{message}")
+        elif level == "error":
             print(f"{relative_path}: {message}")
+        else:
+            print(f"{relative_path}: {level}: {message}")
+
+
+def parse_arguments(arguments):
+    parser = argparse.ArgumentParser(description="Check dataset descriptors.")
+    parser.add_argument("--for-publish", action="store_true")
+    parser.add_argument("version_directories", nargs="*", type=pathlib.Path)
+    return parser.parse_args(arguments)
 
 
 def main(arguments):
+    options = parse_arguments(arguments)
     validator = schema_validator()
     licensing = get_spdx_licensing()
     problems_by_path = []
-    if arguments:
-        targets = [pathlib.Path(argument).resolve() for argument in arguments]
+    warnings_by_path = []
+    if options.version_directories:
+        targets = [path.resolve() for path in options.version_directories]
     else:
         targets = version_directories()
         problems_by_path += datasets_layout_problems()
@@ -155,11 +174,15 @@ def main(arguments):
         if not version_directory.is_dir() or version_directory.parent.parent != DATASETS_DIR:
             problems_by_path.append((version_directory, "is not a datasets/<name>/<version> directory"))
             continue
-        problems = version_directory_problems(version_directory, validator, licensing)
+        problems = version_directory_problems(version_directory, validator, licensing, options.for_publish)
         descriptor_path = version_directory / DESCRIPTOR_FILENAME
         problems_by_path += [(descriptor_path, message) for message in problems]
         if not problems:
             print(f"ok  {os.path.relpath(version_directory)}")
+            if not options.for_publish:
+                warnings = generated_warnings(load_descriptor(descriptor_path), version_directory)
+                warnings_by_path += [(descriptor_path, message) for message in warnings]
+    report(warnings_by_path, level="warning")
     report(problems_by_path)
     return 1 if problems_by_path else 0
 
