@@ -5,9 +5,9 @@ Each problem becomes bigcodebench-<n>: an instruction to complete its `complete`
 BigCodeBench's evaluator, and solution/ holding its canonical solution. The generic step adds
 environment/, the image's build context.
 
-BigCodeBench-Hard is a subset, not a dataset of its own: its 148 tasks are the full split's rows, tagged
+BigCodeBench-Hard is a subset, not a dataset of its own: its tasks are the full split's rows, tagged
 "hard". Only the Hard split's task IDs are used, and each of its rows must equal the full split's
-row with that ID.
+row with that ID. EXCLUDED_TASKS are left out, each for the reason it gives.
 """
 
 import ast
@@ -52,6 +52,12 @@ BUILD_TIMEOUT_SECONDS = 2400.0
 CPUS = 2
 MEMORY_MB = 4096
 STORAGE_MB = 10240
+EXCLUDED_TASKS = {
+    "BigCodeBench/590": (
+        "its tests fetch https://en.wikibooks.org/wiki/Main_Page with urllib's default User-Agent, "
+        "which Wikimedia refuses with HTTP 403, so its canonical solution cannot pass"
+    ),
+}
 TEMPLATE_FILES = {
     "tests/test.sh": ADAPTER_DIRECTORY / "test.sh",
     "tests/check_solution.py": ADAPTER_DIRECTORY / "check_solution.py",
@@ -224,12 +230,21 @@ def task_files(name, problem, hard, context):
     return files
 
 
-def generate(upstream_files, out_dir, context):
+def kept_problems(problems, excluded_task_ids):
+    names = {task_name(task_id) for task_id in excluded_task_ids}
+    unknown = sorted(names - set(problems))
+    if unknown:
+        raise AdapterError(f"the excluded tasks {', '.join(unknown)} are not in the full split")
+    return {name: problem for name, problem in problems.items() if name not in names}
+
+
+def generate(upstream_files, out_dir, context, excluded_task_ids=EXCLUDED_TASKS):
     problems = load_problems(upstream_files[UPSTREAM_FILE_NAME])
     hard = hard_task_names(upstream_files[HARD_UPSTREAM_FILE_NAME], problems)
-    for name in sorted(problems):
-        write_task(pathlib.Path(out_dir) / name, task_files(name, problems[name], name in hard, context))
-    return sorted(problems)
+    kept = kept_problems(problems, excluded_task_ids)
+    for name in sorted(kept):
+        write_task(pathlib.Path(out_dir) / name, task_files(name, kept[name], name in hard, context))
+    return sorted(kept)
 
 
 def instruction_code(instruction_text):

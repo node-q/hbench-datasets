@@ -108,18 +108,13 @@ jobs:
           python-version: "3.12"
       - name: Install the pinned Python packages
         run: python -m pip install --require-hashes -r requirements.txt
-      - name: Free disk space for the image
-        run: |
-          df -h /
-          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc
-          df -h /
       - name: Pull the image images.lock.json pins, or build it from its context
         run: |
           pinned="$(PYTHONPATH=scripts python -c 'import sys; from environment_images import pinned_image; from images_lock import load_images_lock; print(pinned_image(load_images_lock(sys.argv[1])) or "")' "$IMAGES_LOCK")"
           started=$SECONDS
           if [[ -n "$pinned" ]] && docker pull --quiet "$pinned"; then
             docker tag "$pinned" "$CHECK_IMAGE"
-            echo "- Pulled \`$pinned\` in $(( SECONDS - started )) s" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Pulled \`$pinned\` in $(( SECONDS - started )) s" | tee -a "$GITHUB_STEP_SUMMARY"
           else
             context="$(python scripts/environment_images.py image "$IMAGE_TAG" | jq -r .context)"
             base="$(python scripts/environment_images.py base-of "$IMAGE_TAG")"
@@ -131,17 +126,16 @@ jobs:
               echo "::notice title=Base not on GHCR yet::$base cannot be pulled, so the build starts from $copied_from, the image it is a copy of."
             fi
             docker build --platform linux/amd64 --tag "$CHECK_IMAGE" "$RUNNER_TEMP/context"
-            echo "- Built \`$IMAGE_TAG\` from \`$context\` in $(( SECONDS - started )) s" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Built \`$IMAGE_TAG\` from \`$context\` in $(( SECONDS - started )) s" | tee -a "$GITHUB_STEP_SUMMARY"
           fi
           size="$(docker image inspect --format '{{.Size}}' "$CHECK_IMAGE")"
-          echo "- Image: $(( size / 1000000 )) MB uncompressed" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Image: $(( size / 1000000 )) MB uncompressed" | tee -a "$GITHUB_STEP_SUMMARY"
           df -h /
       - name: Save the image for the check jobs
         run: |
           started=$SECONDS
           docker save "$CHECK_IMAGE" | zstd -T0 -3 -q -o "$RUNNER_TEMP/image.tar.zst"
-          echo "- Saved: $(( $(stat -c %s "$RUNNER_TEMP/image.tar.zst") / 1000000 )) MB with zstd -3, in $(( SECONDS - started )) s" >> "$GITHUB_STEP_SUMMARY"
-          df -h /
+          echo "- Saved: $(( $(stat -c %s "$RUNNER_TEMP/image.tar.zst") / 1000000 )) MB with zstd -3, in $(( SECONDS - started )) s" | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Upload the image for the check jobs
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:

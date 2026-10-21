@@ -21,14 +21,14 @@ class BigCodeBenchAdapterTest(unittest.TestCase):
     def setUp(self):
         self.workspace = pathlib.Path(self.enterContext(tempfile.TemporaryDirectory()))
 
-    def generate(self, directory_name="tasks", docker_image=None, **upstream):
+    def generate(self, directory_name="tasks", docker_image=None, excluded_task_ids=(), **upstream):
         upstream_directory = self.workspace / f"{directory_name}-upstream"
         upstream_directory.mkdir()
         upstream_files = write_upstream(upstream_directory, **upstream)
         out_dir = self.workspace / directory_name
         out_dir.mkdir()
         context = GenerationContext(dataset="bigcodebench", version="1.0", canary=CANARY, docker_image=docker_image)
-        return out_dir, adapter.generate(upstream_files, out_dir, context)
+        return out_dir, adapter.generate(upstream_files, out_dir, context, excluded_task_ids=excluded_task_ids)
 
     def manifest(self, out_dir, name):
         return tomllib.loads((out_dir / name / "task.toml").read_text(encoding="utf-8"))
@@ -50,6 +50,14 @@ class BigCodeBenchAdapterTest(unittest.TestCase):
                 "tests/unittest_runner.py",
             ],
         )
+
+    def test_leaves_out_the_excluded_tasks_and_refuses_unknown_ones(self):
+        out_dir, names = self.generate(excluded_task_ids=("BigCodeBench/7",))
+        self.assertEqual(names, ["bigcodebench-0", "bigcodebench-12"])
+        self.assertEqual(sorted(path.name for path in out_dir.iterdir()), names)
+        with self.assertRaisesRegex(adapter.AdapterError, "the excluded tasks bigcodebench-99 are not in the full split"):
+            self.generate("unknown", excluded_task_ids=("BigCodeBench/99",))
+        self.assertTrue(all(adapter.task_name(task_id) for task_id in adapter.EXCLUDED_TASKS))
 
     def test_generating_twice_gives_the_same_package_digests(self):
         first, _ = self.generate("first", PINNED_IMAGE)

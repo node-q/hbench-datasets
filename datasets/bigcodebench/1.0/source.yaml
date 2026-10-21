@@ -44,7 +44,7 @@ source:
     - name: bigcodebench-hard-v0.1.4.parquet
       url: https://huggingface.co/datasets/bigcode/bigcodebench-hard/resolve/298d2cc7b96612e15e47313c3603ee124cee0c1f/data/v0.1.4-00000-of-00001.parquet
       sha256: 73a4270b43feb81abefad7bb1b592937c768ea45c3263bedc1cabd30a9a6ce79
-  task_count: 1140
+  task_count: 1139
 
 environment:
   policy: built
