@@ -9,9 +9,11 @@ ENTRY_KEY_ORDER = ("source", "source_digest", "pinned", "mirror_tag")
 ENTRY_KEYS_BY_POLICY = {
     "pinned-mirror": ("source", "source_digest", "pinned", "mirror_tag"),
     "pinned-upstream": ("source", "source_digest", "pinned"),
+    "built": ("source", "source_digest", "pinned"),
 }
 LOCKED_POLICIES = tuple(ENTRY_KEYS_BY_POLICY)
-LOCK_WORKFLOW_BY_POLICY = {"pinned-mirror": "Mirror images", "pinned-upstream": "Pin images"}
+LOCK_WORKFLOW_BY_POLICY = {"pinned-mirror": "Mirror images", "pinned-upstream": "Pin images", "built": "Build images"}
+LOCK_FILES_BY_POLICY = {"built": (IMAGES_LOCK_FILENAME, "generated.lock.json")}
 
 DIGEST_PATTERN = re.compile(r"^sha256:[0-9a-f]{64}$")
 TAG_PATTERN = re.compile(r"^[A-Za-z0-9_][A-Za-z0-9_.-]*$")
@@ -70,9 +72,10 @@ def upstream_pin(source_reference, digest):
 
 
 def unfilled_lock_message(policy):
+    lock_files = " and ".join(LOCK_FILES_BY_POLICY.get(policy, (IMAGES_LOCK_FILENAME,)))
     return (
         f"{IMAGES_LOCK_FILENAME} is not filled yet, so this version cannot be published: run the "
-        f"{LOCK_WORKFLOW_BY_POLICY[policy]} workflow and commit the {IMAGES_LOCK_FILENAME} it writes"
+        f"{LOCK_WORKFLOW_BY_POLICY[policy]} workflow and commit the {lock_files} it writes"
     )
 
 

@@ -22,7 +22,8 @@
    see [`datasets/terminal-bench/2.0.1`](datasets/terminal-bench/2.0.1). Do not commit any task
    files: CI fetches them.
 3. **Add `LICENSE` and `NOTICE`** next to it. `LICENSE` is the upstream licence text, verbatim.
-   `NOTICE` names the authors, gives their citation, and says what, if anything, was changed.
+   `NOTICE` names the authors, gives their citation, and says what, if anything, was changed. For a
+   generated dataset, see below.
 4. **Run the checks:**
 
    ```sh
@@ -37,6 +38,57 @@
    every task directory.
 5. **Open a pull request.** CI validates the descriptor and fetches the source. After it is merged,
    a maintainer publishes it.
+
+## Adding a generated dataset
+
+When the task directories are ours, generated from upstream data whose licence allows it, the
+version is a generated one; see [`datasets/humaneval-plus/1.0`](datasets/humaneval-plus/1.0).
+
+1. **Write the adapter**, `adapters/<name>/adapter.py` (with an empty `__init__.py`). It defines:
+   - `UPSTREAM_FILES`, the names of the upstream files it reads;
+   - `generate(upstream_files, out_dir, context)`, which reads only `upstream_files` (name to local
+     path) and writes one directory per task into `out_dir`, returning their names. `context` is an
+     `adapters.common.generation.GenerationContext`: the dataset, its version, the canary, and the
+     `docker_image` to write into `task.toml`, `None` until the image is built. It writes no
+     `environment/`: the generic step adds the image's build context;
+   - `verify_tasks(tasks_directory, jobs, names)`, which checks that each task's oracle passes and a
+     wrong solution fails, and returns an exit code;
+   - optionally `task_problems(task_directory)`, the adapter's own checks of a generated task.
+
+   The output must be deterministic: no timestamps, no randomness, sorted iteration, fixed file
+   modes. Each task's `[task].name` is its bare directory name, as in Terminal-Bench, never
+   `org/name`: `writing.task_toml` writes it so. `adapters/common` has the helpers: `writing` writes
+   task files deterministically,
+   `package_digest` is hbench's package digest, and `function_checker` is an EvalPlus-style checker
+   for tasks that ask for one Python function (`problem_document`, `function_checker_files` and
+   `verify.verify_tasks`). Adapters, and everything they import, use only the Python standard
+   library, so that CI can run their checks in the image's base.
+2. **Add the image** to [`images/images.yaml`](images/images.yaml), tagged `<dataset>-<version>`,
+   with its build context `images/<name>/` and its base. Its Dockerfile starts
+   `FROM ghcr.io/node-q/hbench-envs:<base tag>@<base digest>`. A new base goes in
+   [`images/bases.yaml`](images/bases.yaml), tagged `base-<name>-<tag>`, with the Docker Hub digest
+   it is copied at.
+3. **Write the descriptor** with `source.kind: generated`, the adapter, each upstream file's name,
+   URL and sha256, and the task count, and `environment.policy: built` with the image's tag and
+   `images_lock: images.lock.json`. Commit `images.lock.json` as `{}`. `LICENSE` is Apache-2.0, the
+   licence of the task directories we write; `NOTICE` carries every upstream licence notice,
+   copyright line and citation, and says what the adapter keeps and what it writes. If the upstream
+   has no canary string, give the dataset one of ours: a new GUID.
+4. **Write the lock and run the checks:**
+
+   ```sh
+   python scripts/generated_source.py generate --allow-unfilled-lock --write-lock \
+     datasets/<name>/<version>/source.yaml <empty directory>
+   python scripts/check_generated_tasks.py --output <empty directory> datasets/<name>/<version>
+   python -m adapters.verify <adapter> <empty directory>/<name>/<version>/first/tasks
+   ```
+
+   The first writes `generated.lock.json`. CI regenerates the tasks and refuses any that differ from
+   it, so a change to the adapter, its shared helpers or the image's build context is committed with
+   the lock it produces.
+5. **After the pull request is merged**, a maintainer runs the Build images workflow and commits the
+   `images.lock.json` and `generated.lock.json` it writes, as the README describes. Only then can the
+   version be published.
 
 ## Versions are immutable
 

@@ -1,10 +1,12 @@
-"""Check dataset descriptors: schema, licence files, SPDX id, name and version against the path, and image locks.
+"""Check dataset descriptors: schema, licence files, SPDX id, name and version against the path, and locks.
 
 Usage: validate_sources.py [--for-publish] [datasets/<name>/<version> ...]
 
 With no arguments, checks every dataset version under datasets/ and the layout of datasets/ itself.
-A pinned-mirror or pinned-upstream version whose images.lock.json is not filled yet passes with a
-warning, unless --for-publish is given.
+A pinned-mirror, pinned-upstream or built version whose images.lock.json is not filled yet passes
+with a warning, unless --for-publish is given. A generated version also needs its adapter's files, a
+generated.lock.json of the declared number of tasks, and an images.lock.json that, once filled, pins
+exactly those tasks to its one built image.
 """
 
 import argparse
@@ -17,6 +19,7 @@ import jsonschema
 import yaml
 from license_expression import get_spdx_licensing
 
+from generated_checks import GENERATED_LOCK_FILENAME, generated_problems
 from images_lock import (
     IMAGES_LOCK_FILENAME,
     LOCKED_POLICIES,
@@ -34,7 +37,12 @@ from source_descriptor import (
 )
 
 REQUIRED_LICENCE_FILES = ("LICENSE", "NOTICE")
-ALLOWED_VERSION_DIRECTORY_ENTRIES = {DESCRIPTOR_FILENAME, IMAGES_LOCK_FILENAME, *REQUIRED_LICENCE_FILES}
+ALLOWED_VERSION_DIRECTORY_ENTRIES = {
+    DESCRIPTOR_FILENAME,
+    IMAGES_LOCK_FILENAME,
+    GENERATED_LOCK_FILENAME,
+    *REQUIRED_LICENCE_FILES,
+}
 
 
 def schema_validator():
@@ -165,12 +173,15 @@ def version_directory_problems(version_directory, validator, licensing, for_publ
     problems = licence_file_problems(version_directory) + unexpected_entry_problems(version_directory)
     if not isinstance(descriptor, dict):
         return problems + [f"{DESCRIPTOR_FILENAME} is not a mapping"]
-    problems += schema_problems(descriptor, validator)
+    descriptor_schema_problems = schema_problems(descriptor, validator)
+    problems += descriptor_schema_problems
     problems += path_problems(descriptor, version_directory)
     problems += environment_problems(descriptor)
     problems += images_lock_problems(descriptor, version_directory, for_publish)
     if isinstance(descriptor.get("license"), str):
         problems += spdx_id_problems(descriptor["license"], licensing)
+    if not descriptor_schema_problems:
+        problems += generated_problems(descriptor, version_directory)
     return problems
 
 

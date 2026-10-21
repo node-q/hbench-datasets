@@ -121,25 +121,29 @@ jobs:
         uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
         with:
           cosign-release: v3.0.6
-      # Before logging in, so that every mirrored image is fetched anonymously, as hbench users fetch it.
-      - name: Refuse to publish while a mirrored environment image cannot be pulled anonymously
+      # Before logging in, so that every mirrored or built image is fetched anonymously, as hbench users fetch it.
+      - name: Refuse to publish while a mirrored or built environment image cannot be pulled anonymously
         run: |
           images_lock="$(dirname "$SOURCE_DESCRIPTOR")/images.lock.json"
           policy="$(python -c 'import sys, yaml; print(yaml.safe_load(open(sys.argv[1]))["environment"]["policy"])' "$SOURCE_DESCRIPTOR")"
-          if [[ "$policy" != pinned-mirror ]]; then
-            echo "The environment policy is $policy: no mirrored images to check."
-            exit 0
-          fi
+          case "$policy" in
+            pinned-mirror) package="hbench-envs/$DATASET" ;;
+            built) package="hbench-envs" ;;
+            *)
+              echo "The environment policy is $policy: no mirrored or built images to check."
+              exit 0
+              ;;
+          esac
           unpullable=0
           while read -r pinned; do
             if ! oras manifest fetch --descriptor "$pinned" > /dev/null 2>>"$RUNNER_TEMP/mirror-pull.log"; then
               echo "Cannot pull $pinned anonymously."
               unpullable=$((unpullable + 1))
             fi
-          done < <(jq -r '.[].pinned' "$images_lock")
+          done < <(jq -r '[.[].pinned] | unique | .[]' "$images_lock")
           if (( unpullable > 0 )); then
             cat "$RUNNER_TEMP/mirror-pull.log" >&2
-            echo "::error title=Mirrored images not public::$unpullable images in $images_lock cannot be pulled anonymously. A new GHCR package starts private: make ghcr.io/node-q/hbench-envs/$DATASET public in its package settings (https://github.com/orgs/node-q/packages/container/hbench-envs%2F$DATASET/settings). Nothing was pushed."
+            echo "::error title=Environment images not public::$unpullable images in $images_lock cannot be pulled anonymously. A new GHCR package starts private: make ghcr.io/node-q/$package public in its package settings (https://github.com/orgs/node-q/packages/container/${package//\//%2F}/settings). Nothing was pushed."
             exit 1
           fi
           echo "Every image in $images_lock can be pulled anonymously."
@@ -310,10 +314,12 @@ jobs:
           dataset_directory="$(dirname "$SOURCE_DESCRIPTOR")"
           cp "$SOURCE_DESCRIPTOR" "$dataset_directory/LICENSE" "$dataset_directory/NOTICE" "$release_files/"
           release_assets=("$release_files/croissant.json" "$release_files/source.yaml" "$release_files/LICENSE" "$release_files/NOTICE")
-          if [[ -f "$dataset_directory/images.lock.json" ]]; then
-            cp "$dataset_directory/images.lock.json" "$release_files/"
-            release_assets+=("$release_files/images.lock.json")
-          fi
+          for lock_file in images.lock.json generated.lock.json; do
+            if [[ -f "$dataset_directory/$lock_file" ]]; then
+              cp "$dataset_directory/$lock_file" "$release_files/"
+              release_assets+=("$release_files/$lock_file")
+            fi
+          done
           if gh release view "$tag" > /dev/null 2>&1; then
             echo "::error title=Release exists::The release $tag already exists. Releases, like tags, are never moved."
             exit 1

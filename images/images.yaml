@@ -1,0 +1,7 @@
+images:
+  - tag: humaneval-plus-1.0
+    context: images/humaneval-plus
+    base: base-python-3.12-slim
+    platforms:
+      - linux/amd64
+      - linux/arm64

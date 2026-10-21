@@ -1,0 +1,245 @@
+name: Build images
+
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        description: Image to build, as tagged in images/images.yaml, such as humaneval-plus-1.0
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-images
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  IMAGE_TAG: ${{ inputs.image }}
+  REGISTRY: ghcr.io
+  ENVIRONMENT_REPOSITORY: ghcr.io/node-q/hbench-envs
+  ENVIRONMENT_PACKAGE_SETTINGS: https://github.com/orgs/node-q/packages/container/hbench-envs/settings
+  CRANE_VERSION: v0.22.1
+  CRANE_ARCHIVE: go-containerregistry_Linux_x86_64.tar.gz
+  CRANE_ARCHIVE_SHA256: 0ab7a1d6932a213aed964ce97666c3077fe691c8606413674a8b3e0b9ec4cda0
+  CERTIFICATE_IDENTITY_REGEXP: ^https://github.com/node-q/hbench-datasets/.github/workflows/build-images.yml@
+  CERTIFICATE_OIDC_ISSUER: https://token.actions.githubusercontent.com
+
+jobs:
+  bases:
+    name: Copy the base images to GHCR
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install the pinned Python packages
+        run: python -m pip install --require-hashes -r requirements.txt
+      - name: Refuse anything but an image listed on main
+        run: |
+          if [[ "$GITHUB_REF" != refs/heads/main ]]; then
+            echo "::error title=Not main::Images are built from main only, so that every Dockerfile is reviewed. Nothing was pushed."
+            exit 1
+          fi
+          python scripts/environment_images.py check
+          python scripts/environment_images.py image "$IMAGE_TAG" > /dev/null
+      - name: Install crane, checking its archive's sha256
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download "$CRANE_VERSION" --repo google/go-containerregistry --pattern "$CRANE_ARCHIVE" --dir "$RUNNER_TEMP/crane"
+          (cd "$RUNNER_TEMP/crane" && sha256sum --check --strict <<<"$CRANE_ARCHIVE_SHA256  $CRANE_ARCHIVE")
+          tar -xzf "$RUNNER_TEMP/crane/$CRANE_ARCHIVE" -C "$RUNNER_TEMP/crane" crane
+          echo "$RUNNER_TEMP/crane" >> "$GITHUB_PATH"
+      - name: Log in to GHCR
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: crane auth login "$REGISTRY" --username "$GITHUB_ACTOR" --password-stdin <<<"$GITHUB_TOKEN"
+      - name: Copy each base from Docker Hub once, keeping its digest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          package_exists=true
+          if ! gh api orgs/node-q/packages/container/hbench-envs > /dev/null 2>"$RUNNER_TEMP/package-check.log"; then
+            if grep -q 'HTTP 404' "$RUNNER_TEMP/package-check.log"; then
+              package_exists=false
+            else
+              cat "$RUNNER_TEMP/package-check.log" >&2
+              echo "::error title=Package check failed::Could not tell whether $ENVIRONMENT_REPOSITORY exists. Nothing was copied."
+              exit 1
+            fi
+          fi
+          while read -r source target; do
+            digest="${source##*@}"
+            if [[ "$package_exists" == true ]] && existing="$(crane digest "$target" 2>"$RUNNER_TEMP/digest.log")"; then
+              if [[ "$existing" != "$digest" ]]; then
+                echo "::error title=Base tag differs::$target is $existing, but images/bases.yaml pins $digest. Tags are never moved: add a new base."
+                exit 1
+              fi
+              echo "$target is copied already."
+              continue
+            fi
+            if [[ "$package_exists" == true ]] && ! grep -qE 'MANIFEST_UNKNOWN|NAME_UNKNOWN|not found' "$RUNNER_TEMP/digest.log"; then
+              cat "$RUNNER_TEMP/digest.log" >&2
+              echo "::error title=Tag check failed::Could not tell whether $target exists. Nothing was copied."
+              exit 1
+            fi
+            crane copy "$source" "$target"
+            copied="$(crane digest "$target")"
+            if [[ "$copied" != "$digest" ]]; then
+              echo "::error title=Digest changed::$target is $copied after copying $source."
+              exit 1
+            fi
+            echo "- Copied \`$source\` to \`$target\`" >> "$GITHUB_STEP_SUMMARY"
+            package_exists=true
+          done < <(python scripts/environment_images.py bases)
+
+  image:
+    name: Build and push ${{ inputs.image }}
+    needs: bases
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    outputs:
+      digest: ${{ steps.push.outputs.digest }}
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install the pinned Python packages
+        run: python -m pip install --require-hashes -r requirements.txt
+      - name: Read the image's entry in images/images.yaml
+        run: |
+          entry="$(python scripts/environment_images.py image "$IMAGE_TAG")"
+          echo "BUILD_CONTEXT=$(jq -r .context <<<"$entry")" >> "$GITHUB_ENV"
+          echo "PLATFORMS=$(jq -r '.platforms | join(",")' <<<"$entry")" >> "$GITHUB_ENV"
+      - name: Install crane, checking its archive's sha256
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download "$CRANE_VERSION" --repo google/go-containerregistry --pattern "$CRANE_ARCHIVE" --dir "$RUNNER_TEMP/crane"
+          (cd "$RUNNER_TEMP/crane" && sha256sum --check --strict <<<"$CRANE_ARCHIVE_SHA256  $CRANE_ARCHIVE")
+          tar -xzf "$RUNNER_TEMP/crane/$CRANE_ARCHIVE" -C "$RUNNER_TEMP/crane" crane
+          echo "$RUNNER_TEMP/crane" >> "$GITHUB_PATH"
+      - name: Install cosign
+        uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+        with:
+          cosign-release: v3.0.6
+      - name: Turn on Docker's containerd image store, so that the runner's own builder makes every platform
+        run: |
+          current='{}'
+          if sudo test -s /etc/docker/daemon.json; then
+            current="$(sudo cat /etc/docker/daemon.json)"
+          fi
+          sudo mkdir -p /etc/docker
+          jq '.features["containerd-snapshotter"] = true' <<<"$current" | sudo tee /etc/docker/daemon.json > /dev/null
+          sudo systemctl restart docker
+          docker info --format '{{ .DriverStatus }}' | grep -q containerd
+      - name: Log in to GHCR
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          crane auth login "$REGISTRY" --username "$GITHUB_ACTOR" --password-stdin <<<"$GITHUB_TOKEN"
+          docker login "$REGISTRY" --username "$GITHUB_ACTOR" --password-stdin <<<"$GITHUB_TOKEN"
+      - name: Refuse to overwrite an existing tag
+        run: |
+          if existing="$(crane digest "$ENVIRONMENT_REPOSITORY:$IMAGE_TAG" 2>"$RUNNER_TEMP/tag-check.log")"; then
+            echo "::error title=Tag exists::$ENVIRONMENT_REPOSITORY:$IMAGE_TAG already exists ($existing). Tags are never moved: add a new image to images/images.yaml."
+            exit 1
+          fi
+          if ! grep -qE 'MANIFEST_UNKNOWN|not found' "$RUNNER_TEMP/tag-check.log"; then
+            cat "$RUNNER_TEMP/tag-check.log" >&2
+            echo "::error title=Tag check failed::Could not tell whether $ENVIRONMENT_REPOSITORY:$IMAGE_TAG exists. Nothing was pushed."
+            exit 1
+          fi
+      - name: Build and push
+        id: push
+        run: |
+          docker buildx build "$BUILD_CONTEXT" \
+            --platform "$PLATFORMS" \
+            --provenance=false \
+            --sbom=false \
+            --tag "$ENVIRONMENT_REPOSITORY:$IMAGE_TAG" \
+            --metadata-file "$RUNNER_TEMP/build-metadata.json" \
+            --push
+          digest="$(crane digest "$ENVIRONMENT_REPOSITORY:$IMAGE_TAG")"
+          built="$(jq -r '."containerimage.digest"' "$RUNNER_TEMP/build-metadata.json")"
+          if ! [[ "$digest" =~ ^sha256:[0-9a-f]{64}$ && "$digest" == "$built" ]]; then
+            echo "::error title=Digest mismatch::$ENVIRONMENT_REPOSITORY:$IMAGE_TAG resolves to $digest, the build reported $built."
+            exit 1
+          fi
+          echo "digest=$digest" >> "$GITHUB_OUTPUT"
+      - name: Sign with cosign
+        env:
+          DIGEST: ${{ steps.push.outputs.digest }}
+        run: |
+          cosign sign --yes "$ENVIRONMENT_REPOSITORY@$DIGEST"
+          cosign verify "$ENVIRONMENT_REPOSITORY@$DIGEST" \
+            --certificate-identity-regexp "$CERTIFICATE_IDENTITY_REGEXP" \
+            --certificate-oidc-issuer "$CERTIFICATE_OIDC_ISSUER" > /dev/null
+      - name: Write the image locks of every dataset version built on it
+        env:
+          DIGEST: ${{ steps.push.outputs.digest }}
+        run: |
+          python scripts/generated_source.py lock-image --upstream-cache "$RUNNER_TEMP/upstream" "$IMAGE_TAG" "$DIGEST"
+          mkdir "$RUNNER_TEMP/locks"
+          git diff --name-only -- 'datasets/*/*/images.lock.json' 'datasets/*/*/generated.lock.json' > "$RUNNER_TEMP/changed-locks.txt"
+          while read -r changed_lock; do
+            install -D -m 0644 "$changed_lock" "$RUNNER_TEMP/locks/$changed_lock"
+          done < "$RUNNER_TEMP/changed-locks.txt"
+          echo "$DIGEST" > "$RUNNER_TEMP/locks/$IMAGE_TAG.digest"
+      - name: Upload the locks for a pull request
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: locks-${{ inputs.image }}
+          path: ${{ runner.temp }}/locks
+          if-no-files-found: error
+      - name: Write the digest to the job summary
+        if: always() && steps.push.outputs.digest != ''
+        env:
+          DIGEST: ${{ steps.push.outputs.digest }}
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          {
+            echo "## $ENVIRONMENT_REPOSITORY:$IMAGE_TAG"
+            echo
+            echo "- Digest: \`$DIGEST\`"
+            echo "- Pinned: \`$ENVIRONMENT_REPOSITORY@$DIGEST\`"
+            echo "- Platforms: $PLATFORMS, built from \`$BUILD_CONTEXT\`"
+            if [[ "$JOB_STATUS" != success ]]; then
+              echo
+              echo "**Not finished.** The tag was pushed, but this run did not finish signing it and writing the locks. Delete this package version before running again."
+            else
+              echo
+              echo "Download the \`locks-$IMAGE_TAG\` artifact and commit its files, at the paths it holds them, in a pull request."
+              echo "A new GHCR package starts private: make it public once, in its settings ($ENVIRONMENT_PACKAGE_SETTINGS)."
+            fi
+            echo
+            echo '```sh'
+            echo "cosign verify $ENVIRONMENT_REPOSITORY@$DIGEST \\"
+            echo "  --certificate-identity-regexp '$CERTIFICATE_IDENTITY_REGEXP' \\"
+            echo "  --certificate-oidc-issuer $CERTIFICATE_OIDC_ISSUER"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

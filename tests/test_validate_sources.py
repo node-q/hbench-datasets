@@ -10,10 +10,12 @@ import unittest
 from license_expression import get_spdx_licensing
 
 import validate_sources
-from source_descriptor import DATASETS_DIR
+from source_descriptor import DATASETS_DIR, version_directories
 
 TERMINAL_BENCH_DIRECTORY = DATASETS_DIR / "terminal-bench" / "2.0"
 PINNED_MIRROR_DIRECTORY = DATASETS_DIR / "terminal-bench" / "2.0.1"
+GENERATED_DIRECTORY = DATASETS_DIR / "humaneval-plus" / "1.0"
+BUILT_DIGEST = "sha256:" + "e" * 64
 TASK_COUNT = 89
 
 
@@ -50,7 +52,10 @@ class VersionDirectoryTestCase(unittest.TestCase):
         self.workspace = tempfile.TemporaryDirectory()
         self.addCleanup(self.workspace.cleanup)
         self.version_directory = (
-            pathlib.Path(self.workspace.name) / "datasets" / "terminal-bench" / self.committed_directory.name
+            pathlib.Path(self.workspace.name)
+            / "datasets"
+            / self.committed_directory.parent.name
+            / self.committed_directory.name
         )
         shutil.copytree(self.committed_directory, self.version_directory)
         self.descriptor_path = self.version_directory / "source.yaml"
@@ -221,6 +226,92 @@ class PinnedVersionDirectoryTest(VersionDirectoryTestCase):
         )
 
 
+class GeneratedVersionDirectoryTest(VersionDirectoryTestCase):
+    committed_directory = GENERATED_DIRECTORY
+
+    def generated_lock(self):
+        return json.loads((self.version_directory / "generated.lock.json").read_text(encoding="utf-8"))
+
+    def write_json(self, filename, document):
+        (self.version_directory / filename).write_text(json.dumps(document, indent=2) + "\n", encoding="utf-8")
+
+    def fill_images_lock(self, tag="humaneval-plus-1.0", digest=BUILT_DIGEST, task_names=None):
+        entry = {
+            "source": f"ghcr.io/node-q/hbench-envs:{tag}",
+            "source_digest": digest,
+            "pinned": f"ghcr.io/node-q/hbench-envs@{digest}",
+        }
+        self.write_json("images.lock.json", {name: entry for name in task_names or sorted(self.generated_lock())})
+
+    def test_humaneval_plus_is_valid_but_cannot_be_published_before_its_image_is_built(self):
+        self.assertEqual(self.problems(), [])
+        problems = self.problems(for_publish=True)
+        self.assertEqual(len(problems), 1, problems)
+        self.assertIn("run the Build images workflow and commit the images.lock.json and generated.lock.json", problems[0])
+
+    def test_a_filled_images_lock_can_be_published(self):
+        self.fill_images_lock()
+        self.assertEqual(self.problems(for_publish=True), [])
+
+    def test_a_filled_images_lock_must_pin_every_generated_task_to_the_descriptor_image(self):
+        self.fill_images_lock(task_names=sorted(self.generated_lock())[:-1])
+        self.assertProblem("locks 163 images for 164 tasks")
+        self.fill_images_lock(tag="humaneval-plus-1.1")
+        self.assertProblem("but the descriptor's image is ghcr.io/node-q/hbench-envs:humaneval-plus-1.0")
+
+    def test_generated_lock_must_hold_every_task_digest(self):
+        lock = self.generated_lock()
+        lock.pop("humaneval-plus-99")
+        self.write_json("generated.lock.json", lock)
+        self.assertProblem("generated.lock.json locks 163 tasks, the descriptor declares 164")
+        (self.version_directory / "generated.lock.json").unlink()
+        self.assertProblem("write it with scripts/generated_source.py generate --write-lock")
+
+    def test_generated_lock_digests_are_sha256(self):
+        lock = self.generated_lock()
+        lock["humaneval-plus-0"] = "md5:0"
+        self.write_json("generated.lock.json", lock)
+        self.assertProblem("humaneval-plus-0: 'md5:0' is not sha256:<64 lowercase hex digits>")
+
+    def test_the_adapter_and_the_image_must_exist(self):
+        self.replace_in_descriptor("adapter: adapters/humaneval_plus", "adapter: adapters/humaneval_minus")
+        self.assertProblem("adapter adapters/humaneval_minus has no adapter.py")
+        shutil.copy(GENERATED_DIRECTORY / "source.yaml", self.descriptor_path)
+        self.replace_in_descriptor("image: humaneval-plus-1.0", "image: humaneval-plus-9.0")
+        self.assertProblem("'humaneval-plus-9.0' is not in images/images.yaml")
+
+    def test_upstream_files_are_pinned_by_sha256_over_https(self):
+        self.replace_in_descriptor("sha256: 272720b9", "sha256: 272720B9")
+        self.assertProblem("source/upstream_files/0/sha256: '272720B9")
+        shutil.copy(GENERATED_DIRECTORY / "source.yaml", self.descriptor_path)
+        self.replace_in_descriptor("url: https://github.com/evalplus/humanevalplus_release/releases", "url: http://github.com/evalplus/humanevalplus_release/releases")
+        self.assertProblem("source/upstream_files/0/url: 'http://github.com/evalplus")
+
+    def test_a_generated_source_needs_the_built_policy_and_a_canary(self):
+        self.replace_in_descriptor("  policy: built\n  image: humaneval-plus-1.0\n  images_lock: images.lock.json\n", "  policy: as-declared\n")
+        self.assertProblem("environment/policy: 'built' was expected")
+        shutil.copy(GENERATED_DIRECTORY / "source.yaml", self.descriptor_path)
+        text = self.descriptor_path.read_text(encoding="utf-8")
+        canary_start = text.index("canary: >-")
+        canary_end = text.index("\nsource:") + 1
+        self.descriptor_path.write_text(text[:canary_start] + text[canary_end:], encoding="utf-8")
+        self.assertProblem("'canary' is a required property")
+
+    def test_the_built_policy_needs_a_generated_source(self):
+        self.replace_in_descriptor(
+            "  kind: generated\n  adapter: adapters/humaneval_plus\n",
+            "  git_url: https://github.com/evalplus/humanevalplus_release.git\n  commit: " + "a" * 40 + "\n  path: .\n",
+        )
+        self.assertProblem("source")
+
+    def test_generated_lock_belongs_only_to_a_generated_version(self):
+        terminal_bench = pathlib.Path(self.workspace.name) / "datasets" / "terminal-bench" / "2.0"
+        shutil.copytree(TERMINAL_BENCH_DIRECTORY, terminal_bench)
+        shutil.copy(self.version_directory / "generated.lock.json", terminal_bench)
+        problems = validate_sources.version_directory_problems(terminal_bench, self.validator, self.licensing)
+        self.assertIn("generated.lock.json belongs only to a version whose source kind is generated", problems)
+
+
 class RepositoryTest(unittest.TestCase):
     def main(self, arguments):
         output = io.StringIO()
@@ -233,7 +324,17 @@ class RepositoryTest(unittest.TestCase):
         self.assertEqual(exit_code, 0, output)
         self.assertIn("ok  datasets/terminal-bench/2.0\n", output)
         self.assertIn("ok  datasets/terminal-bench/2.0.1\n", output)
-        self.assertNotIn("is not filled yet", output)
+        self.assertIn("ok  datasets/humaneval-plus/1.0\n", output)
+        unfilled_locks = sorted(
+            f"datasets/{directory.parent.name}/{directory.name}/images.lock.json"
+            for directory in version_directories()
+            if (directory / "images.lock.json").is_file()
+            and json.loads((directory / "images.lock.json").read_text(encoding="utf-8")) == {}
+        )
+        warnings = sorted(line for line in output.splitlines() if "is not filled yet" in line)
+        self.assertEqual(len(warnings), len(unfilled_locks), output)
+        for unfilled_lock, warning in zip(unfilled_locks, warnings):
+            self.assertIn(unfilled_lock, warning)
 
     def test_both_committed_terminal_bench_versions_can_be_published(self):
         for directory in (TERMINAL_BENCH_DIRECTORY, PINNED_MIRROR_DIRECTORY):

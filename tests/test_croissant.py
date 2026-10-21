@@ -11,6 +11,7 @@ from source_descriptor import DATASETS_DIR, load_descriptor
 
 TERMINAL_BENCH_SOURCE = DATASETS_DIR / "terminal-bench" / "2.0" / "source.yaml"
 PINNED_MIRROR_SOURCE = DATASETS_DIR / "terminal-bench" / "2.0.1" / "source.yaml"
+GENERATED_SOURCE = DATASETS_DIR / "humaneval-plus" / "1.0" / "source.yaml"
 REPOSITORY = "ghcr.io/node-q/hbench-datasets/terminal-bench"
 DIGEST_HEX = "0123456789abcdef" * 4
 DIGEST = f"sha256:{DIGEST_HEX}"
@@ -154,6 +155,25 @@ class TerminalBenchCroissantTest(unittest.TestCase):
             "pinned by its digest.",
             document["rai:dataLimitations"],
         )
+
+
+class GeneratedCroissantTest(unittest.TestCase):
+    def test_a_generated_dataset_names_its_adapter_upstream_files_and_built_image(self):
+        descriptor = load_descriptor(GENERATED_SOURCE)
+        document = croissant.build_croissant(
+            descriptor, "ghcr.io/node-q/hbench-datasets/humaneval-plus", DIGEST, DATE_PUBLISHED, RUN_URL
+        )
+        self.assertEqual(
+            document["prov:wasGeneratedBy"]["prov:label"],
+            "hbench datasets push of the tasks adapters/humaneval_plus generates from "
+            "https://github.com/evalplus/humanevalplus_release/releases/download/v0.1.10/HumanEvalPlus.jsonl.gz",
+        )
+        self.assertIn(
+            "Every task's environment image is ghcr.io/node-q/hbench-envs:humaneval-plus-1.0, built by node-q from "
+            "images/images.yaml in https://github.com/node-q/hbench-datasets and pinned by digest.",
+            document["rai:dataLimitations"],
+        )
+        self.assertEqual(document["license"], "https://spdx.org/licenses/Apache-2.0.html")
 
 
 class CroissantInputTest(unittest.TestCase):
