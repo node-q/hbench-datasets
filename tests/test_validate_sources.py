@@ -158,7 +158,7 @@ class PinnedVersionDirectoryTest(VersionDirectoryTestCase):
         self.assertProblem("does not match its directory '2.0.1'")
 
     def test_an_unfilled_lock_passes_but_cannot_be_published(self):
-        self.assertEqual(self.lock_path.read_text(encoding="utf-8"), "{}\n")
+        self.write_lock({})
         self.assertEqual(self.problems(), [])
         problems = self.problems(for_publish=True)
         self.assertEqual(len(problems), 1)
@@ -245,12 +245,10 @@ class RepositoryTest(unittest.TestCase):
         for unfilled_lock, warning in zip(unfilled_locks, warnings):
             self.assertIn(unfilled_lock, warning)
 
-    def test_publishing_refuses_terminal_bench_2_0_1_until_its_images_are_mirrored(self):
-        exit_code, output = self.main(["--for-publish", str(PINNED_MIRROR_DIRECTORY)])
-        self.assertEqual(exit_code, 1, output)
-        self.assertIn("images.lock.json is not filled yet, so this version cannot be published", output)
-        exit_code, output = self.main(["--for-publish", str(TERMINAL_BENCH_DIRECTORY)])
-        self.assertEqual(exit_code, 0, output)
+    def test_both_committed_terminal_bench_versions_can_be_published(self):
+        for directory in (TERMINAL_BENCH_DIRECTORY, PINNED_MIRROR_DIRECTORY):
+            exit_code, output = self.main(["--for-publish", str(directory)])
+            self.assertEqual(exit_code, 0, output)
 
     def test_refuses_a_directory_outside_datasets(self):
         exit_code, output = self.main([str(DATASETS_DIR.parent / "schema")])
