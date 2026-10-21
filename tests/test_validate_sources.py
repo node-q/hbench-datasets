@@ -233,9 +233,8 @@ class RepositoryTest(unittest.TestCase):
         self.assertEqual(exit_code, 0, output)
         self.assertIn("ok  datasets/terminal-bench/2.0\n", output)
         self.assertIn("ok  datasets/terminal-bench/2.0.1\n", output)
-        self.assertIn(
-            "datasets/terminal-bench/2.0.1/images.lock.json: images.lock.json is not filled yet", output
-        )
+        (warning,) = [line for line in output.splitlines() if "is not filled yet" in line]
+        self.assertIn("datasets/terminal-bench/2.0.1/images.lock.json", warning)
 
     def test_publishing_refuses_terminal_bench_2_0_1_until_its_images_are_mirrored(self):
         exit_code, output = self.main(["--for-publish", str(PINNED_MIRROR_DIRECTORY)])
