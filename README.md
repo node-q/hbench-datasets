@@ -275,7 +275,8 @@ ones, by the same `adapters/swebench/tasks.py`.
   history after the base commit, as for SWE-bench, and deletes the fix and test patches the images
   keep in `/home`.
 - **Grading.** The collect hook resets the files the test patch touches, restores the test patch and
-  runs the image's own `test-run.sh`, as Multi-SWE-bench's harness runs a prediction. The verifier
+  runs the image's own `test-run.sh`, as Multi-SWE-bench's harness runs a prediction, for up to three
+  hours: the harness sets no limit, and ponyc's test run builds LLVM first. The verifier
   grades the log with the repository's `parse_log` and the harness's `Report`, vendored unchanged
   from the harness; its image installs the two packages they need, `dataclasses-json` and `unidiff`,
   from hash-pinned requirements. The reward is 1 only when the report is valid and every test the

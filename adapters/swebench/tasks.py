@@ -54,6 +54,7 @@ class RepositoryIssue:
     language: str
     leaked_files: tuple = ()
     metadata: tuple = ()
+    evaluation_timeout_seconds: int = EVALUATION_TIMEOUT_SECONDS
 
 
 def unix_newlines(text):
@@ -119,7 +120,7 @@ def run_eval_script(issue, eval_script):
         "@ARTIFACTS@": shlex.quote(ARTIFACTS_DIRECTORY),
         "@REPOSITORY@": shlex.quote(issue.workdir),
         "@BASE_COMMIT@": shlex.quote(issue.base_commit),
-        "@TIMEOUT_SECONDS@": str(EVALUATION_TIMEOUT_SECONDS),
+        "@TIMEOUT_SECONDS@": str(issue.evaluation_timeout_seconds),
         "@MODEL_PATCH_LIMIT_BYTES@": str(MODEL_PATCH_LIMIT_BYTES),
         "@DELIMITER@": heredoc_delimiter(eval_script),
     }
@@ -158,7 +159,7 @@ def task_manifest(issue, dataset_name, dataset_title, pinned_base_image, run_eva
             "verifier.collect": [
                 {
                     "command": collect_command(run_eval),
-                    "timeout_sec": float(EVALUATION_TIMEOUT_SECONDS + COLLECT_MARGIN_SECONDS),
+                    "timeout_sec": float(issue.evaluation_timeout_seconds + COLLECT_MARGIN_SECONDS),
                     "user": "root",
                 }
             ],

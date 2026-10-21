@@ -5,7 +5,8 @@ is pinned in images.lock.json becomes a task named by its instance id, laid out 
 adapters/swebench/tasks.py describes. Its environment starts from Multi-SWE-bench's image for the pull
 request on Docker Hub, with the git history after the base commit removed and the reference and test
 patches the image keeps in /home deleted. Its collect hook resets the files the test patch touches,
-restores the test patch and runs the image's own test-run.sh. Its verifier grades the log as
+restores the test patch and runs the image's own test-run.sh, for up to three hours, since the
+harness sets no limit and some test runs build their toolchain first. Its verifier grades the log as
 Multi-SWE-bench's harness does, with the repository's parse_log and the harness's Report, vendored from
 the harness in grader/multi_swe_bench, which need dataclasses-json and unidiff, installed in the
 verifier's image from grader/requirements.txt. The oracle applies the instance's fix patch.
@@ -40,6 +41,7 @@ HARNESS_CORE = (
 GRADER_SCRIPTS = ("test.sh", "grade.py")
 GRADER_REQUIREMENTS = "requirements.txt"
 LEAKED_FILES = ("/home/fix.patch", "/home/test.patch")
+EVALUATION_TIMEOUT_SECONDS = 3 * 3600
 TEST_PATCH_PATH = "/home/test.patch"
 TEST_RUN_SCRIPT = "/home/test-run.sh"
 REPOSITORIES = {
@@ -228,6 +230,7 @@ def repository_issue(row, licence_table):
         workdir=f"/home/{row['repo']}",
         language=LANGUAGE_OF[repository],
         leaked_files=LEAKED_FILES,
+        evaluation_timeout_seconds=EVALUATION_TIMEOUT_SECONDS,
     )
 
 
