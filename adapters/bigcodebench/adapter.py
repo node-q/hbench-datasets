@@ -178,12 +178,9 @@ def instruction(problem, canary):
 def task_manifest(name, problem, hard, docker_image):
     tags = [*TAGS, HARD_TAG] if hard else list(TAGS)
     return task_toml(
-        {"schema_version": "1.4"},
+        name,
+        f"{problem['task_id']} from BigCodeBench: complete {problem['entry_point']} in Python.",
         {
-            "task": {
-                "name": name,
-                "description": f"{problem['task_id']} from BigCodeBench: complete {problem['entry_point']} in Python.",
-            },
             "metadata": {
                 "category": "python",
                 "tags": tags,

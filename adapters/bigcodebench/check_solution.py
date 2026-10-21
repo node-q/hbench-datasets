@@ -1,12 +1,14 @@
 """Check a solution to a BigCodeBench task as BigCodeBench's evaluator does.
 
-Usage: check_solution.py --solution PATH [--summary PATH] [--time-limit SECONDS]
+Usage: check_solution.py --solution PATH [--summary PATH] [--time-limit SECONDS] [--unprivileged-id ID]
 
 problem.json, next to this file, holds the task's code_prompt and its unittest TestCases. As upstream's
 untrusted_check, the solution is calibrated (code_prompt, then "    pass", then the solution), the tests
 are appended, and the program runs in a fresh interpreter (unittest_runner.py), as an unprivileged user
 when this runs as root, with this directory closed to it. The tests have --time-limit seconds, 240 plus
-one by default, and the whole run one second more. It passes when every test passes.
+one by default, and the whole run one second more; afterwards every process of that user is killed.
+Checkers that run side by side as root need --unprivileged-id to give each its own user, 65534 (nobody)
+by default. It passes when every test passes.
 
 Exits 0 when the solution passes and 1 otherwise. --summary writes what was checked, as JSON.
 """
@@ -39,8 +41,7 @@ CALIBRATION_BODY = "\n    pass\n"
 MAXIMUM_SOLUTION_BYTES = 10 * 1024 * 1024
 MAXIMUM_DETAIL_CHARACTERS = 4000
 REPORT_READ_SECONDS = 30
-UNPRIVILEGED_USER_ID = 65534
-UNPRIVILEGED_GROUP_ID = 65534
+NOBODY_ID = 65534
 KILL_EVERY_PROCESS_OF_THIS_USER = "import os, signal\nos.kill(-1, signal.SIGKILL)\n"
 
 
@@ -71,13 +72,14 @@ def calibrated_program(problem, solution):
 
 
 class Sandbox:
-    def __init__(self):
+    def __init__(self, unprivileged_id):
         self.unprivileged = running_as_root()
+        self.unprivileged_id = unprivileged_id
 
     def __enter__(self):
         self.working_directory = tempfile.mkdtemp(prefix="bigcodebench-")
         if self.unprivileged:
-            os.chown(self.working_directory, UNPRIVILEGED_USER_ID, UNPRIVILEGED_GROUP_ID)
+            os.chown(self.working_directory, self.unprivileged_id, self.unprivileged_id)
         return self
 
     def __exit__(self, *exception):
@@ -86,7 +88,7 @@ class Sandbox:
     def user_arguments(self):
         if not self.unprivileged:
             return {}
-        return {"user": UNPRIVILEGED_USER_ID, "group": UNPRIVILEGED_GROUP_ID, "extra_groups": []}
+        return {"user": self.unprivileged_id, "group": self.unprivileged_id, "extra_groups": []}
 
     def environment(self):
         return {
@@ -143,7 +145,7 @@ def send_request(process, request):
         pass
 
 
-def run_program(program, time_limit_seconds):
+def run_program(program, time_limit_seconds, unprivileged_id):
     request = json.dumps(
         {
             "program": base64.b64encode(program.encode("utf-8")).decode("ascii"),
@@ -156,7 +158,7 @@ def run_program(program, time_limit_seconds):
     runner_arguments = [sys.executable, "-s", "-c", RUNNER_PATH.read_text(encoding="utf-8")]
     chunks = []
     timed_out = False
-    with Sandbox() as sandbox:
+    with Sandbox(unprivileged_id) as sandbox:
         process = sandbox.start(runner_arguments)
         reader = threading.Thread(target=read_all, args=(process.stdout, chunks), daemon=True)
         reader.start()
@@ -196,7 +198,7 @@ def closed_to_others(directory):
     return True
 
 
-def check_solution(solution_path, time_limit_seconds):
+def check_solution(solution_path, time_limit_seconds, unprivileged_id=NOBODY_ID):
     problem = json.loads(PROBLEM_PATH.read_text(encoding="utf-8"))
     summary = {"task_id": problem["task_id"], "passed": False}
     if running_as_root():
@@ -207,7 +209,7 @@ def check_solution(solution_path, time_limit_seconds):
         summary["rejected"] = str(error)
         return summary
     started = time.monotonic()
-    result = run_program(calibrated_program(problem, solution), time_limit_seconds)
+    result = run_program(calibrated_program(problem, solution), time_limit_seconds, unprivileged_id)
     summary["seconds"] = round(time.monotonic() - started, 3)
     summary["max_rss_mib"] = round(resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss / 1024, 1)
     summary["status"] = result["status"]
@@ -215,6 +217,13 @@ def check_solution(solution_path, time_limit_seconds):
         summary["details"] = result["details"]
     summary["passed"] = result["status"] == "pass"
     return summary
+
+
+def unprivileged_id(value):
+    number = int(value)
+    if number <= 0:
+        raise argparse.ArgumentTypeError(f"{value} is root's or not a user id")
+    return number
 
 
 def parse_arguments(arguments):
@@ -226,12 +235,13 @@ def parse_arguments(arguments):
         type=float,
         default=BIGCODEBENCH_TIMEOUT_LIMIT_SECONDS + BIGCODEBENCH_TIME_LIMIT_MARGIN_SECONDS,
     )
+    parser.add_argument("--unprivileged-id", type=unprivileged_id, default=NOBODY_ID)
     return parser.parse_args(arguments)
 
 
 def main(arguments):
     options = parse_arguments(arguments)
-    summary = check_solution(options.solution, options.time_limit)
+    summary = check_solution(options.solution, options.time_limit, options.unprivileged_id)
     document = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     if options.summary:
         options.summary.write_text(document, encoding="utf-8")
