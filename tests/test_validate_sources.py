@@ -244,7 +244,8 @@ class GeneratedVersionDirectoryTest(VersionDirectoryTestCase):
         }
         self.write_json("images.lock.json", {name: entry for name in task_names or sorted(self.generated_lock())})
 
-    def test_humaneval_plus_is_valid_but_cannot_be_published_before_its_image_is_built(self):
+    def test_a_placeholder_images_lock_is_valid_but_cannot_be_published(self):
+        self.write_json("images.lock.json", {})
         self.assertEqual(self.problems(), [])
         problems = self.problems(for_publish=True)
         self.assertEqual(len(problems), 1, problems)
