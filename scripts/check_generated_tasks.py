@@ -23,8 +23,9 @@ import sys
 import tomllib
 
 import generated_source
-from environment_images import IMAGES_LOCK_FILENAME, built_image, load_images_lock, pinned_image
+from environment_images import built_image, pinned_image
 from generated_checks import is_generated
+from images_lock import IMAGES_LOCK_FILENAME, load_images_lock
 from source_descriptor import DESCRIPTOR_FILENAME, REPOSITORY_ROOT, load_descriptor, version_directories
 
 TASK_ENTRIES = {"task.toml", "instruction.md", "environment", "tests", "solution"}
