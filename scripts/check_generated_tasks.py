@@ -1,6 +1,7 @@
 """Generate each generated dataset version twice, and check its package digests and its tasks' layout.
 
-Usage: check_generated_tasks.py --output DIRECTORY [--upstream-cache DIRECTORY] [datasets/<name>/<version> ...]
+Usage: check_generated_tasks.py --output DIRECTORY [--upstream-cache DIRECTORY] [--hbench BINARY]
+                                [datasets/<name>/<version> ...]
        check_generated_tasks.py --list
 
 Generates every generated dataset version (each one under datasets/ when none is given) into
@@ -10,15 +11,19 @@ generated.lock.json, or if a task is not a valid hbench task: task.toml must par
 give its category and timeouts; its docker_image must be the locked image (none while images.lock.json
 is not filled); instruction.md must start with the canary; environment/ must be exactly the image's
 build context; tests/test.sh and solution/solve.sh must be executable; every file in tests/ and
-solution/ must carry the canary; and the adapter's own task_problems() must find nothing.
+solution/ must carry the canary; and the adapter's own task_problems() must find nothing. With
+--hbench, hbench itself must accept every task (hbench tasks check) and print the same package digests
+(hbench tasks digest).
 
 --list prints "<name> <version> <adapter> <image>" for each generated version, the adapter being its
 directory name under adapters/.
 """
 
 import argparse
+import json
 import os
 import pathlib
+import subprocess
 import sys
 import tomllib
 
@@ -104,7 +109,22 @@ def task_layout_problems(task_directory, canary, docker_image, context_files, ad
     return problems
 
 
-def check_version(version_directory, descriptor, output, upstream_cache):
+def hbench_problems(hbench, tasks_directory, digests):
+    checked = subprocess.run([hbench, "tasks", "check", "--path", str(tasks_directory)], capture_output=True, text=True)
+    refused = [line for line in checked.stdout.splitlines() if line.strip() and not line.startswith("ok ")]
+    if checked.returncode != 0 or refused:
+        return [f"hbench tasks check refuses tasks: {' '.join(refused[:5]) or checked.stderr.strip()}"]
+    printed = subprocess.run(
+        [hbench, "tasks", "digest", "--path", str(tasks_directory)], capture_output=True, text=True, check=True
+    )
+    hbench_digests = {task["name"].rpartition("/")[2]: task["digest"] for task in json.loads(printed.stdout)}
+    if hbench_digests != digests:
+        differing = sorted(name for name in set(digests) | set(hbench_digests) if digests.get(name) != hbench_digests.get(name))
+        return [f"hbench tasks digest differs in {len(differing)} tasks, such as {differing[:5]}"]
+    return []
+
+
+def check_version(version_directory, descriptor, output, upstream_cache, hbench=None):
     label = f"{descriptor['name']}@{descriptor['version']}"
     destination = output / descriptor["name"] / descriptor["version"]
     digests = []
@@ -131,8 +151,11 @@ def check_version(version_directory, descriptor, output, upstream_cache):
                 tasks_directory / task_name, descriptor["canary"], docker_image, context_files, adapter
             )
         ]
+    if hbench and not problems:
+        problems += [f"{label}: {problem}" for problem in hbench_problems(hbench, tasks_directory, digests[0])]
     if not problems:
-        print(f"ok  {label}: {len(digests[0])} tasks, generated twice with the same digests as generated.lock.json")
+        checked_by = ", and hbench accepts them with the same digests" if hbench else ""
+        print(f"ok  {label}: {len(digests[0])} tasks, generated twice with the same digests as generated.lock.json{checked_by}")
     return problems
 
 
@@ -141,6 +164,7 @@ def parse_arguments(arguments):
     parser.add_argument("--list", action="store_true")
     parser.add_argument("--output", type=pathlib.Path)
     parser.add_argument("--upstream-cache", type=pathlib.Path)
+    parser.add_argument("--hbench")
     parser.add_argument("version_directories", nargs="*")
     options = parser.parse_args(arguments)
     if not options.list and options.output is None:
@@ -159,7 +183,9 @@ def main(arguments):
     problems = []
     for version_directory, descriptor in versions:
         try:
-            problems += check_version(version_directory, descriptor, options.output, options.upstream_cache)
+            problems += check_version(
+                version_directory, descriptor, options.output, options.upstream_cache, options.hbench
+            )
         except (generated_source.GeneratedSourceError, generated_source.GeneratedLockError) as error:
             problems.append(f"{descriptor['name']}@{descriptor['version']}: {error}")
     for problem in problems:

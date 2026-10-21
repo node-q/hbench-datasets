@@ -21,7 +21,6 @@ generated.lock.json to match.
 import argparse
 import copy
 import importlib
-import json
 import pathlib
 import shutil
 import subprocess

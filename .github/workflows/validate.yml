@@ -71,6 +71,8 @@ jobs:
     needs: descriptors
     runs-on: ubuntu-24.04
     timeout-minutes: 45
+    env:
+      HBENCH_VERSION: v0.2.6
     steps:
       - name: Check out the repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -82,8 +84,16 @@ jobs:
           python-version: "3.12"
       - name: Install the pinned Python packages
         run: python -m pip install --require-hashes -r requirements.txt
-      - name: Generate every generated dataset version twice, checking it against its generated.lock.json
-        run: python scripts/check_generated_tasks.py --output "$RUNNER_TEMP/generated" --upstream-cache "$RUNNER_TEMP/upstream"
+      - name: Install hbench, verifying SHA256SUMS and its build provenance
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: scripts/install-hbench.sh "$HBENCH_VERSION" "$RUNNER_TEMP/hbench"
+      - name: Generate every generated dataset version twice, checking it against its generated.lock.json and hbench
+        run: |
+          python scripts/check_generated_tasks.py \
+            --output "$RUNNER_TEMP/generated" \
+            --upstream-cache "$RUNNER_TEMP/upstream" \
+            --hbench "$RUNNER_TEMP/hbench/hbench"
       - name: Run every task's checker on its oracle and on a wrong solution, in the image's base once it can be pulled
         env:
           PYTHONDONTWRITEBYTECODE: "1"

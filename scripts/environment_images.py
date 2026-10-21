@@ -15,7 +15,6 @@ JSON. base-of prints the pinned base a built image starts FROM.
 """
 
 import json
-import pathlib
 import re
 import sys
 
