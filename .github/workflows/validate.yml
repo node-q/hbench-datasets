@@ -94,6 +94,14 @@ jobs:
             --output "$RUNNER_TEMP/generated" \
             --upstream-cache "$RUNNER_TEMP/upstream" \
             --hbench "$RUNNER_TEMP/hbench/hbench"
+      - name: Upload the generated.lock.json each generated version would have, when one differs
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: generated-locks
+          path: ${{ runner.temp }}/generated/*/*/first/generated.lock.json
+          if-no-files-found: ignore
+          retention-days: 14
       - name: Run every task's checker on its oracle and on a wrong solution, in the image's base once it can be pulled
         env:
           PYTHONDONTWRITEBYTECODE: "1"

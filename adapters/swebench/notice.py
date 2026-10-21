@@ -29,6 +29,7 @@ WIDTH = 100
 INDENT = "    "
 
 ENVIRONMENT_ORIGINS = {
+    "swebench-multilingual": "SWE-bench's image for the instance on Docker Hub, swebench/sweb.eval.x86_64.<instance>",
     "swebench-verified": (
         "Epoch AI's public image for the instance, ghcr.io/epoch-research/swe-bench.eval.x86_64.<instance>, built "
         "from Epoch AI's MIT-licensed fork of SWE-bench's image specifications"
@@ -38,10 +39,12 @@ ENVIRONMENT_ORIGINS["swebench-lite"] = ENVIRONMENT_ORIGINS["swebench-verified"]
 ORIGINS = {
     "swebench-verified": "SWE-bench Verified is the subset of SWE-bench's test set that OpenAI's annotators validated, released by OpenAI with the SWE-bench team.",
     "swebench-lite": "SWE-bench Lite is a subset of SWE-bench's test set, by the SWE-bench team.",
+    "swebench-multilingual": "SWE-bench Multilingual is by the SWE-bench team, introduced with SWE-smith.",
 }
 CARD_LICENCES = {
     "swebench-verified": "Its dataset card states no licence.",
     "swebench-lite": "Its dataset card states no licence.",
+    "swebench-multilingual": "Its dataset card states the MIT licence.",
 }
 
 
@@ -87,7 +90,7 @@ def repository_section(repository, entry, instance_count):
 def dropped_lines(dropped, table):
     lines = []
     for repository in sorted(dropped, key=str.lower):
-        reason = licences.drop_reason(table[repository])
+        reason = licences.drop_reason(licences.licence_entry(table, repository))
         lines.append(list_item(f"{repository}, {instances(dropped[repository])}: {reason}"))
     return lines
 
@@ -159,7 +162,10 @@ def notice(version_directory, upstream_path):
             + ". Each licence below is the one GitHub's licence API reports for the repository, or, where GitHub "
             "reports none it can identify, the one its licence file states, read by hand."
         ),
-        "\n".join(repository_section(repository, table[repository], included[repository]) for repository in sorted(included, key=str.lower)),
+        "\n".join(
+            repository_section(repository, licences.licence_entry(table, repository), included[repository])
+            for repository in sorted(included, key=str.lower)
+        ),
         heading("Instances left out"),
         paragraph(f"{instances(sum(dropped.values()))} {are(sum(dropped.values()))} left out for their repository's licence:"),
         "\n".join(dropped_lines(dropped, table)) + "\n",

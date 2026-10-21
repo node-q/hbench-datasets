@@ -1,4 +1,4 @@
-"""Write SWE-bench task directories, for Verified and Lite, from SWE-bench's dataset file.
+"""Write SWE-bench task directories, for Verified, Lite and Multilingual, from SWE-bench's dataset file.
 
 Each instance from a repository under a permissive licence (licences.py) whose base image is pinned in
 images.lock.json becomes a task named by its instance id. Its environment starts from that image with the

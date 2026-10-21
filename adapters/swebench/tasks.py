@@ -167,19 +167,25 @@ def task_manifest(issue, dataset_name, dataset_title, pinned_base_image, run_eva
     )
 
 
-def grader_dockerfile(canary):
-    return f"# {canary}\nFROM {GRADER_BASE_IMAGE}\nCOPY . /tests/\n"
+def grader_dockerfile(canary, requirements=None):
+    install = (
+        f"COPY {requirements} /tmp/{requirements}\n"
+        f"RUN pip install --no-cache-dir --no-deps --require-hashes -r /tmp/{requirements} && rm /tmp/{requirements}\n"
+        if requirements
+        else ""
+    )
+    return f"# {canary}\nFROM {GRADER_BASE_IMAGE}\n{install}COPY . /tests/\n"
 
 
 def config_json(document, canary):
     return json.dumps({"canary": canary, **document}, indent=2, sort_keys=True, ensure_ascii=True) + "\n"
 
 
-def task_files(issue, *, dataset_name, dataset_title, canary, pinned_base_image, eval_script, grader_files):
+def task_files(issue, *, dataset_name, dataset_title, canary, pinned_base_image, eval_script, grader_files, grader_requirements=None):
     files = {
         "instruction.md": instruction(issue, canary),
         "task.toml": task_manifest(issue, dataset_name, dataset_title, pinned_base_image, run_eval_script(issue, eval_script)),
-        "tests/Dockerfile": grader_dockerfile(canary),
+        "tests/Dockerfile": grader_dockerfile(canary, grader_requirements),
         **environment_files(issue, pinned_base_image, canary),
         **solution_files(issue, canary),
     }
