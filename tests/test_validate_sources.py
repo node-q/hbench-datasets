@@ -15,6 +15,7 @@ from source_descriptor import DATASETS_DIR, version_directories
 TERMINAL_BENCH_DIRECTORY = DATASETS_DIR / "terminal-bench" / "2.0"
 PINNED_MIRROR_DIRECTORY = DATASETS_DIR / "terminal-bench" / "2.0.1"
 GENERATED_DIRECTORY = DATASETS_DIR / "humaneval-plus" / "1.0"
+SEVERAL_IMAGES_DIRECTORY = DATASETS_DIR / "exercism-polyglot" / "1.0"
 BUILT_DIGEST = "sha256:" + "e" * 64
 TASK_COUNT = 89
 
@@ -310,6 +311,71 @@ class GeneratedVersionDirectoryTest(VersionDirectoryTestCase):
         shutil.copy(self.version_directory / "generated.lock.json", terminal_bench)
         problems = validate_sources.version_directory_problems(terminal_bench, self.validator, self.licensing)
         self.assertIn("generated.lock.json belongs only to a version whose source kind is generated", problems)
+
+
+class SeveralImagesVersionDirectoryTest(VersionDirectoryTestCase):
+    committed_directory = SEVERAL_IMAGES_DIRECTORY
+    languages = ("cpp", "go", "java", "javascript", "python", "rust")
+
+    def generated_lock(self):
+        return json.loads((self.version_directory / "generated.lock.json").read_text(encoding="utf-8"))
+
+    def fill_images_lock(self, languages, task_names=None):
+        lock = {}
+        for name in task_names or sorted(self.generated_lock()):
+            language = name.split("-")[1]
+            if language in languages:
+                digest = digest_of(language)
+                lock[name] = {
+                    "source": f"ghcr.io/node-q/hbench-envs:exercism-polyglot-{language}-1.0",
+                    "source_digest": digest,
+                    "pinned": f"ghcr.io/node-q/hbench-envs@{digest}",
+                }
+        (self.version_directory / "images.lock.json").write_text(json.dumps(lock, indent=2) + "\n", encoding="utf-8")
+        return lock
+
+    def test_exercism_polyglot_is_valid_but_cannot_be_published_before_its_images_are_built(self):
+        self.assertEqual(self.problems(), [])
+        problems = self.problems(for_publish=True)
+        self.assertEqual(len(problems), 1, problems)
+        self.assertIn("run the Build images workflow", problems[0])
+
+    def test_a_lock_of_some_images_passes_with_a_warning_but_cannot_be_published(self):
+        self.fill_images_lock(("go", "python"))
+        self.assertEqual(self.problems(), [])
+        warning = validate_sources.unfilled_lock_warning(self.version_directory)
+        self.assertIn("it does not pin the tasks on exercism-polyglot-cpp-1.0, exercism-polyglot-java-1.0", warning)
+        problems = self.problems(for_publish=True)
+        self.assertEqual(len(problems), 1, problems)
+        self.assertIn("exercism-polyglot-javascript-1.0, exercism-polyglot-rust-1.0 yet", problems[0])
+
+    def test_a_lock_of_every_image_can_be_published(self):
+        self.fill_images_lock(self.languages)
+        self.assertEqual(self.problems(for_publish=True), [])
+        self.assertIsNone(validate_sources.unfilled_lock_warning(self.version_directory))
+
+    def test_an_image_s_tasks_are_locked_together_to_that_image(self):
+        python_tasks = sorted(self.fill_images_lock(("python",)))
+        self.fill_images_lock(("python",), task_names=python_tasks[1:])
+        self.assertProblem("locks 34 of the 35 tasks on exercism-polyglot-python-1.0")
+        lock = self.fill_images_lock(("python",))
+        lock[python_tasks[0]]["source"] = "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0"
+        (self.version_directory / "images.lock.json").write_text(json.dumps(lock, indent=2) + "\n", encoding="utf-8")
+        self.assertProblem("locks the tasks on exercism-polyglot-python-1.0 to")
+
+    def test_every_glob_must_match_a_task_and_name_a_built_image(self):
+        self.replace_in_descriptor('"exercism-rust-*": exercism-polyglot-rust-1.0', '"exercism-rust-*": exercism-polyglot-rust-9.0')
+        self.assertProblem("'exercism-polyglot-rust-9.0' is not in images/images.yaml")
+        shutil.copy(SEVERAL_IMAGES_DIRECTORY / "source.yaml", self.descriptor_path)
+        self.replace_in_descriptor('"exercism-rust-*": exercism-polyglot-rust-1.0\n', '"exercism-rust-*": exercism-polyglot-rust-1.0\n    "exercism-zig-*": exercism-polyglot-rust-1.0\n')
+        self.assertProblem("environment.task_images's glob exercism-zig-* matches no task")
+
+    def test_a_built_version_names_one_image_or_task_images(self):
+        self.replace_in_descriptor("  policy: built\n", "  policy: built\n  image: exercism-polyglot-go-1.0\n")
+        self.assertProblem("environment")
+        shutil.copy(SEVERAL_IMAGES_DIRECTORY / "source.yaml", self.descriptor_path)
+        self.replace_in_descriptor("  task_images:\n", "  task_imagez:\n")
+        self.assertProblem("environment")
 
 
 class RepositoryTest(unittest.TestCase):

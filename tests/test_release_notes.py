@@ -8,6 +8,7 @@ from source_descriptor import DATASETS_DIR, load_descriptor
 TERMINAL_BENCH_SOURCE = DATASETS_DIR / "terminal-bench" / "2.0" / "source.yaml"
 PINNED_MIRROR_SOURCE = DATASETS_DIR / "terminal-bench" / "2.0.1" / "source.yaml"
 GENERATED_SOURCE = DATASETS_DIR / "humaneval-plus" / "1.0" / "source.yaml"
+SEVERAL_IMAGES_SOURCE = DATASETS_DIR / "exercism-polyglot" / "1.0" / "source.yaml"
 BUILT_DIGEST = "sha256:" + "9" * 64
 REPOSITORY = "ghcr.io/node-q/hbench-datasets/terminal-bench"
 DIGEST = "sha256:" + "0123456789abcdef" * 4
@@ -84,6 +85,23 @@ class ReleaseNotesTest(unittest.TestCase):
         self.assertIn("(sha256 `272720b90ac375502c8ed23cd791c2a93dfb22a911641a494da74a426c09f101`)", notes)
         self.assertIn(f"cosign verify ghcr.io/node-q/hbench-envs@{BUILT_DIGEST} \\", notes)
         self.assertIn(release_notes.BUILD_IMAGES_CERTIFICATE_IDENTITY_REGEXP, notes)
+
+    def test_notes_of_a_version_on_several_images_list_each_image(self):
+        descriptor = load_descriptor(SEVERAL_IMAGES_SOURCE)
+        entry = {
+            "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+            "source_digest": BUILT_DIGEST,
+            "pinned": f"ghcr.io/node-q/hbench-envs@{BUILT_DIGEST}",
+        }
+        notes = release_notes.release_notes(
+            descriptor, REPOSITORY, DIGEST, HBENCH_VERSION, RUN_URL, {"exercism-go-bowling": entry}
+        )
+        self.assertIn(
+            f"- `exercism-go-*`: `ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0`, `ghcr.io/node-q/hbench-envs@{BUILT_DIGEST}`",
+            notes,
+        )
+        self.assertIn("- `exercism-rust-*`: `ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0`, not built yet", notes)
+        self.assertEqual(notes.count("cosign verify ghcr.io/node-q/hbench-envs@"), 1)
 
     def test_command_line_prints_the_requested_field(self):
         output = io.StringIO()
