@@ -5,6 +5,7 @@ import check_manifest
 from source_descriptor import DATASETS_DIR, load_descriptor
 
 TERMINAL_BENCH_SOURCE = DATASETS_DIR / "terminal-bench" / "2.0" / "source.yaml"
+PINNED_MIRROR_SOURCE = DATASETS_DIR / "terminal-bench" / "2.0.1" / "source.yaml"
 TASK_NAMES = ["adaptive-rejection-sampler", "build-pmars"]
 
 
@@ -75,6 +76,12 @@ class ManifestCheckTest(unittest.TestCase):
         del self.manifest["annotations"]["org.opencontainers.image.version"]
         self.assertProblem("org.opencontainers.image.licenses is 'MIT'")
         self.assertProblem("org.opencontainers.image.version is None")
+
+    def test_a_patch_version_matches_its_own_version_annotation(self):
+        self.descriptor = load_descriptor(PINNED_MIRROR_SOURCE)
+        self.assertProblem("org.opencontainers.image.version is '2.0', expected '2.0.1'")
+        self.manifest["annotations"]["org.opencontainers.image.version"] = "2.0.1"
+        self.assertEqual(self.problems(), [])
 
 
 if __name__ == "__main__":

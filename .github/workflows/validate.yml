@@ -55,11 +55,11 @@ jobs:
           python-version: "3.12"
       - name: Install the pinned Python packages
         run: python -m pip install --require-hashes -r requirements.txt
-      - name: Fetch every dataset version's task directories
+      - name: Fetch every dataset version's task directories and pin their images from their locks
         run: |
           for descriptor in datasets/*/*/source.yaml; do
             version_directory="${descriptor%/source.yaml}"
             destination="$RUNNER_TEMP/sources/${version_directory#datasets/}"
             mkdir -p "$(dirname "$destination")"
-            python scripts/fetch_source.py "$descriptor" "$destination"
+            python scripts/fetch_source.py --allow-unfilled-lock "$descriptor" "$destination"
           done
