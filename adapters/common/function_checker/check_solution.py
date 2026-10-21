@@ -1,13 +1,16 @@
 """Check a solution to a function-completion problem as EvalPlus's evaluator does, phase by phase.
 
 Usage: check_solution.py --solution PATH [--summary PATH] [--min-time-limit SECONDS] [--time-limit-factor N]
+                         [--unprivileged-id ID]
 
 problem.json, next to this file, names the function (entry_point), the phases of inputs (for
 EvalPlus's datasets, base and then plus), the absolute tolerance (atol) and the oracle. The expected
 outputs come from running reference_solution.py on each input here, and each input's time limit is the
 larger of --min-time-limit and --time-limit-factor times the reference's time on it. The solution runs
 in a fresh interpreter, as an unprivileged user when this runs as root, with this directory closed to
-it. A later phase runs only when the earlier ones passed.
+it; afterwards every process of that user is killed. Checkers that run side by side as root need
+--unprivileged-id to give each its own user, 65534 (nobody) by default. A later phase runs only when
+the earlier ones passed.
 
 The oracles:
   default          the output equals the expected one, or is close to it within atol (1e-6 for float
@@ -21,6 +24,7 @@ Exits 0 when every input passes and 1 otherwise. --summary writes what was check
 import argparse
 import base64
 import copy
+import dataclasses
 import json
 import math
 import os
@@ -47,13 +51,19 @@ EVALPLUS_MEMORY_LIMIT_BYTES = 4 * 1024**3
 EVALPLUS_FLOAT_ATOL = 1e-6
 EVALPLUS_RTOL = 1e-7
 MAXIMUM_SOLUTION_BYTES = 10 * 1024 * 1024
-UNPRIVILEGED_USER_ID = 65534
-UNPRIVILEGED_GROUP_ID = 65534
+NOBODY_ID = 65534
 KILL_EVERY_PROCESS_OF_THIS_USER = "import os, signal\nos.kill(-1, signal.SIGKILL)\n"
 
 
 class SolutionRejected(Exception):
     pass
+
+
+@dataclasses.dataclass(frozen=True)
+class CheckSettings:
+    min_time_limit: float = EVALPLUS_MIN_TIME_LIMIT_SECONDS
+    time_limit_factor: float = EVALPLUS_TIME_LIMIT_FACTOR
+    unprivileged_id: int = NOBODY_ID
 
 
 def running_as_root():
@@ -246,13 +256,14 @@ def judged_inputs(oracle, inputs, expected_outputs, outcomes, atol):
 
 
 class CandidateSandbox:
-    def __init__(self):
+    def __init__(self, unprivileged_id):
         self.unprivileged = running_as_root()
+        self.unprivileged_id = unprivileged_id
 
     def __enter__(self):
         self.working_directory = tempfile.mkdtemp(prefix="humaneval-plus-")
         if self.unprivileged:
-            os.chown(self.working_directory, UNPRIVILEGED_USER_ID, UNPRIVILEGED_GROUP_ID)
+            os.chown(self.working_directory, self.unprivileged_id, self.unprivileged_id)
         return self
 
     def __exit__(self, *exception):
@@ -261,7 +272,7 @@ class CandidateSandbox:
     def user_arguments(self):
         if not self.unprivileged:
             return {}
-        return {"user": UNPRIVILEGED_USER_ID, "group": UNPRIVILEGED_GROUP_ID, "extra_groups": []}
+        return {"user": self.unprivileged_id, "group": self.unprivileged_id, "extra_groups": []}
 
     def environment(self):
         return {
@@ -302,7 +313,7 @@ class CandidateSandbox:
             )
 
 
-def run_candidate(source, solution_path, entry_point, inputs, time_limits):
+def run_candidate(source, solution_path, entry_point, inputs, time_limits, unprivileged_id):
     request = json.dumps(
         {
             "source": base64.b64encode(source).decode("ascii"),
@@ -315,7 +326,7 @@ def run_candidate(source, solution_path, entry_point, inputs, time_limits):
     ).encode("utf-8")
     run_time_limit = min(EVALPLUS_RUN_TIME_CAP_SECONDS, sum(time_limits)) + EVALPLUS_RUN_GRACE_SECONDS
     runner_arguments = [sys.executable, "-s", "-P", "-c", CANDIDATE_RUNNER_PATH.read_text(encoding="utf-8")]
-    with CandidateSandbox() as sandbox:
+    with CandidateSandbox(unprivileged_id) as sandbox:
         process = sandbox.start(runner_arguments)
         try:
             output, _ = process.communicate(request, timeout=run_time_limit)
@@ -354,11 +365,10 @@ def phase_summary(inputs, verdicts):
     return summary
 
 
-def check_phase(problem, function, source, solution_path, inputs, time_limit_settings):
-    min_time_limit, time_limit_factor = time_limit_settings
+def check_phase(problem, function, source, solution_path, inputs, settings):
     expected_outputs, durations = reference_outputs(function, inputs)
-    time_limits = [max(min_time_limit, time_limit_factor * duration) for duration in durations]
-    report = run_candidate(source, solution_path, problem["entry_point"], inputs, time_limits)
+    time_limits = [max(settings.min_time_limit, settings.time_limit_factor * duration) for duration in durations]
+    report = run_candidate(source, solution_path, problem["entry_point"], inputs, time_limits, settings.unprivileged_id)
     if "timed_out" in report:
         return {"status": "timeout", "inputs": len(inputs), "passed": 0}
     if "load_error" in report:
@@ -375,7 +385,7 @@ def closed_to_others(directory):
     return True
 
 
-def check_solution(solution_path, time_limit_settings):
+def check_solution(solution_path, settings):
     problem = json.loads(PROBLEM_PATH.read_text(encoding="utf-8"))
     summary = {"task_id": problem["task_id"], "passed": False}
     if running_as_root():
@@ -390,12 +400,19 @@ def check_solution(solution_path, time_limit_settings):
     function = reference_function(problem["entry_point"])
     summary["phases"] = []
     for phase in problem["phases"]:
-        phase_result = check_phase(problem, function, source, solution_path, phase["inputs"], time_limit_settings)
+        phase_result = check_phase(problem, function, source, solution_path, phase["inputs"], settings)
         summary["phases"].append({"name": phase["name"], **phase_result})
         if phase_result["status"] != "pass":
             return summary
     summary["passed"] = True
     return summary
+
+
+def unprivileged_id(value):
+    number = int(value)
+    if number <= 0:
+        raise argparse.ArgumentTypeError(f"{value} is root's or not a user id")
+    return number
 
 
 def parse_arguments(arguments):
@@ -404,12 +421,14 @@ def parse_arguments(arguments):
     parser.add_argument("--summary", type=pathlib.Path)
     parser.add_argument("--min-time-limit", type=float, default=EVALPLUS_MIN_TIME_LIMIT_SECONDS)
     parser.add_argument("--time-limit-factor", type=float, default=EVALPLUS_TIME_LIMIT_FACTOR)
+    parser.add_argument("--unprivileged-id", type=unprivileged_id, default=NOBODY_ID)
     return parser.parse_args(arguments)
 
 
 def main(arguments):
     options = parse_arguments(arguments)
-    summary = check_solution(options.solution, (options.min_time_limit, options.time_limit_factor))
+    settings = CheckSettings(options.min_time_limit, options.time_limit_factor, options.unprivileged_id)
+    summary = check_solution(options.solution, settings)
     document = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     if options.summary:
         options.summary.write_text(document, encoding="utf-8")

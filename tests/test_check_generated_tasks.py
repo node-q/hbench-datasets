@@ -40,6 +40,12 @@ class TaskLayoutTest(unittest.TestCase):
     def test_docker_image_must_be_the_locked_image(self):
         self.assertProblem("[environment].docker_image is", docker_image=None)
 
+    def test_the_task_is_named_by_its_bare_directory_name(self):
+        manifest = self.task_directory / "task.toml"
+        text = manifest.read_text(encoding="utf-8")
+        manifest.write_text(text.replace('name = "humaneval-plus-0"', 'name = "node-q/humaneval-plus-0"'), encoding="utf-8")
+        self.assertProblem("[task].name is 'node-q/humaneval-plus-0', not the task directory's bare name")
+
     def test_scripts_must_be_executable(self):
         (self.task_directory / "tests" / "test.sh").chmod(0o644)
         self.assertProblem("tests/test.sh is missing or not executable")

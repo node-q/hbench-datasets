@@ -7,13 +7,13 @@ Usage: check_generated_tasks.py --output DIRECTORY [--upstream-cache DIRECTORY] 
 Generates every generated dataset version (each one under datasets/ when none is given) into
 OUTPUT/<name>/<version>/first and OUTPUT/<name>/<version>/second, with its images.lock.json as
 committed. It fails if the two generations' package digests differ, if they differ from
-generated.lock.json, or if a task is not a valid hbench task: task.toml must parse, name the task and
-give its category and timeouts; its docker_image must be the locked image (none while images.lock.json
-is not filled); instruction.md must start with the canary; environment/ must be exactly the image's
-build context; tests/test.sh and solution/solve.sh must be executable; every file in tests/ and
-solution/ must carry the canary; and the adapter's own task_problems() must find nothing. With
---hbench, hbench itself must accept every task (hbench tasks check) and print the same package digests
-(hbench tasks digest).
+generated.lock.json, or if a task is not a valid hbench task: task.toml must parse, name the task
+and give its category and timeouts, its [task].name being the bare directory name; its docker_image
+must be the locked image (none while images.lock.json is not filled); instruction.md must start with
+the canary; environment/ must be exactly the image's build context; tests/test.sh and
+solution/solve.sh must be executable; every file in tests/ and solution/ must carry the canary; and
+the adapter's own task_problems() must find nothing. With --hbench, hbench itself must accept every
+task (hbench tasks check) and print the same package digests (hbench tasks digest).
 
 --list prints "<name> <version> <adapter> <image>" for each generated version, the adapter being its
 directory name under adapters/.
@@ -57,8 +57,8 @@ def manifest_problems(task_directory, docker_image):
         return [f"task.toml does not parse: {error}"]
     problems = []
     name = manifest.get("task", {}).get("name")
-    if not isinstance(name, str) or name.rpartition("/")[2] != task_directory.name:
-        problems.append(f"[task].name {name!r} does not name the task directory")
+    if name != task_directory.name:
+        problems.append(f"[task].name is {name!r}, not the task directory's bare name {task_directory.name!r}")
     if not isinstance(manifest.get("metadata", {}).get("category"), str):
         problems.append("[metadata].category is missing")
     for section in ("agent", "verifier"):
@@ -117,7 +117,7 @@ def hbench_problems(hbench, tasks_directory, digests):
     printed = subprocess.run(
         [hbench, "tasks", "digest", "--path", str(tasks_directory)], capture_output=True, text=True, check=True
     )
-    hbench_digests = {task["name"].rpartition("/")[2]: task["digest"] for task in json.loads(printed.stdout)}
+    hbench_digests = {task["name"]: task["digest"] for task in json.loads(printed.stdout)}
     if hbench_digests != digests:
         differing = sorted(name for name in set(digests) | set(hbench_digests) if digests.get(name) != hbench_digests.get(name))
         return [f"hbench tasks digest differs in {len(differing)} tasks, such as {differing[:5]}"]

@@ -56,7 +56,9 @@ version is a generated one; see [`datasets/humaneval-plus/1.0`](datasets/humanev
    - optionally `task_problems(task_directory)`, the adapter's own checks of a generated task.
 
    The output must be deterministic: no timestamps, no randomness, sorted iteration, fixed file
-   modes. `adapters/common` has the helpers: `writing` writes task files deterministically,
+   modes. Each task's `[task].name` is its bare directory name, as in Terminal-Bench, never
+   `org/name`: `writing.task_toml` writes it so. `adapters/common` has the helpers: `writing` writes
+   task files deterministically,
    `package_digest` is hbench's package digest, and `function_checker` is an EvalPlus-style checker
    for tasks that ask for one Python function (`problem_document`, `function_checker_files` and
    `verify.verify_tasks`). Adapters, and everything they import, use only the Python standard

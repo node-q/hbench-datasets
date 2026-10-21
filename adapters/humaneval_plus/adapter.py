@@ -22,7 +22,6 @@ from adapters.common.writing import code_fence, html_canary, task_toml, write_ta
 UPSTREAM_FILE_NAME = "HumanEvalPlus.jsonl.gz"
 UPSTREAM_FILES = (UPSTREAM_FILE_NAME,)
 TASK_NAME_PREFIX = "humaneval-plus-"
-TASK_PACKAGE_ORGANISATION = "node-q"
 TASK_ID_PATTERN = re.compile(r"^HumanEval/(?P<number>0|[1-9][0-9]*)$")
 ENTRY_POINT_PATTERN = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 PROBLEM_FIELDS = ("task_id", "prompt", "canonical_solution", "entry_point", "base_input", "plus_input", "atol")
@@ -91,12 +90,9 @@ def instruction(problem, canary):
 
 def task_manifest(name, problem, docker_image):
     return task_toml(
-        {"schema_version": "1.4"},
+        name,
+        f"{problem['task_id']} from HumanEval+: implement {problem['entry_point']} in Python.",
         {
-            "task": {
-                "name": f"{TASK_PACKAGE_ORGANISATION}/{name}",
-                "description": f"{problem['task_id']} from HumanEval+: implement {problem['entry_point']} in Python.",
-            },
             "metadata": {
                 "category": "python",
                 "tags": ["humaneval-plus", "code-generation"],
