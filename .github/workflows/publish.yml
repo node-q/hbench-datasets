@@ -1,0 +1,224 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      dataset:
+        description: Dataset to publish, as in datasets/<dataset>/<version>
+        required: true
+        type: string
+      version:
+        description: Version to publish; it must not exist in the registry yet
+        required: true
+        type: string
+      hbench_version:
+        description: node-q/hbench release that packs and pushes, such as v0.3.0
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-${{ inputs.dataset }}-${{ inputs.version }}
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  DATASET: ${{ inputs.dataset }}
+  VERSION: ${{ inputs.version }}
+  HBENCH_VERSION: ${{ inputs.hbench_version }}
+  REGISTRY: ghcr.io
+  REPOSITORY: ghcr.io/node-q/hbench-datasets/${{ inputs.dataset }}
+  CERTIFICATE_IDENTITY_REGEXP: ^https://github.com/node-q/hbench-datasets/.github/workflows/publish.yml@
+  CERTIFICATE_OIDC_ISSUER: https://token.actions.githubusercontent.com
+  # hbench datasets push is not released yet: the guard also checks that it takes every flag the push step passes.
+  HBENCH_PUSH_FLAGS: --descriptor --to
+
+jobs:
+  guard:
+    name: Check this run can publish
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Refuse to publish until the pinned hbench has datasets push
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          scripts/install-hbench.sh "$HBENCH_VERSION" "$RUNNER_TEMP/hbench"
+          if ! push_help="$("$RUNNER_TEMP/hbench/hbench" datasets push --help 2>&1)"; then
+            echo "::error title=No hbench datasets push::node-q/hbench $HBENCH_VERSION has no 'hbench datasets push'. Publishing waits for an hbench release with the publisher commands. Nothing was pushed."
+            exit 1
+          fi
+          for flag in $HBENCH_PUSH_FLAGS; do
+            if ! grep -qE -- "(^|[^[:alnum:]-])${flag}([^[:alnum:]-]|\$)" <<<"$push_help"; then
+              echo "::error title=hbench datasets push differs::'hbench datasets push' in $HBENCH_VERSION takes no $flag, which the push step passes. Update publish.yml to the released interface. Nothing was pushed."
+              exit 1
+            fi
+          done
+      - name: Refuse anything but a committed descriptor on main
+        run: |
+          if [[ "$GITHUB_REF" != refs/heads/main ]]; then
+            echo "::error title=Not main::Datasets are published from main only, so that every descriptor is reviewed. Nothing was pushed."
+            exit 1
+          fi
+          if ! [[ "$DATASET" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ && "$VERSION" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))?$ ]]; then
+            echo "::error title=Bad inputs::The dataset or version input is malformed. Nothing was pushed."
+            exit 1
+          fi
+          if [[ ! -f "datasets/$DATASET/$VERSION/source.yaml" ]]; then
+            echo "::error title=No descriptor::datasets/$DATASET/$VERSION/source.yaml does not exist on main. Nothing was pushed."
+            exit 1
+          fi
+
+  publish:
+    name: Publish ${{ inputs.dataset }}@${{ inputs.version }}
+    needs: guard
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+      attestations: write
+    env:
+      SOURCE_DESCRIPTOR: datasets/${{ inputs.dataset }}/${{ inputs.version }}/source.yaml
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install the pinned Python packages
+        run: python -m pip install --require-hashes -r requirements.txt
+      - name: Validate the descriptor
+        run: python scripts/validate_sources.py "$(dirname "$SOURCE_DESCRIPTOR")"
+      - name: Install hbench, verifying SHA256SUMS and its build provenance
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          scripts/install-hbench.sh "$HBENCH_VERSION" "$RUNNER_TEMP/hbench"
+          echo "$RUNNER_TEMP/hbench" >> "$GITHUB_PATH"
+      - name: Install oras
+        uses: oras-project/setup-oras@005458ad77f1c8facd38a094e4af2e69e5607ff4 # v2.0.2
+        with:
+          version: 1.3.4
+      - name: Install cosign
+        uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+        with:
+          cosign-release: v3.0.6
+      - name: Log in to GHCR
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: oras login "$REGISTRY" --username "$GITHUB_ACTOR" --password-stdin <<<"$GITHUB_TOKEN"
+      - name: Refuse to overwrite an existing tag
+        run: |
+          if existing="$(oras manifest fetch --descriptor "$REPOSITORY:$VERSION" 2>"$RUNNER_TEMP/tag-check.log")"; then
+            echo "::error title=Tag exists::$REPOSITORY:$VERSION already exists ($(jq -r .digest <<<"$existing")). Tags are never moved: publish a new version."
+            exit 1
+          fi
+          if ! grep -q ': not found$' "$RUNNER_TEMP/tag-check.log"; then
+            cat "$RUNNER_TEMP/tag-check.log" >&2
+            echo "::error title=Tag check failed::Could not tell whether $REPOSITORY:$VERSION exists. Nothing was pushed."
+            exit 1
+          fi
+          echo "$REPOSITORY:$VERSION does not exist yet."
+      - name: Fetch the source at its pinned commit
+        run: |
+          python scripts/fetch_source.py "$SOURCE_DESCRIPTOR" "$RUNNER_TEMP/source"
+          echo "TASKS_DIRECTORY=$RUNNER_TEMP/source/tasks" >> "$GITHUB_ENV"
+      - name: Pack and push with hbench
+        id: push
+        run: |
+          hbench datasets push "$TASKS_DIRECTORY" \
+            --descriptor "$SOURCE_DESCRIPTOR" \
+            --to "oci://$REPOSITORY:$VERSION" 2>&1 | tee "$RUNNER_TEMP/push.log"
+          digest="$(oras resolve "$REPOSITORY:$VERSION")"
+          if ! [[ "$digest" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+            echo "::error title=No digest::$REPOSITORY:$VERSION does not resolve to a sha256 manifest digest."
+            exit 1
+          fi
+          if ! grep -qF "$digest" "$RUNNER_TEMP/push.log"; then
+            echo "::error title=Digest mismatch::$REPOSITORY:$VERSION resolves to $digest, which hbench did not report pushing."
+            exit 1
+          fi
+          echo "digest=$digest" >> "$GITHUB_OUTPUT"
+      - name: Check the pushed manifest against the descriptor
+        env:
+          DIGEST: ${{ steps.push.outputs.digest }}
+        run: |
+          oras manifest fetch "$REPOSITORY@$DIGEST" > "$RUNNER_TEMP/manifest.json"
+          python scripts/check_manifest.py "$RUNNER_TEMP/manifest.json" "$SOURCE_DESCRIPTOR" "$TASKS_DIRECTORY"
+      - name: Sign with cosign
+        env:
+          DIGEST: ${{ steps.push.outputs.digest }}
+        run: cosign sign --yes "$REPOSITORY@$DIGEST"
+      - name: Attest build provenance
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+        with:
+          subject-name: ${{ env.REPOSITORY }}
+          subject-digest: ${{ steps.push.outputs.digest }}
+          push-to-registry: true
+          # A storage record needs artifact-metadata: write, which this job does not take.
+          create-storage-record: false
+      - name: Verify the signature and the attestation
+        env:
+          DIGEST: ${{ steps.push.outputs.digest }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cosign verify "$REPOSITORY@$DIGEST" \
+            --certificate-identity-regexp "$CERTIFICATE_IDENTITY_REGEXP" \
+            --certificate-oidc-issuer "$CERTIFICATE_OIDC_ISSUER" > /dev/null
+          gh attestation verify "oci://$REPOSITORY@$DIGEST" \
+            --repo "$GITHUB_REPOSITORY" \
+            --signer-workflow "$GITHUB_REPOSITORY/.github/workflows/publish.yml" > /dev/null
+      - name: Attach the Croissant metadata
+        env:
+          DIGEST: ${{ steps.push.outputs.digest }}
+        run: |
+          croissant_directory="$RUNNER_TEMP/croissant"
+          mkdir "$croissant_directory"
+          python scripts/croissant.py \
+            --source "$SOURCE_DESCRIPTOR" \
+            --repository "$REPOSITORY" \
+            --digest "$DIGEST" \
+            --run-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            --output "$croissant_directory/croissant.json"
+          cd "$croissant_directory"
+          oras attach --artifact-type application/ld+json "$REPOSITORY@$DIGEST" croissant.json:application/ld+json
+      - name: Write the digest to the job summary
+        if: always() && steps.push.outputs.digest != ''
+        env:
+          DIGEST: ${{ steps.push.outputs.digest }}
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          {
+            echo "## $DATASET@$VERSION"
+            echo
+            echo "- Reference: \`$REPOSITORY:$VERSION\`"
+            echo "- Manifest digest: \`$DIGEST\`"
+            echo "- Packed by node-q/hbench $HBENCH_VERSION from \`$SOURCE_DESCRIPTOR\`"
+            if [[ "$JOB_STATUS" != success ]]; then
+              echo
+              echo "**Not published.** The tag was pushed, but this run did not finish signing, attesting and attaching metadata. Delete this package version before running again."
+            fi
+            echo
+            echo '```sh'
+            echo "cosign verify $REPOSITORY@$DIGEST \\"
+            echo "  --certificate-identity-regexp '$CERTIFICATE_IDENTITY_REGEXP' \\"
+            echo "  --certificate-oidc-issuer $CERTIFICATE_OIDC_ISSUER"
+            echo "gh attestation verify oci://$REPOSITORY@$DIGEST --repo $GITHUB_REPOSITORY"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
