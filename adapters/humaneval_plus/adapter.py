@@ -27,6 +27,7 @@ TASK_ID_PATTERN = re.compile(r"^HumanEval/(?P<number>0|[1-9][0-9]*)$")
 ENTRY_POINT_PATTERN = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 PROBLEM_FIELDS = ("task_id", "prompt", "canonical_solution", "entry_point", "base_input", "plus_input", "atol")
 POLYNOMIAL_ROOT_ENTRY_POINTS = ("find_zero",)
+INSTRUCTION_CODE_PATTERN = re.compile(r"^(?P<fence>`{3,})python\n(?P<code>.*?)^(?P=fence)$", re.MULTILINE | re.DOTALL)
 AGENT_TIMEOUT_SECONDS = 600.0
 VERIFIER_TIMEOUT_SECONDS = 300.0
 BUILD_TIMEOUT_SECONDS = 600.0
@@ -144,23 +145,30 @@ def generate(upstream_files, out_dir, context):
     return sorted(problems)
 
 
+def instruction_code(instruction_text):
+    match = INSTRUCTION_CODE_PATTERN.search(instruction_text)
+    return match["code"].strip("\n") if match else None
+
+
 def task_problems(task_directory):
     task_directory = pathlib.Path(task_directory)
-    instruction_text = (task_directory / "instruction.md").read_text(encoding="utf-8")
-    reference = (task_directory / "tests" / "reference_solution.py").read_text(encoding="utf-8")
-    problem = json.loads((task_directory / "tests" / "problem.json").read_text(encoding="utf-8"))
-    code_start = instruction_text.index("python\n") + len("python\n")
-    prompt = instruction_text[code_start : instruction_text.index("\n```", code_start) + 1]
+    try:
+        instruction_text = (task_directory / "instruction.md").read_text(encoding="utf-8")
+        reference = (task_directory / "tests" / "reference_solution.py").read_text(encoding="utf-8")
+        problem = json.loads((task_directory / "tests" / "problem.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError) as error:
+        return [f"cannot read the task: {error}"]
+    prompt = instruction_code(instruction_text)
     reference_code = reference.partition("\n")[2]
-    prompt = prompt.strip("\n")
-    if prompt not in reference_code:
+    if not prompt or prompt not in reference_code:
         return ["the instruction's code is not the reference solution's prompt"]
     problems = []
     body = reference_code[reference_code.index(prompt) + len(prompt) :].strip()
     if body and body in instruction_text:
         problems.append("the instruction contains the reference solution")
-    if problem["entry_point"] not in instruction_text:
-        problems.append("the instruction does not name the entry point")
+    entry_point = problem.get("entry_point") if isinstance(problem, dict) else None
+    if not isinstance(entry_point, str) or f"`{entry_point}`" not in instruction_text:
+        problems.append("tests/problem.json does not name the instruction's entry point")
     return problems
 
 
