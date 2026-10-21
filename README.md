@@ -121,7 +121,13 @@ node-q/hbench release to pack with. It runs on GitHub-hosted runners and:
 4. packs and pushes with `hbench datasets push`, then checks the pushed manifest;
 5. signs the manifest digest with cosign, attests it with `actions/attest`, and attaches the
    Croissant file;
-6. writes the digest to the job summary.
+6. writes the digest to the job summary;
+7. once an anonymous pull of the new digest works, creates the GitHub release
+   `<dataset>-<version>` (for example `terminal-bench-2.0`): the reference and digest, how to run
+   and verify it, and its `croissant.json`, `source.yaml`, `LICENSE` and `NOTICE` attached.
+
+A new GHCR package starts private. After the first publish of a dataset, make its package public
+in the package's settings, then re-run the release job.
 
 To propose a dataset, see [CONTRIBUTING.md](CONTRIBUTING.md). To report a problem with a published
 dataset, see [SECURITY.md](SECURITY.md).

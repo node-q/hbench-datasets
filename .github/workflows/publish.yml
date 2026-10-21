@@ -90,6 +90,8 @@ jobs:
       packages: write
       id-token: write
       attestations: write
+    outputs:
+      digest: ${{ steps.push.outputs.digest }}
     env:
       SOURCE_DESCRIPTOR: datasets/${{ inputs.dataset }}/${{ inputs.version }}/source.yaml
     steps:
@@ -124,17 +126,27 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: oras login "$REGISTRY" --username "$GITHUB_ACTOR" --password-stdin <<<"$GITHUB_TOKEN"
       - name: Refuse to overwrite an existing tag
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if existing="$(oras manifest fetch --descriptor "$REPOSITORY:$VERSION" 2>"$RUNNER_TEMP/tag-check.log")"; then
             echo "::error title=Tag exists::$REPOSITORY:$VERSION already exists ($(jq -r .digest <<<"$existing")). Tags are never moved: publish a new version."
             exit 1
           fi
-          if ! grep -q ': not found$' "$RUNNER_TEMP/tag-check.log"; then
-            cat "$RUNNER_TEMP/tag-check.log" >&2
-            echo "::error title=Tag check failed::Could not tell whether $REPOSITORY:$VERSION exists. Nothing was pushed."
-            exit 1
+          if grep -q ': not found$' "$RUNNER_TEMP/tag-check.log"; then
+            echo "$REPOSITORY:$VERSION does not exist yet."
+            exit 0
           fi
-          echo "$REPOSITORY:$VERSION does not exist yet."
+          # GHCR answers "denied" rather than "not found" for a package that was never published.
+          if grep -qiE 'denied|unauthorized|forbidden' "$RUNNER_TEMP/tag-check.log" \
+            && ! gh api "orgs/node-q/packages/container/hbench-datasets%2F$DATASET" >/dev/null 2>"$RUNNER_TEMP/package-check.log" \
+            && grep -q 'HTTP 404' "$RUNNER_TEMP/package-check.log"; then
+            echo "$REPOSITORY has no package yet, so $REPOSITORY:$VERSION does not exist."
+            exit 0
+          fi
+          cat "$RUNNER_TEMP/tag-check.log" "$RUNNER_TEMP/package-check.log" >&2 2>/dev/null || true
+          echo "::error title=Tag check failed::Could not tell whether $REPOSITORY:$VERSION exists. Nothing was pushed."
+          exit 1
       - name: Fetch the source at its pinned commit
         run: |
           python scripts/fetch_source.py "$SOURCE_DESCRIPTOR" "$RUNNER_TEMP/source"
@@ -222,3 +234,68 @@ jobs:
             echo "gh attestation verify oci://$REPOSITORY@$DIGEST --repo $GITHUB_REPOSITORY"
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+
+  release:
+    name: Release ${{ inputs.dataset }}@${{ inputs.version }} on GitHub
+    needs: publish
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      SOURCE_DESCRIPTOR: datasets/${{ inputs.dataset }}/${{ inputs.version }}/source.yaml
+      DIGEST: ${{ needs.publish.outputs.digest }}
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install the pinned Python packages
+        run: python -m pip install --require-hashes -r requirements.txt
+      - name: Install oras
+        uses: oras-project/setup-oras@005458ad77f1c8facd38a094e4af2e69e5607ff4 # v2.0.2
+        with:
+          version: 1.3.4
+      - name: Refuse to release a dataset nobody can pull
+        run: |
+          if ! oras manifest fetch "$REPOSITORY@$DIGEST" > /dev/null 2>"$RUNNER_TEMP/anonymous-pull.log"; then
+            cat "$RUNNER_TEMP/anonymous-pull.log" >&2
+            echo "::error title=Package not public::An anonymous pull of $REPOSITORY@$DIGEST failed. A new GHCR package starts private: make it public in its package settings (https://github.com/orgs/node-q/packages/container/hbench-datasets%2F$DATASET/settings), then re-run this job."
+            exit 1
+          fi
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          release_files="$RUNNER_TEMP/release"
+          mkdir "$release_files"
+          common=(--source "$SOURCE_DESCRIPTOR" --repository "$REPOSITORY" --digest "$DIGEST" --hbench-version "$HBENCH_VERSION" --run-url "$RUN_URL")
+          tag="$(python scripts/release_notes.py "${common[@]}" --field tag)"
+          title="$(python scripts/release_notes.py "${common[@]}" --field title)"
+          python scripts/release_notes.py "${common[@]}" --field notes > "$release_files/notes.md"
+          python scripts/croissant.py \
+            --source "$SOURCE_DESCRIPTOR" \
+            --repository "$REPOSITORY" \
+            --digest "$DIGEST" \
+            --run-url "$RUN_URL" \
+            --output "$release_files/croissant.json"
+          dataset_directory="$(dirname "$SOURCE_DESCRIPTOR")"
+          cp "$SOURCE_DESCRIPTOR" "$dataset_directory/LICENSE" "$dataset_directory/NOTICE" "$release_files/"
+          if gh release view "$tag" > /dev/null 2>&1; then
+            echo "::error title=Release exists::The release $tag already exists. Releases, like tags, are never moved."
+            exit 1
+          fi
+          gh release create "$tag" \
+            --target "$GITHUB_SHA" \
+            --title "$title" \
+            --notes-file "$release_files/notes.md" \
+            "$release_files/croissant.json" \
+            "$release_files/source.yaml" \
+            "$release_files/LICENSE" \
+            "$release_files/NOTICE"
+          echo "Released $tag: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/tag/$tag" >> "$GITHUB_STEP_SUMMARY"
