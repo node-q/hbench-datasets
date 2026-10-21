@@ -2,8 +2,8 @@ SWE-bench Verified 1.0
 ======================
 
 This dataset is 456 task directories that node-q generates from SWE-bench Verified, one per instance
-of its 500 that is from a repository under a permissive licence and has a base image. They are
-written by adapters/swebench in
+of its 500 that is from a repository under a permissive licence, has a base image and is valid. They
+are written by adapters/swebench in
 
     https://github.com/node-q/hbench-datasets
 

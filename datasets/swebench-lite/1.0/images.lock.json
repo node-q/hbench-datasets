@@ -659,11 +659,6 @@
     "source_digest": "sha256:7cc26b26033f38923c209a8e51b269667e01b44fa30045f8fcd1b7c076ddbc23",
     "pinned": "ghcr.io/epoch-research/swe-bench.eval.x86_64.psf__requests-3362@sha256:7cc26b26033f38923c209a8e51b269667e01b44fa30045f8fcd1b7c076ddbc23"
   },
-  "psf__requests-863": {
-    "source": "ghcr.io/epoch-research/swe-bench.eval.x86_64.psf__requests-863:latest",
-    "source_digest": "sha256:2df5e549498b1416f276e9532ee6e41ce7e71b08b54f1074e11daefda73ffc14",
-    "pinned": "ghcr.io/epoch-research/swe-bench.eval.x86_64.psf__requests-863@sha256:2df5e549498b1416f276e9532ee6e41ce7e71b08b54f1074e11daefda73ffc14"
-  },
   "pydata__xarray-3364": {
     "source": "ghcr.io/epoch-research/swe-bench.eval.x86_64.pydata__xarray-3364:latest",
     "source_digest": "sha256:137947f87529ccbba3a13db069294c74850a74aa05ad8b0030141d92b2256d5f",

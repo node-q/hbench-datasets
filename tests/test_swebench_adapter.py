@@ -91,6 +91,11 @@ class BaseImageTest(SwebenchAdapterTestCase):
             images["psf__requests-1001"], "ghcr.io/epoch-research/swe-bench.eval.x86_64.psf__requests-1001:latest"
         )
 
+    def test_an_invalid_instance_is_left_out(self):
+        dataset = datasets.Dataset("swebench-lite", "SWE-bench Lite", datasets.epoch_image, datasets.python_language, (("psf__requests-1001", "broken"),))
+        self.assertEqual([row["instance_id"] for row in adapter.kept_rows(self.upstream, dataset)], ["pallets__flask-2002"])
+        self.assertIn("psf__requests-863", dict(datasets.dataset_named("swebench-lite").invalid_instances))
+
     def test_an_unknown_dataset_is_refused(self):
         with self.assertRaises(datasets.DatasetError):
             adapter.base_images(self.upstream, "swebench-full")

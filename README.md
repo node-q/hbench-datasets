@@ -41,7 +41,7 @@ new version is a new tag. Each dataset is also mirrored to a second registry, no
 | `terminal-bench@2.0.1` | 89 | Apache-2.0 | Configured |
 | `humaneval-plus@1.0` | 164 | Apache-2.0 | Generated; waits for its image to be built |
 | `swebench-verified@1.0` | 456 | Apache-2.0, with its repositories' licences | Generated; environments built locally |
-| `swebench-lite@1.0` | 271 | Apache-2.0, with its repositories' licences | Generated; environments built locally |
+| `swebench-lite@1.0` | 270 | Apache-2.0, with its repositories' licences | Generated; environments built locally |
 
 ## Running a dataset
 

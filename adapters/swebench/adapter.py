@@ -74,9 +74,13 @@ def load_rows(upstream_files):
     return [rows[instance_id] for instance_id in sorted(rows)]
 
 
-def kept_rows(upstream_files, licence_table=None):
+def kept_rows(upstream_files, dataset, licence_table=None):
     licence_table = licences.load_licences() if licence_table is None else licence_table
-    return [row for row in load_rows(upstream_files) if licences.is_permissive(licence_table, row["repo"])]
+    return [
+        row
+        for row in load_rows(upstream_files)
+        if licences.is_permissive(licence_table, row["repo"]) and dataset.invalid_reason(row["instance_id"]) is None
+    ]
 
 
 def upstream_repositories(upstream_files, dataset_name):
@@ -86,7 +90,7 @@ def upstream_repositories(upstream_files, dataset_name):
 
 def base_images(upstream_files, dataset_name):
     dataset = dataset_named(dataset_name)
-    return {row["instance_id"]: dataset.base_image(row) for row in kept_rows(upstream_files)}
+    return {row["instance_id"]: dataset.base_image(row) for row in kept_rows(upstream_files, dataset)}
 
 
 def official_eval_script(eval_script):
@@ -142,7 +146,7 @@ def grader_files(row, canary):
 def generate(upstream_files, out_dir, context):
     dataset = dataset_named(context.dataset)
     licence_table = licences.load_licences()
-    rows = kept_rows(upstream_files, licence_table)
+    rows = kept_rows(upstream_files, dataset, licence_table)
     pinned = dict(context.base_images)
     if not pinned:
         raise AdapterError(f"{context.dataset}: images.lock.json pins no base images; run scripts/pin_images.py first")
