@@ -19,15 +19,13 @@ import pathlib
 import re
 import sys
 
+from images_lock import IMAGES_LOCK_FILENAME, MIRROR_NAMESPACE
 from source_descriptor import REPOSITORY_ROOT, load_descriptor
 
-ENVIRONMENT_REPOSITORY = "ghcr.io/node-q/hbench-envs"
+ENVIRONMENT_REPOSITORY = MIRROR_NAMESPACE
 IMAGES_DIRECTORY = REPOSITORY_ROOT / "images"
 BASES_PATH = IMAGES_DIRECTORY / "bases.yaml"
 IMAGES_PATH = IMAGES_DIRECTORY / "images.yaml"
-IMAGES_LOCK_FILENAME = "images.lock.json"
-BUILD_WORKFLOW_NAME = "Build images"
-LOCK_ENTRY_KEYS = ("source", "source_digest", "pinned")
 SUPPORTED_PLATFORMS = ("linux/amd64", "linux/arm64")
 MAXIMUM_TAG_LENGTH = 128
 DIGEST_PATTERN = re.compile(r"^sha256:[0-9a-f]{64}$")
@@ -196,59 +194,6 @@ def images_lock_entry(tag, digest):
     return {"source": tag_reference(tag), "source_digest": digest, "pinned": digest_reference(digest)}
 
 
-def refuse_duplicate_keys(pairs):
-    seen = {}
-    for key, value in pairs:
-        if key in seen:
-            raise EnvironmentImageError(f"names {key!r} twice")
-        seen[key] = value
-    return seen
-
-
-def load_images_lock(path):
-    try:
-        lock = json.loads(pathlib.Path(path).read_text(encoding="utf-8"), object_pairs_hook=refuse_duplicate_keys)
-    except json.JSONDecodeError as error:
-        raise EnvironmentImageError(f"{IMAGES_LOCK_FILENAME} is not valid JSON: {error}") from None
-    except EnvironmentImageError as error:
-        raise EnvironmentImageError(f"{IMAGES_LOCK_FILENAME} {error}") from None
-    if not isinstance(lock, dict):
-        raise EnvironmentImageError(f"{IMAGES_LOCK_FILENAME} is not a JSON object of task name to image")
-    return lock
-
-
-def dump_images_lock(lock):
-    ordered = {task: {key: lock[task][key] for key in LOCK_ENTRY_KEYS} for task in sorted(lock)}
-    return json.dumps(ordered, indent=2) + "\n"
-
-
-def images_lock_problems(lock, tag, task_names):
-    problems = []
-    missing = sorted(set(task_names) - set(lock))
-    unexpected = sorted(set(lock) - set(task_names))
-    if missing or unexpected:
-        problems.append(f"does not lock exactly the generated tasks: missing {missing}, unexpected {unexpected}")
-    if list(lock) != sorted(lock):
-        problems.append(f"lists its tasks out of order; the {BUILD_WORKFLOW_NAME} workflow sorts them")
-    digests = set()
-    for task, entry in lock.items():
-        if not isinstance(entry, dict) or sorted(entry) != sorted(LOCK_ENTRY_KEYS):
-            problems.append(f"{task}: is not exactly {', '.join(LOCK_ENTRY_KEYS)}")
-            continue
-        digest = str(entry["source_digest"])
-        try:
-            expected = images_lock_entry(tag, digest)
-        except EnvironmentImageError as error:
-            problems.append(f"{task}: {error}")
-            continue
-        if entry != expected:
-            problems.append(f"{task}: is {entry}, expected {expected}")
-        digests.add(digest)
-    if len(digests) > 1:
-        problems.append(f"pins {len(digests)} digests of {tag_reference(tag)}, which has one")
-    return problems
-
-
 def pinned_image(lock):
     pinned = {entry["pinned"] for entry in lock.values()}
     if len(pinned) > 1:
@@ -256,12 +201,18 @@ def pinned_image(lock):
     return next(iter(pinned), None)
 
 
-def unfilled_images_lock_message(tag):
-    return (
-        f"{IMAGES_LOCK_FILENAME} is not filled yet, so this version cannot be published: run the "
-        f"{BUILD_WORKFLOW_NAME} workflow for {tag} and commit the {IMAGES_LOCK_FILENAME} and "
-        "generated.lock.json it writes"
-    )
+def built_lock_problems(lock, tag, task_names):
+    problems = []
+    missing = sorted(set(task_names) - set(lock))
+    unexpected = sorted(set(lock) - set(task_names))
+    if missing or unexpected:
+        problems.append(f"does not lock exactly the generated tasks: missing {missing}, unexpected {unexpected}")
+    sources = sorted({entry.get("source") for entry in lock.values() if isinstance(entry, dict)})
+    if sources and sources != [tag_reference(tag)]:
+        problems.append(f"locks {sources}, but the descriptor's image is {tag_reference(tag)}")
+    if len({entry.get("source_digest") for entry in lock.values() if isinstance(entry, dict)}) > 1:
+        problems.append(f"pins several digests of {tag_reference(tag)}, which has one")
+    return problems
 
 
 def main(arguments):

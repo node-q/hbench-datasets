@@ -107,21 +107,6 @@ jobs:
         run: python -m pip install --require-hashes -r requirements.txt
       - name: Validate the descriptor, refusing an images.lock.json that is not filled yet
         run: python scripts/validate_sources.py --for-publish "$(dirname "$SOURCE_DESCRIPTOR")"
-      - name: Refuse to publish while a built environment image cannot be pulled anonymously
-        run: |
-          policy="$(python -c 'import sys, yaml; print(yaml.safe_load(open(sys.argv[1]))["environment"]["policy"])' "$SOURCE_DESCRIPTOR")"
-          if [[ "$policy" != built ]]; then
-            echo "The environment policy is $policy: no built image to check."
-            exit 0
-          fi
-          images_lock="$(dirname "$SOURCE_DESCRIPTOR")/images.lock.json"
-          pinned="$(jq -r '[.[].pinned] | unique | .[]' "$images_lock")"
-          if ! docker buildx imagetools inspect "$pinned" > /dev/null 2>"$RUNNER_TEMP/built-image-pull.log"; then
-            cat "$RUNNER_TEMP/built-image-pull.log" >&2
-            echo "::error title=Built image not public::$pinned cannot be pulled anonymously. A new GHCR package starts private: make ghcr.io/node-q/hbench-envs public in its package settings (https://github.com/orgs/node-q/packages/container/hbench-envs/settings). Nothing was pushed."
-            exit 1
-          fi
-          echo "$pinned can be pulled anonymously."
       - name: Install hbench, verifying SHA256SUMS and its build provenance
         env:
           GH_TOKEN: ${{ github.token }}
@@ -136,6 +121,32 @@ jobs:
         uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
         with:
           cosign-release: v3.0.6
+      # Before logging in, so that every mirrored or built image is fetched anonymously, as hbench users fetch it.
+      - name: Refuse to publish while a mirrored or built environment image cannot be pulled anonymously
+        run: |
+          images_lock="$(dirname "$SOURCE_DESCRIPTOR")/images.lock.json"
+          policy="$(python -c 'import sys, yaml; print(yaml.safe_load(open(sys.argv[1]))["environment"]["policy"])' "$SOURCE_DESCRIPTOR")"
+          case "$policy" in
+            pinned-mirror) package="hbench-envs/$DATASET" ;;
+            built) package="hbench-envs" ;;
+            *)
+              echo "The environment policy is $policy: no mirrored or built images to check."
+              exit 0
+              ;;
+          esac
+          unpullable=0
+          while read -r pinned; do
+            if ! oras manifest fetch --descriptor "$pinned" > /dev/null 2>>"$RUNNER_TEMP/mirror-pull.log"; then
+              echo "Cannot pull $pinned anonymously."
+              unpullable=$((unpullable + 1))
+            fi
+          done < <(jq -r '[.[].pinned] | unique | .[]' "$images_lock")
+          if (( unpullable > 0 )); then
+            cat "$RUNNER_TEMP/mirror-pull.log" >&2
+            echo "::error title=Environment images not public::$unpullable images in $images_lock cannot be pulled anonymously. A new GHCR package starts private: make ghcr.io/node-q/$package public in its package settings (https://github.com/orgs/node-q/packages/container/${package//\//%2F}/settings). Nothing was pushed."
+            exit 1
+          fi
+          echo "Every image in $images_lock can be pulled anonymously."
       - name: Log in to GHCR
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -162,7 +173,7 @@ jobs:
           cat "$RUNNER_TEMP/tag-check.log" "$RUNNER_TEMP/package-check.log" >&2 2>/dev/null || true
           echo "::error title=Tag check failed::Could not tell whether $REPOSITORY:$VERSION exists. Nothing was pushed."
           exit 1
-      - name: Fetch the source at its pinned commit
+      - name: Fetch the source at its pinned commit, pinning each task's image from images.lock.json
         run: |
           python scripts/fetch_source.py "$SOURCE_DESCRIPTOR" "$RUNNER_TEMP/source"
           echo "TASKS_DIRECTORY=$RUNNER_TEMP/source/tasks" >> "$GITHUB_ENV"
@@ -302,6 +313,13 @@ jobs:
             --output "$release_files/croissant.json"
           dataset_directory="$(dirname "$SOURCE_DESCRIPTOR")"
           cp "$SOURCE_DESCRIPTOR" "$dataset_directory/LICENSE" "$dataset_directory/NOTICE" "$release_files/"
+          release_assets=("$release_files/croissant.json" "$release_files/source.yaml" "$release_files/LICENSE" "$release_files/NOTICE")
+          for lock_file in images.lock.json generated.lock.json; do
+            if [[ -f "$dataset_directory/$lock_file" ]]; then
+              cp "$dataset_directory/$lock_file" "$release_files/"
+              release_assets+=("$release_files/$lock_file")
+            fi
+          done
           if gh release view "$tag" > /dev/null 2>&1; then
             echo "::error title=Release exists::The release $tag already exists. Releases, like tags, are never moved."
             exit 1
@@ -310,8 +328,5 @@ jobs:
             --target "$GITHUB_SHA" \
             --title "$title" \
             --notes-file "$release_files/notes.md" \
-            "$release_files/croissant.json" \
-            "$release_files/source.yaml" \
-            "$release_files/LICENSE" \
-            "$release_files/NOTICE"
+            "${release_assets[@]}"
           echo "Released $tag: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/tag/$tag" >> "$GITHUB_STEP_SUMMARY"

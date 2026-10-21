@@ -16,7 +16,11 @@
    [`schema/source.v1.json`](schema/source.v1.json). See
    [`datasets/terminal-bench/2.0/source.yaml`](datasets/terminal-bench/2.0/source.yaml). Pin the
    source by full commit SHA, give the exact task count, and say how the environment images are
-   referenced. Do not commit any task files: CI fetches them.
+   referenced: `as-declared`, `pinned-mirror` (copied to `ghcr.io/node-q/hbench-envs/<name>` by the
+   Mirror images workflow) or `pinned-upstream` (pinned by digest by the Pin images workflow). A
+   version that pins its images also commits `images.lock.json`, `{}` until that workflow has run;
+   see [`datasets/terminal-bench/2.0.1`](datasets/terminal-bench/2.0.1). Do not commit any task
+   files: CI fetches them.
 3. **Add `LICENSE` and `NOTICE`** next to it. `LICENSE` is the upstream licence text, verbatim.
    `NOTICE` names the authors, gives their citation, and says what, if anything, was changed.
 4. **Run the checks:**

@@ -10,6 +10,7 @@ import croissant
 from source_descriptor import DATASETS_DIR, load_descriptor
 
 TERMINAL_BENCH_SOURCE = DATASETS_DIR / "terminal-bench" / "2.0" / "source.yaml"
+PINNED_MIRROR_SOURCE = DATASETS_DIR / "terminal-bench" / "2.0.1" / "source.yaml"
 REPOSITORY = "ghcr.io/node-q/hbench-datasets/terminal-bench"
 DIGEST_HEX = "0123456789abcdef" * 4
 DIGEST = f"sha256:{DIGEST_HEX}"
@@ -129,6 +130,30 @@ class TerminalBenchCroissantTest(unittest.TestCase):
             "Every task's prebuilt environment image is pinned by digest.", document["rai:dataLimitations"]
         )
         self.assertFalse(any("by tag" in limitation for limitation in document["rai:dataLimitations"]))
+
+    def test_mirrored_images_are_stated_as_pinned_to_the_mirror(self):
+        document = terminal_bench_croissant(descriptor=load_descriptor(PINNED_MIRROR_SOURCE))
+        self.assertEqual(document["version"], "2.0.1")
+        self.assertIn(
+            "Every task's prebuilt environment image is pinned by digest to ghcr.io/node-q/hbench-envs/terminal-bench, "
+            "an unmodified mirror of the images upstream declares (alexgshaw/{task}:20251031).",
+            document["rai:dataLimitations"],
+        )
+        self.assertFalse(any("by tag" in limitation for limitation in document["rai:dataLimitations"]))
+        self.assertEqual(
+            document["url"],
+            "https://github.com/node-q/hbench-datasets/tree/main/datasets/terminal-bench/2.0.1",
+        )
+
+    def test_upstream_images_are_stated_as_pinned_upstream(self):
+        descriptor = load_descriptor(PINNED_MIRROR_SOURCE)
+        descriptor["environment"]["policy"] = "pinned-upstream"
+        document = terminal_bench_croissant(descriptor=descriptor)
+        self.assertIn(
+            "Every task's prebuilt environment image is the one upstream declares (alexgshaw/{task}:20251031), "
+            "pinned by its digest.",
+            document["rai:dataLimitations"],
+        )
 
 
 class CroissantInputTest(unittest.TestCase):

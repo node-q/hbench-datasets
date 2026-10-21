@@ -2,10 +2,12 @@ import argparse
 import pathlib
 import sys
 
-from environment_images import IMAGES_LOCK_FILENAME, load_images_lock, pinned_image, tag_reference
+from environment_images import pinned_image, tag_reference
+from images_lock import IMAGES_LOCK_FILENAME, load_images_lock, mirror_repository
 from source_descriptor import load_descriptor
 
 CERTIFICATE_IDENTITY_REGEXP = "^https://github.com/node-q/hbench-datasets/.github/workflows/publish.yml@"
+MIRROR_CERTIFICATE_IDENTITY_REGEXP = "^https://github.com/node-q/hbench-datasets/.github/workflows/mirror-images.yml@"
 CERTIFICATE_OIDC_ISSUER = "https://token.actions.githubusercontent.com"
 BUILD_IMAGES_CERTIFICATE_IDENTITY_REGEXP = (
     "^https://github.com/node-q/hbench-datasets/.github/workflows/build-images.yml@"
@@ -49,6 +51,40 @@ def built_environment_lines(environment, images_lock):
     return lines
 
 
+def declared_images_text(environment):
+    if environment.get("declared_image"):
+        return f"`{environment['declared_image']}`"
+    return "the images upstream declares"
+
+
+def mirrored_environment_lines(descriptor):
+    mirror = mirror_repository(descriptor["name"])
+    return [
+        "",
+        "## Environments",
+        "",
+        f"Each task's `docker_image` is pinned by digest to `{mirror}`, an unmodified mirror of "
+        f"{declared_images_text(descriptor['environment'])}. `{IMAGES_LOCK_FILENAME}` (attached) lists every "
+        "image, its source and its digest. Each mirrored digest is signed by this repository's mirror workflow:",
+        "",
+        "```sh",
+        f"cosign verify {mirror}@sha256:<digest> \\",
+        f"  --certificate-identity-regexp '{MIRROR_CERTIFICATE_IDENTITY_REGEXP}' \\",
+        f"  --certificate-oidc-issuer {CERTIFICATE_OIDC_ISSUER}",
+        "```",
+    ]
+
+
+def upstream_environment_lines(descriptor):
+    return [
+        "",
+        "## Environments",
+        "",
+        f"Each task's `docker_image` is {declared_images_text(descriptor['environment'])}, pinned by its digest. "
+        f"`{IMAGES_LOCK_FILENAME}` (attached) lists every image and its digest. The images are not mirrored.",
+    ]
+
+
 def release_notes(descriptor, repository, digest, hbench_version, run_url, images_lock=None):
     name = descriptor["name"]
     version = descriptor["version"]
@@ -88,7 +124,11 @@ def release_notes(descriptor, repository, digest, hbench_version, run_url, image
         "`croissant.json` is the dataset's Croissant 1.1 metadata, also attached to the manifest as a referrer.",
     ]
     environment = descriptor.get("environment", {})
-    if environment.get("policy") == "built":
+    if environment.get("policy") == "pinned-mirror":
+        lines += mirrored_environment_lines(descriptor)
+    elif environment.get("policy") == "pinned-upstream":
+        lines += upstream_environment_lines(descriptor)
+    elif environment.get("policy") == "built":
         lines += built_environment_lines(environment, images_lock)
     elif environment.get("planned"):
         lines += ["", "## Environments", "", " ".join(environment["planned"].split())]

@@ -13,6 +13,7 @@ import re
 import sys
 
 from environment_images import tag_reference
+from images_lock import mirror_repository
 from source_descriptor import PUBLISHED_REPOSITORY_URL, load_descriptor
 
 CROISSANT_SPECIFICATION = "http://mlcommons.org/croissant/1.1"
@@ -108,13 +109,29 @@ def canary_use_case(canary):
     )
 
 
-def environment_limitations(environment):
+def declared_image_clause(environment):
+    return f" ({environment['declared_image']})" if environment.get("declared_image") else ""
+
+
+def environment_limitations(descriptor):
+    environment = descriptor["environment"]
     if environment["policy"] == "pinned-by-digest":
         return ["Every task's prebuilt environment image is pinned by digest."]
     if environment["policy"] == "built":
         return [
             f"Every task's environment image is {tag_reference(environment['image'])}, built by node-q from "
             f"images/images.yaml in {PUBLISHED_REPOSITORY_URL} and pinned by digest."
+        ]
+    if environment["policy"] == "pinned-mirror":
+        return [
+            "Every task's prebuilt environment image is pinned by digest to "
+            f"{mirror_repository(descriptor['name'])}, an unmodified mirror of the images upstream declares"
+            f"{declared_image_clause(environment)}."
+        ]
+    if environment["policy"] == "pinned-upstream":
+        return [
+            "Every task's prebuilt environment image is the one upstream declares"
+            f"{declared_image_clause(environment)}, pinned by its digest."
         ]
     limitations = []
     declared_image = environment.get("declared_image")
@@ -140,7 +157,7 @@ def rai_properties(descriptor):
             *properties.get("rai:dataUseCases", []),
             canary_use_case(descriptor["canary"]),
         ]
-    limitations = environment_limitations(descriptor["environment"])
+    limitations = environment_limitations(descriptor)
     if limitations:
         properties["rai:dataLimitations"] = [*properties.get("rai:dataLimitations", []), *limitations]
     properties["rai:dataReleaseMaintenancePlan"] = release_maintenance_plan()

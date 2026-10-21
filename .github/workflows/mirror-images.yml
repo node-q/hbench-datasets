@@ -1,0 +1,224 @@
+name: Mirror images
+
+on:
+  workflow_dispatch:
+    inputs:
+      dataset:
+        description: Dataset whose environment images to mirror, as in datasets/<dataset>/<version>
+        required: true
+        type: string
+      version:
+        description: Version whose tasks declare the images to mirror, such as 2.0
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mirror-images-${{ inputs.dataset }}
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  DATASET: ${{ inputs.dataset }}
+  VERSION: ${{ inputs.version }}
+  REGISTRY: ghcr.io
+  MIRROR_REPOSITORY: ghcr.io/node-q/hbench-envs/${{ inputs.dataset }}
+  IMAGES_PER_SHARD: 10
+  CERTIFICATE_IDENTITY_REGEXP: ^https://github.com/node-q/hbench-datasets/.github/workflows/mirror-images.yml@
+  CERTIFICATE_OIDC_ISSUER: https://token.actions.githubusercontent.com
+  CRANE_VERSION: v0.22.1
+  # The SHA-256 of go-containerregistry_Linux_x86_64.tar.gz in google/go-containerregistry's v0.22.1 checksums.txt.
+  CRANE_ARCHIVE_SHA256: 0ab7a1d6932a213aed964ce97666c3077fe691c8606413674a8b3e0b9ec4cda0
+
+jobs:
+  plan:
+    name: Plan the copy of ${{ inputs.dataset }}@${{ inputs.version }}'s images
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    outputs:
+      shards: ${{ steps.plan.outputs.shards }}
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Refuse anything but a committed descriptor on main
+        run: |
+          if [[ "$GITHUB_REF" != refs/heads/main ]]; then
+            echo "::error title=Not main::Images are mirrored from main only, so that every mirrored digest is signed by reviewed code. Nothing was copied."
+            exit 1
+          fi
+          if ! [[ "$DATASET" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ && "$VERSION" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))?$ ]]; then
+            echo "::error title=Bad inputs::The dataset or version input is malformed. Nothing was copied."
+            exit 1
+          fi
+          if [[ ! -f "datasets/$DATASET/$VERSION/source.yaml" ]]; then
+            echo "::error title=No descriptor::datasets/$DATASET/$VERSION/source.yaml does not exist on main. Nothing was copied."
+            exit 1
+          fi
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install the pinned Python packages
+        run: python -m pip install --require-hashes -r requirements.txt
+      - name: Read each task's image at the pinned commit and split them into shards
+        id: plan
+        run: |
+          python scripts/mirror_plan.py "datasets/$DATASET/$VERSION/source.yaml" "$RUNNER_TEMP/source" \
+            --images-per-shard "$IMAGES_PER_SHARD" \
+            --output "$RUNNER_TEMP/mirror-plan.json"
+          echo "shards=$(jq -c '[.shards[].shard]' "$RUNNER_TEMP/mirror-plan.json")" >> "$GITHUB_OUTPUT"
+      - name: Upload the plan
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: mirror-plan
+          path: ${{ runner.temp }}/mirror-plan.json
+          if-no-files-found: error
+          overwrite: true
+
+  copy:
+    name: Copy, verify and sign shard ${{ matrix.shard }}
+    needs: plan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    strategy:
+      fail-fast: false
+      # Docker Hub counts every manifest GET against a pulling IP's anonymous limit.
+      max-parallel: 3
+      matrix:
+        shard: ${{ fromJSON(needs.plan.outputs.shards) }}
+    env:
+      SHARD: ${{ matrix.shard }}
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Download the plan
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: mirror-plan
+          path: ${{ runner.temp }}/plan
+      - name: Install crane, checking its archive's SHA-256
+        run: |
+          archive=go-containerregistry_Linux_x86_64.tar.gz
+          curl --fail --silent --show-error --location --retry 3 --output "$RUNNER_TEMP/$archive" \
+            "https://github.com/google/go-containerregistry/releases/download/$CRANE_VERSION/$archive"
+          sha256sum --check --strict <<<"$CRANE_ARCHIVE_SHA256  $RUNNER_TEMP/$archive"
+          mkdir "$RUNNER_TEMP/crane"
+          tar -xzf "$RUNNER_TEMP/$archive" -C "$RUNNER_TEMP/crane" crane
+          echo "$RUNNER_TEMP/crane" >> "$GITHUB_PATH"
+          "$RUNNER_TEMP/crane/crane" version
+      - name: Install cosign
+        uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+        with:
+          cosign-release: v3.0.6
+      - name: Log in to GHCR
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: crane auth login "$REGISTRY" --username "$GITHUB_ACTOR" --password-stdin <<<"$GITHUB_TOKEN"
+      - name: Log in to Docker Hub if this repository has Docker Hub secrets
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+        run: |
+          if [[ -z "$DOCKERHUB_USERNAME" && -z "$DOCKERHUB_TOKEN" ]]; then
+            echo "No DOCKERHUB_USERNAME or DOCKERHUB_TOKEN secret: pulling from Docker Hub anonymously."
+            exit 0
+          fi
+          if [[ -z "$DOCKERHUB_USERNAME" || -z "$DOCKERHUB_TOKEN" ]]; then
+            echo "::error title=Half the Docker Hub secrets::Set both DOCKERHUB_USERNAME and DOCKERHUB_TOKEN, or neither. Nothing was copied."
+            exit 1
+          fi
+          crane auth login index.docker.io --username "$DOCKERHUB_USERNAME" --password-stdin <<<"$DOCKERHUB_TOKEN" > /dev/null
+          echo "Logged in to Docker Hub."
+      - name: Copy, verify and sign the shard's images
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/mirror_copy.py \
+            --plan "$RUNNER_TEMP/plan/mirror-plan.json" \
+            --shard "$SHARD" \
+            --certificate-identity-regexp "$CERTIFICATE_IDENTITY_REGEXP" \
+            --certificate-oidc-issuer "$CERTIFICATE_OIDC_ISSUER" \
+            --summary "$GITHUB_STEP_SUMMARY" \
+            --output "$RUNNER_TEMP/shard-locks/images-lock-shard-$SHARD.json"
+      - name: Upload the shard's lock
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: images-lock-shard-${{ matrix.shard }}
+          path: ${{ runner.temp }}/shard-locks/images-lock-shard-${{ matrix.shard }}.json
+          if-no-files-found: error
+          overwrite: true
+
+  lock:
+    name: Merge the shards into images.lock.json
+    needs: copy
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Download the plan
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: mirror-plan
+          path: ${{ runner.temp }}/plan
+      - name: Download the shards' locks
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: images-lock-shard-*
+          merge-multiple: true
+          path: ${{ runner.temp }}/shard-locks
+      - name: Merge the shards' locks, checked against the plan
+        run: |
+          mkdir "$RUNNER_TEMP/lock"
+          python scripts/mirror_merge.py \
+            --plan "$RUNNER_TEMP/plan/mirror-plan.json" \
+            --output "$RUNNER_TEMP/lock/images.lock.json" \
+            "$RUNNER_TEMP"/shard-locks/images-lock-shard-*.json
+      - name: Upload images.lock.json
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          path: ${{ runner.temp }}/lock/images.lock.json
+          archive: false
+          if-no-files-found: error
+          overwrite: true
+      - name: Write the lock to the job summary
+        run: |
+          {
+            echo "## Mirrored images of $DATASET@$VERSION"
+            echo
+            echo "- Repository: \`$MIRROR_REPOSITORY\`"
+            echo "- Images: $(jq length "$RUNNER_TEMP/lock/images.lock.json"), each copied with its digest unchanged and signed by this workflow"
+            echo
+            echo "Commit this as \`images.lock.json\` in the $DATASET version whose environment policy is \`pinned-mirror\`. A new GHCR package starts private: make \`$MIRROR_REPOSITORY\` public in its package settings (https://github.com/orgs/node-q/packages/container/hbench-envs%2F$DATASET/settings) before publishing that version."
+            echo
+            echo '```json'
+            cat "$RUNNER_TEMP/lock/images.lock.json"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -32,17 +32,27 @@ import urllib.request
 import yaml
 
 from environment_images import (
-    IMAGES_LOCK_FILENAME,
     EnvironmentImageError,
     built_image,
-    dump_images_lock,
+    built_lock_problems,
     images_lock_entry,
-    images_lock_problems,
-    load_images_lock,
     pinned_image,
-    unfilled_images_lock_message,
 )
-from generated_checks import GENERATED_LOCK_FILENAME, GeneratedLockError, is_generated, load_generated_lock
+from generated_checks import (
+    GENERATED_LOCK_FILENAME,
+    GeneratedLockError,
+    dump_generated_lock,
+    is_generated,
+    load_generated_lock,
+)
+from images_lock import (
+    IMAGES_LOCK_FILENAME,
+    LockError,
+    dump_images_lock,
+    load_images_lock,
+    lock_problems,
+    unfilled_lock_message,
+)
 from source_descriptor import (
     DESCRIPTOR_FILENAME,
     PUBLISHED_REPOSITORY_URL,
@@ -58,6 +68,7 @@ from adapters.common.generation import GenerationContext
 from adapters.common.package_digest import file_sha256, package_digest
 from adapters.common.writing import write_task_file
 
+BUILT_POLICY = "built"
 ADAPTER_MODULE_NAME = "adapter"
 DOWNLOAD_TIMEOUT_SECONDS = 120
 REPORTED_DIFFERENCES = 10
@@ -169,10 +180,6 @@ def package_digests(tasks_directory, task_names):
     return {name: package_digest(tasks_directory / name) for name in sorted(task_names)}
 
 
-def dump_generated_lock(digests):
-    return json.dumps({name: digests[name] for name in sorted(digests)}, indent=2) + "\n"
-
-
 def lock_differences(locked, generated):
     differences = []
     for name in sorted(set(locked) | set(generated)):
@@ -237,10 +244,10 @@ def prepare_for_packing(descriptor_path, destination, allow_unfilled_lock=False,
     tag = descriptor["environment"]["image"]
     try:
         images_lock = load_images_lock(version_directory / IMAGES_LOCK_FILENAME)
-    except (OSError, EnvironmentImageError) as error:
+    except (OSError, LockError) as error:
         raise GeneratedSourceError(str(error)) from None
     if not images_lock and not allow_unfilled_lock:
-        raise GeneratedSourceError(unfilled_images_lock_message(tag))
+        raise GeneratedSourceError(unfilled_lock_message(BUILT_POLICY))
     destination.mkdir(parents=True)
     tasks_directory, task_names = generate_tasks(descriptor, destination, images_lock, upstream_cache)
     digests = package_digests(tasks_directory, task_names)
@@ -258,7 +265,8 @@ def prepare_for_packing(descriptor_path, destination, allow_unfilled_lock=False,
                 + (f"\n  and {more} more" if more > 0 else "")
             )
     if images_lock:
-        problems = images_lock_problems(images_lock, tag, task_names)
+        problems = lock_problems(images_lock, descriptor["name"], BUILT_POLICY, len(task_names))
+        problems += built_lock_problems(images_lock, tag, task_names)
         if problems:
             raise GeneratedSourceError(f"{IMAGES_LOCK_FILENAME}: " + "; ".join(problems))
         packed_path = destination / DESCRIPTOR_FILENAME

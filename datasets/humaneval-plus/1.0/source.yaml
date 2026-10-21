@@ -55,6 +55,7 @@ source:
 environment:
   policy: built
   image: humaneval-plus-1.0
+  images_lock: images.lock.json
 
 attribution:
   - >-

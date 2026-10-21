@@ -6,6 +6,7 @@ import release_notes
 from source_descriptor import DATASETS_DIR, load_descriptor
 
 TERMINAL_BENCH_SOURCE = DATASETS_DIR / "terminal-bench" / "2.0" / "source.yaml"
+PINNED_MIRROR_SOURCE = DATASETS_DIR / "terminal-bench" / "2.0.1" / "source.yaml"
 REPOSITORY = "ghcr.io/node-q/hbench-datasets/terminal-bench"
 DIGEST = "sha256:" + "0123456789abcdef" * 4
 HBENCH_VERSION = "v0.3.0"
@@ -43,6 +44,29 @@ class ReleaseNotesTest(unittest.TestCase):
         self.assertIn("```bibtex", notes)
         self.assertIn("@misc{tbench_2025", notes)
         self.assertIn("## Attribution", notes)
+
+    def test_mirrored_version_notes_show_how_to_verify_a_mirrored_image(self):
+        descriptor = load_descriptor(PINNED_MIRROR_SOURCE)
+        notes = release_notes.release_notes(descriptor, REPOSITORY, DIGEST, HBENCH_VERSION, RUN_URL)
+        self.assertEqual(release_notes.release_tag(descriptor), "terminal-bench-2.0.1")
+        self.assertIn(f"`{REPOSITORY}:2.0.1`", notes)
+        self.assertIn("pinned by digest to `ghcr.io/node-q/hbench-envs/terminal-bench`", notes)
+        self.assertIn("`images.lock.json` (attached)", notes)
+        self.assertIn("cosign verify ghcr.io/node-q/hbench-envs/terminal-bench@sha256:<digest>", notes)
+        self.assertIn(f"--certificate-identity-regexp '{release_notes.MIRROR_CERTIFICATE_IDENTITY_REGEXP}'", notes)
+        self.assertEqual(
+            release_notes.MIRROR_CERTIFICATE_IDENTITY_REGEXP,
+            "^https://github.com/node-q/hbench-datasets/.github/workflows/mirror-images.yml@",
+        )
+        self.assertIn("the only difference from terminal-bench@2.0", notes)
+
+    def test_upstream_pinned_notes_say_the_images_are_not_mirrored(self):
+        descriptor = load_descriptor(PINNED_MIRROR_SOURCE)
+        descriptor["environment"]["policy"] = "pinned-upstream"
+        notes = release_notes.release_notes(descriptor, REPOSITORY, DIGEST, HBENCH_VERSION, RUN_URL)
+        self.assertIn("Each task's `docker_image` is `alexgshaw/{task}:20251031`, pinned by its digest.", notes)
+        self.assertIn("The images are not mirrored.", notes)
+        self.assertNotIn("mirror-images.yml", notes)
 
     def test_command_line_prints_the_requested_field(self):
         output = io.StringIO()

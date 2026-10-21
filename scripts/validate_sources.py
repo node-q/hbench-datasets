@@ -3,9 +3,10 @@
 Usage: validate_sources.py [--for-publish] [datasets/<name>/<version> ...]
 
 With no arguments, checks every dataset version under datasets/ and the layout of datasets/ itself.
-A generated version also needs its adapter, its generated.lock.json and, for the built environment
-policy, its images.lock.json. One whose images.lock.json is not filled yet passes with a warning,
-unless --for-publish is given.
+A pinned-mirror, pinned-upstream or built version whose images.lock.json is not filled yet passes
+with a warning, unless --for-publish is given. A generated version also needs its adapter's files, a
+generated.lock.json of the declared number of tasks, and an images.lock.json that, once filled, pins
+exactly those tasks to its one built image.
 """
 
 import argparse
@@ -18,7 +19,15 @@ import jsonschema
 import yaml
 from license_expression import get_spdx_licensing
 
-from generated_checks import GENERATED_VERSION_ENTRIES, generated_problems, generated_warnings
+from generated_checks import GENERATED_LOCK_FILENAME, generated_problems
+from images_lock import (
+    IMAGES_LOCK_FILENAME,
+    LOCKED_POLICIES,
+    LockError,
+    load_images_lock,
+    lock_problems,
+    unfilled_lock_message,
+)
 from source_descriptor import (
     DATASETS_DIR,
     DESCRIPTOR_FILENAME,
@@ -28,7 +37,12 @@ from source_descriptor import (
 )
 
 REQUIRED_LICENCE_FILES = ("LICENSE", "NOTICE")
-ALLOWED_VERSION_DIRECTORY_ENTRIES = {DESCRIPTOR_FILENAME, *REQUIRED_LICENCE_FILES, *GENERATED_VERSION_ENTRIES}
+ALLOWED_VERSION_DIRECTORY_ENTRIES = {
+    DESCRIPTOR_FILENAME,
+    IMAGES_LOCK_FILENAME,
+    GENERATED_LOCK_FILENAME,
+    *REQUIRED_LICENCE_FILES,
+}
 
 
 def schema_validator():
@@ -104,6 +118,50 @@ def environment_problems(descriptor):
     return []
 
 
+def images_lock_problems(descriptor, version_directory, for_publish):
+    lock_path = version_directory / IMAGES_LOCK_FILENAME
+    policy = locked_policy(descriptor)
+    if policy is None:
+        if lock_path.exists():
+            return [
+                f"{IMAGES_LOCK_FILENAME} belongs only to a version whose environment policy is "
+                f"{' or '.join(LOCKED_POLICIES)}"
+            ]
+        return []
+    if not lock_path.is_file():
+        return [f"{IMAGES_LOCK_FILENAME} is missing: a {policy} version keeps its image lock next to it"]
+    try:
+        lock = load_images_lock(lock_path)
+    except LockError as error:
+        return [str(error)]
+    if not lock:
+        return [unfilled_lock_message(policy)] if for_publish else []
+    name = descriptor.get("name")
+    declared_image = descriptor["environment"].get("declared_image")
+    source = descriptor.get("source")
+    task_count = source.get("task_count") if isinstance(source, dict) else None
+    if not (isinstance(name, str) and isinstance(task_count, int)):
+        return []
+    if not isinstance(declared_image, str):
+        declared_image = None
+    problems = lock_problems(lock, name, policy, task_count, declared_image)
+    return [f"{IMAGES_LOCK_FILENAME}: {problem}" for problem in problems]
+
+
+def locked_policy(descriptor):
+    environment = descriptor.get("environment")
+    if isinstance(environment, dict) and environment.get("policy") in LOCKED_POLICIES:
+        return environment["policy"]
+    return None
+
+
+def unfilled_lock_warning(valid_version_directory):
+    policy = locked_policy(load_descriptor(valid_version_directory / DESCRIPTOR_FILENAME))
+    if policy is not None and load_images_lock(valid_version_directory / IMAGES_LOCK_FILENAME) == {}:
+        return unfilled_lock_message(policy)
+    return None
+
+
 def version_directory_problems(version_directory, validator, licensing, for_publish=False):
     descriptor_path = version_directory / DESCRIPTOR_FILENAME
     if not descriptor_path.is_file():
@@ -119,10 +177,11 @@ def version_directory_problems(version_directory, validator, licensing, for_publ
     problems += descriptor_schema_problems
     problems += path_problems(descriptor, version_directory)
     problems += environment_problems(descriptor)
+    problems += images_lock_problems(descriptor, version_directory, for_publish)
     if isinstance(descriptor.get("license"), str):
         problems += spdx_id_problems(descriptor["license"], licensing)
     if not descriptor_schema_problems:
-        problems += generated_problems(descriptor, version_directory, for_publish)
+        problems += generated_problems(descriptor, version_directory)
     return problems
 
 
@@ -144,10 +203,8 @@ def report(problems_by_path, level="error"):
         relative_path = os.path.relpath(path)
         if in_github_actions:
             print(f"::{level} file={relative_path}::{message}")
-        elif level == "error":
-            print(f"{relative_path}: {message}")
         else:
-            print(f"{relative_path}: {level}: {message}")
+            print(f"{relative_path}: {message}")
 
 
 def parse_arguments(arguments):
@@ -179,9 +236,9 @@ def main(arguments):
         problems_by_path += [(descriptor_path, message) for message in problems]
         if not problems:
             print(f"ok  {os.path.relpath(version_directory)}")
-            if not options.for_publish:
-                warnings = generated_warnings(load_descriptor(descriptor_path), version_directory)
-                warnings_by_path += [(descriptor_path, message) for message in warnings]
+            warning = unfilled_lock_warning(version_directory)
+            if warning:
+                warnings_by_path.append((version_directory / IMAGES_LOCK_FILENAME, warning))
     report(warnings_by_path, level="warning")
     report(problems_by_path)
     return 1 if problems_by_path else 0
