@@ -8,8 +8,9 @@ upstream revision instead.
 | Dataset | Tasks | Underlying data | Task directories today | Status |
 | --- | ---: | --- | --- | --- |
 | `terminal-bench@2.0` | 89 | Apache-2.0 | [laude-institute/terminal-bench-2], Apache-2.0 | **Configured** in [`datasets/terminal-bench/2.0`](../datasets/terminal-bench/2.0) |
+| `terminal-bench@2.0.1` | 89 | Apache-2.0 | [laude-institute/terminal-bench-2], Apache-2.0; environment images mirrored unmodified | **Configured** in [`datasets/terminal-bench/2.0.1`](../datasets/terminal-bench/2.0.1) |
 | `humanevalfix@1.0` | 164 | [HumanEvalPack], MIT | A third-party shared task repository with no LICENSE file | Not configured |
-| `swebench-verified@1.0` | 500 | [SWE-bench], MIT | A third-party shared task repository with no LICENSE file | Not configured; prebuilt images not mirrored |
+| `swebench-verified@1.0` | 500 | [SWE-bench], MIT | A third-party shared task repository with no LICENSE file | Not configured; prebuilt images not mirrored, only pinned |
 | `aider-polyglot@1.0` | 225 | [Exercism] exercises, MIT | A third-party shared task repository with no LICENSE file | Not configured |
 | `livecodebench@6.0` | 100 | [LiveCodeBench], licence "cc", unspecified | A third-party shared task repository with no LICENSE file | Not republished |
 
@@ -23,8 +24,17 @@ repository added its LICENSE file in commit `2ef6e27cf5888ec23adcbb72807b36b0508
 and the [NOTICE](../datasets/terminal-bench/2.0/NOTICE) gives the authors and their citation.
 
 Version 2.0 is published byte-identical, so every task keeps
-`docker_image = "alexgshaw/<task>:20251031"`, a Docker Hub tag. A later 2.0.x pins each image by
-digest. The images are not part of the dataset and are not mirrored.
+`docker_image = "alexgshaw/<task>:20251031"`, a Docker Hub tag. Version 2.0.1 is the same task
+directories with that one value changed in each `task.toml`: it names the task's image in node-q's
+mirror, pinned by digest. Nothing else differs.
+
+### Terminal-Bench 2.0's environment images
+
+The images in `ghcr.io/node-q/hbench-envs/terminal-bench` are redistributed unmodified from
+upstream's published images, `alexgshaw/<task>:20251031` on Docker Hub: each is copied with its
+digest unchanged. Their contents, a base operating system and the packages installed on it, carry
+their own licences. The Apache-2.0 licence covers the task definitions, not the images. The images
+are not part of the dataset's OCI artifact.
 
 ## Datasets from a third-party shared task repository
 
@@ -50,7 +60,8 @@ directly.
 
 [SWE-bench] is MIT, in its repository; its Hugging Face dataset cards state no licence. Its
 prebuilt task images embed each target repository and its dependencies, GPL-2.0 code among other
-licences, so they are not mirrored: a dataset version pins the upstream images by digest.
+licences, so they are not mirrored: a dataset version pins the upstream images by digest, with the
+`pinned-upstream` environment policy.
 
 ### Aider Polyglot
 

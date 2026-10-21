@@ -125,8 +125,8 @@
       "required": ["policy"],
       "properties": {
         "policy": {
-          "description": "as-declared: task.toml is published byte-identical, images exactly as upstream declares them. pinned-by-digest: every task's docker_image is pinned to the digest in images.",
-          "enum": ["as-declared", "pinned-by-digest"]
+          "description": "as-declared: task.toml is published byte-identical, images exactly as upstream declares them. pinned-by-digest: every task's docker_image is pinned to the digest in images. pinned-mirror: every task's docker_image value is replaced by node-q's unmodified mirror of the image upstream declares, pinned by digest, from images_lock; nothing else changes. pinned-upstream: every task's docker_image value is replaced by the image upstream declares, pinned by its digest, from images_lock; nothing else changes.",
+          "enum": ["as-declared", "pinned-by-digest", "pinned-mirror", "pinned-upstream"]
         },
         "declared_image": {
           "description": "The docker_image every task declares, with {task} standing for the task directory's name. CI checks each task.toml against it.",
@@ -142,6 +142,10 @@
             "pattern": "^[^@\\s]+@sha256:[0-9a-f]{64}$"
           }
         },
+        "images_lock": {
+          "description": "The image lock in the descriptor's directory, sorted by task name. Each task's entry has source (the docker_image upstream declares), source_digest (its sha256 digest) and pinned (what task.toml's docker_image becomes): for pinned-mirror, ghcr.io/node-q/hbench-envs/<name>@<source_digest>, with mirror_tag, the mirror's tag <task>-<upstream tag>; for pinned-upstream, the source's repository @<source_digest>. The Mirror images workflow writes a pinned-mirror lock, the Pin images workflow a pinned-upstream one. It is {} until then, and such a version cannot be published.",
+          "const": "images.lock.json"
+        },
         "planned": {
           "description": "A change of environment policy planned for a later version.",
           "type": "string",
@@ -153,6 +157,11 @@
           "if": { "properties": { "policy": { "const": "pinned-by-digest" } } },
           "then": { "required": ["images"] },
           "else": { "not": { "required": ["images"] } }
+        },
+        {
+          "if": { "properties": { "policy": { "enum": ["pinned-mirror", "pinned-upstream"] } } },
+          "then": { "required": ["images_lock"] },
+          "else": { "not": { "required": ["images_lock"] } }
         }
       ]
     },
