@@ -1,5 +1,5 @@
 clean_workspace() {
-  rm -f /app/*_test.go /app/go.work /app/go.work.sum
+  rm -f ./*_test.go go.work go.work.sum
 }
 
 run_tests() {

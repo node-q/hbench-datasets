@@ -1,5 +1,5 @@
 clean_workspace() {
-  rm -rf /app/tests /app/build.rs /app/.cargo
+  rm -rf tests build.rs .cargo
 }
 
 run_tests() {

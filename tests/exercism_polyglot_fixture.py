@@ -63,7 +63,7 @@ EXERCISES = {
             "jest.config.js": "module.exports = {};\n",
             "LICENSE": "MIT License\n\nCopyright (c) 2021 Exercism\n",
             "data/years.txt": "It's 1996.\n",
-            ".meta/proof.ci.js": "export const isLeap = (year) => year % 4 === 0;\n",
+            ".meta/proof.ci.js": "#!/usr/bin/env node\nexport const isLeap = (year) => year % 4 === 0;\n",
         },
         "config": {"solution": ["leap.js"], "test": ["leap.spec.js"], "example": [".meta/proof.ci.js"]},
     },

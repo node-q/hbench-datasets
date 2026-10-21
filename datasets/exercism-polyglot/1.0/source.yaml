@@ -106,8 +106,10 @@ attribution:
     The selection is node-q's: of each track's active practice exercises with at least 5 tests that
     its test runner runs, the ones Aider's polyglot benchmark kept as hard (solved by at most 3 of 7
     models), then the others, each ranked by difficulty and number of tests, 35 per track.
-    food-chain is left out, since its song's lyrics are under copyright. Exercism's test runners and
-    the solutions published on exercism.org are not used.
+    food-chain is left out, since its song's lyrics are under copyright, and so are four
+    refactoring exercises whose stubs already pass every test: ledger in Go and JavaScript,
+    markdown in Go and tree-building in Java. Exercism's test runners and the solutions published
+    on exercism.org are not used.
   - >-
     Exercism has no canary string, so the tasks carry one of node-q's.
 

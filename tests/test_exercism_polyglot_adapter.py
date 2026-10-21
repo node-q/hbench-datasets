@@ -49,7 +49,7 @@ class ExercismPolyglotAdapterTest(unittest.TestCase):
                 self.assertEqual(manifest["metadata"]["category"], key)
                 self.assertEqual(manifest["metadata"]["upstream_authors"], ["leap-author"])
                 self.assertEqual(manifest["verifier"]["network_mode"], "no-network")
-                self.assertEqual(manifest["environment"]["workdir"], "/app")
+                self.assertEqual(manifest["environment"]["workdir"], f"/app/{SLUG}" if key == "cpp" else "/app")
         self.assertEqual(tomllib.loads(self.text("go", "task.toml"))["environment"]["docker_image"], PINNED_GO_IMAGE)
         self.assertEqual(
             tomllib.loads(self.text("rust", "task.toml"))["environment"]["docker_image"],
@@ -74,7 +74,15 @@ class ExercismPolyglotAdapterTest(unittest.TestCase):
         self.assertEqual(self.files("cpp", "solution/workspace"), ["leap.cpp", "leap.h"])
         self.assertTrue(self.text("cpp", "solution/workspace/leap.h").startswith(f"// {CANARY}\n#pragma once"))
         self.assertTrue(self.text("python", "solution/workspace/leap.py").startswith(f"# {CANARY}\ndef leap_year"))
-        self.assertEqual(self.text("python", "solution/solve.sh").splitlines()[:2], ["#!/bin/bash", f"# {CANARY}"])
+        self.assertEqual(self.text("python", "solution/solve.sh").splitlines()[:3], ["#!/bin/bash", f"# {CANARY}", "exercise_directory=/app"])
+        self.assertTrue(self.text("javascript", "solution/workspace/leap.js").startswith(f"#!/usr/bin/env node\n// {CANARY}\nexport"))
+
+    def test_a_c_plus_plus_exercise_sits_in_a_directory_named_after_it(self):
+        manifest = tomllib.loads(self.text("cpp", "task.toml"))
+        self.assertEqual(manifest["environment"]["workdir"], f"/app/{SLUG}")
+        self.assertIn(f"exercise_directory=/app/{SLUG}\n", self.text("cpp", "tests/test.sh"))
+        self.assertIn(f"exercise_directory=/app/{SLUG}\n", self.text("cpp", "solution/solve.sh"))
+        self.assertIn(f"Run them in `/app/{SLUG}` with:", self.text("cpp", "instruction.md"))
 
     def test_the_verifier_restores_every_file_but_the_solution(self):
         self.assertEqual(self.files("go", "tests/workspace"), ["cases_test.go", "go.mod", "leap_test.go", "years.go"])
@@ -88,7 +96,10 @@ class ExercismPolyglotAdapterTest(unittest.TestCase):
         self.assertIn("mkdir -p data\n", script)
         self.assertIn("""printf '%s' 'It'"'"'s 1996.\n' > data/years.txt""", script)
         self.assertIn("> package.json", script)
-        self.assertEqual(self.text("python", "tests/test.sh").splitlines()[:3], ["#!/bin/bash", f"# {CANARY}", "test_files=(leap_test.py)"])
+        self.assertEqual(
+            self.text("python", "tests/test.sh").splitlines()[:4],
+            ["#!/bin/bash", f"# {CANARY}", "exercise_directory=/app", "test_files=(leap_test.py)"],
+        )
 
     def test_embedded_files_restore_byte_for_byte(self):
         script = self.text("javascript", "tests/test.sh")

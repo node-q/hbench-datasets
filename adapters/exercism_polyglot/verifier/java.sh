@@ -1,7 +1,7 @@
 library_classpath='/opt/exercism-java/lib/*'
 
 clean_workspace() {
-  rm -rf /app/src/test
+  rm -rf src/test
 }
 
 run_tests() {
