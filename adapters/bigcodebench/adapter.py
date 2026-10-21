@@ -53,9 +53,23 @@ CPUS = 2
 MEMORY_MB = 4096
 STORAGE_MB = 10240
 EXCLUDED_TASKS = {
+    "BigCodeBench/220": (
+        "two of its tests open a real turtle Screen, which needs an X display that no BigCodeBench "
+        "environment has, so its canonical solution cannot pass"
+    ),
+    "BigCodeBench/272": "its tests exercise requests_mock alone and never call task_func, so every solution passes",
+    "BigCodeBench/363": (
+        "its canonical solution leaves a multiprocessing.Pool through Pool.terminate(), whose os.kill the "
+        "harness's kill guard blocks, as upstream's does, and the pool then deadlocks: its tests timed out "
+        "on every run in CI"
+    ),
     "BigCodeBench/590": (
         "its tests fetch https://en.wikibooks.org/wiki/Main_Page with urllib's default User-Agent, "
         "which Wikimedia refuses with HTTP 403, so its canonical solution cannot pass"
+    ),
+    "BigCodeBench/1005": (
+        "its tests download https://getsamplefiles.com/download/zip/sample-1.zip with urllib's default "
+        "User-Agent, which the site refuses with HTTP 403, so its canonical solution cannot pass"
     ),
 }
 TEMPLATE_FILES = {

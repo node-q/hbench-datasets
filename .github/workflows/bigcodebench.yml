@@ -23,7 +23,7 @@ on:
       shards:
         description: How many runners to split them between
         type: number
-        default: 8
+        default: 4
 
 permissions:
   contents: read
@@ -42,8 +42,8 @@ env:
   IMAGE_TAG: bigcodebench-1.0
   CHECK_IMAGE: bigcodebench-check:local
   CHECKS_PER_RUNNER: "3"
-  TASK_SELECTION: ${{ inputs.tasks || 'all' }}
-  SHARD_COUNT: ${{ inputs.shards || 8 }}
+  TASK_SELECTION: ${{ inputs.tasks || 'hard' }}
+  SHARD_COUNT: ${{ inputs.shards || 2 }}
 
 jobs:
   plan:
