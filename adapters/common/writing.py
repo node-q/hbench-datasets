@@ -1,4 +1,7 @@
-"""Deterministic writing of task files: UTF-8, LF line endings, fixed modes, no timestamps."""
+"""Deterministic writing of task files: UTF-8, LF line endings, fixed modes, no timestamps.
+
+task_toml names every task by its bare directory name, as Terminal-Bench does, never org/name.
+"""
 
 import json
 import pathlib
@@ -8,6 +11,8 @@ EXECUTABLE_SUFFIXES = (".sh",)
 EXECUTABLE_MODE = 0o755
 FILE_MODE = 0o644
 DIRECTORY_MODE = 0o755
+TASK_SCHEMA_VERSION = "1.4"
+TASK_NAME_PATTERN = re.compile(r"^[A-Za-z0-9_][A-Za-z0-9._-]*$")
 
 
 class TaskWritingError(ValueError):
@@ -72,9 +77,14 @@ def toml_value(value):
     raise TaskWritingError(f"{value!r} has no TOML form here")
 
 
-def task_toml(top_level, tables):
-    lines = [f"{key} = {toml_value(value)}" for key, value in top_level.items()]
-    for table, entries in tables.items():
+def task_toml(task_name, description, tables):
+    if not TASK_NAME_PATTERN.match(task_name):
+        raise TaskWritingError(f"{task_name!r} is not a bare task directory name")
+    if "task" in tables:
+        raise TaskWritingError("[task] is written from the task's directory name and description")
+    sections = {"task": {"name": task_name, "description": description}, **tables}
+    lines = [f"schema_version = {toml_string(TASK_SCHEMA_VERSION)}"]
+    for table, entries in sections.items():
         lines += ["", f"[{table}]"]
         lines += [f"{key} = {toml_value(value)}" for key, value in entries.items() if value is not None]
     return "\n".join(lines) + "\n"

@@ -76,7 +76,7 @@ class HumanEvalPlusAdapterTest(unittest.TestCase):
     def test_task_toml_names_the_task_and_the_image_once_it_is_built(self):
         out_dir, _ = self.generate(docker_image=PINNED_IMAGE)
         manifest = tomllib.loads((out_dir / "humaneval-plus-2" / "task.toml").read_text(encoding="utf-8"))
-        self.assertEqual(manifest["task"]["name"], "node-q/humaneval-plus-2")
+        self.assertEqual(manifest["task"]["name"], "humaneval-plus-2")
         self.assertEqual(manifest["metadata"]["category"], "python")
         self.assertEqual(manifest["metadata"]["upstream_task_id"], "HumanEval/2")
         self.assertEqual(manifest["environment"]["docker_image"], PINNED_IMAGE)
