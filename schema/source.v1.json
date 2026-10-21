@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/node-q/hbench-datasets/blob/main/schema/source.v1.json",
+  "title": "hbench dataset source descriptor, version 1",
+  "description": "Where a dataset version's task directories come from, and what the published dataset declares. Stored at datasets/<name>/<version>/source.yaml.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "name",
+    "version",
+    "title",
+    "description",
+    "license",
+    "upstream",
+    "source",
+    "environment",
+    "attribution"
+  ],
+  "properties": {
+    "schema_version": {
+      "description": "Version of this descriptor format.",
+      "const": 1
+    },
+    "name": {
+      "description": "Dataset name: the OCI repository under ghcr.io/node-q/hbench-datasets/ and the <name> in hbench's -d <name>@<version>. Must match the descriptor's directory.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "maxLength": 64
+    },
+    "version": {
+      "description": "Dataset version: the OCI tag. Must match the descriptor's directory. A published version is immutable; a change of bytes is a new version.",
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*))?$"
+    },
+    "title": {
+      "description": "Human-readable dataset title.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "description": {
+      "description": "What the dataset measures and what a task contains.",
+      "type": "string",
+      "minLength": 1
+    },
+    "license": {
+      "description": "SPDX license identifier of the task directories as published. LICENSE in the descriptor's directory holds its text.",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9.+-]*$"
+    },
+    "keywords": {
+      "description": "Discovery keywords, copied into the Croissant metadata.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "upstream": {
+      "description": "The dataset this version is derived from.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "revision", "creator", "citation"],
+      "properties": {
+        "url": {
+          "description": "Upstream home of the dataset.",
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "revision": {
+          "description": "Upstream revision this version is derived from: a commit, tag or dataset revision.",
+          "type": "string",
+          "minLength": 1
+        },
+        "creator": {
+          "description": "Who created the upstream dataset, as they name themselves.",
+          "type": "string",
+          "minLength": 1
+        },
+        "citation": {
+          "description": "How the upstream authors ask to be cited, preferably BibTeX.",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "canary": {
+      "description": "The upstream's canary string, kept in every published task and repeated in the metadata, so training corpora can filter the dataset out.",
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "description": "Where CI fetches the task directories. No task files are committed to this repository.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["git_url", "commit", "path", "task_count"],
+      "properties": {
+        "git_url": {
+          "description": "Git repository holding the task directories.",
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "commit": {
+          "description": "Full commit SHA the task directories are packed from.",
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "path": {
+          "description": "Directory within the repository whose subdirectories are the tasks; '.' for the repository root.",
+          "type": "string",
+          "pattern": "^(\\.|[A-Za-z0-9_][A-Za-z0-9._-]*(/[A-Za-z0-9_][A-Za-z0-9._-]*)*)$"
+        },
+        "task_count": {
+          "description": "Number of task directories at that path and commit. CI refuses to pack any other number.",
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "environment": {
+      "description": "How the tasks' prebuilt environment images are referenced.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy"],
+      "properties": {
+        "policy": {
+          "description": "as-declared: task.toml is published byte-identical, images exactly as upstream declares them. pinned-by-digest: every task's docker_image is pinned to the digest in images.",
+          "enum": ["as-declared", "pinned-by-digest"]
+        },
+        "declared_image": {
+          "description": "The docker_image every task declares, with {task} standing for the task directory's name. CI checks each task.toml against it.",
+          "type": "string",
+          "pattern": "\\{task\\}"
+        },
+        "images": {
+          "description": "Task name to image reference pinned by digest.",
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[^@\\s]+@sha256:[0-9a-f]{64}$"
+          }
+        },
+        "planned": {
+          "description": "A change of environment policy planned for a later version.",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "policy": { "const": "pinned-by-digest" } } },
+          "then": { "required": ["images"] },
+          "else": { "not": { "required": ["images"] } }
+        }
+      ]
+    },
+    "attribution": {
+      "description": "Attribution notes: authorship, the licence's origin, and what this repository changed, if anything.",
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "rai": {
+      "description": "Croissant RAI fields that apply to the dataset.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "data_collection": { "type": "string", "minLength": 1 },
+        "data_collection_type": { "$ref": "#/$defs/statements" },
+        "data_use_cases": { "$ref": "#/$defs/statements" },
+        "data_limitations": { "$ref": "#/$defs/statements" },
+        "data_biases": { "$ref": "#/$defs/statements" },
+        "personal_sensitive_information": { "$ref": "#/$defs/statements" },
+        "data_social_impact": { "type": "string", "minLength": 1 }
+      }
+    }
+  },
+  "$defs": {
+    "statements": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}
