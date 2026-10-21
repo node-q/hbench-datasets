@@ -1,6 +1,6 @@
 """Check an answer to a CRUXEval input-prediction problem: a call of f that returns the expected output.
 
-Usage: check_answer.py --solution PATH [--summary PATH]
+Usage: check_answer.py --solution PATH [--summary PATH] [--unprivileged-id ID]
 
 problem.json, next to this file, holds the problem's code, which defines the function (entry_point,
 f), the expected output, a Python literal, and the time limit in seconds. The answer, the file at
@@ -8,9 +8,10 @@ PATH, must be one Python expression, a call of f. Its arguments may use the name
 other than modules, and the builtins sandbox_runner.py lists in ARGUMENT_BUILTINS; no name or
 attribute in it may start with "__", nor an attribute be one of a frame, generator, coroutine, code
 object or traceback. sandbox.py evaluates it in a fresh interpreter, as an unprivileged user when this
-runs as root, with this directory closed to it: the arguments among the code's names, then f, from a
-fresh run of the code, on them. The answer passes when f's result, passed back as built-in values,
-equals the expected output within the time limit, as CRUXEval checks `assert output == answer`.
+runs as root (--unprivileged-id, as for check_solution.py), with this directory closed to it: the
+arguments among the code's names, then f, from a fresh run of the code, on them. The answer passes
+when f's result, passed back as built-in values, equals the expected output within the time limit,
+as CRUXEval checks `assert output == answer`.
 
 Exits 0 when the answer passes and 1 otherwise. --summary writes what was checked, as JSON.
 """
@@ -85,7 +86,7 @@ def result_failure(outcome, expected):
     return None if equal else "returned another value than the expected output"
 
 
-def check_answer(solution_path):
+def check_answer(solution_path, unprivileged_id):
     problem = json.loads(PROBLEM_PATH.read_text(encoding="utf-8"))
     summary = {"task_id": problem["task_id"], "passed": False}
     if function_checker.running_as_root():
@@ -106,7 +107,7 @@ def check_answer(solution_path):
         entry_point=problem["entry_point"],
         time_limit=problem["time_limit"],
     )
-    outcome = run_once(request, problem["time_limit"] + RUN_GRACE_SECONDS)
+    outcome = run_once(request, problem["time_limit"] + RUN_GRACE_SECONDS, unprivileged_id)
     failure = result_failure(outcome, ast.literal_eval(problem["output"]))
     if failure:
         summary["failure"] = f"the call {failure}"
@@ -119,12 +120,13 @@ def parse_arguments(arguments):
     parser = argparse.ArgumentParser(description="Check an answer to a CRUXEval input-prediction problem.")
     parser.add_argument("--solution", required=True, type=pathlib.Path)
     parser.add_argument("--summary", type=pathlib.Path)
+    parser.add_argument("--unprivileged-id", type=function_checker.unprivileged_id, default=function_checker.NOBODY_ID)
     return parser.parse_args(arguments)
 
 
 def main(arguments):
     options = parse_arguments(arguments)
-    summary = check_answer(options.solution)
+    summary = check_answer(options.solution, options.unprivileged_id)
     document = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     if options.summary:
         options.summary.write_text(document, encoding="utf-8")

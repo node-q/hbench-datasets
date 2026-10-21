@@ -3,8 +3,9 @@
 A checker next to this file imports it. runner_request builds a request for one of sandbox_runner.py's
 modes, carrying candidate_runner.py's source and check_solution.py's memory limit. run_once runs a
 function or expression request and returns its one report; CallsSession keeps a calls request's
-runner going, one call at a time. A runner that dies, or writes anything but a JSON object, reports
-{"load_error": "no report"}.
+runner going, one call at a time. Either runs it as the unprivileged user it is given when this runs
+as root, as check_solution.py's --unprivileged-id. A runner that dies, or writes anything but a JSON
+object, reports {"load_error": "no report"}.
 """
 
 import base64
@@ -59,8 +60,8 @@ def stop(sandbox, process):
         stream.close()
 
 
-def run_once(request, time_limit):
-    with CandidateSandbox() as sandbox:
+def run_once(request, time_limit, unprivileged_id):
+    with CandidateSandbox(unprivileged_id) as sandbox:
         process = sandbox.start(runner_arguments())
         try:
             output, _ = process.communicate(request_line(request), timeout=time_limit)
@@ -74,11 +75,12 @@ def run_once(request, time_limit):
 
 
 class CallsSession:
-    def __init__(self, request):
+    def __init__(self, request, unprivileged_id):
         self.request = request
+        self.unprivileged_id = unprivileged_id
 
     def __enter__(self):
-        self.sandbox = CandidateSandbox().__enter__()
+        self.sandbox = CandidateSandbox(self.unprivileged_id).__enter__()
         self.process = self.sandbox.start(runner_arguments())
         self.send(request_line(self.request))
         return self

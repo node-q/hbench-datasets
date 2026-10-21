@@ -1,15 +1,16 @@
 """Check a HumanEvalFix solution as HumanEvalFix's harness does: the problem's tests must pass.
 
-Usage: check_fix.py --solution PATH [--summary PATH]
+Usage: check_fix.py --solution PATH [--summary PATH] [--unprivileged-id ID]
 
 problem.json, next to this file, names the function (entry_point) and holds the imports the harness
 puts before the solution (prelude), the tests (test, which defines check and ends by calling it on
 the function) and their time limit in seconds. The tests run here, after the prelude and
 reference_solution.py, whose other functions, such as poly, they may call. The function they check is
 the solution's: sandbox.py runs the solution, after the prelude, in a fresh interpreter, as an
-unprivileged user when this runs as root, with this directory closed to it, and passes each call's
-arguments to it and its result back as built-in values. The solution passes when loading it and
-running the tests raise nothing within the time limit.
+unprivileged user when this runs as root (--unprivileged-id, as for check_solution.py), with this
+directory closed to it, and passes each call's arguments to it and its result back as built-in
+values. The solution passes when loading it and running the tests raise nothing within the time
+limit.
 
 Exits 0 when the solution passes and 1 otherwise. --summary writes what was checked, as JSON.
 """
@@ -107,7 +108,7 @@ def timed_tests_failure(problem, session, namespace):
         signal.setitimer(signal.ITIMER_REAL, 0)
 
 
-def check_fix(solution_path):
+def check_fix(solution_path, unprivileged_id):
     problem = json.loads(PROBLEM_PATH.read_text(encoding="utf-8"))
     summary = {"task_id": problem["task_id"], "passed": False}
     if function_checker.running_as_root():
@@ -126,7 +127,7 @@ def check_fix(solution_path):
         entry_point=problem["entry_point"],
         time_limit=problem["time_limit"],
     )
-    with CallsSession(request) as session:
+    with CallsSession(request, unprivileged_id) as session:
         failure = timed_tests_failure(problem, session, namespace)
     if failure:
         summary["failure"] = failure
@@ -139,12 +140,13 @@ def parse_arguments(arguments):
     parser = argparse.ArgumentParser(description="Check a HumanEvalFix solution.")
     parser.add_argument("--solution", required=True, type=pathlib.Path)
     parser.add_argument("--summary", type=pathlib.Path)
+    parser.add_argument("--unprivileged-id", type=function_checker.unprivileged_id, default=function_checker.NOBODY_ID)
     return parser.parse_args(arguments)
 
 
 def main(arguments):
     options = parse_arguments(arguments)
-    summary = check_fix(options.solution)
+    summary = check_fix(options.solution, options.unprivileged_id)
     document = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     if options.summary:
         options.summary.write_text(document, encoding="utf-8")

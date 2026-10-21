@@ -1,13 +1,13 @@
 """Check a solution to a function-completion problem whose inputs are tagged values, as EvalPlus checks MBPP+.
 
 Usage: check_tagged_solution.py --solution PATH [--summary PATH] [--min-time-limit SECONDS]
-                                [--time-limit-factor N]
+                                [--time-limit-factor N] [--unprivileged-id ID]
 
 This is check_solution.py, next to this file, for problems whose inputs JSON cannot hold, such as
 tuples, sets and complex numbers. problem.json's input_encoding is "tagged": each input is written as
 candidate_runner.py encodes a value, and is decoded here. sandbox_runner.py runs the solution on them.
-Expected outputs and time limits are check_solution.py's. Besides its oracles, it knows EvalPlus's
-special oracles for MBPP+, each of which then compares as the default oracle does:
+Expected outputs, time limits and the unprivileged user are check_solution.py's. Besides its oracles,
+it knows EvalPlus's special oracles for MBPP+, each of which then compares as the default oracle does:
 
   set-equal       the output equals the expected one as a set (Mbpp/2, 7, 111, 140, 232, 579, 769)
   not-none        the output, or whether it is not None unless it is a bool, equals whether the
@@ -114,7 +114,7 @@ def judged_inputs(oracle, inputs, expected_outputs, outcomes, atol):
     return verdicts
 
 
-def run_candidate(source, solution_path, problem, inputs, time_limits):
+def run_candidate(source, solution_path, problem, inputs, time_limits, unprivileged_id):
     request = runner_request(
         "function",
         source=encoded_bytes(source),
@@ -129,7 +129,7 @@ def run_candidate(source, solution_path, problem, inputs, time_limits):
         min(function_checker.EVALPLUS_RUN_TIME_CAP_SECONDS, sum(time_limits))
         + function_checker.EVALPLUS_RUN_GRACE_SECONDS
     )
-    report = run_once(request, run_time_limit)
+    report = run_once(request, run_time_limit, unprivileged_id)
     if "timed_out" in report or "load_error" in report:
         return report
     outcomes = report.get("outcomes")
@@ -140,11 +140,10 @@ def run_candidate(source, solution_path, problem, inputs, time_limits):
     return report
 
 
-def check_phase(problem, function, source, solution_path, inputs, time_limit_settings):
-    min_time_limit, time_limit_factor = time_limit_settings
+def check_phase(problem, function, source, solution_path, inputs, settings):
     expected_outputs, durations = function_checker.reference_outputs(function, inputs)
-    time_limits = [max(min_time_limit, time_limit_factor * duration) for duration in durations]
-    report = run_candidate(source, solution_path, problem, inputs, time_limits)
+    time_limits = [max(settings.min_time_limit, settings.time_limit_factor * duration) for duration in durations]
+    report = run_candidate(source, solution_path, problem, inputs, time_limits, settings.unprivileged_id)
     if "timed_out" in report:
         return {"status": "timeout", "inputs": len(inputs), "passed": 0}
     if "load_error" in report:
@@ -153,7 +152,7 @@ def check_phase(problem, function, source, solution_path, inputs, time_limit_set
     return function_checker.phase_summary(inputs, verdicts)
 
 
-def check_tagged_solution(solution_path, time_limit_settings):
+def check_tagged_solution(solution_path, settings):
     problem = json.loads(function_checker.PROBLEM_PATH.read_text(encoding="utf-8"))
     summary = {"task_id": problem["task_id"], "passed": False}
     if function_checker.running_as_root():
@@ -171,7 +170,7 @@ def check_tagged_solution(solution_path, time_limit_settings):
     summary["phases"] = []
     for phase in problem["phases"]:
         inputs = [function_checker.decoded(tagged) for tagged in phase["inputs"]]
-        phase_result = check_phase(problem, function, source, solution_path, inputs, time_limit_settings)
+        phase_result = check_phase(problem, function, source, solution_path, inputs, settings)
         summary["phases"].append({"name": phase["name"], **phase_result})
         if phase_result["status"] != "pass":
             return summary
@@ -185,12 +184,14 @@ def parse_arguments(arguments):
     parser.add_argument("--summary", type=pathlib.Path)
     parser.add_argument("--min-time-limit", type=float, default=function_checker.EVALPLUS_MIN_TIME_LIMIT_SECONDS)
     parser.add_argument("--time-limit-factor", type=float, default=function_checker.EVALPLUS_TIME_LIMIT_FACTOR)
+    parser.add_argument("--unprivileged-id", type=function_checker.unprivileged_id, default=function_checker.NOBODY_ID)
     return parser.parse_args(arguments)
 
 
 def main(arguments):
     options = parse_arguments(arguments)
-    summary = check_tagged_solution(options.solution, (options.min_time_limit, options.time_limit_factor))
+    settings = function_checker.CheckSettings(options.min_time_limit, options.time_limit_factor, options.unprivileged_id)
+    summary = check_tagged_solution(options.solution, settings)
     document = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     if options.summary:
         options.summary.write_text(document, encoding="utf-8")
