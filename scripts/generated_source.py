@@ -8,7 +8,8 @@ Usage:
 generate downloads each upstream file into DESTINATION/upstream, or copies it from --upstream-cache,
 and checks its sha256; runs the adapter's generate(), which writes DESTINATION/tasks; copies the
 environment image's build context into each task's environment/; and checks every task's package
-digest against generated.lock.json, or with --write-lock rewrites that file. It then writes
+digest against generated.lock.json, or with --write-lock rewrites that file; the digests it computed are
+in DESTINATION/generated.lock.json either way. It then writes
 DESTINATION/source.yaml, the descriptor hbench packs the tasks with. A version whose images.lock.json
 is not filled yet is refused unless --allow-unfilled-lock is given: its tasks then name no
 docker_image, and no descriptor to pack with is written. A built-locally version's tasks each build
@@ -306,6 +307,7 @@ def prepare_for_packing(descriptor_path, destination, allow_unfilled_lock=False,
     destination.mkdir(parents=True)
     tasks_directory, task_names = generate_tasks(descriptor, destination, images_lock, upstream_cache)
     digests = package_digests(tasks_directory, task_names)
+    (destination / GENERATED_LOCK_FILENAME).write_text(dump_generated_lock(digests), encoding="utf-8")
     lock_path = version_directory / GENERATED_LOCK_FILENAME
     if write_lock:
         lock_path.write_text(dump_generated_lock(digests), encoding="utf-8")

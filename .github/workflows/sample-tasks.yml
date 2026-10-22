@@ -63,7 +63,7 @@ jobs:
     needs: plan
     if: needs.plan.outputs.sampled == 'true'
     runs-on: ubuntu-24.04
-    timeout-minutes: 150
+    timeout-minutes: 360
     strategy:
       fail-fast: false
       matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}

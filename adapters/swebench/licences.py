@@ -39,12 +39,12 @@ def load_licences(path=LICENCES_PATH):
 
 
 def licence_entry(licences, repository):
-    try:
+    if repository in licences:
         return licences[repository]
-    except KeyError:
-        raise LicenceError(
-            f"{repository} is not in repo-licences.json; look it up with scripts/repo_licences.py"
-        ) from None
+    for name, entry in licences.items():
+        if name.lower() == repository.lower():
+            return entry
+    raise LicenceError(f"{repository} is not in repo-licences.json; look it up with scripts/repo_licences.py")
 
 
 def used_licence(entry):

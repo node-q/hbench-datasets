@@ -80,16 +80,27 @@ class LicenceTest(SwebenchAdapterTestCase):
             if licences.is_permissive(table, repository):
                 self.assertIn(used, licences.PERMISSIVE_LICENCES, repository)
             self.assertTrue(entry["api_url"].endswith(f"/repos/{repository}/license"), repository)
-        for repository in ("pylint-dev/pylint", "matplotlib/matplotlib"):
+        for repository in ("pylint-dev/pylint", "matplotlib/matplotlib", "hashicorp/terraform", "redis/redis", "elastic/logstash"):
             self.assertFalse(licences.is_permissive(table, repository), repository)
 
 
 class BaseImageTest(SwebenchAdapterTestCase):
-    def test_verified_and_lite_start_from_epoch_ai_images(self):
+    def test_verified_and_lite_start_from_epoch_ai_images_and_multilingual_from_the_declared_one(self):
         images = adapter.base_images(self.upstream, "swebench-lite")
         self.assertEqual(
             images["psf__requests-1001"], "ghcr.io/epoch-research/swe-bench.eval.x86_64.psf__requests-1001:latest"
         )
+        images = adapter.base_images(self.upstream, "swebench-multilingual")
+        self.assertEqual(images["psf__requests-1001"], "docker.io/swebench/sweb.eval.x86_64.psf_1776_requests-1001:latest")
+
+    def test_every_multilingual_repository_has_a_language_and_a_licence(self):
+        table = licences.load_licences()
+        for repository in datasets.MULTILINGUAL_LANGUAGES:
+            licences.licence_entry(table, repository)
+
+    def test_licences_are_found_whatever_the_case_of_the_repository_name(self):
+        table = licences.load_licences()
+        self.assertIs(licences.licence_entry(table, "BurntSushi/ripgrep"), table["burntsushi/ripgrep"])
 
     def test_an_invalid_instance_is_left_out(self):
         dataset = datasets.Dataset("swebench-lite", "SWE-bench Lite", datasets.epoch_image, datasets.python_language, (("psf__requests-1001", "broken"),))

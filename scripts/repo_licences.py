@@ -166,8 +166,9 @@ def main(arguments):
             repositories |= repositories_of(descriptor_path, options.upstream_cache)
         licences = load_licences(options.output)
         for repository in sorted(repositories, key=str.lower):
-            licences[repository] = with_review_kept(repository_licence(repository, token), licences.get(repository))
-            print(f"{repository}: {licences[repository]['spdx_id']}")
+            name = next((known for known in licences if known.lower() == repository.lower()), repository)
+            licences[name] = with_review_kept(repository_licence(repository, token), licences.get(name))
+            print(f"{name}: {licences[name]['spdx_id']}")
     except (LicenceLookupError, generated_source.GeneratedSourceError) as error:
         print(f"repo_licences.py: {error}", file=sys.stderr)
         return 1

@@ -136,10 +136,9 @@ class RunEvalTest(unittest.TestCase):
             pull_request="",
             workdir=str(self.repository),
             language="python",
+            evaluation_timeout_seconds=timeout_seconds,
         )
-        with mock.patch.object(tasks, "ARTIFACTS_DIRECTORY", str(self.artifacts)), mock.patch.object(
-            tasks, "EVALUATION_TIMEOUT_SECONDS", timeout_seconds
-        ):
+        with mock.patch.object(tasks, "ARTIFACTS_DIRECTORY", str(self.artifacts)):
             script = tasks.run_eval_script(issue, eval_script)
         subprocess.run(["bash", "-c", script], check=True, capture_output=True, timeout=120)
 
