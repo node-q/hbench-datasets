@@ -176,6 +176,17 @@ class GeneratedCroissantTest(unittest.TestCase):
         self.assertEqual(document["license"], "https://spdx.org/licenses/Apache-2.0.html")
 
 
+class SeveralImagesCroissantTest(unittest.TestCase):
+    def test_a_version_on_several_images_names_them_all(self):
+        descriptor = load_descriptor(DATASETS_DIR / "exercism-polyglot" / "1.0" / "source.yaml")
+        document = croissant.build_croissant(
+            descriptor, "ghcr.io/node-q/hbench-datasets/exercism-polyglot", DIGEST, DATE_PUBLISHED, RUN_URL
+        )
+        limitation = next(text for text in document["rai:dataLimitations"] if text.startswith("Every task's environment image"))
+        self.assertIn("ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0, ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0", limitation)
+        self.assertTrue(limitation.endswith("and pinned by digest."))
+
+
 class CroissantInputTest(unittest.TestCase):
     def test_rejects_a_digest_that_is_not_sha256(self):
         for digest in (DIGEST_HEX, "sha256:abc", f"sha512:{DIGEST_HEX}", DIGEST.upper()):

@@ -15,8 +15,12 @@ solution/solve.sh must be executable; every file in tests/ and solution/ must ca
 the adapter's own task_problems() must find nothing. With --hbench, hbench itself must accept every
 task (hbench tasks check) and print the same package digests (hbench tasks digest).
 
---list prints "<name> <version> <adapter> <image>" for each generated version, the adapter being its
-directory name under adapters/.
+In a version on several images (environment.task_images), each task's docker_image must be its
+image, pinned from images.lock.json or by tag until the lock pins it, and environment/ must hold the
+files the adapter wrote for hbench to copy into the image, with no Dockerfile or docker-compose.yaml.
+
+--list prints "<name> <version> <adapter> <image>" for each generated version on one image, the
+adapter being its directory name under adapters/.
 """
 
 import argparse
@@ -28,8 +32,8 @@ import sys
 import tomllib
 
 import generated_source
-from environment_images import built_image, pinned_image
-from generated_checks import is_generated
+from environment_images import built_image
+from generated_checks import is_generated, on_several_images
 from images_lock import IMAGES_LOCK_FILENAME, load_images_lock
 from source_descriptor import DESCRIPTOR_FILENAME, REPOSITORY_ROOT, load_descriptor, version_directories
 
@@ -89,7 +93,9 @@ def task_layout_problems(task_directory, canary, docker_image, context_files, ad
     instruction = instruction_path.read_text(encoding="utf-8") if instruction_path.is_file() else ""
     if not instruction.startswith(f"<!-- {canary} -->\n") or not instruction.partition("\n")[2].strip():
         problems.append("instruction.md does not start with the canary and an instruction")
-    if (task_directory / "environment").is_dir():
+    if context_files is None:
+        problems += [problem.partition(": ")[2] for problem in generated_source.adapter_environment_problems(task_directory)]
+    elif (task_directory / "environment").is_dir():
         if files_of(task_directory / "environment") != context_files:
             problems.append("environment/ is not the image's build context")
     else:
@@ -140,15 +146,17 @@ def check_version(version_directory, descriptor, output, upstream_cache, hbench=
         differing = sorted(name for name in digests[0] if digests[0].get(name) != digests[1].get(name))
         return [f"{label}: two generations differ in {len(differing)} tasks, such as {differing[:5]}"]
     adapter = generated_source.adapter_module(descriptor["source"]["adapter"])
-    docker_image = pinned_image(load_images_lock(version_directory / IMAGES_LOCK_FILENAME))
-    context_files = files_of(REPOSITORY_ROOT / built_image(descriptor["environment"]["image"])["context"])
+    context = generated_source.generation_context(descriptor, load_images_lock(version_directory / IMAGES_LOCK_FILENAME))
+    context_files = None
+    if not on_several_images(descriptor):
+        context_files = files_of(REPOSITORY_ROOT / built_image(descriptor["environment"]["image"])["context"])
     tasks_directory = destination / GENERATIONS[0] / "tasks"
     problems = []
     for task_name in sorted(digests[0]):
         problems += [
             f"{label}: {task_name}: {problem}"
             for problem in task_layout_problems(
-                tasks_directory / task_name, descriptor["canary"], docker_image, context_files, adapter
+                tasks_directory / task_name, descriptor["canary"], context.docker_image_for(task_name), context_files, adapter
             )
         ]
     if hbench and not problems:
@@ -177,6 +185,8 @@ def main(arguments):
     versions = generated_versions(options.version_directories)
     if options.list:
         for _, descriptor in versions:
+            if on_several_images(descriptor):
+                continue
             adapter = pathlib.PurePosixPath(descriptor["source"]["adapter"]).name
             print(f"{descriptor['name']} {descriptor['version']} {adapter} {descriptor['environment']['image']}")
         return 0

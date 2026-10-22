@@ -76,7 +76,10 @@ version is a generated one; see [`datasets/humaneval-plus/1.0`](datasets/humanev
    `images_lock: images.lock.json`. Commit `images.lock.json` as `{}`. `LICENSE` is Apache-2.0, the
    licence of the task directories we write; `NOTICE` carries every upstream licence notice,
    copyright line and citation, and says what the adapter keeps and what it writes. If the upstream
-   has no canary string, give the dataset one of ours: a new GUID.
+   has no canary string, give the dataset one of ours: a new GUID. A version whose tasks run in
+   different images names them in `environment.task_images` instead of `image`, a glob over task
+   names for each image, and its adapter writes each task's `environment/`, the files hbench copies
+   into the image; see [`datasets/exercism-polyglot/1.0`](datasets/exercism-polyglot/1.0).
 4. **Write the lock and run the checks:**
 
    ```sh
@@ -91,7 +94,9 @@ version is a generated one; see [`datasets/humaneval-plus/1.0`](datasets/humanev
    the lock it produces.
 5. **After the pull request is merged**, a maintainer runs the Build images workflow and commits the
    `images.lock.json` and `generated.lock.json` it writes, as the README describes. Only then can the
-   version be published.
+   version be published. A version on several images is locked one image at a time: each run pins
+   its image's tasks and keeps the others, so commit each run's locks before the next run, or apply
+   each run's digest with `python scripts/generated_source.py lock-image <tag> <digest>`.
 
 ## Versions are immutable
 

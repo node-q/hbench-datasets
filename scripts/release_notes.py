@@ -51,6 +51,35 @@ def built_environment_lines(environment, images_lock):
     return lines
 
 
+def task_images_environment_lines(environment, images_lock):
+    images_lock = images_lock or {}
+    lines = [
+        "",
+        "## Environments",
+        "",
+        "Each task's `docker_image` is one of these images, which this repository's Build images workflow built "
+        f"and pushed; `{IMAGES_LOCK_FILENAME}` (attached) says which. hbench copies the task's `environment/` "
+        "directory into the image when the task starts.",
+        "",
+    ]
+    pinned_references = []
+    for pattern, tag in sorted(environment["task_images"].items()):
+        pinned = sorted({entry["pinned"] for entry in images_lock.values() if entry["source"] == tag_reference(tag)})
+        pinned_references += pinned
+        pinned_text = f"`{pinned[0]}`" if len(pinned) == 1 else "not built yet"
+        lines.append(f"- `{pattern}`: `{tag_reference(tag)}`, {pinned_text}")
+    if pinned_references:
+        lines += ["", "```sh"]
+        for pinned in pinned_references:
+            lines += [
+                f"cosign verify {pinned} \\",
+                f"  --certificate-identity-regexp '{BUILD_IMAGES_CERTIFICATE_IDENTITY_REGEXP}' \\",
+                f"  --certificate-oidc-issuer {CERTIFICATE_OIDC_ISSUER}",
+            ]
+        lines.append("```")
+    return lines
+
+
 def declared_images_text(environment):
     if environment.get("declared_image"):
         return f"`{environment['declared_image']}`"
@@ -128,6 +157,8 @@ def release_notes(descriptor, repository, digest, hbench_version, run_url, image
         lines += mirrored_environment_lines(descriptor)
     elif environment.get("policy") == "pinned-upstream":
         lines += upstream_environment_lines(descriptor)
+    elif environment.get("policy") == "built" and "task_images" in environment:
+        lines += task_images_environment_lines(environment, images_lock)
     elif environment.get("policy") == "built":
         lines += built_environment_lines(environment, images_lock)
     elif environment.get("planned"):

@@ -2,6 +2,21 @@ bases:
   - tag: base-python-3.12-slim
     source: docker.io/library/python:3.12-slim
     digest: sha256:cb33f7f771ecec2ef1225cf39b159591a040391bd73e4c01f00fdfc4c47611d2
+  - tag: base-debian-trixie-slim
+    source: docker.io/library/debian:trixie-slim
+    digest: sha256:62bd423aeee912639ca8ee681c2b762cb3e25137e0a92b20be455898a9f034ad
+  - tag: base-eclipse-temurin-25-jdk
+    source: docker.io/library/eclipse-temurin:25-jdk
+    digest: sha256:2d5d5e9b533342a565907c84f47a2ec298c40cde7b13a3ca85d4950fa456a641
+  - tag: base-golang-1.27-trixie
+    source: docker.io/library/golang:1.27-trixie
+    digest: sha256:fbb7ae40b62ff8afe31662df570d39b4f5052ac32b90dae8e60d7657a20a74f4
+  - tag: base-node-24-trixie-slim
+    source: docker.io/library/node:24-trixie-slim
+    digest: sha256:43b9ba1142b8dcf33fa8f922ca1be85714adc444e0586c7cf7726daaeabc1bea
+  - tag: base-rust-1.99.1-slim-trixie
+    source: docker.io/library/rust:1.99.1-slim-trixie
+    digest: sha256:e6cd1d294a300601eaaa4a294b337e5f0826f427fb2d481e9f76e69e7981e244
   - tag: base-python-3.10-slim-bookworm
     source: docker.io/library/python:3.10-slim-bookworm
     digest: sha256:5be5aaecb962a41567bc8041f1e9e3432cb085b037fe057f9a562630b2e4b370

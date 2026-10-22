@@ -1,0 +1,17 @@
+[package]
+name = "exercism-rust-prefetch"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+anyhow = "1"
+counter = "0.7"
+itertools = "0.14"
+num-bigint = "0.4"
+num-traits = "0.2"
+pretty_assertions = "1"
+rand = "0.10"
+regex-lite = "0.1"
+thiserror = "2"
+time = "0.3"

@@ -6,7 +6,8 @@ With no arguments, checks every dataset version under datasets/ and the layout o
 A pinned-mirror, pinned-upstream or built version whose images.lock.json is not filled yet passes
 with a warning, unless --for-publish is given. A generated version also needs its adapter's files, a
 generated.lock.json of the declared number of tasks, and an images.lock.json that, once filled, pins
-exactly those tasks to its one built image.
+exactly those tasks to its one built image. A version on several images may pin some images' tasks
+before the others; until it pins them all, it too passes with a warning unless --for-publish is given.
 """
 
 import argparse
@@ -19,7 +20,15 @@ import jsonschema
 import yaml
 from license_expression import get_spdx_licensing
 
-from generated_checks import GENERATED_LOCK_FILENAME, generated_problems
+from generated_checks import (
+    GENERATED_LOCK_FILENAME,
+    generated_problems,
+    is_generated,
+    load_generated_lock,
+    on_several_images,
+    partially_locked_message,
+    unlocked_images,
+)
 from images_lock import (
     IMAGES_LOCK_FILENAME,
     LOCKED_POLICIES,
@@ -144,6 +153,8 @@ def images_lock_problems(descriptor, version_directory, for_publish):
         return []
     if not isinstance(declared_image, str):
         declared_image = None
+    if policy == "built" and isinstance(descriptor["environment"].get("task_images"), dict):
+        task_count = len(lock)
     problems = lock_problems(lock, name, policy, task_count, declared_image)
     return [f"{IMAGES_LOCK_FILENAME}: {problem}" for problem in problems]
 
@@ -156,9 +167,18 @@ def locked_policy(descriptor):
 
 
 def unfilled_lock_warning(valid_version_directory):
-    policy = locked_policy(load_descriptor(valid_version_directory / DESCRIPTOR_FILENAME))
-    if policy is not None and load_images_lock(valid_version_directory / IMAGES_LOCK_FILENAME) == {}:
+    descriptor = load_descriptor(valid_version_directory / DESCRIPTOR_FILENAME)
+    policy = locked_policy(descriptor)
+    if policy is None:
+        return None
+    lock = load_images_lock(valid_version_directory / IMAGES_LOCK_FILENAME)
+    if lock == {}:
         return unfilled_lock_message(policy)
+    if is_generated(descriptor) and on_several_images(descriptor):
+        task_names = sorted(load_generated_lock(valid_version_directory / GENERATED_LOCK_FILENAME))
+        unlocked = unlocked_images(descriptor, lock, task_names)
+        if unlocked:
+            return partially_locked_message(unlocked)
     return None
 
 
@@ -181,7 +201,7 @@ def version_directory_problems(version_directory, validator, licensing, for_publ
     if isinstance(descriptor.get("license"), str):
         problems += spdx_id_problems(descriptor["license"], licensing)
     if not descriptor_schema_problems:
-        problems += generated_problems(descriptor, version_directory)
+        problems += generated_problems(descriptor, version_directory, for_publish)
     return problems
 
 
