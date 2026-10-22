@@ -61,19 +61,25 @@ version is a generated one; see [`datasets/humaneval-plus/1.0`](datasets/humanev
    task files deterministically,
    `package_digest` is hbench's package digest, and `function_checker` is an EvalPlus-style checker
    for tasks that ask for one Python function (`problem_document`, `function_checker_files` and
-   `verify.verify_tasks`). Adapters, and everything they import, use only the Python standard
-   library, so that CI can run their checks in the image's base.
+   `verify.verify_tasks`). A checker of another shape runs the agent's code through the same
+   sandbox with `sandbox_checker_files` and `verify.Checker`, as `adapters/mbpp_plus`,
+   `adapters/humanevalfix` and `adapters/cruxeval_input` do. Adapters, and everything they import,
+   use only the Python standard library, so that CI can run their checks in the image's base.
 2. **Add the image** to [`images/images.yaml`](images/images.yaml), tagged `<dataset>-<version>`,
    with its build context `images/<name>/` and its base. Its Dockerfile starts
    `FROM ghcr.io/node-q/hbench-envs:<base tag>@<base digest>`. A new base goes in
    [`images/bases.yaml`](images/bases.yaml), tagged `base-<name>-<tag>`, with the Docker Hub digest
-   it is copied at.
+   it is copied at. Tasks whose environment a built image already gives name that image instead, as
+   `humanevalfix@1.0` names `humaneval-plus-1.0`.
 3. **Write the descriptor** with `source.kind: generated`, the adapter, each upstream file's name,
    URL and sha256, and the task count, and `environment.policy: built` with the image's tag and
    `images_lock: images.lock.json`. Commit `images.lock.json` as `{}`. `LICENSE` is Apache-2.0, the
    licence of the task directories we write; `NOTICE` carries every upstream licence notice,
    copyright line and citation, and says what the adapter keeps and what it writes. If the upstream
-   has no canary string, give the dataset one of ours: a new GUID.
+   has no canary string, give the dataset one of ours: a new GUID. A version whose tasks run in
+   different images names them in `environment.task_images` instead of `image`, a glob over task
+   names for each image, and its adapter writes each task's `environment/`, the files hbench copies
+   into the image; see [`datasets/exercism-polyglot/1.0`](datasets/exercism-polyglot/1.0).
 4. **Write the lock and run the checks:**
 
    ```sh
@@ -88,7 +94,9 @@ version is a generated one; see [`datasets/humaneval-plus/1.0`](datasets/humanev
    the lock it produces.
 5. **After the pull request is merged**, a maintainer runs the Build images workflow and commits the
    `images.lock.json` and `generated.lock.json` it writes, as the README describes. Only then can the
-   version be published.
+   version be published. A version on several images is locked one image at a time: each run pins
+   its image's tasks and keeps the others, so commit each run's locks before the next run, or apply
+   each run's digest with `python scripts/generated_source.py lock-image <tag> <digest>`.
 
 When every task needs its own prebuilt environment, as in SWE-bench, the environment policy is
 `built-locally` instead (see the README's [Locally built environments](README.md#locally-built-environments)):

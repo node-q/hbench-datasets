@@ -5,3 +5,38 @@ images:
     platforms:
       - linux/amd64
       - linux/arm64
+  - tag: exercism-polyglot-cpp-1.0
+    context: images/exercism-cpp
+    base: base-debian-trixie-slim
+    platforms:
+      - linux/amd64
+  - tag: exercism-polyglot-go-1.0
+    context: images/exercism-go
+    base: base-golang-1.27-trixie
+    platforms:
+      - linux/amd64
+  - tag: exercism-polyglot-java-1.0
+    context: images/exercism-java
+    base: base-eclipse-temurin-25-jdk
+    platforms:
+      - linux/amd64
+  - tag: exercism-polyglot-javascript-1.0
+    context: images/exercism-javascript
+    base: base-node-24-trixie-slim
+    platforms:
+      - linux/amd64
+  - tag: exercism-polyglot-python-1.0
+    context: images/exercism-python
+    base: base-python-3.12-slim
+    platforms:
+      - linux/amd64
+  - tag: exercism-polyglot-rust-1.0
+    context: images/exercism-rust
+    base: base-rust-1.99.1-slim-trixie
+    platforms:
+      - linux/amd64
+  - tag: bigcodebench-1.0
+    context: images/bigcodebench
+    base: base-python-3.10-slim-bookworm
+    platforms:
+      - linux/amd64

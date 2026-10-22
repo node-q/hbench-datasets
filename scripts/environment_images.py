@@ -12,8 +12,12 @@ context in this repository (images/images.yaml). check verifies both lists, and 
 Dockerfile starts FROM its base's copy pinned to the base's digest, so that no build pulls from Docker
 Hub. bases prints "<source>@<digest> <target>" for each base. image prints a built image's entry as
 JSON. base-of prints the pinned base a built image starts FROM.
+
+A generated version runs every task in its one built image (environment.image), or each task in the
+image whose glob in environment.task_images matches the task's name.
 """
 
+import fnmatch
 import json
 import re
 import sys
@@ -198,6 +202,73 @@ def pinned_image(lock):
     if len(pinned) > 1:
         raise EnvironmentImageError(f"{IMAGES_LOCK_FILENAME} pins several images: {sorted(pinned)}")
     return next(iter(pinned), None)
+
+
+def version_image_tags(environment):
+    if "task_images" in environment:
+        return sorted(environment["task_images"].items())
+    return [("*", environment["image"])]
+
+
+def task_image_tags(environment, task_names):
+    patterns = version_image_tags(environment)
+    tags_by_task = {}
+    for name in task_names:
+        matching = [tag for pattern, tag in patterns if fnmatch.fnmatchcase(name, pattern)]
+        if len(matching) != 1:
+            raise EnvironmentImageError(
+                f"task {name} matches {len(matching)} of environment.task_images's globs, not exactly one"
+            )
+        tags_by_task[name] = matching[0]
+    return tags_by_task
+
+
+def unmatched_task_image_patterns(environment, task_names):
+    return [
+        pattern
+        for pattern, _ in version_image_tags(environment)
+        if not any(fnmatch.fnmatchcase(name, pattern) for name in task_names)
+    ]
+
+
+def unlocked_image_tags(lock, tags_by_task):
+    return sorted({tag for name, tag in tags_by_task.items() if name not in lock})
+
+
+def task_docker_images(environment, lock):
+    references = []
+    for pattern, tag in version_image_tags(environment):
+        pinned = sorted(
+            {
+                entry["pinned"]
+                for name, entry in lock.items()
+                if fnmatch.fnmatchcase(name, pattern) and isinstance(entry, dict) and "pinned" in entry
+            }
+        )
+        if len(pinned) > 1:
+            raise EnvironmentImageError(f"{IMAGES_LOCK_FILENAME} pins the tasks matching {pattern} to several images: {pinned}")
+        references.append((pattern, pinned[0] if pinned else tag_reference(tag)))
+    return tuple(references)
+
+
+def task_images_lock_problems(lock, tags_by_task):
+    problems = []
+    unexpected = sorted(set(lock) - set(tags_by_task))
+    if unexpected:
+        problems.append(f"locks tasks that are not generated: {unexpected}")
+    for tag in sorted(set(tags_by_task.values())):
+        tasks = sorted(name for name, task_tag in tags_by_task.items() if task_tag == tag)
+        entries = [lock[name] for name in tasks if name in lock]
+        if not entries:
+            continue
+        if len(entries) != len(tasks):
+            problems.append(f"locks {len(entries)} of the {len(tasks)} tasks on {tag}, but an image's tasks are locked together")
+        sources = sorted({str(entry.get("source")) for entry in entries if isinstance(entry, dict)})
+        if sources != [tag_reference(tag)]:
+            problems.append(f"locks the tasks on {tag} to {sources}, not {tag_reference(tag)}")
+        if len({entry.get("source_digest") for entry in entries if isinstance(entry, dict)}) > 1:
+            problems.append(f"pins several digests of {tag_reference(tag)}, which has one")
+    return problems
 
 
 def built_lock_problems(lock, tag, task_names):

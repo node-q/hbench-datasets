@@ -1,0 +1,119 @@
+name: Exercism polyglot
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/exercism-polyglot.yml
+      - adapters/common/**
+      - adapters/exercism_polyglot/**
+      - datasets/exercism-polyglot/**
+      - images/bases.yaml
+      - images/images.yaml
+      - images/exercism-*/**
+      - scripts/environment_images.py
+      - scripts/generated_checks.py
+      - scripts/generated_source.py
+      - scripts/install-hbench.sh
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/exercism-polyglot.yml
+      - adapters/common/**
+      - adapters/exercism_polyglot/**
+      - datasets/exercism-polyglot/**
+      - images/bases.yaml
+      - images/images.yaml
+      - images/exercism-*/**
+      - scripts/environment_images.py
+      - scripts/generated_checks.py
+      - scripts/generated_source.py
+      - scripts/install-hbench.sh
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: exercism-polyglot-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  tasks:
+    name: "${{ matrix.language }}: build the image, then every oracle must pass and every stub fail"
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [cpp, go, java, javascript, python, rust]
+    env:
+      HBENCH_VERSION: v0.2.6
+      IMAGE_TAG: exercism-polyglot-${{ matrix.language }}-1.0
+      TASKS: exercism-${{ matrix.language }}-*
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install the pinned Python packages
+        run: python -m pip install --require-hashes -r requirements.txt
+      - name: Install hbench, verifying SHA256SUMS and its build provenance
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: scripts/install-hbench.sh "$HBENCH_VERSION" "$RUNNER_TEMP/hbench"
+      - name: Build the image from its Dockerfile, from its base's Docker Hub source while GHCR has no copy of it yet
+        run: |
+          context="$(python scripts/environment_images.py image "$IMAGE_TAG" | jq -r .context)"
+          base="$(python scripts/environment_images.py base-of "$IMAGE_TAG")"
+          build_context="$RUNNER_TEMP/build-context"
+          cp -R "$context" "$build_context"
+          if ! docker pull --quiet "$base" > /dev/null 2>&1; then
+            source="$(python scripts/environment_images.py bases | awk -v target="${base%@*}" '$2 == target { print $1 }')"
+            echo "::notice title=Base not on GHCR yet::$base cannot be pulled, so $IMAGE_TAG is built from $source, the same digest."
+            sed -i "s|^FROM $base\$|FROM $source|" "$build_context/Dockerfile"
+          fi
+          started=$SECONDS
+          docker build --tag "ghcr.io/node-q/hbench-envs:$IMAGE_TAG" "$build_context"
+          echo "BUILD_SECONDS=$((SECONDS - started))" >> "$GITHUB_ENV"
+      - name: Generate the tasks, naming their images by tag
+        run: |
+          python scripts/generated_source.py generate --allow-unfilled-lock \
+            datasets/exercism-polyglot/1.0/source.yaml "$RUNNER_TEMP/generated"
+      - name: Run every task's oracle, which must pass, and its untouched stubs, which must fail
+        env:
+          HBENCH: ${{ runner.temp }}/hbench/hbench
+        run: |
+          started=$SECONDS
+          python -m adapters.verify exercism_polyglot "$RUNNER_TEMP/generated/tasks" --jobs 4 --task "$TASKS" \
+            | tee "$RUNNER_TEMP/check.log"
+          echo "CHECK_SECONDS=$((SECONDS - started))" >> "$GITHUB_ENV"
+      - name: Write the image's size and the times to the job summary
+        if: always()
+        run: |
+          reference="ghcr.io/node-q/hbench-envs:$IMAGE_TAG"
+          {
+            echo "## $IMAGE_TAG"
+            echo
+            if docker image inspect "$reference" > /dev/null 2>&1; then
+              size="$(docker image inspect --format '{{ .Size }}' "$reference")"
+              compressed="$(docker save "$reference" | gzip | wc -c)"
+              echo "- Image: $((size / 1000000)) MB on disk, $((compressed / 1000000)) MB gzip-compressed, built in ${BUILD_SECONDS:-?} s"
+            fi
+            echo "- Oracle and stub runs of every task, 4 at a time: ${CHECK_SECONDS:-?} s"
+            if [[ -f "$RUNNER_TEMP/check.log" ]]; then
+              grep -E '^(oracle|nop): ' "$RUNNER_TEMP/check.log" | sed 's/^/- /' || true
+              tail -n 1 "$RUNNER_TEMP/check.log" | sed 's/^/- /'
+              echo
+              echo '```'
+              grep -E '^(ok  |FAIL)' "$RUNNER_TEMP/check.log" || true
+              echo '```'
+            fi
+          } | tee -a "$GITHUB_STEP_SUMMARY"

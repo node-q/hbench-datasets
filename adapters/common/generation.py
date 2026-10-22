@@ -5,6 +5,7 @@ image pinned by digest, from images.lock.json, which its environment/Dockerfile 
 """
 
 import dataclasses
+import fnmatch
 import types
 
 
@@ -19,3 +20,10 @@ class GenerationContext:
     canary: str
     docker_image: str | None
     base_images: types.MappingProxyType = dataclasses.field(default_factory=no_base_images)
+    task_docker_images: tuple[tuple[str, str], ...] = ()
+
+    def docker_image_for(self, task_name):
+        for pattern, reference in self.task_docker_images:
+            if fnmatch.fnmatchcase(task_name, pattern):
+                return reference
+        return self.docker_image
