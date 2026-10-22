@@ -326,6 +326,9 @@ class RepositoryTest(unittest.TestCase):
         self.assertIn("ok  datasets/terminal-bench/2.0\n", output)
         self.assertIn("ok  datasets/terminal-bench/2.0.1\n", output)
         self.assertIn("ok  datasets/humaneval-plus/1.0\n", output)
+        self.assertIn("ok  datasets/humanevalfix/1.0\n", output)
+        self.assertIn("ok  datasets/mbpp-plus/1.0\n", output)
+        self.assertIn("ok  datasets/cruxeval-input/1.0\n", output)
         unfilled_locks = sorted(
             f"datasets/{directory.parent.name}/{directory.name}/images.lock.json"
             for directory in version_directories()
