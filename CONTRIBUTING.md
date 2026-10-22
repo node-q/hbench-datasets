@@ -90,8 +90,9 @@ version is a generated one; see [`datasets/humaneval-plus/1.0`](datasets/humanev
    it, so a change to the adapter, its shared helpers or the image's build context is committed with
    the lock it produces.
 5. **After the pull request is merged**, a maintainer runs the Build images workflow and commits the
-   `images.lock.json` and `generated.lock.json` it writes, as the README describes. Only then can the
-   version be published.
+   `images.lock.json` and `generated.lock.json` it writes, as
+   [docs/PUBLISHING.md](docs/PUBLISHING.md#building-images) describes. Only then can the version be
+   published.
 
 ## Versions are immutable
 
