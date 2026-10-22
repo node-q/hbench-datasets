@@ -336,3 +336,12 @@ jobs:
             --notes-file "$release_files/notes.md" \
             "${release_assets[@]}"
           echo "Released $tag: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/tag/$tag" >> "$GITHUB_STEP_SUMMARY"
+
+  index:
+    name: Update the dataset index
+    needs: release
+    uses: ./.github/workflows/index.yml
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
