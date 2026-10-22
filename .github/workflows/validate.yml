@@ -101,6 +101,10 @@ jobs:
           mapfile -t generated_versions < <(python scripts/check_generated_tasks.py --list)
           for generated_version in "${generated_versions[@]}"; do
             read -r name version adapter image <<<"$generated_version"
+            if [[ "$adapter" == bigcodebench ]]; then
+              echo "$name@$version needs its built image: the BigCodeBench workflow checks it."
+              continue
+            fi
             tasks="$RUNNER_TEMP/generated/$name/$version/first/tasks"
             base="$(python scripts/environment_images.py base-of "$image")"
             if docker pull --quiet "$base" > /dev/null 2>&1; then

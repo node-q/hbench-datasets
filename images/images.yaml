@@ -35,3 +35,8 @@ images:
     base: base-rust-1.99.1-slim-trixie
     platforms:
       - linux/amd64
+  - tag: bigcodebench-1.0
+    context: images/bigcodebench
+    base: base-python-3.10-slim-bookworm
+    platforms:
+      - linux/amd64

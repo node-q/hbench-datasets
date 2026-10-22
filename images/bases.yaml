@@ -17,3 +17,6 @@ bases:
   - tag: base-rust-1.99.1-slim-trixie
     source: docker.io/library/rust:1.99.1-slim-trixie
     digest: sha256:e6cd1d294a300601eaaa4a294b337e5f0826f427fb2d481e9f76e69e7981e244
+  - tag: base-python-3.10-slim-bookworm
+    source: docker.io/library/python:3.10-slim-bookworm
+    digest: sha256:5be5aaecb962a41567bc8041f1e9e3432cb085b037fe057f9a562630b2e4b370

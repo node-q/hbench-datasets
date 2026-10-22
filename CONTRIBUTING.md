@@ -61,13 +61,16 @@ version is a generated one; see [`datasets/humaneval-plus/1.0`](datasets/humanev
    task files deterministically,
    `package_digest` is hbench's package digest, and `function_checker` is an EvalPlus-style checker
    for tasks that ask for one Python function (`problem_document`, `function_checker_files` and
-   `verify.verify_tasks`). Adapters, and everything they import, use only the Python standard
-   library, so that CI can run their checks in the image's base.
+   `verify.verify_tasks`). A checker of another shape runs the agent's code through the same
+   sandbox with `sandbox_checker_files` and `verify.Checker`, as `adapters/mbpp_plus`,
+   `adapters/humanevalfix` and `adapters/cruxeval_input` do. Adapters, and everything they import,
+   use only the Python standard library, so that CI can run their checks in the image's base.
 2. **Add the image** to [`images/images.yaml`](images/images.yaml), tagged `<dataset>-<version>`,
    with its build context `images/<name>/` and its base. Its Dockerfile starts
    `FROM ghcr.io/node-q/hbench-envs:<base tag>@<base digest>`. A new base goes in
    [`images/bases.yaml`](images/bases.yaml), tagged `base-<name>-<tag>`, with the Docker Hub digest
-   it is copied at.
+   it is copied at. Tasks whose environment a built image already gives name that image instead, as
+   `humanevalfix@1.0` names `humaneval-plus-1.0`.
 3. **Write the descriptor** with `source.kind: generated`, the adapter, each upstream file's name,
    URL and sha256, and the task count, and `environment.policy: built` with the image's tag and
    `images_lock: images.lock.json`. Commit `images.lock.json` as `{}`. `LICENSE` is Apache-2.0, the
