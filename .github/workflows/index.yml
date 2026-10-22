@@ -1,0 +1,126 @@
+name: Index
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dataset-index
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  REGISTRY: ghcr.io
+  NAMESPACE: ghcr.io/node-q/hbench-datasets
+  INDEX: ghcr.io/node-q/hbench-datasets/index
+  INDEX_ARTIFACT_TYPE: application/vnd.hbench.dataset-index.v1
+  INDEX_MEDIA_TYPE: application/vnd.hbench.dataset-index.v1+json
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  index:
+    name: Push the dataset index
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install the pinned Python packages
+        run: python -m pip install --require-hashes -r requirements.txt
+      - name: Install oras
+        uses: oras-project/setup-oras@005458ad77f1c8facd38a094e4af2e69e5607ff4 # v2.0.2
+        with:
+          version: 1.3.4
+      - name: Install cosign
+        uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+        with:
+          cosign-release: v3.0.6
+      - name: Build the index from what an anonymous client can pull
+        run: |
+          mkdir -p "$RUNNER_TEMP/index"
+          python scripts/dataset_index.py --namespace "$NAMESPACE" --output "$RUNNER_TEMP/index/index.json" | tee "$RUNNER_TEMP/index.log"
+      - name: Leave the index alone when it lists the same datasets
+        id: compare
+        run: |
+          changed=true
+          no_credentials="$(mktemp -d)"
+          if current="$(DOCKER_CONFIG="$no_credentials" oras manifest fetch "$INDEX:latest" 2>/dev/null)"; then
+            layer="$(jq -r '.layers[0].digest' <<<"$current")"
+            if DOCKER_CONFIG="$no_credentials" oras blob fetch --output "$RUNNER_TEMP/current.json" "$INDEX@$layer" 2>/dev/null \
+              && cmp -s "$RUNNER_TEMP/current.json" "$RUNNER_TEMP/index/index.json"; then
+              changed=false
+              echo "$INDEX:latest already lists these datasets; nothing to push."
+            fi
+          fi
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+      - name: Log in to GHCR with the workflow token
+        if: steps.compare.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: oras login "$REGISTRY" --username "$GITHUB_ACTOR" --password-stdin <<<"$GITHUB_TOKEN"
+      - name: Push the index
+        id: push
+        if: steps.compare.outputs.changed == 'true'
+        env:
+          SOURCE: ${{ github.server_url }}/${{ github.repository }}
+          REVISION: ${{ github.sha }}
+        run: |
+          cd "$RUNNER_TEMP/index"
+          oras push "$INDEX:latest" \
+            --artifact-type "$INDEX_ARTIFACT_TYPE" \
+            --annotation "org.opencontainers.image.source=$SOURCE" \
+            --annotation "org.opencontainers.image.revision=$REVISION" \
+            "index.json:$INDEX_MEDIA_TYPE"
+          echo "digest=$(oras resolve "$INDEX:latest")" >> "$GITHUB_OUTPUT"
+      - name: Sign with cosign
+        if: steps.compare.outputs.changed == 'true'
+        env:
+          DIGEST: ${{ steps.push.outputs.digest }}
+        run: cosign sign --yes "$INDEX@$DIGEST"
+      - name: Refuse an index nobody can pull
+        if: steps.compare.outputs.changed == 'true'
+        env:
+          DIGEST: ${{ steps.push.outputs.digest }}
+        run: |
+          if ! DOCKER_CONFIG="$(mktemp -d)" oras manifest fetch "$INDEX@$DIGEST" > /dev/null 2>"$RUNNER_TEMP/anonymous-pull.log"; then
+            cat "$RUNNER_TEMP/anonymous-pull.log" >&2
+            echo "::error title=Package not public::An anonymous pull of $INDEX@$DIGEST failed, so hbench cannot read the index. A new GHCR package starts private: make it public in its package settings (https://github.com/orgs/node-q/packages/container/hbench-datasets%2Findex/settings), then re-run this workflow."
+            exit 1
+          fi
+      - name: Write the index to the job summary
+        if: always()
+        env:
+          CHANGED: ${{ steps.compare.outputs.changed }}
+          DIGEST: ${{ steps.push.outputs.digest }}
+        run: |
+          {
+            echo "## Dataset index"
+            echo
+            if [[ "$CHANGED" == true && -n "$DIGEST" ]]; then
+              echo "Pushed \`$INDEX:latest\` as \`$DIGEST\`, signed with cosign."
+            else
+              echo "\`$INDEX:latest\` already listed these datasets."
+            fi
+            echo
+            echo "| Dataset | Manifest digest |"
+            echo "|---|---|"
+            jq -r '.datasets[] | "| `\(.name)@\(.version)` | `\(.digest)` |"' "$RUNNER_TEMP/index/index.json"
+            echo
+            grep '^left out' "$RUNNER_TEMP/index.log" | sed 's/^/- /' || true
+          } >> "$GITHUB_STEP_SUMMARY"
