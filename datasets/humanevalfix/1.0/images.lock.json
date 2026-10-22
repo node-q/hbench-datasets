@@ -1,1 +1,822 @@
-{}
+{
+  "humanevalfix-0": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-1": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-10": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-100": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-101": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-102": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-103": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-104": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-105": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-106": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-107": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-108": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-109": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-11": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-110": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-111": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-112": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-113": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-114": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-115": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-116": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-117": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-118": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-119": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-12": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-120": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-121": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-122": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-123": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-124": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-125": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-126": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-127": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-128": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-129": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-13": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-130": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-131": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-132": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-133": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-134": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-135": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-136": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-137": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-138": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-139": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-14": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-140": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-141": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-142": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-143": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-144": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-145": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-146": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-147": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-148": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-149": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-15": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-150": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-151": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-152": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-153": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-154": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-155": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-156": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-157": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-158": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-159": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-16": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-160": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-161": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-162": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-163": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-17": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-18": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-19": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-2": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-20": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-21": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-22": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-23": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-24": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-25": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-26": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-27": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-28": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-29": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-3": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-30": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-31": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-32": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-33": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-34": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-35": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-36": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-37": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-38": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-39": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-4": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-40": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-41": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-42": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-43": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-44": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-45": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-46": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-47": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-48": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-49": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-5": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-50": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-51": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-52": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-53": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-54": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-55": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-56": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-57": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-58": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-59": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-6": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-60": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-61": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-62": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-63": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-64": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-65": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-66": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-67": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-68": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-69": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-7": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-70": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-71": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-72": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-73": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-74": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-75": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-76": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-77": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-78": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-79": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-8": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-80": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-81": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-82": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-83": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-84": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-85": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-86": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-87": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-88": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-89": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-9": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-90": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-91": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-92": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-93": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-94": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-95": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-96": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-97": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-98": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  },
+  "humanevalfix-99": {
+    "source": "ghcr.io/node-q/hbench-envs:humaneval-plus-1.0",
+    "source_digest": "sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:f21aee15cbb30be1512bf70e8f0f5c730be981e67576783c9dc8427bf87a5d20"
+  }
+}
