@@ -3,8 +3,8 @@
 Benchmark datasets for [hbench](https://github.com/node-q/hbench) (`node-q/hbench`), the CLI that
 runs AI agents on benchmark tasks in Docker, published as signed OCI artifacts.
 
-**Nothing is published yet.** The publish workflow is ready, but it refuses to run until a
-node-q/hbench release has `hbench datasets push`.
+Each published version has a [release](https://github.com/node-q/hbench-datasets/releases) with its
+reference, manifest digest, and how to run and verify it.
 
 ## What's here
 
@@ -37,16 +37,16 @@ new version is a new tag. Each dataset is also mirrored to a second registry, no
 
 | Dataset | Tasks | Licence | Status |
 | --- | ---: | --- | --- |
-| `terminal-bench@2.0` | 89 | Apache-2.0 | Configured, not published yet |
-| `terminal-bench@2.0.1` | 89 | Apache-2.0 | Configured |
-| `humaneval-plus@1.0` | 164 | Apache-2.0 | Generated; waits for its image to be built |
-| `humanevalfix@1.0` | 164 | Apache-2.0 | Generated; waits for its image lock |
-| `mbpp-plus@1.0` | 378 | Apache-2.0 | Generated; waits for its image lock |
-| `cruxeval-input@1.0` | 800 | Apache-2.0 | Generated; waits for its image lock |
+| `terminal-bench@2.0` | 89 | Apache-2.0 | [Published](https://github.com/node-q/hbench-datasets/releases/tag/terminal-bench-2.0) |
+| `terminal-bench@2.0.1` | 89 | Apache-2.0 | [Published](https://github.com/node-q/hbench-datasets/releases/tag/terminal-bench-2.0.1) |
+| `humaneval-plus@1.0` | 164 | Apache-2.0 | Generated, [published](https://github.com/node-q/hbench-datasets/releases/tag/humaneval-plus-1.0) |
+| `humanevalfix@1.0` | 164 | Apache-2.0 | Generated, [published](https://github.com/node-q/hbench-datasets/releases/tag/humanevalfix-1.0) |
+| `mbpp-plus@1.0` | 378 | Apache-2.0 | Generated, [published](https://github.com/node-q/hbench-datasets/releases/tag/mbpp-plus-1.0) |
+| `cruxeval-input@1.0` | 800 | Apache-2.0 | Generated, [published](https://github.com/node-q/hbench-datasets/releases/tag/cruxeval-input-1.0) |
 
 ## Running a dataset
 
-This needs an hbench release with the OCI read path (`--registry oci://…`), which is being built.
+This needs hbench 0.3.0 or later.
 
 ```sh
 hbench run -d terminal-bench@2.0 --registry oci://ghcr.io/node-q/hbench-datasets
@@ -209,17 +209,17 @@ Until then `images.lock.json` is `{}`: the version validates with a warning, its
 
 ## Offline use
 
-hbench's `export` command, which is not in a release yet, writes an OCI image layout to a
-directory, and hbench reads it with `--registry oci-layout:<dir>`:
+`hbench datasets export` copies a dataset into an OCI image layout, `<dir>/<dataset>`, and hbench
+reads it with `--registry oci-layout:<dir>`:
 
 ```sh
-hbench datasets export --oci-layout ./hbench-layout terminal-bench@2.0 --registry oci://ghcr.io/node-q/hbench-datasets
+hbench datasets export -d terminal-bench@2.0 --registry oci://ghcr.io/node-q/hbench-datasets --oci-layout ./hbench-layout
 hbench run -d terminal-bench@2.0 --registry oci-layout:./hbench-layout
 ```
 
-`oras copy -r --to-oci-layout ghcr.io/node-q/hbench-datasets/terminal-bench:2.0 ./hbench-layout:2.0`
-writes the same layout today. The tasks' environment images are not part of the layout: pull or
-load them before going offline.
+`oras cp ghcr.io/node-q/hbench-datasets/terminal-bench:2.0 --to-oci-layout ./hbench-layout/terminal-bench:2.0`
+writes the same layout without hbench. The tasks' environment images are not part of the layout:
+pull or load them before going offline.
 
 ## Licensing
 
