@@ -98,7 +98,7 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: |
-          mapfile -t generated_versions < <(python scripts/check_generated_tasks.py --list)
+          mapfile -t generated_versions < <(python scripts/check_generated_tasks.py --list --policy built)
           for generated_version in "${generated_versions[@]}"; do
             read -r name version adapter image <<<"$generated_version"
             if [[ "$adapter" == bigcodebench ]]; then

@@ -51,6 +51,17 @@ def built_environment_lines(environment, images_lock):
     return lines
 
 
+def built_locally_environment_lines():
+    return [
+        "",
+        "## Environments",
+        "",
+        "No environment image is distributed. hbench builds each task's `environment/Dockerfile` on the machine "
+        f"that runs it; the Dockerfile starts `FROM` the task's upstream base image, pinned by digest in "
+        f"`{IMAGES_LOCK_FILENAME}` (attached).",
+    ]
+
+
 def task_images_environment_lines(environment, images_lock):
     images_lock = images_lock or {}
     lines = [
@@ -161,6 +172,8 @@ def release_notes(descriptor, repository, digest, hbench_version, run_url, image
         lines += task_images_environment_lines(environment, images_lock)
     elif environment.get("policy") == "built":
         lines += built_environment_lines(environment, images_lock)
+    elif environment.get("policy") == "built-locally":
+        lines += built_locally_environment_lines()
     elif environment.get("planned"):
         lines += ["", "## Environments", "", " ".join(environment["planned"].split())]
     if descriptor.get("attribution"):

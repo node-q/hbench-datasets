@@ -128,6 +128,11 @@ def environment_limitations(descriptor):
             f"Every task's environment image is {tag_reference(environment['image'])}, built by node-q from "
             f"images/images.yaml in {PUBLISHED_REPOSITORY_URL} and pinned by digest."
         ]
+    if environment["policy"] == "built-locally":
+        return [
+            "No environment image is distributed: each task's environment is built where it runs, from its "
+            "environment/Dockerfile, which starts from its upstream base image pinned by digest."
+        ]
     if environment["policy"] == "pinned-mirror":
         return [
             "Every task's prebuilt environment image is pinned by digest to "

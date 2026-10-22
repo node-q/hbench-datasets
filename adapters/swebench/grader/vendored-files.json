@@ -1,0 +1,29 @@
+{
+  "source": "https://github.com/SWE-bench/SWE-bench",
+  "commit": "490635b2e9e775dca1e1d6b40ce9dbcff91e780f",
+  "release": "swebench 5.0.2",
+  "license": "MIT",
+  "files": {
+    "swebench/LICENSE": "2bd2e08df7147f67a69b42c10efae09bd4bf119df397371036187d5dd1b02f57",
+    "swebench/harness/constants/__init__.py": "a81685ccf9d7f28d02fe7559d6ad038b6afb564ff8fc681ff12e6f976abf4bbf",
+    "swebench/harness/grading.py": "a095273010175001a6779e365b3b77abb8657c7ac2e4f80b4bc360faa6f09483",
+    "swebench/harness/infra_failure.py": "72eaca5e8f76390ff9ac1d2d606f5390820b88efe6eed56efed8ff520c593eac",
+    "swebench/harness/log_parsers/__init__.py": "2227a8696ce43a4266dccfa434374afaff43df6bd0b1769f431f5efe76500c14",
+    "swebench/harness/log_parsers/c.py": "861a34ce7e596fd5d155ac15bf88acdc495ce12da13a8ae8bbdf8b07edee5e00",
+    "swebench/harness/log_parsers/go.py": "b604f1e26ddbffad22a14ec012e0235046f006abe43c88a01b13fba3f144f731",
+    "swebench/harness/log_parsers/java.py": "427b4c1e8361c1ca11461d34ec977356f3550fdc2328a78b9be394bcc5da0bdb",
+    "swebench/harness/log_parsers/javascript.py": "87e907b21b54b08b84a4819fa8b7214f7df5f4eb93be586dfea1d5cd2245eb1a",
+    "swebench/harness/log_parsers/php.py": "869f5a8654c73f7f75a6ddd441f3068566a30bb5a0b6d242769cb0b715a14c1d",
+    "swebench/harness/log_parsers/python.py": "cd56156414f8327221e525665ace9b184f7d73e83b272d9eb3f545fb17c2d9bc",
+    "swebench/harness/log_parsers/ruby.py": "3328c72a360fc518473382dfcf8117172ed8cbb89b7838b4c0801e5fe6547bcf",
+    "swebench/harness/log_parsers/rust.py": "1cfa511d1ee6a60a858b08aed9cc14e0b5438869173c12b16022d328d8a3c587",
+    "swebench/types.py": "558b6e7193306c304f9847a8a83dcab6a03ee333f6d51e61152e8821f89e0725"
+  },
+  "excerpts": {
+    "swebench/utils.py": "ansi_escape from swebench/utils.py, which also imports unidiff"
+  },
+  "empty": [
+    "swebench/__init__.py",
+    "swebench/harness/__init__.py"
+  ]
+}
