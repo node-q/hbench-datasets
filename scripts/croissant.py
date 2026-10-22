@@ -117,6 +117,12 @@ def environment_limitations(descriptor):
     environment = descriptor["environment"]
     if environment["policy"] == "pinned-by-digest":
         return ["Every task's prebuilt environment image is pinned by digest."]
+    if environment["policy"] == "built" and "task_images" in environment:
+        images = ", ".join(tag_reference(tag) for _, tag in sorted(environment["task_images"].items()))
+        return [
+            f"Every task's environment image is one of {images}, built by node-q from images/images.yaml in "
+            f"{PUBLISHED_REPOSITORY_URL} and pinned by digest."
+        ]
     if environment["policy"] == "built":
         return [
             f"Every task's environment image is {tag_reference(environment['image'])}, built by node-q from "

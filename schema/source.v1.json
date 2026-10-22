@@ -102,7 +102,7 @@
       "required": ["policy"],
       "properties": {
         "policy": {
-          "description": "as-declared: task.toml is published byte-identical, images exactly as upstream declares them. pinned-by-digest: every task's docker_image is pinned to the digest in images. pinned-mirror: every task's docker_image value is replaced by node-q's unmodified mirror of the image upstream declares, pinned by digest, from images_lock; nothing else changes. pinned-upstream: every task's docker_image value is replaced by the image upstream declares, pinned by its digest, from images_lock; nothing else changes. built: for a generated source, every task's docker_image is the image this repository builds, image, pinned by digest from images_lock, and the task's environment/ is that image's build context. built-locally: for a generated source, no task sets docker_image; each task's environment/Dockerfile, which hbench builds on the machine that runs it, starts FROM the task's upstream base image pinned by digest from images_lock, and no image is redistributed.",
+          "description": "as-declared: task.toml is published byte-identical, images exactly as upstream declares them. pinned-by-digest: every task's docker_image is pinned to the digest in images. pinned-mirror: every task's docker_image value is replaced by node-q's unmodified mirror of the image upstream declares, pinned by digest, from images_lock; nothing else changes. pinned-upstream: every task's docker_image value is replaced by the image upstream declares, pinned by its digest, from images_lock; nothing else changes. built: for a generated source, every task's docker_image is the image this repository builds, image, pinned by digest from images_lock, and the task's environment/ is that image's build context; or, with task_images, each task's is one of several images this repository builds. built-locally: for a generated source, no task sets docker_image; each task's environment/Dockerfile, which hbench builds on the machine that runs it, starts FROM the task's upstream base image pinned by digest from images_lock, and no image is redistributed.",
           "enum": ["as-declared", "pinned-by-digest", "pinned-mirror", "pinned-upstream", "built", "built-locally"]
         },
         "declared_image": {
@@ -132,6 +132,16 @@
           "description": "For the built policy: the image's tag in images/images.yaml, <dataset>-<version>, a tag of ghcr.io/node-q/hbench-envs.",
           "type": "string",
           "pattern": "^[a-z0-9]+(-[a-z0-9]+)*-(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*))?$"
+        },
+        "task_images": {
+          "description": "For the built policy, instead of image: the images the tasks run in, each task choosing one. Each key is a glob over task directory names and each value an image's tag in images/images.yaml; every task matches exactly one glob. Each task's docker_image is its image, pinned by digest from images_lock, or by tag until the Build images workflow has built that image. The adapter writes each task's environment/: the files hbench copies into the image's working directory when the task starts, with no Dockerfile. images_lock pins one image's tasks at a time, and the version is published once it pins them all.",
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": { "pattern": "^[A-Za-z0-9_*?\\[][A-Za-z0-9._*?\\[\\]-]*$" },
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*-(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*))?$"
+          }
         }
       },
       "allOf": [
@@ -191,10 +201,16 @@
       "then": {
         "properties": {
           "source": { "required": ["kind"] },
-          "environment": { "required": ["image"] }
+          "environment": { "oneOf": [{ "required": ["image"] }, { "required": ["task_images"] }] }
         }
       },
-      "else": { "properties": { "environment": { "not": { "required": ["image"] } } } }
+      "else": {
+        "properties": {
+          "environment": {
+            "allOf": [{ "not": { "required": ["image"] } }, { "not": { "required": ["task_images"] } }]
+          }
+        }
+      }
     }
   ],
   "$defs": {
