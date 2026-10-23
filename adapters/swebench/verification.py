@@ -35,7 +35,7 @@ printf '%s %s %s %s %s\\n' \\
   "$(git rev-list --count --all)" \\
   "$(git cat-file --batch-all-objects --batch-check='%(objecttype)' | grep -c '^commit$')" \\
   "$(git tag --no-merged HEAD | wc -l)" \\
-  "$(git log --all --format=%B | grep -cE "#$2([^0-9]|$)")"
+  "$(git log --all ${3:+--since="$3"} --format=%B | grep -cE "#$2([^0-9]|$)")"
 """
 HISTORY_FIELDS = ("in_history", "reachable", "stored", "later_tags", "naming_pull_request")
 
@@ -115,9 +115,12 @@ def built_image(task, workdir):
     return environments[0] if len(environments) == 1 else None
 
 
-def history(image, workdir, pull_request_number):
+def history(image, workdir, pull_request_number, opened_at=""):
     probed = subprocess.run(
-        ["docker", "run", "--rm", "--entrypoint", "/bin/bash", image, "-c", HISTORY_PROBE, "probe", workdir, pull_request_number],
+        [
+            "docker", "run", "--rm", "--entrypoint", "/bin/bash", image,
+            "-c", HISTORY_PROBE, "probe", workdir, pull_request_number, opened_at,
+        ],
         capture_output=True,
         text=True,
         timeout=PROBE_TIMEOUT_SECONDS,
@@ -174,8 +177,9 @@ def verified_task(hbench, task, kept_jobs_directory=None):
     if image is None:
         problems.append("cannot find the image hbench built")
     else:
-        summary["built_history"] = history(image, workdir, pull_request)
-        summary["upstream_history"] = history(metadata["base_image"], workdir, pull_request)
+        opened_at = metadata.get("created_at", "")
+        summary["built_history"] = history(image, workdir, pull_request, opened_at)
+        summary["upstream_history"] = history(metadata["base_image"], workdir, pull_request, opened_at)
         problems += history_problems(summary["built_history"])
     summary["problems"] = problems
     return summary
