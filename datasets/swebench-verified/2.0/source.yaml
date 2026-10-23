@@ -1,7 +1,7 @@
 schema_version: 1
 name: swebench-verified
-version: "1.0"
-title: SWE-bench Verified 1.0
+version: "2.0"
+title: SWE-bench Verified 2.0
 description: >-
   456 real GitHub issues from Python repositories under permissive licences: the instances of
   SWE-bench Verified, the human-validated 500-instance subset of SWE-bench, whose repository's licence
