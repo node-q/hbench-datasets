@@ -4,9 +4,11 @@ Usage: dataset_index.py --namespace ghcr.io/node-q/hbench-datasets --output inde
 
 Resolves <namespace>/<name>:<version> for each datasets/<name>/<version>/source.yaml with `oras resolve`, as an
 anonymous client does, and leaves out a version the registry does not serve (not published yet) or serves only to
-signed-in clients (a package still private), saying which. The index is the JSON layer of
-<namespace>/index:latest, which hbench reads to list the namespace's datasets (assets/schemas/dataset-index.v1.json in
-node-q/hbench, schema/dataset-index.v1.json here). Entries are sorted by name, then version.
+signed-in clients (a package still private), saying which. It also leaves out each version superseded.yaml
+replaces with another: the registry still serves it by name, but hbench no longer lists it. The index is the JSON
+layer of <namespace>/index:latest, which hbench reads to list the namespace's datasets
+(assets/schemas/dataset-index.v1.json in node-q/hbench, schema/dataset-index.v1.json here). Entries are sorted by
+name, then version.
 """
 
 import argparse
@@ -20,7 +22,7 @@ import tempfile
 
 import jsonschema
 
-from source_descriptor import DESCRIPTOR_FILENAME, REPOSITORY_ROOT, load_descriptor, version_directories
+from source_descriptor import DESCRIPTOR_FILENAME, REPOSITORY_ROOT, load_descriptor, load_superseded, version_directories
 
 INDEX_SCHEMA_PATH = REPOSITORY_ROOT / "schema" / "dataset-index.v1.json"
 UNSERVED = re.compile(r"not found|unauthorized|denied|forbidden|manifest unknown|name unknown", re.IGNORECASE)
@@ -45,12 +47,15 @@ def oras_resolve(reference):
     raise DatasetIndexError(f"oras resolve {reference}: {completed.stderr.strip()}")
 
 
-def published_versions(namespace, resolve=None, directories=None):
+def published_versions(namespace, resolve=None, directories=None, superseded=None):
     resolve = resolve or oras_resolve
+    superseded = load_superseded() if superseded is None else superseded
     entries, left_out = [], []
     for directory in directories if directories is not None else version_directories():
         descriptor = load_descriptor(directory / DESCRIPTOR_FILENAME)
         name, version = descriptor["name"], descriptor["version"]
+        if f"{name}@{version}" in superseded:
+            continue
         digest = resolve(f"{namespace}/{name}:{version}")
         if digest is None:
             left_out.append(f"{name}@{version}")
@@ -90,6 +95,8 @@ def main(arguments=None):
     options.output.write_text(dump_index(index), encoding="utf-8")
     for dataset in left_out:
         print(f"left out {dataset}: {options.namespace}/{dataset.replace('@', ':')} is not served to anonymous clients")
+    for dataset, successor in sorted(load_superseded().items()):
+        print(f"left out {dataset}: superseded by {successor}")
     print(f"indexed {len(entries)} dataset versions in {options.output}")
     return 0
 

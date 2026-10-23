@@ -37,7 +37,7 @@ new version is a new tag. Each dataset is also mirrored to a second registry, no
 
 | Dataset | Tasks | Licence | Status |
 | --- | ---: | --- | --- |
-| `terminal-bench@2.0` | 89 | Apache-2.0 | Configured, not published yet |
+| `terminal-bench@2.0` | 89 | Apache-2.0 | Superseded by `terminal-bench@2.0.1`; not listed |
 | `terminal-bench@2.0.1` | 89 | Apache-2.0 | Configured |
 | `humaneval-plus@1.0` | 164 | Apache-2.0 | Generated; waits for its image to be built |
 | `bigcodebench@1.0` | 1,135 | Apache-2.0 | Generated, with the Hard subset's 147 tasks tagged `hard`; waits for its image to be built |
@@ -50,25 +50,29 @@ new version is a new tag. Each dataset is also mirrored to a second registry, no
 | `swebench-multilingual@1.0` | 283 | Apache-2.0, with its repositories' licences | Generated; environments built locally |
 | `multi-swe-bench@1.0` | 1594 | Apache-2.0, with its repositories' licences | Generated; environments built locally |
 
+A version that [`superseded.yaml`](superseded.yaml) maps to a successor is left out of the dataset index, so
+`hbench datasets list` and the interactive run offer only the successor; the registry keeps serving it to jobs
+that name it.
+
 ## Running a dataset
 
 This needs an hbench release with the OCI read path (`--registry oci://…`), which is being built.
 
 ```sh
-hbench run -d terminal-bench@2.0 --registry oci://ghcr.io/node-q/hbench-datasets
+hbench run -d terminal-bench@2.0.1 --registry oci://ghcr.io/node-q/hbench-datasets
 ```
 
-hbench resolves `terminal-bench:2.0` to its manifest digest and checks every layer against it
-before unpacking a task. In `terminal-bench@2.0` the tasks pull their prebuilt environment images
-from Docker Hub by tag (`alexgshaw/<task>:20251031`). `terminal-bench@2.0.1` is the same tasks with
-each image pinned by digest to its mirror (see [Mirrored environments](#mirrored-environments)).
+hbench resolves `terminal-bench:2.0.1` to its manifest digest and checks every layer against it
+before unpacking a task. Each task's environment image is pinned by digest to its mirror (see
+[Mirrored environments](#mirrored-environments)); in `terminal-bench@2.0`, which 2.0.1 supersedes, the
+tasks pull them from Docker Hub by tag (`alexgshaw/<task>:20251031`).
 
 ## Verifying a dataset
 
 The signature, made by this repository's publish workflow:
 
 ```sh
-cosign verify ghcr.io/node-q/hbench-datasets/terminal-bench:2.0 \
+cosign verify ghcr.io/node-q/hbench-datasets/terminal-bench:2.0.1 \
   --certificate-identity-regexp '^https://github.com/node-q/hbench-datasets/.github/workflows/publish.yml@' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
@@ -76,19 +80,19 @@ cosign verify ghcr.io/node-q/hbench-datasets/terminal-bench:2.0 \
 The build provenance:
 
 ```sh
-gh attestation verify oci://ghcr.io/node-q/hbench-datasets/terminal-bench:2.0 --repo node-q/hbench-datasets
+gh attestation verify oci://ghcr.io/node-q/hbench-datasets/terminal-bench:2.0.1 --repo node-q/hbench-datasets
 ```
 
 The Croissant metadata is a referrer of the dataset's manifest:
 
 ```sh
-oras discover --artifact-type application/ld+json ghcr.io/node-q/hbench-datasets/terminal-bench:2.0
+oras discover --artifact-type application/ld+json ghcr.io/node-q/hbench-datasets/terminal-bench:2.0.1
 ```
 
 ## Mirroring
 
 ```sh
-oras copy -r ghcr.io/node-q/hbench-datasets/terminal-bench:2.0 <registry>/<namespace>/terminal-bench:2.0
+oras copy -r ghcr.io/node-q/hbench-datasets/terminal-bench:2.0.1 <registry>/<namespace>/terminal-bench:2.0.1
 ```
 
 `-r` copies the referrers too: the signature, the attestation and the Croissant metadata. Digests do
@@ -299,11 +303,11 @@ hbench's `export` command, which is not in a release yet, writes an OCI image la
 directory, and hbench reads it with `--registry oci-layout:<dir>`:
 
 ```sh
-hbench datasets export --oci-layout ./hbench-layout terminal-bench@2.0 --registry oci://ghcr.io/node-q/hbench-datasets
-hbench run -d terminal-bench@2.0 --registry oci-layout:./hbench-layout
+hbench datasets export --oci-layout ./hbench-layout terminal-bench@2.0.1 --registry oci://ghcr.io/node-q/hbench-datasets
+hbench run -d terminal-bench@2.0.1 --registry oci-layout:./hbench-layout
 ```
 
-`oras copy -r --to-oci-layout ghcr.io/node-q/hbench-datasets/terminal-bench:2.0 ./hbench-layout:2.0`
+`oras copy -r --to-oci-layout ghcr.io/node-q/hbench-datasets/terminal-bench:2.0.1 ./hbench-layout:2.0.1`
 writes the same layout today. The tasks' environment images are not part of the layout: pull or
 load them before going offline.
 
@@ -312,7 +316,7 @@ load them before going offline.
 The tooling in this repository is Apache-2.0 ([`LICENSE`](LICENSE)). Each dataset keeps its own
 licence, in its directory and published with it.
 
-- **terminal-bench@2.0** is Apache-2.0 and configured.
+- **terminal-bench@2.0** is Apache-2.0; 2.0.1 supersedes it.
 - **terminal-bench@2.0.1** is the same tasks, Apache-2.0. Its environment images are redistributed
   unmodified from upstream's published images; the software in them carries its own licences.
 - **humaneval-plus@1.0** is generated by node-q from HumanEval+ (EvalPlus, Apache-2.0), which
