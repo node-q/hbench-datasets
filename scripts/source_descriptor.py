@@ -6,6 +6,7 @@ REPOSITORY_ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATASETS_DIR = REPOSITORY_ROOT / "datasets"
 SCHEMA_PATH = REPOSITORY_ROOT / "schema" / "source.v1.json"
 DESCRIPTOR_FILENAME = "source.yaml"
+SUPERSEDED_PATH = REPOSITORY_ROOT / "superseded.yaml"
 PUBLISHED_REPOSITORY_URL = "https://github.com/node-q/hbench-datasets"
 
 
@@ -32,3 +33,8 @@ def load_descriptor(path):
 
 def version_directories():
     return sorted(path for path in DATASETS_DIR.glob("*/*") if path.is_dir())
+
+
+def load_superseded(path=SUPERSEDED_PATH):
+    with open(path, encoding="utf-8") as stream:
+        return yaml.load(stream, Loader=UniqueKeySafeLoader) or {}

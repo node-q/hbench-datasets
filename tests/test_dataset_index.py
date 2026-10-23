@@ -32,7 +32,7 @@ class PublishedVersionsTest(unittest.TestCase):
             f"{NAMESPACE}/terminal-bench:2.0": DIGEST_A,
             f"{NAMESPACE}/humaneval-plus:1.0": DIGEST_C,
         }
-        entries, left_out = dataset_index.published_versions(NAMESPACE, resolver(served), DIRECTORIES)
+        entries, left_out = dataset_index.published_versions(NAMESPACE, resolver(served), DIRECTORIES, superseded={})
         self.assertEqual(
             entries,
             [
@@ -42,6 +42,12 @@ class PublishedVersionsTest(unittest.TestCase):
             ],
         )
         self.assertEqual(left_out, ["bigcodebench@1.0"])
+
+    def test_a_superseded_version_is_left_out_though_served(self):
+        served = {f"{NAMESPACE}/terminal-bench:2.0.1": DIGEST_B, f"{NAMESPACE}/terminal-bench:2.0": DIGEST_A}
+        entries, left_out = dataset_index.published_versions(NAMESPACE, resolver(served), DIRECTORIES[2:3] + DIRECTORIES[:1])
+        self.assertEqual(entries, [{"name": "terminal-bench", "version": "2.0.1", "digest": DIGEST_B}])
+        self.assertEqual(left_out, [])
 
     def test_versions_sort_by_number_not_text(self):
         self.assertLess(dataset_index.version_key("2.0.9"), dataset_index.version_key("2.0.10"))
@@ -92,11 +98,12 @@ class MainTest(unittest.TestCase):
             with (
                 mock.patch.object(dataset_index, "oras_resolve", resolver(served)),
                 mock.patch.object(dataset_index, "version_directories", lambda: DIRECTORIES),
+                mock.patch.object(dataset_index, "load_superseded", lambda: {"terminal-bench@2.0.1": "terminal-bench@2.0.2"}),
                 contextlib.redirect_stdout(printed),
             ):
                 self.assertEqual(dataset_index.main(["--namespace", NAMESPACE + "/", "--output", str(output)]), 0)
             self.assertEqual(json.loads(output.read_text())["datasets"], [{"name": "terminal-bench", "version": "2.0", "digest": DIGEST_A}])
-        self.assertIn("left out terminal-bench@2.0.1", printed.getvalue())
+        self.assertIn("left out terminal-bench@2.0.1: superseded by terminal-bench@2.0.2", printed.getvalue())
         self.assertIn("indexed 1 dataset versions", printed.getvalue())
 
 

@@ -116,7 +116,8 @@ When every task needs its own prebuilt environment, as in SWE-bench, the environ
   pushed, signed, attested and with its Croissant file attached.
 - A change of bytes is a new version, in a new directory: a task fixed upstream, a new upstream
   commit, or images pinned by digest. A change that keeps upstream's version and changes only how it
-  is packaged bumps the last component, as 2.0 to 2.0.1. The old version's directory stays.
+  is packaged bumps the last component, as 2.0 to 2.0.1. The old version's directory stays, and
+  [`superseded.yaml`](superseded.yaml) maps it to its successor so the dataset index leaves it out.
 - A publish run that fails after pushing leaves a tag that is not signed. A maintainer deletes that
   package version before running the workflow again.
 
