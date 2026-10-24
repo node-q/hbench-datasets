@@ -35,6 +35,7 @@ from images_lock import (
     LockError,
     load_images_lock,
     lock_problems,
+    mirror_name,
     unfilled_lock_message,
 )
 from source_descriptor import (
@@ -155,7 +156,7 @@ def images_lock_problems(descriptor, version_directory, for_publish):
         declared_image = None
     if policy == "built" and isinstance(descriptor["environment"].get("task_images"), dict):
         task_count = len(lock)
-    problems = lock_problems(lock, name, policy, task_count, declared_image)
+    problems = lock_problems(lock, mirror_name(descriptor), policy, task_count, declared_image)
     return [f"{IMAGES_LOCK_FILENAME}: {problem}" for problem in problems]
 
 

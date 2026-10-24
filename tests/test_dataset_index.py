@@ -21,6 +21,9 @@ DIRECTORIES = [
 ]
 
 
+TB_2_0_SUPERSEDED = {"terminal-bench@2.0": "terminal-bench@2.0.1"}
+
+
 def resolver(served):
     return lambda reference: served.get(reference)
 
@@ -45,9 +48,19 @@ class PublishedVersionsTest(unittest.TestCase):
 
     def test_a_superseded_version_is_left_out_though_served(self):
         served = {f"{NAMESPACE}/terminal-bench:2.0.1": DIGEST_B, f"{NAMESPACE}/terminal-bench:2.0": DIGEST_A}
-        entries, left_out = dataset_index.published_versions(NAMESPACE, resolver(served), DIRECTORIES[2:3] + DIRECTORIES[:1])
+        entries, left_out = dataset_index.published_versions(
+            NAMESPACE, resolver(served), DIRECTORIES[2:3] + DIRECTORIES[:1], superseded=TB_2_0_SUPERSEDED
+        )
         self.assertEqual(entries, [{"name": "terminal-bench", "version": "2.0.1", "digest": DIGEST_B}])
         self.assertEqual(left_out, [])
+
+    def test_a_superseded_version_stays_until_its_successor_is_served(self):
+        served = {f"{NAMESPACE}/terminal-bench:2.0": DIGEST_A}
+        entries, left_out = dataset_index.published_versions(
+            NAMESPACE, resolver(served), DIRECTORIES[2:3] + DIRECTORIES[:1], superseded=TB_2_0_SUPERSEDED
+        )
+        self.assertEqual(entries, [{"name": "terminal-bench", "version": "2.0", "digest": DIGEST_A}])
+        self.assertEqual(left_out, ["terminal-bench@2.0.1"])
 
     def test_versions_sort_by_number_not_text(self):
         self.assertLess(dataset_index.version_key("2.0.9"), dataset_index.version_key("2.0.10"))
@@ -91,20 +104,33 @@ class ResolveTest(unittest.TestCase):
 
 class MainTest(unittest.TestCase):
     def test_writes_the_index_and_names_what_it_left_out(self):
-        served = {f"{NAMESPACE}/terminal-bench:2.0": DIGEST_A}
+        served = {
+            f"{NAMESPACE}/terminal-bench:2.0": DIGEST_A,
+            f"{NAMESPACE}/terminal-bench:2.0.1": DIGEST_B,
+            f"{NAMESPACE}/humaneval-plus:1.0": DIGEST_C,
+        }
+        superseded = {**TB_2_0_SUPERSEDED, "humaneval-plus@1.0": "humaneval-plus@1.0.1"}
         with tempfile.TemporaryDirectory() as directory:
             output = pathlib.Path(directory, "index.json")
             printed = io.StringIO()
             with (
                 mock.patch.object(dataset_index, "oras_resolve", resolver(served)),
                 mock.patch.object(dataset_index, "version_directories", lambda: DIRECTORIES),
-                mock.patch.object(dataset_index, "load_superseded", lambda: {"terminal-bench@2.0.1": "terminal-bench@2.0.2"}),
+                mock.patch.object(dataset_index, "load_superseded", lambda: superseded),
                 contextlib.redirect_stdout(printed),
             ):
                 self.assertEqual(dataset_index.main(["--namespace", NAMESPACE + "/", "--output", str(output)]), 0)
-            self.assertEqual(json.loads(output.read_text())["datasets"], [{"name": "terminal-bench", "version": "2.0", "digest": DIGEST_A}])
-        self.assertIn("left out terminal-bench@2.0.1: superseded by terminal-bench@2.0.2", printed.getvalue())
-        self.assertIn("indexed 1 dataset versions", printed.getvalue())
+            self.assertEqual(
+                json.loads(output.read_text())["datasets"],
+                [
+                    {"name": "humaneval-plus", "version": "1.0", "digest": DIGEST_C},
+                    {"name": "terminal-bench", "version": "2.0.1", "digest": DIGEST_B},
+                ],
+            )
+        self.assertIn("left out bigcodebench@1.0: ", printed.getvalue())
+        self.assertIn("left out terminal-bench@2.0: superseded by terminal-bench@2.0.1", printed.getvalue())
+        self.assertIn("kept humaneval-plus@1.0: its successor humaneval-plus@1.0.1 is not in the index yet", printed.getvalue())
+        self.assertIn("indexed 2 dataset versions", printed.getvalue())
 
 
 if __name__ == "__main__":

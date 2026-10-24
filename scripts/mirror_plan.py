@@ -14,7 +14,7 @@ import pathlib
 import sys
 
 from fetch_source import SourceError, fetch_declared_images
-from images_lock import LockError, mirror_repository, mirror_tag
+from images_lock import LockError, mirror_name, mirror_repository, mirror_tag
 from source_descriptor import load_descriptor
 
 DEFAULT_IMAGES_PER_SHARD = 10
@@ -58,7 +58,7 @@ def mirror_plan(descriptor, declared_images, images_per_shard):
     return {
         "dataset": descriptor["name"],
         "version": descriptor["version"],
-        "mirror_repository": mirror_repository(descriptor["name"]),
+        "mirror_repository": mirror_repository(mirror_name(descriptor)),
         "shards": shards(planned_images(declared_images), images_per_shard),
     }
 

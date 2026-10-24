@@ -13,7 +13,7 @@ import re
 import sys
 
 from environment_images import tag_reference
-from images_lock import mirror_repository
+from images_lock import mirror_name, mirror_repository
 from source_descriptor import PUBLISHED_REPOSITORY_URL, load_descriptor
 
 CROISSANT_SPECIFICATION = "http://mlcommons.org/croissant/1.1"
@@ -136,7 +136,7 @@ def environment_limitations(descriptor):
     if environment["policy"] == "pinned-mirror":
         return [
             "Every task's prebuilt environment image is pinned by digest to "
-            f"{mirror_repository(descriptor['name'])}, an unmodified mirror of the images upstream declares"
+            f"{mirror_repository(mirror_name(descriptor))}, an unmodified mirror of the images upstream declares"
             f"{declared_image_clause(environment)}."
         ]
     if environment["policy"] == "pinned-upstream":

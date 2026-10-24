@@ -120,8 +120,13 @@
           }
         },
         "images_lock": {
-          "description": "The image lock in the descriptor's directory, sorted by task name. Each task's entry has source (the docker_image upstream declares), source_digest (its sha256 digest) and pinned (what task.toml's docker_image becomes): for pinned-mirror, ghcr.io/node-q/hbench-envs/<name>@<source_digest>, with mirror_tag, the mirror's tag <task>-<upstream tag>; for pinned-upstream, the source's repository @<source_digest>; for built, source is ghcr.io/node-q/hbench-envs:<image> and pinned ghcr.io/node-q/hbench-envs@<source_digest>; for built-locally, source is the base image the adapter declares and pinned its repository @<source_digest>. The Mirror images workflow writes a pinned-mirror lock, the Pin images workflow a pinned-upstream or built-locally one, the Build images workflow a built one. It is {} until then, and such a version cannot be published.",
+          "description": "The image lock in the descriptor's directory, sorted by task name. Each task's entry has source (the docker_image upstream declares), source_digest (its sha256 digest) and pinned (what task.toml's docker_image becomes): for pinned-mirror, ghcr.io/node-q/hbench-envs/<mirror, else name>@<source_digest>, with mirror_tag, the mirror's tag <task>-<upstream tag>; for pinned-upstream, the source's repository @<source_digest>; for built, source is ghcr.io/node-q/hbench-envs:<image> and pinned ghcr.io/node-q/hbench-envs@<source_digest>; for built-locally, source is the base image the adapter declares and pinned its repository @<source_digest>. The Mirror images workflow writes a pinned-mirror lock, the Pin images workflow a pinned-upstream or built-locally one, the Build images workflow a built one. It is {} until then, and such a version cannot be published.",
           "const": "images.lock.json"
+        },
+        "mirror": {
+          "description": "For the pinned-mirror policy: the package under ghcr.io/node-q/hbench-envs that holds the mirrored images, when it is not the dataset's name. A dataset renamed from another keeps that dataset's mirror.",
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
         },
         "planned": {
           "description": "A change of environment policy planned for a later version.",
@@ -154,6 +159,10 @@
           "if": { "properties": { "policy": { "enum": ["pinned-mirror", "pinned-upstream", "built", "built-locally"] } } },
           "then": { "required": ["images_lock"] },
           "else": { "not": { "required": ["images_lock"] } }
+        },
+        {
+          "if": { "properties": { "policy": { "const": "pinned-mirror" } } },
+          "else": { "not": { "required": ["mirror"] } }
         }
       ]
     },

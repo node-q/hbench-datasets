@@ -5,7 +5,8 @@ Usage: dataset_index.py --namespace ghcr.io/node-q/hbench-datasets --output inde
 Resolves <namespace>/<name>:<version> for each datasets/<name>/<version>/source.yaml with `oras resolve`, as an
 anonymous client does, and leaves out a version the registry does not serve (not published yet) or serves only to
 signed-in clients (a package still private), saying which. It also leaves out each version superseded.yaml
-replaces with another: the registry still serves it by name, but hbench no longer lists it. The index is the JSON
+replaces with another, once that other is in the index: the registry still serves it by name, but hbench no longer
+lists it. The index is the JSON
 layer of <namespace>/index:latest, which hbench reads to list the namespace's datasets
 (assets/schemas/dataset-index.v1.json in node-q/hbench, schema/dataset-index.v1.json here). Entries are sorted by
 name, then version.
@@ -54,15 +55,19 @@ def published_versions(namespace, resolve=None, directories=None, superseded=Non
     for directory in directories if directories is not None else version_directories():
         descriptor = load_descriptor(directory / DESCRIPTOR_FILENAME)
         name, version = descriptor["name"], descriptor["version"]
-        if f"{name}@{version}" in superseded:
-            continue
         digest = resolve(f"{namespace}/{name}:{version}")
         if digest is None:
             left_out.append(f"{name}@{version}")
         else:
             entries.append({"name": name, "version": version, "digest": digest})
+    indexed = {dataset_reference(entry) for entry in entries}
+    entries = [entry for entry in entries if superseded.get(dataset_reference(entry)) not in indexed]
     entries.sort(key=lambda entry: (entry["name"], version_key(entry["version"])))
     return entries, sorted(left_out)
+
+
+def dataset_reference(entry):
+    return f"{entry['name']}@{entry['version']}"
 
 
 def build_index(entries):
@@ -95,8 +100,12 @@ def main(arguments=None):
     options.output.write_text(dump_index(index), encoding="utf-8")
     for dataset in left_out:
         print(f"left out {dataset}: {options.namespace}/{dataset.replace('@', ':')} is not served to anonymous clients")
+    indexed = {dataset_reference(entry) for entry in entries}
     for dataset, successor in sorted(load_superseded().items()):
-        print(f"left out {dataset}: superseded by {successor}")
+        if dataset in indexed:
+            print(f"kept {dataset}: its successor {successor} is not in the index yet")
+        elif successor in indexed:
+            print(f"left out {dataset}: superseded by {successor}")
     print(f"indexed {len(entries)} dataset versions in {options.output}")
     return 0
 

@@ -56,6 +56,11 @@ class ShardPlanTest(unittest.TestCase):
         self.assertEqual((plan["dataset"], plan["version"]), ("terminal-bench", "2.0"))
         self.assertEqual(len(plan["shards"]), 9)
 
+    def test_a_renamed_dataset_s_plan_keeps_its_mirror(self):
+        descriptor = {"name": "terminal-bench-2", "version": "1.0", "environment": {"mirror": "terminal-bench"}}
+        plan = mirror_plan.mirror_plan(descriptor, declared_images(TERMINAL_BENCH_TASK_COUNT), 10)
+        self.assertEqual(plan["mirror_repository"], "ghcr.io/node-q/hbench-envs/terminal-bench")
+
 
 if __name__ == "__main__":
     unittest.main()

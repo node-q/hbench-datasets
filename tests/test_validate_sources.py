@@ -202,6 +202,18 @@ class PinnedVersionDirectoryTest(VersionDirectoryTestCase):
         self.assertProblem("task-07: pinned 'docker.io/alexgshaw/task-07@sha256:")
         self.assertProblem("is not a digest reference under ghcr.io/node-q/hbench-envs/")
 
+    def test_mirror_names_the_hbench_envs_package_the_pins_are_in(self):
+        self.write_lock(filled_lock("pinned-mirror"))
+        self.replace_in_descriptor("  policy: pinned-mirror\n", "  policy: pinned-mirror\n  mirror: terminal-bench-two\n")
+        self.assertProblem("is not in ghcr.io/node-q/hbench-envs/terminal-bench-two")
+        self.replace_in_descriptor("  mirror: terminal-bench-two\n", "  mirror: terminal-bench\n")
+        self.assertEqual(self.problems(for_publish=True), [])
+
+    def test_mirror_belongs_only_to_the_pinned_mirror_policy(self):
+        self.write_lock(filled_lock("pinned-upstream"))
+        self.replace_in_descriptor("  policy: pinned-mirror\n", "  policy: pinned-upstream\n  mirror: terminal-bench\n")
+        self.assertProblem("environment: ")
+
     def test_the_lock_must_be_valid_json_without_duplicate_tasks(self):
         self.lock_path.write_text('{"task-00": {}, "task-00": {}}\n', encoding="utf-8")
         self.assertProblem("images.lock.json names 'task-00' twice")
@@ -391,6 +403,7 @@ class RepositoryTest(unittest.TestCase):
         self.assertEqual(exit_code, 0, output)
         self.assertIn("ok  datasets/terminal-bench/2.0\n", output)
         self.assertIn("ok  datasets/terminal-bench/2.0.1\n", output)
+        self.assertIn("ok  datasets/terminal-bench-2/1.0\n", output)
         self.assertIn("ok  datasets/humaneval-plus/1.0\n", output)
         self.assertIn("ok  datasets/humanevalfix/1.0\n", output)
         self.assertIn("ok  datasets/mbpp-plus/1.0\n", output)

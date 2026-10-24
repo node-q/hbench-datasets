@@ -7,6 +7,7 @@ from source_descriptor import DATASETS_DIR, load_descriptor
 
 TERMINAL_BENCH_SOURCE = DATASETS_DIR / "terminal-bench" / "2.0" / "source.yaml"
 PINNED_MIRROR_SOURCE = DATASETS_DIR / "terminal-bench" / "2.0.1" / "source.yaml"
+RENAMED_MIRROR_SOURCE = DATASETS_DIR / "terminal-bench-2" / "1.0" / "source.yaml"
 GENERATED_SOURCE = DATASETS_DIR / "humaneval-plus" / "1.0" / "source.yaml"
 SEVERAL_IMAGES_SOURCE = DATASETS_DIR / "exercism-polyglot" / "1.0" / "source.yaml"
 BUILT_DIGEST = "sha256:" + "9" * 64
@@ -62,6 +63,13 @@ class ReleaseNotesTest(unittest.TestCase):
             "^https://github.com/node-q/hbench-datasets/.github/workflows/mirror-images.yml@",
         )
         self.assertIn("the only difference from terminal-bench@2.0", notes)
+
+    def test_a_renamed_dataset_s_notes_name_the_mirror_it_kept(self):
+        descriptor = load_descriptor(RENAMED_MIRROR_SOURCE)
+        notes = release_notes.release_notes(descriptor, REPOSITORY + "-2", DIGEST, HBENCH_VERSION, RUN_URL)
+        self.assertEqual(release_notes.release_tag(descriptor), "terminal-bench-2-1.0")
+        self.assertIn("pinned by digest to `ghcr.io/node-q/hbench-envs/terminal-bench`", notes)
+        self.assertIn("cosign verify ghcr.io/node-q/hbench-envs/terminal-bench@sha256:<digest>", notes)
 
     def test_upstream_pinned_notes_say_the_images_are_not_mirrored(self):
         descriptor = load_descriptor(PINNED_MIRROR_SOURCE)

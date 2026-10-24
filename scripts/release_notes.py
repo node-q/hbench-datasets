@@ -3,7 +3,7 @@ import pathlib
 import sys
 
 from environment_images import pinned_image, tag_reference
-from images_lock import IMAGES_LOCK_FILENAME, load_images_lock, mirror_repository
+from images_lock import IMAGES_LOCK_FILENAME, load_images_lock, mirror_name, mirror_repository
 from source_descriptor import load_descriptor
 
 CERTIFICATE_IDENTITY_REGEXP = "^https://github.com/node-q/hbench-datasets/.github/workflows/publish.yml@"
@@ -98,7 +98,7 @@ def declared_images_text(environment):
 
 
 def mirrored_environment_lines(descriptor):
-    mirror = mirror_repository(descriptor["name"])
+    mirror = mirror_repository(mirror_name(descriptor))
     return [
         "",
         "## Environments",

@@ -114,10 +114,14 @@ When every task needs its own prebuilt environment, as in SWE-bench, the environ
 
 - A published tag is never moved. A version is published once the publish workflow has finished:
   pushed, signed, attested and with its Croissant file attached.
-- A change of bytes is a new version, in a new directory: a task fixed upstream, a new upstream
-  commit, or images pinned by digest. A change that keeps upstream's version and changes only how it
-  is packaged bumps the last component, as 2.0 to 2.0.1. The old version's directory stays, and
-  [`superseded.yaml`](superseded.yaml) maps it to its successor so the dataset index leaves it out.
+- A dataset's version is this repository's own and starts at 1.0, whatever upstream numbers its
+  release; upstream's release is in the title and `upstream`. When upstream's number names the
+  benchmark rather than a revision of it, it goes in the name: `terminal-bench-2`.
+- A change of bytes is a new version, in a new directory. A new upstream release or commit bumps the
+  first component, as 1.0 to 2.0. A change of ours that keeps upstream's data, such as an adapter fix
+  or images pinned by digest, bumps the last, as 1.0 to 1.0.1. The old version's directory stays, and
+  [`superseded.yaml`](superseded.yaml) maps it to its successor so the dataset index leaves it out
+  once the successor is in it.
 - A publish run that fails after pushing leaves a tag that is not signed. A maintainer deletes that
   package version before running the workflow again.
 
