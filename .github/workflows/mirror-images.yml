@@ -27,7 +27,6 @@ env:
   DATASET: ${{ inputs.dataset }}
   VERSION: ${{ inputs.version }}
   REGISTRY: ghcr.io
-  MIRROR_REPOSITORY: ghcr.io/node-q/hbench-envs/${{ inputs.dataset }}
   IMAGES_PER_SHARD: 10
   CERTIFICATE_IDENTITY_REGEXP: ^https://github.com/node-q/hbench-datasets/.github/workflows/mirror-images.yml@
   CERTIFICATE_OIDC_ISSUER: https://token.actions.githubusercontent.com
@@ -210,13 +209,14 @@ jobs:
           overwrite: true
       - name: Write the lock to the job summary
         run: |
+          mirror_repository="$(jq -r .mirror_repository "$RUNNER_TEMP/plan/mirror-plan.json")"
           {
             echo "## Mirrored images of $DATASET@$VERSION"
             echo
-            echo "- Repository: \`$MIRROR_REPOSITORY\`"
+            echo "- Repository: \`$mirror_repository\`"
             echo "- Images: $(jq length "$RUNNER_TEMP/lock/images.lock.json"), each copied with its digest unchanged and signed by this workflow"
             echo
-            echo "Commit this as \`images.lock.json\` in the $DATASET version whose environment policy is \`pinned-mirror\`. A new GHCR package starts private: make \`$MIRROR_REPOSITORY\` public in its package settings (https://github.com/orgs/node-q/packages/container/hbench-envs%2F$DATASET/settings) before publishing that version."
+            echo "Commit this as \`images.lock.json\` in the $DATASET version whose environment policy is \`pinned-mirror\`. A new GHCR package starts private: make \`$mirror_repository\` public in its package settings (https://github.com/orgs/node-q/packages/container/hbench-envs%2F${mirror_repository##*/}/settings) before publishing that version."
             echo
             echo '```json'
             cat "$RUNNER_TEMP/lock/images.lock.json"

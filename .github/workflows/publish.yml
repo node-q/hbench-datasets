@@ -127,7 +127,7 @@ jobs:
           images_lock="$(dirname "$SOURCE_DESCRIPTOR")/images.lock.json"
           policy="$(python -c 'import sys, yaml; print(yaml.safe_load(open(sys.argv[1]))["environment"]["policy"])' "$SOURCE_DESCRIPTOR")"
           case "$policy" in
-            pinned-mirror) package="hbench-envs/$DATASET" ;;
+            pinned-mirror) package="hbench-envs/$(python -c 'import sys, yaml; d = yaml.safe_load(open(sys.argv[1])); print(d["environment"].get("mirror", d["name"]))' "$SOURCE_DESCRIPTOR")" ;;
             built) package="hbench-envs" ;;
             built-locally) package="" ;;
             *)

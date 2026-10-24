@@ -36,6 +36,10 @@ def mirror_repository(dataset):
     return f"{MIRROR_NAMESPACE}/{dataset}"
 
 
+def mirror_name(descriptor):
+    return descriptor.get("environment", {}).get("mirror", descriptor["name"])
+
+
 def repository_of(reference):
     if "@" in reference:
         return reference.split("@", 1)[0]
