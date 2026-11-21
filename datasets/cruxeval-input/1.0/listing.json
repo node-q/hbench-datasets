@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "name": "cruxeval-input",
+  "version": "1.0",
+  "type": "test-set",
+  "format": "run-tests",
+  "title": "CRUXEval input prediction",
+  "summary": "Short Python functions, each with a known output. The AI must find an input that gives that output.",
+  "description": "Each test task shows a short Python function and an output. The AI writes a call to the function. The call passes when the function returns that output within 3 seconds.",
+  "domain": "Coding",
+  "status": "published",
+  "pricing": "free",
+  "licence": {
+    "id": "Apache-2.0",
+    "name": "Apache License 2.0",
+    "summary": "Free to use, change and share. Keep the licence and the notice with it."
+  },
+  "upstream": {
+    "name": "CRUXEval",
+    "by": "Alex Gu, Baptiste Rozière, Hugh Leather, Armando Solar-Lezama, Gabriel Synnaeve and Sida I. Wang, at Meta",
+    "url": "https://huggingface.co/datasets/cruxeval-org/cruxeval"
+  },
+  "tasks": 800,
+  "families": [
+    {
+      "kind": "input-prediction",
+      "name": "Input prediction",
+      "what": "A call of the function that returns the given output.",
+      "tasks": 800
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with its instructions, its environment and the tests that check it."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under the Apache License 2.0, with credit to the original authors."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "cruxeval-input",
+    "access": "public"
+  }
+}

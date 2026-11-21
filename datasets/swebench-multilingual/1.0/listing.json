@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "name": "swebench-multilingual",
+  "version": "1.0",
+  "type": "test-set",
+  "format": "run-tests",
+  "title": "SWE-bench Multilingual",
+  "summary": "Real issues from open-source projects in nine languages. The AI must change the code so that the project's own tests pass.",
+  "description": "Each test task gives the AI a real GitHub issue and the project's code from before the fix. The AI changes the code. It passes only when the tests for the fix pass and the tests that passed before still pass.",
+  "domain": "Software engineering",
+  "status": "published",
+  "pricing": "free",
+  "licence": {
+    "id": "Apache-2.0",
+    "name": "Apache License 2.0",
+    "summary": "Free to use, change and share. Keep the licence and the notice with it."
+  },
+  "upstream": {
+    "name": "SWE-bench Multilingual",
+    "by": "The authors of SWE-bench, introduced with SWE-smith",
+    "url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Multilingual"
+  },
+  "tasks": 283,
+  "families": [
+    {
+      "kind": "resolve-an-issue",
+      "name": "Resolve an issue",
+      "what": "A change to the project's code that resolves a real GitHub issue.",
+      "tasks": 283
+    }
+  ],
+  "lines": [
+    {
+      "name": "preactjs/preact",
+      "tasks": 17
+    },
+    {
+      "name": "projectlombok/lombok",
+      "tasks": 17
+    },
+    {
+      "name": "rubocop/rubocop",
+      "tasks": 16
+    },
+    {
+      "name": "caddyserver/caddy",
+      "tasks": 14
+    },
+    {
+      "name": "laravel/framework",
+      "tasks": 13
+    },
+    {
+      "name": "fluent/fluentd",
+      "tasks": 12
+    },
+    {
+      "name": "fmtlib/fmt",
+      "tasks": 11
+    },
+    {
+      "name": "briannesbitt/carbon",
+      "tasks": 10
+    },
+    {
+      "name": "php-cs-fixer/php-cs-fixer",
+      "tasks": 10
+    },
+    {
+      "name": "phpoffice/phpspreadsheet",
+      "tasks": 10
+    },
+    {
+      "name": "apache/lucene",
+      "tasks": 9
+    },
+    {
+      "name": "google/gson",
+      "tasks": 9
+    },
+    {
+      "name": "jqlang/jq",
+      "tasks": 9
+    },
+    {
+      "name": "tokio-rs/tokio",
+      "tasks": 9
+    },
+    {
+      "name": "gin-gonic/gin",
+      "tasks": 8
+    },
+    {
+      "name": "prometheus/prometheus",
+      "tasks": 8
+    },
+    {
+      "name": "sharkdp/bat",
+      "tasks": 8
+    },
+    {
+      "name": "astral-sh/ruff",
+      "tasks": 7
+    },
+    {
+      "name": "fastlane/fastlane",
+      "tasks": 7
+    },
+    {
+      "name": "gohugoio/hugo",
+      "tasks": 7
+    },
+    {
+      "name": "tokio-rs/axum",
+      "tasks": 7
+    },
+    {
+      "name": "axios/axios",
+      "tasks": 6
+    },
+    {
+      "name": "apache/druid",
+      "tasks": 5
+    },
+    {
+      "name": "babel/babel",
+      "tasks": 5
+    },
+    {
+      "name": "facebook/docusaurus",
+      "tasks": 5
+    },
+    {
+      "name": "jekyll/jekyll",
+      "tasks": 5
+    },
+    {
+      "name": "micropython/micropython",
+      "tasks": 5
+    },
+    {
+      "name": "nushell/nushell",
+      "tasks": 5
+    },
+    {
+      "name": "uutils/coreutils",
+      "tasks": 5
+    },
+    {
+      "name": "vuejs/core",
+      "tasks": 5
+    },
+    {
+      "name": "valkey-io/valkey",
+      "tasks": 4
+    },
+    {
+      "name": "mrdoob/three.js",
+      "tasks": 3
+    },
+    {
+      "name": "burntsushi/ripgrep",
+      "tasks": 2
+    },
+    {
+      "name": "faker-ruby/faker",
+      "tasks": 2
+    },
+    {
+      "name": "immutable-js/immutable-js",
+      "tasks": 2
+    },
+    {
+      "name": "javaparser/javaparser",
+      "tasks": 2
+    },
+    {
+      "name": "jordansissel/fpm",
+      "tasks": 2
+    },
+    {
+      "name": "nlohmann/json",
+      "tasks": 1
+    },
+    {
+      "name": "reactivex/rxjava",
+      "tasks": 1
+    }
+  ],
+  "lines_title": "Projects",
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with its instructions, its environment and the tests that check it."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under the Apache License 2.0, with credit to the original authors."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "swebench-multilingual",
+    "access": "public"
+  }
+}

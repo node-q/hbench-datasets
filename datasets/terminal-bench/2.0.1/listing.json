@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "name": "terminal-bench",
+  "version": "2.0.1",
+  "type": "test-set",
+  "format": "run-tests",
+  "title": "Terminal-Bench 2.0",
+  "summary": "Hard, realistic jobs done in a computer terminal. Tests check the result of each one.",
+  "description": "Each test task gives the AI an instruction and its own environment in a container. The AI works in the terminal to do the job. Tests then check the result.",
+  "domain": "Terminal work",
+  "status": "published",
+  "pricing": "free",
+  "licence": {
+    "id": "Apache-2.0",
+    "name": "Apache License 2.0",
+    "summary": "Free to use, change and share. Keep the licence and the notice with it."
+  },
+  "upstream": {
+    "name": "Terminal-Bench 2.0",
+    "by": "The contributors to the Terminal-Bench project. Each test task names its own author.",
+    "url": "https://github.com/laude-institute/terminal-bench-2"
+  },
+  "tasks": 89,
+  "families": [
+    {
+      "kind": "terminal-work",
+      "name": "Work in a terminal",
+      "what": "A finished job in a container, from building software to fixing a security hole.",
+      "tasks": 89
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with its instructions, its environment and the tests that check it."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under the Apache License 2.0, with credit to the original authors."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "terminal-bench",
+    "access": "public"
+  }
+}

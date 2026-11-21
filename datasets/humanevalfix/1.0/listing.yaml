@@ -1,0 +1,27 @@
+# What the Actuaria Market Place shows of this version (schema/listing.v1.json). listing.json is
+# generated from it: python scripts/listing.py datasets/humanevalfix/1.0
+title: HumanEvalFix
+summary: Python functions with one bug each. The AI must fix the bug so that the tests pass.
+description: Each test task shows a Python function with a bug written into it by hand. It also shows the tests
+  that check the function. The AI returns the fixed code. It passes when the tests pass within 10 seconds.
+domain: Coding
+format: run-tests
+licence:
+  name: Apache License 2.0
+  summary: Free to use, change and share. Keep the licence and the notice with it.
+upstream:
+  name: HumanEvalFix, part of HumanEvalPack
+  by: Niklas Muennighoff, Qian Liu, Armel Zebaze, Qinkai Zheng, Binyuan Hui, Terry Yue Zhuo, Swayam Singh, Xiangru
+    Tang, Leandro von Werra and Shayne Longpre (BigCode), from HumanEval by OpenAI
+  url: https://huggingface.co/datasets/bigcode/humanevalpack
+families:
+- kind: fix-a-bug
+  name: Fix a bug
+  what: Fixed code that passes the problem's tests.
+you_get:
+- title: Every test task
+  detail: Each with its instructions, its environment and the tests that check it.
+- title: Free to use
+  detail: Under the Apache License 2.0, with credit to the original authors.
+- title: Runs on your machine
+  detail: Run it with the AI you choose in Actuaria Studio Essentials.
