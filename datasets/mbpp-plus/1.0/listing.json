@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "name": "mbpp-plus",
+  "version": "1.0",
+  "type": "test-set",
+  "format": "run-tests",
+  "title": "MBPP+",
+  "summary": "Entry-level Python problems with many extra tests. The AI writes one function for each problem.",
+  "description": "Each test task gives a short description of one Python function and an example of its use. The AI writes the function. It passes only when it gives the right result on the original tests and on many extra ones.",
+  "domain": "Coding",
+  "status": "published",
+  "pricing": "free",
+  "licence": {
+    "id": "Apache-2.0",
+    "name": "Apache License 2.0",
+    "summary": "Free to use, change and share. Keep the licence and the notice with it."
+  },
+  "upstream": {
+    "name": "MBPP+",
+    "by": "Jiawei Liu, Chunqiu Steven Xia, Yuyao Wang and Lingming Zhang (EvalPlus), from MBPP by Jacob Austin and others at Google Research",
+    "url": "https://github.com/evalplus/mbppplus_release"
+  },
+  "tasks": 378,
+  "families": [
+    {
+      "kind": "write-a-function",
+      "name": "Write a function",
+      "what": "A working Python function from a description and an example.",
+      "tasks": 378
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with its instructions, its environment and the tests that check it."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under the Apache License 2.0, with credit to the original authors."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "mbpp-plus",
+    "access": "public"
+  }
+}

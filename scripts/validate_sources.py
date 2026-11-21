@@ -52,6 +52,10 @@ ALLOWED_VERSION_DIRECTORY_ENTRIES = {
     IMAGES_LOCK_FILENAME,
     GENERATED_LOCK_FILENAME,
     *REQUIRED_LICENCE_FILES,
+    # What the Actuaria Market Place shows of the version (scripts/listing.py); never published with it.
+    "listing.yaml",
+    "listing.json",
+    "COVER.md",
 }
 
 

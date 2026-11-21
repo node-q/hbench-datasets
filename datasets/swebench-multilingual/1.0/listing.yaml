@@ -1,0 +1,28 @@
+# What the Actuaria Market Place shows of this version (schema/listing.v1.json). listing.json is
+# generated from it: python scripts/listing.py datasets/swebench-multilingual/1.0
+title: SWE-bench Multilingual
+summary: Real issues from open-source projects in nine languages. The AI must change the code so that the project's
+  own tests pass.
+description: Each test task gives the AI a real GitHub issue and the project's code from before the fix. The AI
+  changes the code. It passes only when the tests for the fix pass and the tests that passed before still pass.
+domain: Software engineering
+format: run-tests
+licence:
+  name: Apache License 2.0
+  summary: Free to use, change and share. Keep the licence and the notice with it.
+upstream:
+  name: SWE-bench Multilingual
+  by: The authors of SWE-bench, introduced with SWE-smith
+  url: https://huggingface.co/datasets/SWE-bench/SWE-bench_Multilingual
+families:
+- kind: resolve-an-issue
+  name: Resolve an issue
+  what: A change to the project's code that resolves a real GitHub issue.
+lines: repository
+you_get:
+- title: Every test task
+  detail: Each with its instructions, its environment and the tests that check it.
+- title: Free to use
+  detail: Under the Apache License 2.0, with credit to the original authors.
+- title: Runs on your machine
+  detail: Run it with the AI you choose in Actuaria Studio Essentials.

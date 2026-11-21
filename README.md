@@ -55,6 +55,22 @@ A version that [`superseded.yaml`](superseded.yaml) maps to a successor is left 
 the successor is in it, so `hbench datasets list` and the interactive run offer only the successor; the
 registry keeps serving it to jobs that name it.
 
+## Listing a version on the Actuaria Market Place
+
+A version listed on the Market Place (node-q/hbench-studio, `market/`) carries what it shows, next to `source.yaml`.
+None of it is published with the dataset.
+
+| File | What | Written by |
+| --- | --- | --- |
+| `listing.yaml` | title, summary, description, domain, how an answer is checked, the licence as a reader reads it, the upstream work with its credit, the kind of work, what a reader gets ([schema](schema/listing.v1.json)) | hand |
+| `COVER.md` | the cover letter: what it is, where it comes from, how an answer is checked, what it does not cover, the licence. `## ` headings, `- ` lists and paragraphs only | hand |
+| `listing.json` | `listing.yaml` plus what the dataset says: the task count (`source.yaml`, checked against the lock), each repository's task count where `lines: repository`, the licence id and the registry | `python scripts/listing.py datasets/<name>/<version>` |
+
+The unit tests fail when a `listing.json` is stale, when the text uses a word the Market Place refuses ("agent",
+"benchmark", "experts", "team", "cases"), names this repository or its registry, or has an exclamation mark, and
+when `COVER.md`'s "<n> test tasks" is not the dataset's count. Every listed version is free: the Market Place shows
+no price for it. Its release date and digest are recorded in the Market Place's catalog.
+
 ## Running a dataset
 
 This needs an hbench release with the OCI read path (`--registry oci://…`), which is being built.
