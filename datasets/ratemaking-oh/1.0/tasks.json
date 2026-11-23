@@ -1,0 +1,137 @@
+{
+  "ratemaking-oh-alae-excess-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "loss-ratio"
+  },
+  "ratemaking-oh-ata-alae-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "age-to-age"
+  },
+  "ratemaking-oh-ata-capped-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "age-to-age"
+  },
+  "ratemaking-oh-averages-loss-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "averages"
+  },
+  "ratemaking-oh-averages-loss-alae-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "averages"
+  },
+  "ratemaking-oh-cdf-alae-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "to-ultimate"
+  },
+  "ratemaking-oh-cdf-capped-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "to-ultimate"
+  },
+  "ratemaking-oh-cdf-loss-alae-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "to-ultimate"
+  },
+  "ratemaking-oh-indication-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "indication"
+  },
+  "ratemaking-oh-lcm-ohio-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "lcm"
+  },
+  "ratemaking-oh-lcm-rate-change-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "lcm"
+  },
+  "ratemaking-oh-loss-ratio-attritional-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "loss-ratio"
+  },
+  "ratemaking-oh-relativity-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "loss-ratio"
+  },
+  "ratemaking-oh-review-rolling-4q-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "filing-review"
+  },
+  "ratemaking-oh-review-selected-ldfs-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "filing-review"
+  },
+  "ratemaking-oh-review-tieouts-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "filing-review"
+  },
+  "ratemaking-oh-review-trend-period-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "filing-review"
+  },
+  "ratemaking-oh-review-ultimate-tieout-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "filing-review"
+  },
+  "ratemaking-oh-review-weights-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "filing-review"
+  },
+  "ratemaking-oh-trend-loss-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "trend"
+  },
+  "ratemaking-oh-trend-premium-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "trend"
+  },
+  "ratemaking-oh-trend-regression-loss-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "trend"
+  },
+  "ratemaking-oh-trend-regression-premium-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "trend"
+  },
+  "ratemaking-oh-ultimate-by-year-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "ultimate"
+  },
+  "ratemaking-oh-ultimate-capped-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "ultimate"
+  },
+  "ratemaking-oh-ultimate-capped-bf-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "ultimate"
+  },
+  "ratemaking-oh-ultimate-uncapped-bf-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "ultimate"
+  }
+}

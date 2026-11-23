@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "name": "gl-oh",
+  "version": "1.0",
+  "type": "test-set",
+  "format": "field-graded",
+  "title": "Ohio commercial general liability rating",
+  "summary": "Rate one insurer's general liability program in Ohio from the manual pages it filed: minimum premiums, class premiums, endorsements, rating factors, Ohio's own rules and the errors in the pages.",
+  "description": "Each task gives the AI the manual pages one insurer filed in Ohio for its commercial general liability program, with its own worked rating examples, and states the facts in the question, such as a contractor's class or the length of a short policy. It asks for exact values: a premium, a factor, a rule, or the errors in the pages themselves. Every field of the answer is checked, and a task passes only when all of them are right.",
+  "domain": "Insurance",
+  "trade": "underwriters",
+  "status": "draft",
+  "pricing": "free",
+  "licence": {
+    "id": "CC-BY-4.0",
+    "name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+    "summary": "Free to use, change and share, commercial use included, if you credit the source. The filings' own text stays the filers' and is not covered."
+  },
+  "upstream": {
+    "name": "Ohio Department of Insurance, public filing records",
+    "by": "the filers, through the Ohio Department of Insurance",
+    "url": "https://filingaccess.serff.com/sfa/home/OH"
+  },
+  "tasks": 81,
+  "graded_fields": 465,
+  "difficulty": {
+    "easy": 12,
+    "medium": 56,
+    "hard": 13
+  },
+  "families": [
+    {
+      "kind": "minimum-premium",
+      "name": "Minimum premium",
+      "what": "Tier and class minimums, and the minimum premium of a short policy with its rounding.",
+      "tasks": 8
+    },
+    {
+      "kind": "class-premium",
+      "name": "Class premium",
+      "what": "Base premiums for the classes the filing rates itself, such as daycare and fitness, at their thresholds.",
+      "tasks": 7
+    },
+    {
+      "kind": "additional-coverage",
+      "name": "Additional coverages",
+      "what": "Premiums for endorsements and coverage parts, banded, flat or a percentage, with their minimums and who may buy them.",
+      "tasks": 28
+    },
+    {
+      "kind": "rating-factor",
+      "name": "Rating factors",
+      "what": "Risk score, class, liquor and other rating factors read from the right row, including the open ends of the tables.",
+      "tasks": 7
+    },
+    {
+      "kind": "ohio-exception",
+      "name": "Ohio's own rules",
+      "what": "Ohio's premium steps, loss cost multiplier and renewal capping, which take the place of the countrywide rules.",
+      "tasks": 7
+    },
+    {
+      "kind": "general-rule",
+      "name": "General rules",
+      "what": "Exposure bases, bookroll transfers, payment plans, return premium and policy term rules applied as filed.",
+      "tasks": 10
+    },
+    {
+      "kind": "schedule-rating",
+      "name": "Schedule rating",
+      "what": "Ohio's limits for each characteristic and in total, and other states' limits.",
+      "tasks": 3
+    },
+    {
+      "kind": "document-check",
+      "name": "Checking the pages",
+      "what": "The filing's own inconsistencies and broken references, told apart from tables and examples that are right.",
+      "tasks": 6
+    },
+    {
+      "kind": "version-history",
+      "name": "Earlier versions",
+      "what": "What a named earlier version said and what changed, read from the insurer's redlines.",
+      "tasks": 5
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with the filed pages it needs, its answer key and the check that marks every field right or wrong."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under CC BY 4.0, with credit to the source."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "sample_task": "gl-oh-minimum-premium-01",
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "gl-oh",
+    "access": "public"
+  }
+}

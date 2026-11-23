@@ -1,0 +1,282 @@
+{
+  "title-oh-band-math-01": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "band-math"
+  },
+  "title-oh-band-math-02": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "band-math"
+  },
+  "title-oh-band-math-03": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "band-math"
+  },
+  "title-oh-band-math-04": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "band-math"
+  },
+  "title-oh-document-check-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "title-oh-document-check-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "title-oh-document-check-03": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "title-oh-document-check-04": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "title-oh-document-check-05": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "title-oh-document-check-06": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "title-oh-document-check-07": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "title-oh-document-check-08": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "title-oh-document-check-09": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "title-oh-document-check-10": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "title-oh-document-check-11": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "title-oh-document-check-12": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "title-oh-document-check-13": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "document-check"
+  },
+  "title-oh-endorsement-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "endorsement"
+  },
+  "title-oh-endorsement-02": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "endorsement"
+  },
+  "title-oh-endorsement-03": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "endorsement"
+  },
+  "title-oh-endorsement-04": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "endorsement"
+  },
+  "title-oh-endorsement-05": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "endorsement"
+  },
+  "title-oh-endorsement-06": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "endorsement"
+  },
+  "title-oh-endorsement-07": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "endorsement"
+  },
+  "title-oh-endorsement-08": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "endorsement"
+  },
+  "title-oh-homeowners-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "homeowners"
+  },
+  "title-oh-homeowners-02": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "homeowners"
+  },
+  "title-oh-homeowners-03": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "homeowners"
+  },
+  "title-oh-loan-policy-01": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "loan-policy"
+  },
+  "title-oh-loan-policy-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "loan-policy"
+  },
+  "title-oh-memo-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "memo"
+  },
+  "title-oh-memo-02": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "memo"
+  },
+  "title-oh-memo-03": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "memo"
+  },
+  "title-oh-memo-04": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "memo"
+  },
+  "title-oh-memo-05": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "memo"
+  },
+  "title-oh-minimum-premium-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "minimum-premium"
+  },
+  "title-oh-minimum-premium-02": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "minimum-premium"
+  },
+  "title-oh-minimum-premium-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "minimum-premium"
+  },
+  "title-oh-minimum-premium-04": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "minimum-premium"
+  },
+  "title-oh-minimum-premium-05": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "minimum-premium"
+  },
+  "title-oh-refinance-01": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "refinance"
+  },
+  "title-oh-refinance-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "refinance"
+  },
+  "title-oh-refinance-03": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "refinance"
+  },
+  "title-oh-refinance-04": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "refinance"
+  },
+  "title-oh-reissue-01": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "reissue"
+  },
+  "title-oh-reissue-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "reissue"
+  },
+  "title-oh-reissue-03": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "reissue"
+  },
+  "title-oh-reissue-04": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "reissue"
+  },
+  "title-oh-reissue-05": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "reissue"
+  },
+  "title-oh-rule-selection-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "rule-selection"
+  },
+  "title-oh-simultaneous-issue-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "simultaneous-issue"
+  },
+  "title-oh-simultaneous-issue-02": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "simultaneous-issue"
+  },
+  "title-oh-simultaneous-issue-03": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "simultaneous-issue"
+  },
+  "title-oh-simultaneous-issue-04": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "simultaneous-issue"
+  },
+  "title-oh-simultaneous-issue-05": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "simultaneous-issue"
+  },
+  "title-oh-simultaneous-issue-06": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "simultaneous-issue"
+  }
+}

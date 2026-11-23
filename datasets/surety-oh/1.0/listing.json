@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "name": "surety-oh",
+  "version": "1.0",
+  "type": "test-set",
+  "format": "field-graded",
+  "title": "Ohio contract surety bond rating",
+  "summary": "Rate contract surety bonds for Ohio from one insurer's filed rate manual: layered rates, tiers and class columns, duration surcharges, minimum premiums, contract price changes, maintenance guarantees and schedule rating.",
+  "description": "Each task gives the AI one insurer's filed contract surety rate manual and states its facts in the question, such as the contractor's rate plan tier, the contract price and how long the work will take. It asks for exact values: a premium, a rate, a code, a rule, or the errors in the manual itself. Every field of the answer is checked, and a task passes only when all of them are right. Premiums the manual rounds to the dollar must match to the dollar.",
+  "domain": "Insurance",
+  "trade": "surety underwriters",
+  "status": "draft",
+  "pricing": "free",
+  "licence": {
+    "id": "CC-BY-4.0",
+    "name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+    "summary": "Free to use, change and share, commercial use included, if you credit the source. The filing's own text stays the filer's and is not covered."
+  },
+  "upstream": {
+    "name": "Ohio Department of Insurance, public filing records",
+    "by": "the filers, through the Ohio Department of Insurance",
+    "url": "https://filingaccess.serff.com/sfa/home/OH"
+  },
+  "tasks": 47,
+  "graded_fields": 170,
+  "difficulty": {
+    "easy": 8,
+    "medium": 27,
+    "hard": 12
+  },
+  "families": [
+    {
+      "kind": "layered-rate",
+      "name": "Layered rates",
+      "what": "Bond premiums layered across the bands of the rate table, exact where one band ends and the next begins.",
+      "tasks": 5
+    },
+    {
+      "kind": "tier-class",
+      "name": "Tier and class",
+      "what": "The right rate plan table and class column for the contract, with its class code and rate exceptions.",
+      "tasks": 7
+    },
+    {
+      "kind": "duration-surcharge",
+      "name": "Duration surcharge",
+      "what": "The surcharge for contracts that run longer than the tables allow, with part months and rounding.",
+      "tasks": 6
+    },
+    {
+      "kind": "minimum-premium",
+      "name": "Minimum premium",
+      "what": "The minimum premium and the whole-dollar rule, and the charges for bid and supply bonds.",
+      "tasks": 3
+    },
+    {
+      "kind": "change-order",
+      "name": "Contract price changes",
+      "what": "The contract price at final settlement, what it takes in and leaves out, and the refund that follows.",
+      "tasks": 4
+    },
+    {
+      "kind": "maintenance",
+      "name": "Maintenance guarantees",
+      "what": "Maintenance guarantee premiums, the free first year and the lower rate when retention is held back.",
+      "tasks": 4
+    },
+    {
+      "kind": "schedule-rating",
+      "name": "Schedule rating",
+      "what": "Schedule rating held to each modifier's limit and Ohio's total cap, with its net worth test.",
+      "tasks": 5
+    },
+    {
+      "kind": "rule-lookup",
+      "name": "Rule lookup",
+      "what": "Codes, the rate plan criteria and the rules for bid, advance payment, lien and subdivision bonds.",
+      "tasks": 8
+    },
+    {
+      "kind": "document-check",
+      "name": "Checking the manual",
+      "what": "The manual's own contradictions and broken cross-references, told apart from passages that are right.",
+      "tasks": 5
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with the filed rate manual it needs, its answer key and the check that marks every field right or wrong."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under CC BY 4.0, with credit to the source."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "sample_task": "surety-oh-minimum-premium-01",
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "surety-oh",
+    "access": "public"
+  }
+}
