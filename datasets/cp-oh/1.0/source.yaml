@@ -1,7 +1,7 @@
 schema_version: 1
 name: cp-oh
 version: "1.0"
-title: Ohio commercial property (hb-int-cp-oh) 1.0, filed documents only (not expert-reviewed)
+title: Ohio commercial property (cp-oh) 1.0, filed documents only (not expert-reviewed)
 description: >-
   NOT EXPERT-REVIEWED. A draft of 75 underwriting tasks on an insurance carrier's commercial property program in
   Ohio, built only from real public filing documents: the current countrywide ISO Manual Exception Pages (edition

@@ -65,11 +65,10 @@ attribution:
   derivations behind the answer keys are not published.
 rai:
   data_collection: >-
-    No new data. Each task, its answer key, its derivation and its documents are taken unchanged from one of nine
-    internal underwriting datasets (hb-int-cp-oh 0.1.1, hb-int-eo-oh 0.4.1, hb-int-farm-oh 0.1.1, hb-int-gl-oh 0.1.1,
-    hb-int-medmal-oh 0.1.1, hb-int-personal-auto-oh 0.1, hb-int-pet-oh 0.1, hb-int-surety-oh 0.1, hb-int-title-oh
-    0.1), whose own source.yaml and NOTICE say how their documents were obtained, extracted and pseudonymized. Each
-    task here keeps the documents of its own source and none of another's.
+    No new data. Each task, its answer key and its documents are taken unchanged from one of nine of node-q's
+    other open test sets (cp-oh, eo-oh, farm-oh, gl-oh, medmal-oh, personal-auto-oh, pet-oh, surety-oh and title-oh,
+    all 1.0), whose own source.yaml and NOTICE say how their documents were obtained, extracted and pseudonymized.
+    Each task here keeps the documents of its own source and none of another's.
   data_collection_type:
   - Public Records
   data_use_cases:
