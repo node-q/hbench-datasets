@@ -1,5 +1,5 @@
 # What the Actuaria Market Place shows of this version (schema/listing.v1.json). listing.json is
-# generated from it: python scripts/listing.py datasets/treasury-auctions/1.0
+# generated from it: python scripts/listing.py datasets/treasury-auctions/1.0.1
 title: US Treasury auctions
 summary: 'Work with the US Treasury''s real auction results for bills, notes, bonds, TIPS and floating rate notes, and
   with the regulation that runs the auctions.'

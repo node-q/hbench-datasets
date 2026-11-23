@@ -51,7 +51,7 @@ if __name__ == "__main__":
     unittest.main()
 
 
-FLSA_OVERTIME = DATASETS_DIR / "flsa-overtime" / "1.0"
+FLSA_OVERTIME = DATASETS_DIR / "flsa-overtime" / "1.0.1"
 
 
 class TaskFacts(unittest.TestCase):
@@ -61,7 +61,7 @@ class TaskFacts(unittest.TestCase):
     def copy(self):
         scratch = pathlib.Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, scratch)
-        target = scratch / "flsa-overtime" / "1.0"
+        target = scratch / "flsa-overtime" / "1.0.1"
         shutil.copytree(FLSA_OVERTIME, target)
         return target
 
