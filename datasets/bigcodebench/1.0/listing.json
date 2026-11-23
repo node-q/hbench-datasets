@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "name": "bigcodebench",
+  "version": "1.0",
+  "type": "test-set",
+  "format": "run-tests",
+  "title": "BigCodeBench",
+  "summary": "Practical Python jobs that call real libraries, such as pandas, NumPy and Matplotlib. The AI writes one function for each.",
+  "description": "Each test task gives the AI a function's signature and a docstring that says what it must do and which libraries to use. The AI writes the function. Unit tests the AI never sees then check it, and all must pass within about four minutes.",
+  "domain": "Coding",
+  "status": "published",
+  "pricing": "free",
+  "licence": {
+    "id": "Apache-2.0",
+    "name": "Apache License 2.0",
+    "summary": "Free to use, change and share. Keep the licence and the notice with it."
+  },
+  "upstream": {
+    "name": "BigCodeBench",
+    "by": "Terry Yue Zhuo and 32 other authors, in the BigCode project",
+    "url": "https://huggingface.co/datasets/bigcode/bigcodebench"
+  },
+  "tasks": 1135,
+  "families": [
+    {
+      "kind": "write-a-function",
+      "name": "Write a function",
+      "what": "A working Python function that uses the libraries its docstring names.",
+      "tasks": 1135
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with its instructions, its environment and the tests that check it."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under the Apache License 2.0, with credit to the original authors."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "bigcodebench",
+    "access": "public"
+  }
+}

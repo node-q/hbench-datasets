@@ -348,6 +348,7 @@ class SeveralImagesVersionDirectoryTest(VersionDirectoryTestCase):
         return lock
 
     def test_exercism_polyglot_is_valid_but_cannot_be_published_before_its_images_are_built(self):
+        self.fill_images_lock(())  # as before the Build images runs: the committed lock is filled now
         self.assertEqual(self.problems(), [])
         problems = self.problems(for_publish=True)
         self.assertEqual(len(problems), 1, problems)

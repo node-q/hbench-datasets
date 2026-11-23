@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "name": "multi-swe-bench",
+  "version": "1.0",
+  "type": "test-set",
+  "format": "run-tests",
+  "title": "Multi-SWE-bench",
+  "summary": "Real issues from open-source projects in seven languages. The AI must change the code so that the project's own tests pass.",
+  "description": "Each test task gives the AI a real GitHub issue and the project's code from before the fix. The AI changes the code. It passes only when every test that should pass after the fix does pass.",
+  "domain": "Software engineering",
+  "status": "published",
+  "pricing": "free",
+  "licence": {
+    "id": "Apache-2.0",
+    "name": "Apache License 2.0 for the task files, CC0 for Multi-SWE-bench's data",
+    "summary": "Free to use, change and share. ByteDance keeps any rights it holds in the data, and each issue and fix keeps its project's licence. Keep the licence and the notice with it."
+  },
+  "upstream": {
+    "name": "Multi-SWE-bench",
+    "by": "Daoguang Zan and 18 other authors, at ByteDance Seed",
+    "url": "https://huggingface.co/datasets/ByteDance-Seed/Multi-SWE-bench"
+  },
+  "tasks": 1594,
+  "families": [
+    {
+      "kind": "resolve-an-issue",
+      "name": "Resolve an issue",
+      "what": "A change to the project's code that resolves a real GitHub issue.",
+      "tasks": 1594
+    }
+  ],
+  "lines": [
+    {
+      "name": "cli/cli",
+      "tasks": 397
+    },
+    {
+      "name": "sveltejs/svelte",
+      "tasks": 272
+    },
+    {
+      "name": "mui/material-ui",
+      "tasks": 174
+    },
+    {
+      "name": "clap-rs/clap",
+      "tasks": 132
+    },
+    {
+      "name": "ponylang/ponyc",
+      "tasks": 82
+    },
+    {
+      "name": "iamkun/dayjs",
+      "tasks": 56
+    },
+    {
+      "name": "nlohmann/json",
+      "tasks": 55
+    },
+    {
+      "name": "vuejs/core",
+      "tasks": 48
+    },
+    {
+      "name": "fasterxml/jackson-databind",
+      "tasks": 42
+    },
+    {
+      "name": "fmtlib/fmt",
+      "tasks": 41
+    },
+    {
+      "name": "facebook/zstd",
+      "tasks": 29
+    },
+    {
+      "name": "tokio-rs/tokio",
+      "tasks": 25
+    },
+    {
+      "name": "tokio-rs/tracing",
+      "tasks": 21
+    },
+    {
+      "name": "simdjson/simdjson",
+      "tasks": 20
+    },
+    {
+      "name": "anuraghazra/github-readme-stats",
+      "tasks": 19
+    },
+    {
+      "name": "fasterxml/jackson-core",
+      "tasks": 18
+    },
+    {
+      "name": "jqlang/jq",
+      "tasks": 17
+    },
+    {
+      "name": "grpc/grpc-go",
+      "tasks": 16
+    },
+    {
+      "name": "zeromicro/go-zero",
+      "tasks": 15
+    },
+    {
+      "name": "BurntSushi/ripgrep",
+      "tasks": 14
+    },
+    {
+      "name": "nushell/nushell",
+      "tasks": 14
+    },
+    {
+      "name": "sharkdp/fd",
+      "tasks": 14
+    },
+    {
+      "name": "catchorg/Catch2",
+      "tasks": 12
+    },
+    {
+      "name": "sharkdp/bat",
+      "tasks": 10
+    },
+    {
+      "name": "alibaba/fastjson2",
+      "tasks": 6
+    },
+    {
+      "name": "mockito/mockito",
+      "tasks": 6
+    },
+    {
+      "name": "fasterxml/jackson-dataformat-xml",
+      "tasks": 5
+    },
+    {
+      "name": "google/gson",
+      "tasks": 5
+    },
+    {
+      "name": "googlecontainertools/jib",
+      "tasks": 5
+    },
+    {
+      "name": "tokio-rs/bytes",
+      "tasks": 5
+    },
+    {
+      "name": "axios/axios",
+      "tasks": 4
+    },
+    {
+      "name": "expressjs/express",
+      "tasks": 4
+    },
+    {
+      "name": "apache/dubbo",
+      "tasks": 3
+    },
+    {
+      "name": "darkreader/darkreader",
+      "tasks": 2
+    },
+    {
+      "name": "rayon-rs/rayon",
+      "tasks": 2
+    },
+    {
+      "name": "serde-rs/serde",
+      "tasks": 2
+    },
+    {
+      "name": "Kong/insomnia",
+      "tasks": 1
+    },
+    {
+      "name": "yhirose/cpp-httplib",
+      "tasks": 1
+    }
+  ],
+  "lines_title": "Projects",
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with its instructions, its environment and the tests that check it."
+    },
+    {
+      "title": "Free to use",
+      "detail": "The task files under the Apache License 2.0 and Multi-SWE-bench's data under CC0, with credit to the original authors."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials. Each test task downloads a large image."
+    }
+  ],
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "multi-swe-bench",
+    "access": "public"
+  }
+}

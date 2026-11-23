@@ -1,0 +1,27 @@
+# What the Actuaria Market Place shows of this version (schema/listing.v1.json). listing.json is
+# generated from it: python scripts/listing.py datasets/exercism-polyglot/1.0
+title: Exercism Polyglot
+summary: Programming exercises in C++, Go, Java, JavaScript, Python and Rust. The AI solves each one so that all its
+  tests pass.
+description: Each test task gives the AI an exercise as Exercism ships it, with its instructions, starting files and
+  tests. The AI writes the solution. It passes when every test of the exercise passes, run without internet access.
+domain: Coding
+format: run-tests
+licence:
+  name: Apache License 2.0
+  summary: Free to use, change and share. Keep the licence and the notice with it.
+upstream:
+  name: Exercism's exercises in six languages
+  by: Exercism and its volunteers. Each test task names the exercise's authors and contributors.
+  url: https://github.com/exercism
+families:
+- kind: solve-an-exercise
+  name: Solve an exercise
+  what: A solution in the exercise's language that passes every one of its tests.
+you_get:
+- title: Every test task
+  detail: Each with its instructions, its environment and the tests that check it.
+- title: Free to use
+  detail: Under the Apache License 2.0, with credit to the original authors.
+- title: Runs on your machine
+  detail: Run it with the AI you choose in Actuaria Studio Essentials.

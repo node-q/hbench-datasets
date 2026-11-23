@@ -1,1 +1,1052 @@
-{}
+{
+  "exercism-cpp-affine-cipher": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-all-your-base": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-allergies": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-alphametics": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-anagram": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-bank-account": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-beer-song": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-binary-search-tree": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-bob": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-circular-buffer": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-complex-numbers": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-crypto-square": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-diamond": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-dnd-character": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-flower-field": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-gigasecond": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-grade-school": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-kindergarten-garden": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-knapsack": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-linked-list": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-list-ops": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-meetup": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-parallel-letter-frequency": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-perfect-numbers": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-phone-number": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-queen-attack": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-robot-name": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-roman-numerals": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-say": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-space-age": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-spiral-matrix": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-sublist": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-two-bucket": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-word-count": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-cpp-yacht": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-cpp-1.0",
+    "source_digest": "sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:8fdde5f2deb008d44b6dbcb4316a04bd9d66a47c8aeb937570f164a1467b16f2"
+  },
+  "exercism-go-alphametics": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-book-store": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-bottle-song": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-bowling": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-change": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-connect": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-crypto-square": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-dnd-character": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-dominoes": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-dot-dsl": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-error-handling": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-forth": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-go-counting": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-kindergarten-garden": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-knapsack": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-matrix": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-paasio": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-palindrome-products": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-pig-latin": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-poker": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-pov": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-protein-translation": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-react": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-rectangles": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-robot-simulator": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-say": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-simple-linked-list": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-sublist": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-swift-scheduling": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-transpose": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-tree-building": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-two-bucket": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-variable-length-quantity": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-word-search": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-go-wordy": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-go-1.0",
+    "source_digest": "sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:10d1a630c124a5a4221ad55a2aa176186c6328181488094044fd04ed6182cfc2"
+  },
+  "exercism-java-affine-cipher": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-all-your-base": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-alphametics": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-bank-account": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-book-store": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-bottle-song": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-bowling": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-change": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-circular-buffer": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-connect": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-custom-set": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-dominoes": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-forth": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-go-counting": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-hangman": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-house": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-mazy-mice": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-ocr-numbers": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-palindrome-products": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-poker": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-pov": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-pythagorean-triplet": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-queen-attack": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-rational-numbers": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-react": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-rest-api": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-satellite": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-sgf-parsing": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-simple-linked-list": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-state-of-tic-tac-toe": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-transpose": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-two-bucket": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-word-search": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-wordy": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-java-zipper": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-java-1.0",
+    "source_digest": "sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:ed0c4245e26d661ba99345a6e86d38778dc739f05b4bae34ab0dc41a625d25dc"
+  },
+  "exercism-javascript-affine-cipher": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-alphametics": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-book-store": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-bottle-song": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-bowling": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-complex-numbers": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-connect": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-forth": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-go-counting": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-grade-school": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-grep": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-killer-sudoku-helper": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-list-ops": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-meetup": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-ocr-numbers": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-palindrome-products": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-parallel-letter-frequency": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-pig-latin": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-poker": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-promises": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-queen-attack": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-rational-numbers": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-react": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-resistor-color-trio": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-rest-api": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-robot-name": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-say": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-simple-linked-list": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-state-of-tic-tac-toe": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-sum-of-multiples": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-two-bucket": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-variable-length-quantity": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-word-search": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-wordy": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-javascript-zipper": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-javascript-1.0",
+    "source_digest": "sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:22190ad58f8f45d953afd1982beb87725ca3ce7cdcf70c035f727e6754941f48"
+  },
+  "exercism-python-affine-cipher": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-bank-account": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-book-store": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-bottle-song": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-bowling": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-connect": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-custom-set": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-dominoes": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-dot-dsl": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-forth": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-go-counting": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-grade-school": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-grep": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-hangman": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-list-ops": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-paasio": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-phone-number": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-pig-latin": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-poker": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-pov": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-proverb": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-rational-numbers": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-react": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-rest-api": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-satellite": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-scale-generator": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-sgf-parsing": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-simple-linked-list": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-transpose": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-tree-building": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-two-bucket": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-variable-length-quantity": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-word-search": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-wordy": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-python-zipper": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-python-1.0",
+    "source_digest": "sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:36d839e53d1cae3d68968eac63c9ae3c2494889421801f0d85117a958e490501"
+  },
+  "exercism-rust-accumulate": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-acronym": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-alphametics": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-book-store": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-bowling": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-circular-buffer": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-decimal": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-dominoes": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-dot-dsl": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-doubly-linked-list": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-fizzy": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-forth": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-gigasecond": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-grade-school": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-grep": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-luhn": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-luhn-from": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-macros": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-ocr-numbers": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-parallel-letter-frequency": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-pig-latin": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-poker": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-pov": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-protein-translation": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-react": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-rectangles": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-robot-name": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-robot-simulator": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-say": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-simple-cipher": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-two-bucket": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-variable-length-quantity": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-word-count": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-wordy": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  },
+  "exercism-rust-xorcism": {
+    "source": "ghcr.io/node-q/hbench-envs:exercism-polyglot-rust-1.0",
+    "source_digest": "sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:4d309c5e7e3b396829db6c40f2a52d270f11f59ff1810bb226d8739cc4f65866"
+  }
+}
