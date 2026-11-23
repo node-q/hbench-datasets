@@ -12,7 +12,7 @@ We turned the filed PDFs into text and changed nothing but names and codes. The 
 
 ## How the answers were worked out
 
-We wrote the questions. They describe no real doctor, and no application or submission was made up: the only documents are the insurers' own. Each answer was worked out step by step by hand from the filed pages. A separate script then read every rate, factor and rule from the text on its own and recomputed every answer, and all 239 graded fields matched. A second check found every quote an answer rests on on the page it cites. Each task grades 2 to 8 fields. Money counts as right within $1 or 0.1%.
+We wrote the questions. They describe no real doctor, and no application or submission was made up: the only documents are the insurers' own. Each answer was worked out step by step by hand from the filed pages. A separate script then read every rate, factor and rule from the text on its own and recomputed every answer, and all 239 graded fields matched. A second check found every quote an answer rests on on the page it cites. Each task grades 2 to 8 fields. Money counts as right within a dollar or 0.1%.
 
 ## What it does not cover
 

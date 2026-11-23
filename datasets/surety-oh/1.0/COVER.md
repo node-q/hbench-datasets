@@ -12,7 +12,7 @@ The manual names no company, person or contact. We searched every page for perso
 
 ## How the answers were worked out
 
-We wrote the questions. Their facts describe no real contractor, and every answer follows from the manual and those facts. Each answer was worked out by hand, step by step. A separate script then read every rate it needed from the cited page of the manual and recomputed all 170 graded fields. Every one matched. Each task grades 2 to 8 fields. Premiums the manual rounds to the dollar must match exactly, rates per $1,000 count within 0.001, and other money within $1 or 0.1%.
+We wrote the questions. Their facts describe no real contractor, and every answer follows from the manual and those facts. Each answer was worked out by hand, step by step. A separate script then read every rate it needed from the cited page of the manual and recomputed all 170 graded fields. Every one matched. Each task grades 2 to 8 fields. Premiums the manual rounds to the dollar must match exactly, rates per thousand dollars count within 0.001, and other money within a dollar or 0.1%.
 
 ## What it does not cover
 

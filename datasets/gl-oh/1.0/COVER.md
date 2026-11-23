@@ -14,7 +14,7 @@ The pages amend ISO's Commercial Lines Manual, and the countrywide pages quote s
 
 ## How the answers were worked out
 
-We wrote the questions. They describe no real business, and no application or submission was made up: the only documents are the insurer's own. Each answer was worked out step by step by hand from the filed pages. A separate script then read the rates and rules again on its own and recomputed every answer. It caught one wrong hand-worked answer. Each task grades 2 to 8 fields, 465 in all. Whole-dollar amounts that the filing rounds must match exactly. Other money counts as right within $1 or 0.1%.
+We wrote the questions. They describe no real business, and no application or submission was made up: the only documents are the insurer's own. Each answer was worked out step by step by hand from the filed pages. A separate script then read the rates and rules again on its own and recomputed every answer. It caught one wrong hand-worked answer. Each task grades 2 to 8 fields, 465 in all. Whole-dollar amounts that the filing rounds must match exactly. Other money counts as right within a dollar or 0.1%.
 
 ## What it does not cover
 

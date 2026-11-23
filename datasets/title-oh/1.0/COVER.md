@@ -19,7 +19,7 @@ We keep no list that links a label or code to the real name. The rating organiza
 
 ## How the answers were worked out
 
-We wrote the questions. Their facts describe no real insured, and every answer follows from the filed text and those facts. Each answer key was worked out from the text. A separate script then read every rate, minimum and printed figure from the files and recomputed all 228 graded fields. It agreed with every key. Each task grades 3 to 7 fields. Amounts of insurance and counts must match exactly, and premiums count as right within $1 or 0.1%.
+We wrote the questions. Their facts describe no real insured, and every answer follows from the filed text and those facts. Each answer key was worked out from the text. A separate script then read every rate, minimum and printed figure from the files and recomputed all 228 graded fields. It agreed with every key. Each task grades 3 to 7 fields. Amounts of insurance and counts must match exactly, and premiums count as right within a dollar or 0.1%.
 
 ## What it does not cover
 

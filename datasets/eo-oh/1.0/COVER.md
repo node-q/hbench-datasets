@@ -12,7 +12,7 @@ We turned the filed PDFs into text and changed nothing but names and codes. The 
 
 ## How the answers were worked out
 
-We wrote the questions. They describe no real firm, and no application, loss run or other submission was made up: the only documents are the insurer's own. Where the filing leaves open something a question needs, such as how to count days, the question states it. Each answer was worked out step by step by hand from the documents. A separate script then read every rate, factor and table again on its own and recomputed every answer. It caught one answer that rested on how one phrase is read, and that field was replaced. Someone else also solved a sample of the tasks from the documents without seeing the answers. Each task grades 2 to 8 fields, 359 in all. Whole-dollar amounts that the filing rounds must match exactly. Other money counts as right within $1 or 0.1%.
+We wrote the questions. They describe no real firm, and no application, loss run or other submission was made up: the only documents are the insurer's own. Where the filing leaves open something a question needs, such as how to count days, the question states it. Each answer was worked out step by step by hand from the documents. A separate script then read every rate, factor and table again on its own and recomputed every answer. It caught one answer that rested on how one phrase is read, and that field was replaced. Someone else also solved a sample of the tasks from the documents without seeing the answers. Each task grades 2 to 8 fields, 359 in all. Whole-dollar amounts that the filing rounds must match exactly. Other money counts as right within a dollar or 0.1%.
 
 ## What it does not cover
 

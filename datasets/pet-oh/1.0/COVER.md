@@ -12,7 +12,7 @@ We turned the filed PDFs into text and changed nothing but names, contact detail
 
 ## How the answers were worked out
 
-We wrote the questions. They describe no real pet or owner, and no application or claim was made up: the only documents are the insurer's own. Each answer was worked out step by step by hand from the filed pages. A separate script then read every rate, factor and rule again from the text and recomputed all 258 graded fields, and it matched every one. Each task grades 2 to 8 fields. Money counts as right within $1 or 0.1%, except where a few cents are the point of the question.
+We wrote the questions. They describe no real pet or owner, and no application or claim was made up: the only documents are the insurer's own. Each answer was worked out step by step by hand from the filed pages. A separate script then read every rate, factor and rule again from the text and recomputed all 258 graded fields, and it matched every one. Each task grades 2 to 8 fields. Money counts as right within a dollar or 0.1%, except where a few cents are the point of the question.
 
 ## What it does not cover
 

@@ -14,7 +14,7 @@ The insurer reads [Company A]. Its programs, a data vendor and two state agencie
 
 ## How the answers were worked out
 
-We wrote the questions. They describe no real farm, and no application or submission was made up: the only documents are the insurer's own. Each answer was worked out step by step by hand from the manual. A separate script then read every table it needed from the text on its own and recomputed every answer, and all of them matched. The manual doesn't say whether a premium is rounded once or after each factor, so every premium with several steps was picked so that each way of rounding gives the same dollar. Each task grades 2 to 8 fields, 442 in all. Rounded premiums must match exactly, and rates per $100 count as right within 0.0005.
+We wrote the questions. They describe no real farm, and no application or submission was made up: the only documents are the insurer's own. Each answer was worked out step by step by hand from the manual. A separate script then read every table it needed from the text on its own and recomputed every answer, and all of them matched. The manual doesn't say whether a premium is rounded once or after each factor, so every premium with several steps was picked so that each way of rounding gives the same dollar. Each task grades 2 to 8 fields, 442 in all. Rounded premiums must match exactly, and rates per hundred dollars count as right within 0.0005.
 
 ## What it does not cover
 
