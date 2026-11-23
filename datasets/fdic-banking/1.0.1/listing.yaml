@@ -1,5 +1,5 @@
 # What the Actuaria Market Place shows of this version (schema/listing.v1.json). listing.json is
-# generated from it: python scripts/listing.py datasets/fdic-banking/1.0
+# generated from it: python scripts/listing.py datasets/fdic-banking/1.0.1
 title: US bank totals by year and state, 1934 to 2025
 summary: 'Bank analysis on the FDIC''s public yearly totals for insured banks: profitability, capital, funding, loan
   quality, growth, consolidation, state rankings, and checks of the tables against themselves.'

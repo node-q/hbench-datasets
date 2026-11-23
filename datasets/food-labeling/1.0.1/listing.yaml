@@ -1,5 +1,5 @@
 # What the Actuaria Market Place shows of this version (schema/listing.v1.json). listing.json is
-# generated from it: python scripts/listing.py datasets/food-labeling/1.0
+# generated from it: python scripts/listing.py datasets/food-labeling/1.0.1
 title: Nutrition labeling under US FDA rules
 summary: 'Work out a Nutrition Facts label under the FDA''s rules: declared values, percent Daily Value, calories,
   serving sizes, label formats, nutrient content claims and compliance tolerances.'

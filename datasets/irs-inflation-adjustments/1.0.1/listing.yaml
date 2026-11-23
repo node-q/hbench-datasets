@@ -1,5 +1,5 @@
 # What the Actuaria Market Place shows of this version (schema/listing.v1.json). listing.json is
-# generated from it: python scripts/listing.py datasets/irs-inflation-adjustments/1.0
+# generated from it: python scripts/listing.py datasets/irs-inflation-adjustments/1.0.1
 title: IRS inflation-adjusted tax amounts, 2025 and 2026
 summary: 'Federal income tax work with the IRS''s yearly inflation adjustments: rate tables by filing status, the
   standard deduction, capital gains rates, the AMT exemption, the earned income credit, the kiddie tax, and gift and

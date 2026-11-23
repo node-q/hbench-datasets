@@ -1,5 +1,5 @@
 # What the Actuaria Market Place shows of this version (schema/listing.v1.json). listing.json is
-# generated from it: python scripts/listing.py datasets/usgs-earthquakes/1.0
+# generated from it: python scripts/listing.py datasets/usgs-earthquakes/1.0.1
 title: Earthquakes in the USGS catalog, 2024 and 2025
 summary: 'Count, sort and measure earthquakes in the US Geological Survey''s catalog: magnitude and depth classes, event
   types, local clocks, distances across the 180-degree meridian, aftershocks, b-values and seismic moment.'
