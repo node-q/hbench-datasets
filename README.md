@@ -75,6 +75,7 @@ new version is a new tag. Each dataset is also mirrored to a second registry, no
 | `aca-tx@1.0` | 46 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
 | `medicare-oh@1.0` | 52 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
 | `icd10cm-coding@1.0` | 30 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `icd10cm-coding@1.0.1` | 30 | CC-BY-4.0 | 1.0's tasks with the agencies' credit naming Actuaria.io; generated from node-q's exported tasks |
 | `treasury-auctions@1.0` | 27 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
 | `gl-oh@1.0` | 81 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
 | `cp-oh@1.0` | 75 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
