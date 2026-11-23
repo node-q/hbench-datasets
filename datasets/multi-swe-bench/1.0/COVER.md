@@ -29,4 +29,4 @@ Each environment is built where the test task runs. It starts from Multi-SWE-ben
 
 ## Licence
 
-This test set is free under the Apache License 2.0. Multi-SWE-bench's dataset card states CC0, subject to any rights ByteDance holds in it, and its code is under the Apache License 2.0. Each issue and fix keeps its project's licence. The notice that comes with the test set lists each project with its licence.
+The task files written for this test set are under the Apache License 2.0. Multi-SWE-bench's data is under CC0, as its dataset card states, subject to any rights ByteDance holds in it. The parts of Multi-SWE-bench's code that grade each task are under the Apache License 2.0. Each issue and fix keeps its project's licence. The notice that comes with the test set quotes the dataset card and lists each project with its licence.

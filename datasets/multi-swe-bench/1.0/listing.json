@@ -12,8 +12,8 @@
   "pricing": "free",
   "licence": {
     "id": "Apache-2.0",
-    "name": "Apache License 2.0",
-    "summary": "Free to use, change and share. Keep the licence and the notice with it."
+    "name": "Apache License 2.0 for the task files, CC0 for Multi-SWE-bench's data",
+    "summary": "Free to use, change and share. ByteDance keeps any rights it holds in the data, and each issue and fix keeps its project's licence. Keep the licence and the notice with it."
   },
   "upstream": {
     "name": "Multi-SWE-bench",
@@ -191,7 +191,7 @@
     },
     {
       "title": "Free to use",
-      "detail": "Under the Apache License 2.0, with credit to the original authors."
+      "detail": "The task files under the Apache License 2.0 and Multi-SWE-bench's data under CC0, with credit to the original authors."
     },
     {
       "title": "Runs on your machine",
