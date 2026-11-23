@@ -1,0 +1,207 @@
+{
+  "nfip-oh-claims-cause-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "claims-coding"
+  },
+  "nfip-oh-claims-components-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "claims-payment"
+  },
+  "nfip-oh-claims-condo-units-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-severity"
+  },
+  "nfip-oh-claims-damage-ratio-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "claims-payment"
+  },
+  "nfip-oh-claims-deductible-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-coding"
+  },
+  "nfip-oh-claims-event-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-severity"
+  },
+  "nfip-oh-claims-icc-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-payment"
+  },
+  "nfip-oh-claims-nonpayment-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-coding"
+  },
+  "nfip-oh-claims-occupancy-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "claims-coding"
+  },
+  "nfip-oh-claims-paid-vs-damage-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-payment"
+  },
+  "nfip-oh-claims-settlement-basis-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "claims-coding"
+  },
+  "nfip-oh-claims-timing-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-timing"
+  },
+  "nfip-oh-claims-year-severity-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-severity"
+  },
+  "nfip-oh-claims-zone-frequency-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-severity"
+  },
+  "nfip-oh-community-county-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "community-status"
+  },
+  "nfip-oh-community-crs-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "community-status"
+  },
+  "nfip-oh-community-map-dates-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "community-status"
+  },
+  "nfip-oh-community-participation-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "community-status"
+  },
+  "nfip-oh-document-check-claims-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "nfip-oh-document-check-claims-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "nfip-oh-document-check-communities-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "document-check"
+  },
+  "nfip-oh-document-check-penetration-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "nfip-oh-document-check-policies-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "nfip-oh-join-claims-per-policy-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "county-join"
+  },
+  "nfip-oh-join-crs-penetration-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "county-join"
+  },
+  "nfip-oh-join-mlp-penetration-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "county-join"
+  },
+  "nfip-oh-loss-ratio-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "loss-ratio"
+  },
+  "nfip-oh-multiple-loss-categories-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "multiple-loss"
+  },
+  "nfip-oh-multiple-loss-county-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "multiple-loss"
+  },
+  "nfip-oh-penetration-ranking-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "penetration"
+  },
+  "nfip-oh-penetration-sfha-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "penetration"
+  },
+  "nfip-oh-penetration-statewide-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "penetration"
+  },
+  "nfip-oh-policy-cancellations-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "policy-portfolio"
+  },
+  "nfip-oh-policy-cost-components-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "policy-portfolio"
+  },
+  "nfip-oh-policy-coverage-adequacy-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "policy-coverage"
+  },
+  "nfip-oh-policy-deductible-rate-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "policy-coverage"
+  },
+  "nfip-oh-policy-firm-mix-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "policy-portfolio"
+  },
+  "nfip-oh-policy-full-risk-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "policy-coverage"
+  },
+  "nfip-oh-policy-in-force-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "policy-portfolio"
+  },
+  "nfip-oh-policy-premium-zone-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "policy-portfolio"
+  },
+  "nfip-oh-policy-residence-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "policy-portfolio"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "name": "air-passenger-rights",
+  "version": "1.0",
+  "type": "test-set",
+  "format": "field-graded",
+  "title": "Air passenger rights under US rules",
+  "summary": "Answer airline passengers' claims from the US Department of Transportation's rules: bumped passengers, refunds, schedule changes, delayed and lost bags, tarmac delays and travel credits.",
+  "description": "Each task sets out one passenger's problem with an unnamed airline: a fare, flight times, dates, what was paid and how. The AI reads five parts of the Department of Transportation's rules for air passengers, 14 CFR Parts 250, 254, 259, 260 and 262, and gives exact answers: whether compensation, a refund or a credit is owed, how much, in what form and by which date, and how the clocks of a tarmac delay run. Every field of the answer is checked, and a task passes only when all of them are right.",
+  "domain": "Transport",
+  "trade": "customer support specialists",
+  "status": "draft",
+  "pricing": "free",
+  "licence": {
+    "id": "CC-BY-4.0",
+    "name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+    "summary": "Free to use, change and share, commercial use included, if you credit the source. The regulations are US government works."
+  },
+  "upstream": {
+    "name": "14 CFR Parts 250, 254, 259, 260 and 262",
+    "by": "US Department of Transportation, as the eCFR shows it",
+    "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-14.xml?part=250"
+  },
+  "tasks": 30,
+  "graded_fields": 157,
+  "difficulty": {
+    "easy": 7,
+    "medium": 16,
+    "hard": 7
+  },
+  "families": [
+    {
+      "kind": "denied-boarding-eligibility",
+      "name": "Who counts as bumped",
+      "what": "Whether a passenger was denied boarding against their will and is owed compensation, with volunteers and the small aircraft exception.",
+      "tasks": 3
+    },
+    {
+      "kind": "denied-boarding-compensation",
+      "name": "Denied boarding compensation",
+      "what": "The amount owed, based on the fare to the destination and how late the new flight arrives, on domestic and international trips.",
+      "tasks": 3
+    },
+    {
+      "kind": "denied-boarding-payment",
+      "name": "Paying the compensation",
+      "what": "When and how compensation is paid, what a voucher offer must meet, and which extras are refunded.",
+      "tasks": 3
+    },
+    {
+      "kind": "significant-change",
+      "name": "Significant schedule change",
+      "what": "Whether an airline's change to a flight counts as significant, by a later arrival, an earlier departure or another airport.",
+      "tasks": 3
+    },
+    {
+      "kind": "fare-refund",
+      "name": "Fare refund",
+      "what": "What comes back after a cancellation or a significant change: the fare, taxes, and fees for services not provided.",
+      "tasks": 3
+    },
+    {
+      "kind": "refund-deadline",
+      "name": "Refund deadline",
+      "what": "The last day a refund is due, in business or calendar days by how the ticket was paid, with Federal holidays skipped.",
+      "tasks": 3
+    },
+    {
+      "kind": "baggage-fee-refund",
+      "name": "Delayed bag fee refund",
+      "what": "Whether a checked bag fee comes back, with the delay counted from when passengers could leave the aircraft.",
+      "tasks": 3
+    },
+    {
+      "kind": "baggage-liability",
+      "name": "Baggage liability",
+      "what": "The lowest limit an airline may set on its liability for a lost or damaged bag, per passenger and by ticket.",
+      "tasks": 3
+    },
+    {
+      "kind": "tarmac-delay",
+      "name": "Tarmac delay",
+      "what": "The clocks of a tarmac delay, when they start and stop, and what the airline must report.",
+      "tasks": 3
+    },
+    {
+      "kind": "travel-credit",
+      "name": "Travel credit",
+      "what": "Whether a travel credit is owed, its value, its terms and when it may expire.",
+      "tasks": 3
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with the text of the rules it needs, its answer key and the check that marks every field right or wrong."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under CC BY 4.0, with credit to the source."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "sample_task": "air-passenger-rights-refund-deadline-01",
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "air-passenger-rights",
+    "access": "public"
+  }
+}

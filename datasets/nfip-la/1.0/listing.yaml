@@ -1,0 +1,80 @@
+# What the Actuaria Market Place shows of this version (schema/listing.v1.json). listing.json is
+# generated from it: python scripts/listing.py datasets/nfip-la/1.0
+title: Louisiana flood insurance claims and policies
+summary: 'Work with FEMA''s public flood insurance data for Louisiana: claims by storm and flood zone, compliance payments,
+  policies in force, repetitive loss and mitigation, community status and homes insured.'
+description: 'Each task gives the AI extracts of FEMA''s public flood insurance data for Louisiana, with FEMA''s own field
+  dictionary. The question states its facts, such as a parish, a year, a date or a definition, and asks for exact figures:
+  counts, totals, shares, medians and the codes behind them. Every question covers a group of at least ten rows, never a single
+  claim or policy. Every field of the answer is checked, and a task passes only when all of them are right.'
+domain: Insurance
+format: field-graded
+status: draft
+trade: claims analysts
+licence:
+  name: Creative Commons Attribution 4.0 (CC BY 4.0)
+  summary: Free to use, change and share, commercial use included, if you credit the source. FEMA's OpenFEMA data are US government
+    works.
+upstream:
+  name: OpenFEMA, National Flood Insurance Program (NFIP) data
+  by: Federal Emergency Management Agency (FEMA), OpenFEMA
+  url: https://www.fema.gov/about/openfema/data-sets
+families:
+- kind: claims-coding
+  name: Reading FEMA's codes
+  what: 'FEMA''s codes read with its dictionary: cause of damage, reasons for no payment, deductibles, occupancy and settlement
+    basis.'
+- kind: claims-severity
+  name: Claim counts and payments
+  what: Claim counts, insured units and net payments for a year of loss or a group of flood zones, with levee-protected zones
+    kept apart.
+- kind: claims-payment
+  name: Claim payments
+  what: Building, contents and compliance payments kept apart and set against damage, value and coverage.
+- kind: claims-timing
+  name: Claim timing
+  what: The days between the loss and the opening of the claim, and between the loss and the last payment after one hurricane,
+    as medians and shares.
+- kind: storm-event
+  name: Storm events
+  what: How claims spread across FEMA's flood event tags, with named storms read against untagged claims, general tags and
+    dates of loss.
+- kind: icc
+  name: Increased cost of compliance
+  what: 'Compliance claims statewide: totals, payments against each claim''s own limit, by parish and by storm.'
+- kind: policy-portfolio
+  name: Policies on the books
+  what: Policies in force on a date, cancellations, premium and policy cost by flood zone, building age and occupancy.
+- kind: policy-coverage
+  name: Policy coverage
+  what: Coverage against replacement cost, cost per $1,000 of coverage by deductible, and premium against full-risk premium.
+- kind: loss-ratio
+  name: Loss ratio
+  what: A loss ratio, defined in the question, from the claims and policies of one parish and year.
+- kind: parish-join
+  name: Parish totals combined
+  what: Figures from different FEMA files combined at parish level, never row by row.
+- kind: multiple-loss
+  name: Repetitive loss
+  what: Properties with repeated flood losses, and severe ones, by category, by parish and by number of losses.
+- kind: mitigation
+  name: Mitigation
+  what: Which repetitive loss properties have been mitigated, flags reset by mitigation, and each parish's mitigation rate.
+- kind: community-status
+  name: Community status
+  what: Which communities take part in the program, the history of sanctions, map dates read with their codes, and community
+    ratings.
+- kind: penetration
+  name: Share of homes insured
+  what: Residential penetration rates statewide, inside the high-risk flood zone, and by parish.
+- kind: document-check
+  name: Checking the rows
+  what: Rows that contradict their own fields or FEMA's definitions, counted. Some checks rightly find none.
+you_get:
+- title: Every test task
+  detail: Each with the data it needs, its answer key and the check that marks every field right or wrong.
+- title: Free to use
+  detail: Under CC BY 4.0, with credit to the source.
+- title: Runs on your machine
+  detail: Run it with the AI you choose in Actuaria Studio Essentials.
+sample_task: nfip-la-community-participation-01

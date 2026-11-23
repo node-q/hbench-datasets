@@ -1,0 +1,267 @@
+{
+  "nfip-fl-claims-cause-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "claims-coding"
+  },
+  "nfip-fl-claims-components-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "claims-payment"
+  },
+  "nfip-fl-claims-damage-ratio-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-payment"
+  },
+  "nfip-fl-claims-deductible-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-coding"
+  },
+  "nfip-fl-claims-event-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "named-storm"
+  },
+  "nfip-fl-claims-icc-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "claims-payment"
+  },
+  "nfip-fl-claims-nonpayment-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-coding"
+  },
+  "nfip-fl-claims-occupancy-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-coding"
+  },
+  "nfip-fl-claims-paid-vs-damage-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-payment"
+  },
+  "nfip-fl-claims-settlement-basis-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-coding"
+  },
+  "nfip-fl-claims-timing-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-timing"
+  },
+  "nfip-fl-claims-year-severity-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-severity"
+  },
+  "nfip-fl-coastal-cause-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "coastal-zone"
+  },
+  "nfip-fl-coastal-claims-zone-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "coastal-zone"
+  },
+  "nfip-fl-coastal-policy-zone-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "coastal-zone"
+  },
+  "nfip-fl-coastal-vzone-policies-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "coastal-zone"
+  },
+  "nfip-fl-community-county-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "community-status"
+  },
+  "nfip-fl-community-crs-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "crs-class"
+  },
+  "nfip-fl-community-map-dates-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "community-status"
+  },
+  "nfip-fl-condo-association-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "condominium"
+  },
+  "nfip-fl-condo-coding-check-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "condominium"
+  },
+  "nfip-fl-condo-coding-check-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "condominium"
+  },
+  "nfip-fl-crs-history-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "crs-class"
+  },
+  "nfip-fl-crs-policies-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "crs-class"
+  },
+  "nfip-fl-crs-spread-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "crs-class"
+  },
+  "nfip-fl-document-check-claims-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "nfip-fl-document-check-claims-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "nfip-fl-document-check-communities-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "document-check"
+  },
+  "nfip-fl-document-check-penetration-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "nfip-fl-document-check-policies-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "document-check"
+  },
+  "nfip-fl-join-claims-per-policy-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "county-join"
+  },
+  "nfip-fl-join-crs-penetration-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "county-join"
+  },
+  "nfip-fl-join-mlp-penetration-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "county-join"
+  },
+  "nfip-fl-loss-ratio-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "loss-ratio"
+  },
+  "nfip-fl-multiple-loss-categories-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "multiple-loss"
+  },
+  "nfip-fl-multiple-loss-county-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "multiple-loss"
+  },
+  "nfip-fl-multiple-loss-scale-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "multiple-loss"
+  },
+  "nfip-fl-multiple-loss-zone-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "coastal-zone"
+  },
+  "nfip-fl-penetration-ranking-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "penetration"
+  },
+  "nfip-fl-penetration-sfha-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "penetration"
+  },
+  "nfip-fl-penetration-statewide-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "penetration"
+  },
+  "nfip-fl-policy-cancellations-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "policy-portfolio"
+  },
+  "nfip-fl-policy-cost-components-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "policy-portfolio"
+  },
+  "nfip-fl-policy-coverage-adequacy-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "policy-coverage"
+  },
+  "nfip-fl-policy-deductible-rate-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "policy-coverage"
+  },
+  "nfip-fl-policy-firm-mix-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "policy-portfolio"
+  },
+  "nfip-fl-policy-full-risk-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "policy-coverage"
+  },
+  "nfip-fl-policy-in-force-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "policy-portfolio"
+  },
+  "nfip-fl-policy-occupancy-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "condominium"
+  },
+  "nfip-fl-policy-residence-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "policy-portfolio"
+  },
+  "nfip-fl-storm-codes-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "named-storm"
+  },
+  "nfip-fl-storm-events-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "named-storm"
+  },
+  "nfip-fl-storm-ranking-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "named-storm"
+  }
+}

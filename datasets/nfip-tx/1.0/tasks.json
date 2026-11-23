@@ -1,0 +1,262 @@
+{
+  "nfip-tx-claims-cause-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "claims-coding"
+  },
+  "nfip-tx-claims-components-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "claims-payment"
+  },
+  "nfip-tx-claims-condo-units-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-severity"
+  },
+  "nfip-tx-claims-damage-ratio-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-payment"
+  },
+  "nfip-tx-claims-deductible-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-coding"
+  },
+  "nfip-tx-claims-event-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-severity"
+  },
+  "nfip-tx-claims-event-beryl-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "claims-severity"
+  },
+  "nfip-tx-claims-event-hanna-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "claims-coding"
+  },
+  "nfip-tx-claims-event-july2025-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "claims-severity"
+  },
+  "nfip-tx-claims-icc-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-payment"
+  },
+  "nfip-tx-claims-named-storms-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "claims-severity"
+  },
+  "nfip-tx-claims-nonpayment-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-coding"
+  },
+  "nfip-tx-claims-occupancy-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-coding"
+  },
+  "nfip-tx-claims-paid-vs-damage-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-payment"
+  },
+  "nfip-tx-claims-settlement-basis-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "claims-coding"
+  },
+  "nfip-tx-claims-timing-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-timing"
+  },
+  "nfip-tx-claims-timing-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-timing"
+  },
+  "nfip-tx-claims-year-severity-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-severity"
+  },
+  "nfip-tx-claims-zone-frequency-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "claims-severity"
+  },
+  "nfip-tx-community-county-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "community-status"
+  },
+  "nfip-tx-community-crs-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "community-status"
+  },
+  "nfip-tx-community-map-dates-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "community-status"
+  },
+  "nfip-tx-community-participation-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "community-status"
+  },
+  "nfip-tx-document-check-claims-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "nfip-tx-document-check-claims-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "document-check"
+  },
+  "nfip-tx-document-check-communities-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "nfip-tx-document-check-penetration-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "nfip-tx-document-check-policies-01": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "document-check"
+  },
+  "nfip-tx-join-claims-per-policy-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "county-join"
+  },
+  "nfip-tx-join-crs-penetration-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "county-join"
+  },
+  "nfip-tx-join-mlp-penetration-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "county-join"
+  },
+  "nfip-tx-join-rl-share-01": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "county-join"
+  },
+  "nfip-tx-loss-ratio-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "loss-ratio"
+  },
+  "nfip-tx-multiple-loss-categories-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "multiple-loss"
+  },
+  "nfip-tx-multiple-loss-coastal-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "multiple-loss"
+  },
+  "nfip-tx-multiple-loss-county-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "multiple-loss"
+  },
+  "nfip-tx-penetration-coastal-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "penetration"
+  },
+  "nfip-tx-penetration-high-risk-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "penetration"
+  },
+  "nfip-tx-penetration-ranking-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "penetration"
+  },
+  "nfip-tx-penetration-sfha-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "penetration"
+  },
+  "nfip-tx-penetration-statewide-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "penetration"
+  },
+  "nfip-tx-policy-cancellations-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "policy-portfolio"
+  },
+  "nfip-tx-policy-coastal-inland-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "policy-portfolio"
+  },
+  "nfip-tx-policy-cost-components-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "policy-portfolio"
+  },
+  "nfip-tx-policy-coverage-adequacy-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "policy-coverage"
+  },
+  "nfip-tx-policy-deductible-rate-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "policy-coverage"
+  },
+  "nfip-tx-policy-elevation-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "policy-coverage"
+  },
+  "nfip-tx-policy-firm-mix-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "policy-portfolio"
+  },
+  "nfip-tx-policy-full-risk-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "policy-coverage"
+  },
+  "nfip-tx-policy-in-force-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "policy-portfolio"
+  },
+  "nfip-tx-policy-premium-zone-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "policy-portfolio"
+  },
+  "nfip-tx-policy-residence-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "policy-portfolio"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "us-life-tables-annuity-due-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "annuity-value"
+  },
+  "us-life-tables-curtate-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "life-expectancy"
+  },
+  "us-life-tables-deferred-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "survival-probability"
+  },
+  "us-life-tables-document-check-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "us-life-tables-document-check-02": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "document-check"
+  },
+  "us-life-tables-document-check-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "us-life-tables-expectation-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "life-expectancy"
+  },
+  "us-life-tables-fractional-constant-force-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "fractional-age"
+  },
+  "us-life-tables-fractional-udd-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "fractional-age"
+  },
+  "us-life-tables-guaranteed-annuity-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "annuity-value"
+  },
+  "us-life-tables-joint-expectation-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "joint-lives"
+  },
+  "us-life-tables-joint-lives-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "joint-lives"
+  },
+  "us-life-tables-joint-lives-02": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "joint-lives"
+  },
+  "us-life-tables-median-modal-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "life-expectancy"
+  },
+  "us-life-tables-net-premium-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "premium-reserve"
+  },
+  "us-life-tables-population-comparison-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "table-comparison"
+  },
+  "us-life-tables-pure-endowment-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "insurance-value"
+  },
+  "us-life-tables-rated-mortality-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "survival-probability"
+  },
+  "us-life-tables-rebuild-dx-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "column-rebuild"
+  },
+  "us-life-tables-rebuild-person-years-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "column-rebuild"
+  },
+  "us-life-tables-rebuild-tx-ex-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "column-rebuild"
+  },
+  "us-life-tables-reserve-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "premium-reserve"
+  },
+  "us-life-tables-sex-comparison-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "table-comparison"
+  },
+  "us-life-tables-survival-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "survival-probability"
+  },
+  "us-life-tables-temporary-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "life-expectancy"
+  },
+  "us-life-tables-temporary-annuity-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "annuity-value"
+  },
+  "us-life-tables-term-endowment-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "insurance-value"
+  },
+  "us-life-tables-term-premium-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "premium-reserve"
+  },
+  "us-life-tables-whole-life-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "insurance-value"
+  },
+  "us-life-tables-year-comparison-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "table-comparison"
+  }
+}
