@@ -1,0 +1,152 @@
+{
+  "icd10cm-coding-addenda-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "addenda-reconciliation"
+  },
+  "icd10cm-coding-addenda-02": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "addenda-reconciliation"
+  },
+  "icd10cm-coding-addenda-03": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "addenda-reconciliation"
+  },
+  "icd10cm-coding-category-members-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "hierarchy"
+  },
+  "icd10cm-coding-code-length-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "code-structure"
+  },
+  "icd10cm-coding-code-lookup-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "code-lookup"
+  },
+  "icd10cm-coding-code-lookup-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "code-lookup"
+  },
+  "icd10cm-coding-code-lookup-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "code-lookup"
+  },
+  "icd10cm-coding-code-range-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "code-range"
+  },
+  "icd10cm-coding-code-range-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "code-range"
+  },
+  "icd10cm-coding-decimal-placement-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "code-structure"
+  },
+  "icd10cm-coding-descendants-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "hierarchy"
+  },
+  "icd10cm-coding-description-length-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "description-length"
+  },
+  "icd10cm-coding-description-length-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "description-length"
+  },
+  "icd10cm-coding-encounter-type-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "laterality-encounter"
+  },
+  "icd10cm-coding-file-consistency-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "file-consistency"
+  },
+  "icd10cm-coding-file-consistency-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "file-consistency"
+  },
+  "icd10cm-coding-file-consistency-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "file-consistency"
+  },
+  "icd10cm-coding-laterality-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "laterality-encounter"
+  },
+  "icd10cm-coding-laterality-02": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "laterality-encounter"
+  },
+  "icd10cm-coding-parent-category-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "hierarchy"
+  },
+  "icd10cm-coding-placeholder-x-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "code-structure"
+  },
+  "icd10cm-coding-release-changes-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "release-changes"
+  },
+  "icd10cm-coding-release-changes-02": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "release-changes"
+  },
+  "icd10cm-coding-release-changes-03": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "release-changes"
+  },
+  "icd10cm-coding-seventh-characters-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "code-structure"
+  },
+  "icd10cm-coding-seventh-characters-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "code-structure"
+  },
+  "icd10cm-coding-valid-header-blocks-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "valid-vs-header"
+  },
+  "icd10cm-coding-valid-header-categories-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "valid-vs-header"
+  },
+  "icd10cm-coding-valid-header-chapters-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "valid-vs-header"
+  }
+}
