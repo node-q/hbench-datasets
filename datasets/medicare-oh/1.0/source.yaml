@@ -112,7 +112,7 @@ rai:
     222 plan segments; employer group plans appear only in the enrollment extract.
   personal_sensitive_information:
   - >-
-    Companies pseudonymized, no mapping kept (user decisions of 2026-11-06): the dataset names no MA organization,
+    Companies pseudonymized, no mapping kept: the dataset names no MA organization,
     Part D sponsor, parent, brand, plan, program or vendor. Names become [Parent A] to [Parent T], [Brand A] to
     [Brand W], [Organization 01] to [Organization 41] and [Plan 001] to [Plan 176], one per distinct CMS value;
     the 48 contract IDs become fake IDs, Z and four digits, which no real contract uses and which keep the contracts'
