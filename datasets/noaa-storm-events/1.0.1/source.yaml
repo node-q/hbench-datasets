@@ -1,7 +1,7 @@
 schema_version: 1
 name: noaa-storm-events
 version: 1.0.1
-title: US storm events, 2024 and 2025 1.0.1
+title: US storm events, 2024 and 2025
 description: >-
   Count, total and check NOAA's US storm records for 2024 and 2025: events and episodes, damage written with K,
   M and B suffixes, deaths and injuries, tornado paths, hail and wind, and time zones. 30 tasks, with every field
@@ -18,7 +18,6 @@ keywords:
 - NOAA
 - storm events
 - public data
-- not expert-reviewed
 - open data
 upstream:
   url: https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/
@@ -93,7 +92,7 @@ rai:
     joins, ranking with unique winners, and checking records against themselves without false alarms.
   data_limitations:
   - >-
-    Not expert-reviewed: no meteorologist, catastrophe modeller or actuary, and nobody at NOAA, has checked the
+    No expert has checked these yet: no meteorologist, catastrophe modeller or actuary, and nobody at NOAA, has checked the
     tasks or their answers. Each question states its definitions, but a practitioner may prefer other definitions.
   - >-
     NCEI says of the data: "Customers should be cautious as the NWS does not guarantee the accuracy or validity

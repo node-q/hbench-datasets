@@ -1,7 +1,7 @@
 schema_version: 1
 name: hours-of-service
 version: 1.0.1
-title: Commercial driver hours of service 1.0.1
+title: Commercial driver hours of service
 description: >-
   Check a truck or bus driver's log against the US hours-of-service rules: driving and duty limits, rest breaks,
   weekly limits and restarts, sleeper berth splits, short-haul and bad weather exceptions. 30 tasks, with every
@@ -18,7 +18,6 @@ keywords:
 - 49 CFR Part 395
 - regulatory compliance
 - public documents
-- not expert-reviewed
 - open data
 upstream:
   url: https://www.ecfr.gov/current/title-49/subtitle-B/chapter-III/subchapter-B/part-395
@@ -87,7 +86,7 @@ rai:
     one that fails on a single condition.
   data_limitations:
   - >-
-    Not expert-reviewed, and not legal advice: no transportation lawyer, safety director, enforcement officer or
+    No expert has checked these yet, and it is not legal advice: no transportation lawyer, safety director, enforcement officer or
     anybody at the Federal Motor Carrier Safety Administration has checked the tasks or their answers. The answers
     apply the text only; the agency's guidance and enforcement practice were not used and may differ.
   - >-

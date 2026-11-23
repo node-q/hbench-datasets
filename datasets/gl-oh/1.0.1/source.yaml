@@ -1,7 +1,7 @@
 schema_version: 1
 name: gl-oh
 version: 1.0.1
-title: Ohio commercial general liability rating 1.0.1
+title: Ohio commercial general liability rating
 description: >-
   Rate one insurer's general liability program in Ohio from the manual pages it filed: minimum premiums, class premiums,
   endorsements, rating factors, Ohio's own rules and the errors in the pages. 81 tasks, with every field of an answer
@@ -17,7 +17,6 @@ keywords:
 - general liability
 - rate filing
 - real documents only
-- not expert-reviewed
 - open data
 upstream:
   url: https://filingaccess.serff.com/sfa/home/OH
@@ -73,7 +72,7 @@ rai:
     limits, version differences, and spotting the documents' own inconsistencies.
   data_limitations:
   - >-
-    Not expert-reviewed: no underwriting expert and nobody at the filer has checked the tasks or their answers.
+    No expert has checked these yet: no underwriting expert and nobody at the filer has checked the tasks or their answers.
     Where the filing is silent or ambiguous the tasks avoid the question rather than settle it with a convention,
     but a reader may still disagree with a reading the answer key takes.
   - >-

@@ -1,7 +1,7 @@
 schema_version: 1
 name: medsupp-oh
 version: 1.0.1
-title: Ohio Medicare supplement rates and refunds 1.0.1
+title: Ohio Medicare supplement rates and refunds
 description: >-
   Rate Medicare supplement plans in Ohio and check a refund calculation, from two insurers' filings: rates by plan,
   age, sex and area, discounts, a rate increase exhibit, the NAIC refund calculation and the filings' own errors.
@@ -18,7 +18,6 @@ keywords:
 - rate filing
 - refund calculation
 - real documents only
-- not expert-reviewed
 - open data
 upstream:
   url: https://filingaccess.serff.com/sfa/home/OH
@@ -76,7 +75,7 @@ rai:
     without flagging sound figures.
   data_limitations:
   - >-
-    Not expert-reviewed: no underwriting or actuarial expert, and nobody at either filer, has checked the tasks
+    No expert has checked these yet: no underwriting or actuarial expert, and nobody at either filer, has checked the tasks
     or their answers. Where the filings are silent or ambiguous (how discounts stack, whether the $48 annual discount
     recurs, when the six-month rate guarantee releases an increase) the tasks avoid the question, but a reader may
     still disagree with a reading the answer key takes (the README lists them).

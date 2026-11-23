@@ -1,7 +1,7 @@
 schema_version: 1
 name: flsa-overtime
 version: 1.0.1
-title: FLSA overtime and the regular rate 1.0.1
+title: FLSA overtime and the regular rate
 description: >-
   Work out overtime pay under the US Department of Labor's overtime regulation: the regular rate, the overtime due,
   and bonuses and commissions spread back over the weeks they were earned in. 30 tasks, with every field of an answer
@@ -18,7 +18,6 @@ keywords:
 - overtime
 - regular rate
 - public documents
-- not expert-reviewed
 - open data
 upstream:
   url: https://www.ecfr.gov/current/title-29/part-778
@@ -84,7 +83,7 @@ rai:
     may also be credited toward overtime.
   data_limitations:
   - >-
-    Not expert-reviewed, and not legal advice: no wage-and-hour lawyer, payroll practitioner or official of the
+    No expert has checked these yet, and it is not legal advice: no wage-and-hour lawyer, payroll practitioner or official of the
     Department of Labor has checked the tasks or their answers. Where the regulation leaves a choice or needs a
     fact, the question states it, but a reader may still disagree with a reading.
   - >-

@@ -1,7 +1,7 @@
 schema_version: 1
 name: us-life-tables
 version: 1.0.1
-title: United States life tables, 2023 and 2024 1.0.1
+title: United States life tables, 2023 and 2024
 description: >-
   Actuarial calculations with the US life tables of 2023 and 2024: survival, expectation of life, joint lives, insurance
   and annuity values, net premiums and reserves, and checks of the tables against themselves. 30 tasks, with every
@@ -18,7 +18,6 @@ keywords:
 - mortality
 - life contingencies
 - public data
-- not expert-reviewed
 - open data
 upstream:
   url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/
@@ -94,7 +93,7 @@ rai:
     precision it is printed.
   data_limitations:
   - >-
-    Not expert-reviewed: no actuary, no demographer and nobody at the National Center for Health Statistics has
+    No expert has checked these yet: no actuary, no demographer and nobody at the National Center for Health Statistics has
     checked the tasks, the conventions they state or their answers. Where practice knows more than one convention
     (the open interval, fractional ages, the timing of payments) the question states one, and a practitioner may
     prefer another.

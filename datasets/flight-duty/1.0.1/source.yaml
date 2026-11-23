@@ -1,7 +1,7 @@
 schema_version: 1
 name: flight-duty
 version: 1.0.1
-title: Pilot flight, duty and rest limits under FAA rules 1.0.1
+title: Pilot flight, duty and rest limits under FAA rules
 description: >-
   Check a pilot's schedule against the US FAA's flight and duty limits: flight time, duty periods, augmented crews,
   time zones, split duty, extensions, reserve, rest and night flying. 30 tasks, with every field of an answer checked.
@@ -17,7 +17,6 @@ keywords:
 - flight duty period
 - 14 CFR Part 117
 - public documents
-- not expert-reviewed
 - open data
 upstream:
   url: https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-14.xml?part=117
@@ -84,7 +83,7 @@ rai:
     which condition of a rule fails.
   data_limitations:
   - >-
-    Not expert-reviewed: no pilot, crew scheduler, dispatcher or aviation lawyer and nobody at the FAA has checked
+    No expert has checked these yet: no pilot, crew scheduler, dispatcher or aviation lawyer and nobody at the FAA has checked
     the tasks or their answers. The answers follow the words of Part 117 and the readings the questions state; the
     FAA's legal interpretations, the rule's preamble and its clarification notices were not consulted and may differ.
   - 'Not operational or legal advice: nobody should schedule or fly from these answers.'

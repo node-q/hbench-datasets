@@ -1,7 +1,7 @@
 schema_version: 1
 name: irs-inflation-adjustments
 version: 1.0.1
-title: IRS inflation-adjusted tax amounts, 2025 and 2026 1.0.1
+title: IRS inflation-adjusted tax amounts, 2025 and 2026
 description: >-
   Federal income tax work with the IRS's yearly inflation adjustments: rate tables by filing status, the standard
   deduction, capital gains rates, the AMT exemption, the earned income credit, the kiddie tax, and gift and estate
@@ -17,7 +17,6 @@ keywords:
 - inflation adjustments
 - revenue procedure
 - public documents
-- not expert-reviewed
 - open data
 upstream:
   url: https://www.irs.gov/irb
@@ -92,7 +91,7 @@ rai:
     section where its neighbours are.
   data_limitations:
   - >-
-    Not expert-reviewed: no tax professional and nobody at the Internal Revenue Service has checked the tasks, the
+    No expert has checked these yet: no tax professional and nobody at the Internal Revenue Service has checked the tasks, the
     rules they state or their answers. Not tax advice.
   - >-
     Rules of the Internal Revenue Code that the revenue procedures do not restate are written out in the questions

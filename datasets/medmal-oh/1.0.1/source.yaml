@@ -1,7 +1,7 @@
 schema_version: 1
 name: medmal-oh
 version: 1.0.1
-title: Ohio medical professional liability rating 1.0.1
+title: Ohio medical professional liability rating
 description: >-
   Rate Ohio physicians and surgeons from two insurers' filed manuals: classes, territories, limits, claims-made
   and occurrence rates, tail coverage, credits, schedule rating, full premiums and one doctor at both insurers.
@@ -17,7 +17,6 @@ keywords:
 - medical professional liability
 - rate filing
 - real documents only
-- not expert-reviewed
 - open data
 upstream:
   url: https://filingaccess.serff.com/sfa/home/OH
@@ -75,7 +74,7 @@ rai:
     physician, and spotting the documents' own inconsistencies without reporting false ones.
   data_limitations:
   - >-
-    Not expert-reviewed: no underwriting expert and nobody at either carrier has checked the tasks or their answers.
+    No expert has checked these yet: no underwriting expert and nobody at either carrier has checked the tasks or their answers.
     Where the filings are silent or ambiguous the tasks avoid the question rather than settle it with a convention,
     but a reader may still disagree with a reading the answer key takes.
   - >-

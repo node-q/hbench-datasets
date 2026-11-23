@@ -1,7 +1,7 @@
 schema_version: 1
 name: nist-800-53
 version: 1.0.1
-title: NIST SP 800-53 Rev. 5 controls and baselines 1.0.1
+title: NIST SP 800-53 Rev. 5 controls and baselines
 description: >-
   Count, compare and cross-check NIST's security and privacy controls in its own machine-readable release: families,
   withdrawn controls, the LOW, MODERATE, HIGH and privacy baselines, tailoring, parameters and assessment procedures.
@@ -18,7 +18,6 @@ keywords:
 - control baselines
 - OSCAL
 - public data
-- not expert-reviewed
 - open data
 upstream:
   url: https://github.com/usnistgov/oscal-content
@@ -93,7 +92,7 @@ rai:
     false positives.
   data_limitations:
   - >-
-    Not expert-reviewed: no security or compliance practitioner and nobody at NIST has checked the tasks or their
+    No expert has checked these yet: no security or compliance practitioner and nobody at NIST has checked the tasks or their
     answers. The questions state their definitions and the tailoring tasks their own simple rules, which are not
     NIST's tailoring guidance; a reader may disagree with a definition a question states.
   - >-

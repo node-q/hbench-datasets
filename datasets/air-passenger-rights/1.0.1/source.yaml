@@ -1,7 +1,7 @@
 schema_version: 1
 name: air-passenger-rights
 version: 1.0.1
-title: Air passenger rights under US rules 1.0.1
+title: Air passenger rights under US rules
 description: >-
   Answer airline passengers' claims from the US Department of Transportation's rules: bumped passengers, refunds,
   schedule changes, delayed and lost bags, tarmac delays and travel credits. 30 tasks, with every field of an answer
@@ -18,7 +18,6 @@ keywords:
 - refunds
 - 14 CFR
 - public documents
-- not expert-reviewed
 - open data
 upstream:
   url: https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-14.xml?part=250
@@ -93,7 +92,7 @@ rai:
     and saying that nothing is due when the text gives nothing.
   data_limitations:
   - >-
-    Not expert-reviewed and not legal advice: no lawyer, no aviation consumer protection specialist and nobody at
+    No expert has checked these yet and not legal advice: no lawyer, no aviation consumer protection specialist and nobody at
     the Department of Transportation has checked the tasks, the reading of the rules or the answers. The answers
     apply the words of the shipped text only and ignore statutes, treaties, agency guidance, preambles, enforcement
     practice and contracts of carriage.

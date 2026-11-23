@@ -1,7 +1,7 @@
 schema_version: 1
 name: cp-oh
 version: 1.0.1
-title: Ohio commercial property rating 1.0.1
+title: Ohio commercial property rating
 description: >-
   Rate one insurer's commercial property program in Ohio from the manual pages it filed: limit factors, table edges,
   the rating steps, endorsements, flood, Ohio's own rules and the errors in the pages. 75 tasks, with every field
@@ -17,7 +17,6 @@ keywords:
 - commercial property
 - rate filing
 - real documents only
-- not expert-reviewed
 - open data
 upstream:
   url: https://filingaccess.serff.com/sfa/home/OH
@@ -77,7 +76,7 @@ rai:
     ones, and spotting the documents' own inconsistencies.
   data_limitations:
   - >-
-    Not expert-reviewed: no underwriting expert and nobody at the filer has checked the tasks or their answers.
+    No expert has checked these yet: no underwriting expert and nobody at the filer has checked the tasks or their answers.
     Where the filing is silent or ambiguous the tasks avoid the question rather than settle it with a convention,
     but a reader may still disagree with a reading the answer key takes (the README lists them).
   - >-

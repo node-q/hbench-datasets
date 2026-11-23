@@ -1,7 +1,7 @@
 schema_version: 1
 name: federal-grants
 version: 1.0.1
-title: Federal grants accounting under the Uniform Guidance 1.0.1
+title: Federal grants accounting under the Uniform Guidance
 description: >-
   Grants accounting under 2 CFR Part 200 at its 2024 amounts: allowable and indirect costs, cost sharing, program
   income, equipment, procurement, award dates and the single audit. 30 tasks, with every field of an answer checked.
@@ -18,7 +18,6 @@ keywords:
 - 2 CFR 200
 - single audit
 - public documents
-- not expert-reviewed
 - open data
 upstream:
   url: https://www.ecfr.gov/current/title-2/part-200
@@ -89,7 +88,7 @@ rai:
     in calendar days with a weekend rule only where the rule has one.
   data_limitations:
   - >-
-    Not expert-reviewed: no grants accountant, auditor, lawyer or anyone at the Office of Management and Budget
+    No expert has checked these yet: no grants accountant, auditor, lawyer or anyone at the Office of Management and Budget
     has checked the tasks, the readings of the text they rest on, or their answers. Where the text can be read more
     than one way the question states the reading, but a practitioner may disagree.
   - >-

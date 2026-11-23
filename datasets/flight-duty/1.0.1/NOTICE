@@ -76,7 +76,7 @@ longitude or a UTC offset where the rule needs one.
 Not reviewed
 ------------
 
-Not expert-reviewed: no pilot, crew scheduler, dispatcher or aviation lawyer and nobody at the FAA has checked
+No expert has checked these yet: no pilot, crew scheduler, dispatcher or aviation lawyer and nobody at the FAA has checked
 the tasks or their answers. node-q has not asked the FAA or the Office of the Federal Register for anything, and
 counsel has not reviewed this use.
 

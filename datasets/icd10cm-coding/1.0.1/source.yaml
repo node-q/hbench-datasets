@@ -1,7 +1,7 @@
 schema_version: 1
 name: icd10cm-coding
 version: 1.0.1
-title: ICD-10-CM diagnosis code set files 1.0.1
+title: ICD-10-CM diagnosis code set files
 description: >-
   Read the published ICD-10-CM files exactly: codes valid for submission and headers, how codes are built, the hierarchy,
   what changed between two annual releases, and whether the files agree with each other. 30 tasks, with every field
@@ -17,7 +17,6 @@ keywords:
 - ICD-10-CM
 - diagnosis codes
 - public data
-- not expert-reviewed
 - open data
 upstream:
   url: https://www.cdc.gov/nchs/icd/icd-10-cm/files.html
@@ -100,7 +99,7 @@ rai:
     a change list with the files it describes, and checking publications against each other without false positives.
   data_limitations:
   - >-
-    Not expert-reviewed: no certified coder, no clinician and nobody at NCHS or CMS has checked the tasks or their
+    No expert has checked these yet: no certified coder, no clinician and nobody at NCHS or CMS has checked the tasks or their
     answers. The structural definitions each question states (parent, under, block, pair, placeholder) are node-q's
     wording, and a coder may use some of the words differently.
   - >-

@@ -1,7 +1,7 @@
 schema_version: 1
 name: osha-recordkeeping
 version: 1.0.1
-title: OSHA injury and illness recordkeeping 1.0.1
+title: OSHA injury and illness recordkeeping
 description: >-
   Keep workplace injury records under the US OSHA recordkeeping regulation: what is recordable, where it goes on
   the log, day counts, hearing loss, annual summaries, deadlines, severe injury reports and electronic submission.
@@ -18,7 +18,6 @@ keywords:
 - 29 CFR 1904
 - regulation
 - public documents
-- not expert-reviewed
 - open data
 upstream:
   url: https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-29.xml?part=1904
@@ -85,7 +84,7 @@ rai:
     of three similar lists.
   data_limitations:
   - >-
-    Not expert-reviewed: no safety professional, no lawyer and nobody at OSHA has checked the tasks or their answers.
+    No expert has checked these yet: no safety professional, no lawyer and nobody at OSHA has checked the tasks or their answers.
     Not legal advice. The tasks read the regulation's text alone and do not use OSHA's interpretation letters, its
     recordkeeping handbook, the instructions on the forms or State plan rules, which may read it differently.
   - >-

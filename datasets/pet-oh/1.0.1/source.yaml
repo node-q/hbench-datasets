@@ -1,7 +1,7 @@
 schema_version: 1
 name: pet-oh
 version: 1.0.1
-title: Ohio pet insurance rating 1.0.1
+title: Ohio pet insurance rating
 description: >-
   Rate pet health insurance in Ohio from one insurer's two filed programs: breeds, age, area and plan factors, discounts
   and fees, full premiums, ways of paying, policy terms and the errors in the filings. 48 tasks, with every field
@@ -17,7 +17,6 @@ keywords:
 - pet insurance
 - rate filing
 - real documents only
-- not expert-reviewed
 - open data
 upstream:
   url: https://filingaccess.serff.com/sfa/home/OH
@@ -75,7 +74,7 @@ rai:
     the documents' own inconsistencies without false positives.
   data_limitations:
   - >-
-    Not expert-reviewed: no underwriting expert and nobody at the insurer has checked the tasks or their answers.
+    No expert has checked these yet: no underwriting expert and nobody at the insurer has checked the tasks or their answers.
     Where the filings are silent or ambiguous the tasks avoid the question or fix the reading in the question, but
     a reader may still disagree with a reading the answer key takes.
   - >-

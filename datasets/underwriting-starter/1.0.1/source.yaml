@@ -1,7 +1,7 @@
 schema_version: 1
 name: underwriting-starter
 version: 1.0.1
-title: Underwriting starter 1.0.1
+title: Underwriting starter
 description: >-
   Everyday underwriting work on nine lines of business in Ohio: full premiums, table lookups, schedule rating, minimums,
   endorsements, eligibility, state exceptions, claims-made tails, return premiums and errors in filed manuals. 40
@@ -16,7 +16,6 @@ keywords:
 - underwriting
 - rate filing
 - real documents only
-- not expert-reviewed
 - starter
 - open data
 upstream:
@@ -74,7 +73,7 @@ rai:
     the source datasets go deeper.
   data_limitations:
   - >-
-    Not expert-reviewed: no underwriting expert and nobody at any filer has checked the tasks or their answers,
+    No expert has checked these yet: no underwriting expert and nobody at any filer has checked the tasks or their answers,
     here or in the source datasets.
   - '40 tasks, four per family: enough to show where an agent stands, not to rank close agents.'
   - >-

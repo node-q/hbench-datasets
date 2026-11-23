@@ -1,7 +1,7 @@
 schema_version: 1
 name: title-oh
 version: 1.0.1
-title: Ohio title insurance rating 1.0.1
+title: Ohio title insurance rating
 description: >-
   Rate title insurance in Ohio from a filed schedule of rates: owner's and loan premiums by band, minimums, reissue,
   refinance and simultaneous issue, endorsements, the actuarial memorandum and the errors in the filings. 56 tasks,
@@ -16,7 +16,6 @@ keywords:
 - title insurance
 - rate filing
 - real documents only
-- not expert-reviewed
 - open data
 upstream:
   url: https://filingaccess.serff.com/sfa/home/OH
@@ -77,7 +76,7 @@ rai:
     without flagging consistent figures.
   data_limitations:
   - >-
-    Not expert-reviewed: no title insurance expert and nobody at the filer has checked the tasks or their answers.
+    No expert has checked these yet: no title insurance expert and nobody at the filer has checked the tasks or their answers.
     Where the documents are silent or ambiguous the tasks avoid the question, but a reader may still disagree with
     a reading the answer key takes (the README lists them).
   - >-

@@ -1,7 +1,7 @@
 schema_version: 1
 name: eo-oh
 version: 1.0.1
-title: Ohio professional liability rating 1.0.1
+title: Ohio professional liability rating
 description: >-
   Rate one insurer's errors and omissions program in Ohio from its filed manuals and forms: base premiums, rating
   factors, limits, endorsements, extended reporting, cyber, claims-made coverage and Ohio's own rules. 67 tasks,
@@ -18,7 +18,6 @@ keywords:
 - errors and omissions
 - rate filing
 - real documents only
-- not expert-reviewed
 - open data
 upstream:
   url: https://filingaccess.serff.com/sfa/home/OH
@@ -74,7 +73,7 @@ rai:
     triggers read from the forms, and spotting the documents' own inconsistencies without false positives.
   data_limitations:
   - >-
-    Not expert-reviewed: no underwriting expert and nobody at the filer has checked the tasks or their answers.
+    No expert has checked these yet: no underwriting expert and nobody at the filer has checked the tasks or their answers.
     Where the filing is silent or ambiguous the tasks avoid the question or state the convention as a parameter,
     but a reader may still disagree with a reading the answer key takes.
   - >-

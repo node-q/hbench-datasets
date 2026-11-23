@@ -1,7 +1,7 @@
 schema_version: 1
 name: nfip-la
 version: 1.0.1
-title: Louisiana flood insurance claims and policies 1.0.1
+title: Louisiana flood insurance claims and policies
 description: >-
   Work with FEMA's public flood insurance data for Louisiana: claims by storm and flood zone, compliance payments,
   policies in force, repetitive loss and mitigation, community status and homes insured. 54 tasks, with every field
@@ -19,7 +19,6 @@ keywords:
 - OpenFEMA
 - Louisiana
 - public data
-- not expert-reviewed
 - open data
 upstream:
   url: https://www.fema.gov/about/openfema/data-sets
@@ -160,7 +159,7 @@ rai:
     mitigation and repetitive loss flags, parsing MM/DD/YY dates, and finding inconsistencies without false positives.
   data_limitations:
   - >-
-    Not expert-reviewed: no insurance expert and nobody at FEMA has checked the tasks or their answers. Where FEMA's
+    No expert has checked these yet: no insurance expert and nobody at FEMA has checked the tasks or their answers. Where FEMA's
     definitions are ambiguous the tasks avoid the question or define it, but a reader may still disagree with a
     definition the question states.
   - >-

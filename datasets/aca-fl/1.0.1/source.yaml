@@ -1,7 +1,7 @@
 schema_version: 1
 name: aca-fl
 version: 1.0.1
-title: Florida individual health plans, plan year 2026 1.0.1
+title: Florida individual health plans, plan year 2026
 description: >-
   Read Florida's 2026 individual health plan data from CMS's public use files: rates, tobacco loads, rating and
   service areas, plan attributes, cost sharing and checks of the data itself. 44 tasks, with every field of an answer
@@ -18,7 +18,6 @@ keywords:
 - ACA individual market
 - CMS public use files
 - real data only
-- not expert-reviewed
 - open data
 upstream:
   url: https://www.cms.gov/marketplace/resources/data/public-use-files
@@ -85,7 +84,7 @@ rai:
     variants apart, and reporting real data anomalies without false positives.
   data_limitations:
   - >-
-    Not expert-reviewed: no health insurance expert, nobody at CMS and no issuer has checked the tasks or their
+    No expert has checked these yet: no health insurance expert, nobody at CMS and no issuer has checked the tasks or their
     answers. Where the files alone do not settle a question (column meanings only CMS's data dictionaries give,
     rules outside the files, a county's rating area from any source but the files) the tasks avoid it or define
     it in the question.

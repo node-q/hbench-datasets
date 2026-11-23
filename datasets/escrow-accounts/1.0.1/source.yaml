@@ -1,7 +1,7 @@
 schema_version: 1
 name: escrow-accounts
 version: 1.0.1
-title: Mortgage escrow accounts under Regulation X 1.0.1
+title: Mortgage escrow accounts under Regulation X
 description: >-
   Mortgage escrow work under the CFPB's Regulation X: the annual escrow analysis and its cushion, surpluses, shortages
   and deficiencies, and the deadlines for statements, error notices and force-placed insurance. 30 tasks, with every
@@ -18,7 +18,6 @@ keywords:
 - RESPA
 - Regulation X
 - public documents
-- not expert-reviewed
 - open data
 upstream:
   url: https://www.ecfr.gov/current/title-12/chapter-X/part-1024
@@ -90,7 +89,7 @@ rai:
     in calendar days or without holidays and weekends as each paragraph says.
   data_limitations:
   - >-
-    Not expert-reviewed: no mortgage servicing or compliance practitioner, no lawyer and nobody at the Bureau has
+    No expert has checked these yet: no mortgage servicing or compliance practitioner, no lawyer and nobody at the Bureau has
     checked the tasks or their answers. Not legal advice. Where the regulation leaves a detail open (how days are
     counted, which balance is the target at an annual analysis) the question states a convention, and a practitioner
     may read the regulation differently.

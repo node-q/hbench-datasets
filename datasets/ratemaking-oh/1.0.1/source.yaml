@@ -1,7 +1,7 @@
 schema_version: 1
 name: ratemaking-oh
 version: 1.0.1
-title: General liability ratemaking from one Ohio filing 1.0.1
+title: General liability ratemaking from one Ohio filing
 description: >-
   Redo a real general liability rate indication filed in Ohio: development factors, ultimate losses, trend, loss
   ratios, the indicated rate change, Ohio's loss cost multiplier and the places where the exhibits disagree. 27
@@ -18,7 +18,6 @@ keywords:
 - general liability
 - rate filing
 - loss development
-- not expert-reviewed
 - open data
 upstream:
   url: https://filingaccess.serff.com/sfa/home/OH
@@ -73,7 +72,7 @@ rai:
     and reviewing a filing for the inconsistencies it really has.
   data_limitations:
   - >-
-    Not expert-reviewed: no actuary and nobody at the filer has checked the questions or the answer keys. Answers
+    No expert has checked these yet: no actuary and nobody at the filer has checked the questions or the answer keys. Answers
     are what the filing's own printed numbers and stated formulas give; where the filing selects by judgement, a
     task asks only for the value it selected or the computed value behind it.
   - >-

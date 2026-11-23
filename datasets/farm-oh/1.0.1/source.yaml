@@ -1,7 +1,7 @@
 schema_version: 1
 name: farm-oh
 version: 1.0.1
-title: Ohio farm property and liability rating 1.0.1
+title: Ohio farm property and liability rating
 description: >-
   Rate one insurer's farmowners program in Ohio from the manual it filed: county zones, dwelling and outbuilding
   premiums, farm personal property, farm liability, deductibles, package rules and the manual's stale pages. 86
@@ -17,7 +17,6 @@ keywords:
 - farmowners
 - rate filing
 - real documents only
-- not expert-reviewed
 - open data
 upstream:
   url: https://filingaccess.serff.com/sfa/home/OH
@@ -80,7 +79,7 @@ rai:
     and premium size tables at their boundaries, eligibility rules, and spotting the manual's stale pages and inconsistencies.
   data_limitations:
   - >-
-    Not expert-reviewed: no underwriting expert and nobody at the filer has checked the tasks or their answers.
+    No expert has checked these yet: no underwriting expert and nobody at the filer has checked the tasks or their answers.
     Where the manual is silent or ambiguous the tasks avoid the question rather than settle it with a convention,
     but a reader may still disagree with a reading the answer key takes.
   - >-

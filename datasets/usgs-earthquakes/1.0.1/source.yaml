@@ -1,7 +1,7 @@
 schema_version: 1
 name: usgs-earthquakes
 version: 1.0.1
-title: Earthquakes in the USGS catalog, 2024 and 2025 1.0.1
+title: Earthquakes in the USGS catalog, 2024 and 2025
 description: >-
   Count, sort and measure earthquakes in the US Geological Survey's catalog: magnitude and depth classes, event
   types, local clocks, distances across the 180-degree meridian, aftershocks, b-values and seismic moment. 30 tasks,
@@ -17,7 +17,6 @@ keywords:
 - earthquakes
 - seismicity
 - public data
-- not expert-reviewed
 - open data
 upstream:
   url: https://earthquake.usgs.gov/data/comcat/
@@ -97,7 +96,7 @@ rai:
     against themselves without false positives.
   data_limitations:
   - >-
-    Not expert-reviewed: no seismologist and nobody at USGS has checked the tasks or their answers. Class bounds,
+    No expert has checked these yet: no seismologist and nobody at USGS has checked the tasks or their answers. Class bounds,
     windows, completeness magnitudes and the use of a moment relation on other magnitude types are parameters of
     the questions, not seismological recommendations.
   - >-

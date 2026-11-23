@@ -1,7 +1,7 @@
 schema_version: 1
 name: food-labeling
 version: 1.0.1
-title: Nutrition labeling under US FDA rules 1.0.1
+title: Nutrition labeling under US FDA rules
 description: >-
   Work out a Nutrition Facts label under the FDA's rules: declared values, percent Daily Value, calories, serving
   sizes, label formats, nutrient content claims and compliance tolerances. 30 tasks, with every field of an answer
@@ -18,7 +18,6 @@ keywords:
 - nutrient content claims
 - 21 CFR Part 101
 - public documents
-- not expert-reviewed
 - open data
 upstream:
   url: https://www.ecfr.gov/api/versioner/v1/full/2026-11-12/title-21.xml?part=101
@@ -89,7 +88,7 @@ rai:
     "at least" and "up to and including", and using the shipped text instead of remembered values from earlier editions.
   data_limitations:
   - >-
-    Not expert-reviewed: no food-labeling or regulatory-affairs practitioner and nobody at FDA has checked the tasks
+    No expert has checked these yet: no food-labeling or regulatory-affairs practitioner and nobody at FDA has checked the tasks
     or their answers. The answers are readings of the regulation's text alone, under conventions the instructions
     state; they are not regulatory advice, and FDA guidance outside the shipped text was not used.
   - >-

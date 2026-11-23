@@ -1,7 +1,7 @@
 schema_version: 1
 name: fdic-banking
 version: 1.0.1
-title: US bank totals by year and state, 1934 to 2025 1.0.1
+title: US bank totals by year and state, 1934 to 2025
 description: >-
   Bank analysis on the FDIC's public yearly totals for insured banks: profitability, capital, funding, loan quality,
   growth, consolidation, state rankings, and checks of the tables against themselves. 30 tasks, with every field
@@ -17,7 +17,6 @@ keywords:
 - FDIC
 - bank aggregates
 - public data
-- not expert-reviewed
 - open data
 upstream:
   url: https://api.fdic.gov/banks/docs/
@@ -95,7 +94,7 @@ rai:
     themselves without false positives.
   data_limitations:
   - >-
-    Not expert-reviewed: no bank analyst and nobody at the FDIC has checked the tasks or their answers. Every ratio
+    No expert has checked these yet: no bank analyst and nobody at the FDIC has checked the tasks or their answers. Every ratio
     is defined in its question; a reader may prefer another definition, and the two-point averages used here need
     not be the averages behind the ratios the FDIC itself publishes.
   - >-
