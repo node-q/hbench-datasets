@@ -70,6 +70,12 @@ new version is a new tag. Each dataset is also mirrored to a second registry, no
 | `nfip-tx@1.0` | 52 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
 | `nfip-la@1.0` | 54 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
 | `nfip-fl@1.0` | 53 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `aca-fl@1.0` | 44 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `aca-oh@1.0` | 46 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `aca-tx@1.0` | 46 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `medicare-oh@1.0` | 52 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `icd10cm-coding@1.0` | 30 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `treasury-auctions@1.0` | 27 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
 
 A version that [`superseded.yaml`](superseded.yaml) maps to a successor is left out of the dataset index once
 the successor is in it, so `hbench datasets list` and the interactive run offer only the successor; the
@@ -384,8 +390,8 @@ licence, in its directory and published with it.
   directories of our own, which would be a new version.
 - **The open Actuaria test sets** (flsa-overtime, fmla-leave, hipaa-breach, osha-recordkeeping, hours-of-service,
   flight-duty, air-passenger-rights, escrow-accounts, federal-grants, food-labeling, irs-inflation-adjustments,
-  fdic-banking, usgs-earthquakes, noaa-storm-events, us-life-tables, nist-800-53 and nfip-oh, -tx, -la and -fl,
-  all @1.0) are node-q's own test sets, published openly under CC BY 4.0 ([`docs/open-test-sets.md`](docs/open-test-sets.md)).
+  fdic-banking, usgs-earthquakes, noaa-storm-events, us-life-tables, nist-800-53, nfip-oh, -tx, -la and -fl,
+  aca-fl, -oh and -tx, medicare-oh, icd10cm-coding and treasury-auctions, all @1.0) are node-q's own test sets, published openly under CC BY 4.0 ([`docs/open-test-sets.md`](docs/open-test-sets.md)).
   The documents and data they read keep their own status, which each NOTICE gives.
 - **livecodebench@6.0** has an unspecified "cc" licence and problems scraped from contest sites. It
   is not republished.
