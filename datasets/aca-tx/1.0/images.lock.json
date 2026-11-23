@@ -1,1 +1,232 @@
-{}
+{
+  "aca-tx-cost-sharing-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-cost-sharing-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-cost-sharing-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-cost-sharing-04": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-cost-sharing-05": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-cost-sharing-06": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-counts-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-counts-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-counts-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-cross-file-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-cross-file-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-cross-file-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-cross-file-04": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-cross-file-05": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-document-check-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-document-check-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-document-check-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-document-check-04": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-document-check-05": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-household-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-household-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-household-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-plan-attributes-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-plan-attributes-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-plan-attributes-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-plan-attributes-04": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-plan-attributes-05": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-rate-lookup-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-rate-lookup-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-rate-lookup-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-rate-lookup-04": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-rating-area-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-rating-area-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-rating-area-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-rating-area-04": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-rating-area-05": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-service-area-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-service-area-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-service-area-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-service-area-04": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-service-area-05": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-tobacco-load-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-tobacco-load-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-tobacco-load-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-tobacco-load-04": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "aca-tx-tobacco-load-05": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  }
+}
