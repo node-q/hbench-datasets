@@ -11,7 +11,7 @@ licence:
   name: Apache License 2.0
   summary: Free to use, change and share. Keep the licence and the notice with it.
 upstream:
-  name: Exercism, its problem specifications and six language tracks
+  name: Exercism's exercises in six languages
   by: Exercism and its volunteers. Each test task names the exercise's authors and contributors.
   url: https://github.com/exercism
 families:

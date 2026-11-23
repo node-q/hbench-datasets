@@ -4,7 +4,8 @@ title: BigCodeBench
 summary: Practical Python jobs that call real libraries, such as pandas, NumPy and Matplotlib. The AI writes one
   function for each.
 description: Each test task gives the AI a function's signature and a docstring that says what it must do and which
-  libraries to use. The AI writes the function. It passes when the task's unit tests all pass within 241 seconds.
+  libraries to use. The AI writes the function. Unit tests the AI never sees then check it, and all must pass within
+  about four minutes.
 domain: Coding
 format: run-tests
 licence:
