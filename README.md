@@ -50,6 +50,12 @@ new version is a new tag. Each dataset is also mirrored to a second registry, no
 | `swebench-lite@1.0` | 270 | Apache-2.0, with its repositories' licences | Generated; environments built locally |
 | `swebench-multilingual@1.0` | 283 | Apache-2.0, with its repositories' licences | Generated; environments built locally |
 | `multi-swe-bench@1.0` | 1594 | Apache-2.0, with its repositories' licences | Generated; environments built locally |
+| `flsa-overtime@1.0` | 30 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image to be built |
+| `fmla-leave@1.0` | 30 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image to be built |
+| `hipaa-breach@1.0` | 29 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image to be built |
+| `osha-recordkeeping@1.0` | 29 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image to be built |
+| `hours-of-service@1.0` | 30 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image to be built |
+| `flight-duty@1.0` | 30 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image to be built |
 
 A version that [`superseded.yaml`](superseded.yaml) maps to a successor is left out of the dataset index once
 the successor is in it, so `hbench datasets list` and the interactive run offer only the successor; the
@@ -362,6 +368,9 @@ licence, in its directory and published with it.
 - **aider-polyglot@1.0** has MIT data, but its task directories come from a third-party shared
   task repository with no LICENSE file. It needs that repository's permission, or task
   directories of our own, which would be a new version.
+- **flsa-overtime, fmla-leave, hipaa-breach, osha-recordkeeping, hours-of-service and flight-duty, all @1.0**,
+  are node-q's own test sets, published openly under CC BY 4.0 ([`docs/open-test-sets.md`](docs/open-test-sets.md)).
+  The regulations they read are US government works.
 - **livecodebench@6.0** has an unspecified "cc" licence and problems scraped from contest sites. It
   is not republished.
 - **SWE-bench's prebuilt images** embed GPL-2.0 code among other licences. They are not mirrored:

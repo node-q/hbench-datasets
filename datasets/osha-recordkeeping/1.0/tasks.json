@@ -1,0 +1,147 @@
+{
+  "osha-recordkeeping-annual-summary-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "annual-summary"
+  },
+  "osha-recordkeeping-annual-summary-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "annual-summary"
+  },
+  "osha-recordkeeping-classification-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "log-entries"
+  },
+  "osha-recordkeeping-day-count-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "day-counts"
+  },
+  "osha-recordkeeping-day-count-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "day-counts"
+  },
+  "osha-recordkeeping-day-count-03": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "day-counts"
+  },
+  "osha-recordkeeping-day-count-04": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "day-counts"
+  },
+  "osha-recordkeeping-electronic-submission-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "electronic-submission"
+  },
+  "osha-recordkeeping-electronic-submission-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "electronic-submission"
+  },
+  "osha-recordkeeping-first-aid-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "general-criteria"
+  },
+  "osha-recordkeeping-first-aid-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "general-criteria"
+  },
+  "osha-recordkeeping-general-criteria-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "general-criteria"
+  },
+  "osha-recordkeeping-hearing-loss-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "hearing-loss"
+  },
+  "osha-recordkeeping-hearing-loss-02": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "hearing-loss"
+  },
+  "osha-recordkeeping-hearing-loss-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "hearing-loss"
+  },
+  "osha-recordkeeping-partial-exemption-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "partial-exemption"
+  },
+  "osha-recordkeeping-partial-exemption-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "partial-exemption"
+  },
+  "osha-recordkeeping-posting-retention-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "record-deadlines"
+  },
+  "osha-recordkeeping-privacy-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "log-entries"
+  },
+  "osha-recordkeeping-recording-deadline-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "record-deadlines"
+  },
+  "osha-recordkeeping-records-access-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "record-deadlines"
+  },
+  "osha-recordkeeping-severe-injury-report-01": {
+    "difficulty": "easy",
+    "fields": 8,
+    "kind": "severe-injury-reporting"
+  },
+  "osha-recordkeeping-severe-injury-report-02": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "severe-injury-reporting"
+  },
+  "osha-recordkeeping-severe-injury-report-03": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "severe-injury-reporting"
+  },
+  "osha-recordkeeping-special-entries-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "log-entries"
+  },
+  "osha-recordkeeping-whose-log-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "log-entries"
+  },
+  "osha-recordkeeping-work-related-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "work-relatedness"
+  },
+  "osha-recordkeeping-work-related-02": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "work-relatedness"
+  },
+  "osha-recordkeeping-work-related-03": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "work-relatedness"
+  }
+}

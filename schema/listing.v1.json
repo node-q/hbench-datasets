@@ -10,7 +10,10 @@
     "summary": {"type": "string", "minLength": 1, "maxLength": 240},
     "description": {"type": "string", "minLength": 1},
     "domain": {"description": "the field, as a reader names it: Coding", "type": "string", "minLength": 1},
-    "format": {"description": "how an answer is checked", "enum": ["run-tests"]},
+    "format": {"description": "how an answer is checked: tests run on the work, or every field of a JSON answer is compared with the answer key", "enum": ["run-tests", "field-graded"]},
+    "status": {"description": "draft: nobody who does this work for a living has reviewed the answers yet (the Market Place says so, naming the trade)", "enum": ["draft"]},
+    "trade": {"description": "who would review it, in the plural: payroll specialists", "type": "string", "minLength": 1},
+    "sample_task": {"description": "the task the Market Place shows (else the first by name)", "type": "string", "minLength": 1},
     "licence": {
       "description": "the licence as a reader reads it; its SPDX id comes from source.yaml",
       "type": "object",
@@ -30,10 +33,9 @@
       }
     },
     "families": {
-      "description": "the kind of work every task is: one entry, as no task names its own kind",
+      "description": "the kinds of work: one entry, as no task names its own kind, or one per kind when tasks.json records each task's",
       "type": "array",
       "minItems": 1,
-      "maxItems": 1,
       "items": {
         "type": "object",
         "required": ["kind", "name", "what"],
@@ -59,5 +61,6 @@
         "properties": {"title": {"type": "string", "minLength": 1}, "detail": {"type": "string", "minLength": 1}}
       }
     }
-  }
+  },
+  "dependentRequired": {"status": ["trade"]}
 }
