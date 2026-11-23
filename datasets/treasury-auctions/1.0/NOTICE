@@ -82,10 +82,10 @@ retail). The regulation names public bodies (the Treasury, the Federal Reserve B
 Statistics, the Internal Revenue Service, the Securities and Exchange Commission) and no company.
 
 Each record carries the CUSIP number of its security, as the Treasury publishes it, and some carry the CUSIP of
-the stripped principal (corpusCusip). CUSIP numbers are issued under a numbering system that a third party owns
-and licenses. Whether keeping them in an internal dataset needs a licence has not been reviewed; they could be
-replaced by pseudonyms, as the issuer IDs of hb-int-aca-oh were, without changing any answer except the two that
-are CUSIPs.
+the stripped principal (corpusCusip). CUSIP identifiers are issued by CUSIP Global Services, which owns the CUSIP
+system and licenses its use (CUSIP is a registered trademark of the American Bankers Association). node-q does not
+license them, and whether keeping them in this open set needs a licence from CUSIP Global Services has not been
+reviewed. Two answers are CUSIP numbers.
 
 Not reviewed
 ------------

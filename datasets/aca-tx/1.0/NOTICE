@@ -1,5 +1,5 @@
-Texas ACA Individual Plans 0.1 (hb-int-aca-tx)
-==============================================
+Texas ACA Individual Plans 1.0 (aca-tx)
+=======================================
 
 Nothing in this dataset is synthetic: no file the agent sees was written, generated or mocked up by
 node-q or by an AI system. There are no applications, quotes, enrolment forms or other invented
@@ -107,7 +107,7 @@ not affiliated with them.
 Companies pseudonymized; no mapping kept
 ----------------------------------------
 
-As in hb-int-aca-oh (user decisions of 2026-11-06), the dataset names no issuer, brand, product line,
+As in aca-oh, the dataset names no issuer, brand, product line,
 vendor or state agency, and keeps no link to one. In the shipped Plan Attributes extract every issuer
 name is replaced by a stable pseudonym, one per issuer brand ([Company A] to [Company Z]); company,
 brand and product-line words inside plan and variant names, two free-text columns and the Service Area
@@ -126,7 +126,7 @@ and the instructions, answer keys, derivations and task files. The state code, p
 component number and CSR variant suffix (-00 to -06) are kept, so every plan, product and variant keeps
 its meaning, and rows join across the extracts exactly as before. The 32 pseudonyms are 5-digit
 numbers, none starting with 0, that occur nowhere in CMS's full plan year 2026 and plan year 2027 Rate,
-Plan Attributes and Service Area PUFs (all states) and are not hb-int-aca-oh's pseudonyms, so none is
+Plan Attributes and Service Area PUFs (all states) and are not aca-oh's pseudonyms, so none is
 another real issuer's ID; they keep the issuers' original order, so any ordering by issuer or plan ID is
 unchanged. No mapping to the real IDs is kept. The network, service area and formulary IDs (TXN001,
 TXS001, TXF001 and so on) carry no issuer ID and are kept; county codes are kept.
