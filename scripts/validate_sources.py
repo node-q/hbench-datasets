@@ -56,6 +56,9 @@ ALLOWED_VERSION_DIRECTORY_ENTRIES = {
     "listing.yaml",
     "listing.json",
     "COVER.md",
+    # What an adapter that records its tasks' facts says each task is (adapters/taskfolders): read by scripts/listing.py,
+    # checked by scripts/check_generated_tasks.py against the generated tasks.
+    "tasks.json",
 }
 
 

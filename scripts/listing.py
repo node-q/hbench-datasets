@@ -6,6 +6,9 @@ listing.yaml)
 listing.yaml and COVER.md are written by hand (schema/listing.v1.json). listing.json is listing.yaml plus what the
 dataset itself says: the task count (source.yaml's task_count, which must match the lock's task names), each
 repository's task count, the licence id and the registry. --check fails when a listing.json is missing or stale.
+
+A version whose adapter records what each task is (tasks.json, adapters/taskfolders) also gets each kind of work's
+task count, the number of graded fields and the difficulty from it; its families are keyed by those kinds.
 """
 
 import collections
@@ -25,6 +28,7 @@ ROOT = DATASETS_DIR.parent
 SCHEMA_PATH = ROOT / "schema" / "listing.v1.json"
 REGISTRY = "oci://ghcr.io/node-q/hbench-datasets"
 LISTING_FILES = ("listing.yaml", "COVER.md", "listing.json")
+TASK_FACTS = "tasks.json"
 # Read by people choosing a test set, in the Market Place's words (its build refuses these, a price and "!").
 BANNED = re.compile(r"\b(agent\w*|benchmark\w*|expert\w*|teams?|cases?)\b", re.I)
 MACHINE_ONLY = re.compile(r"node-?q|hbench|ghcr|oci://|licenseref", re.I)
@@ -78,7 +82,7 @@ def build_listing(version_directory):
     cover = (version_directory / "COVER.md").read_text(encoding="utf-8")
     readable = [written["title"], written["summary"], written["description"], written["domain"], cover,
                 written["licence"]["name"], written["licence"]["summary"], written["upstream"]["name"],
-                written["upstream"]["by"]]
+                written["upstream"]["by"], written.get("trade", "")]
     readable += [f"{f['name']} {f['what']}" for f in written["families"]]
     readable += [f"{g['title']} {g['detail']}" for g in written["you_get"]]
     problems = copy_problems("\n".join(readable))
@@ -87,6 +91,17 @@ def build_listing(version_directory):
                  for n in re.findall(r"\b(\d+) test tasks\b", cover) if int(n) != tasks]
     if problems:
         raise ListingError(f"{version_directory}: " + "; ".join(problems))
+    if len(written["families"]) > 1 and not (version_directory / TASK_FACTS).is_file():
+        raise ListingError(f"{version_directory}: several kinds of work need {TASK_FACTS} to count their tasks")
+    facts = None
+    if (version_directory / TASK_FACTS).is_file():
+        facts = json.loads((version_directory / TASK_FACTS).read_text(encoding="utf-8"))
+        if sorted(facts) != names:
+            raise ListingError(f"{version_directory}: {TASK_FACTS} does not describe the lock's tasks")
+        kinds = collections.Counter(task["kind"] for task in facts.values())
+        if sorted(kinds) != sorted(family["kind"] for family in written["families"]):
+            raise ListingError(f"{version_directory}: the families' kinds are not the tasks' ({', '.join(sorted(kinds))})")
+    families = [{**family, "tasks": kinds[family["kind"]] if facts else tasks} for family in written["families"]]
     listing = {
         "schema_version": 1,
         "name": descriptor["name"],
@@ -97,15 +112,20 @@ def build_listing(version_directory):
         "summary": written["summary"],
         "description": written["description"],
         "domain": written["domain"],
-        "status": "published",
+        **({"trade": written["trade"]} if "trade" in written else {}),
+        "status": written.get("status", "published"),
         "pricing": "free",
         "licence": {"id": descriptor["license"], **written["licence"]},
         "upstream": written["upstream"],
         "tasks": tasks,
-        "families": [{**family, "tasks": tasks} for family in written["families"]],
+        **({"graded_fields": sum(task["fields"] for task in facts.values()),
+            "difficulty": {level: sum(task["difficulty"] == level for task in facts.values())
+                           for level in ("easy", "medium", "hard")}} if facts else {}),
+        "families": families,
         "lines": repository_lines(names) if written.get("lines") == "repository" else [],
         "lines_title": "Projects" if written.get("lines") == "repository" else None,
         "you_get": written["you_get"],
+        **({"sample_task": written["sample_task"]} if "sample_task" in written else {}),
         "cover_letter": "COVER.md",
         "registry": {"url": REGISTRY, "name": descriptor["name"], "access": "public"},
     }

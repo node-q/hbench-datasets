@@ -49,3 +49,42 @@ class Listing(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+FLSA_OVERTIME = DATASETS_DIR / "flsa-overtime" / "1.0"
+
+
+class TaskFacts(unittest.TestCase):
+    """A version whose tasks.json records each task (adapters/taskfolders): its kinds of work, graded fields,
+    difficulty and draft status come from the dataset."""
+
+    def copy(self):
+        scratch = pathlib.Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, scratch)
+        target = scratch / "flsa-overtime" / "1.0"
+        shutil.copytree(FLSA_OVERTIME, target)
+        return target
+
+    def test_counts_come_from_tasks_json(self):
+        built = json.loads(listing.build_listing(FLSA_OVERTIME))
+        facts = json.loads((FLSA_OVERTIME / "tasks.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(facts), sum(family["tasks"] for family in built["families"]))
+        self.assertEqual(sum(task["fields"] for task in facts.values()), built["graded_fields"])
+        self.assertEqual(len(facts), sum(built["difficulty"].values()))
+        self.assertEqual(("draft", "payroll specialists", "field-graded"), (built["status"], built["trade"], built["format"]))
+        self.assertEqual("CC-BY-4.0", built["licence"]["id"])
+
+    def test_tasks_json_must_describe_the_lock_and_the_families(self):
+        target = self.copy()
+        facts = json.loads((target / "tasks.json").read_text(encoding="utf-8"))
+        first = sorted(facts)[0]
+        (target / "tasks.json").write_text(json.dumps({**facts, first: {**facts[first], "kind": "other"}}), encoding="utf-8")
+        with self.assertRaisesRegex(listing.ListingError, "kinds"):
+            listing.build_listing(target)
+        facts.pop(first)
+        (target / "tasks.json").write_text(json.dumps(facts), encoding="utf-8")
+        with self.assertRaisesRegex(listing.ListingError, "lock"):
+            listing.build_listing(target)
+        (target / "tasks.json").unlink()
+        with self.assertRaisesRegex(listing.ListingError, "several kinds"):
+            listing.build_listing(target)

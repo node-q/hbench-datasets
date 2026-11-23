@@ -13,7 +13,7 @@ must be the locked image (none while images.lock.json is not filled); instructio
 the canary; environment/ must be exactly the image's build context, or for a built-locally version a
 Dockerfile whose only FROM is the task's base image as images.lock.json pins it; tests/test.sh and
 solution/solve.sh must be executable; every file in tests/ and solution/ must carry the canary; and
-the adapter's own task_problems() must find nothing. With --hbench, hbench itself must accept every
+the adapter's own task_problems() must find nothing, nor its version_problems(), when it has one. With --hbench, hbench itself must accept every
 task (hbench tasks check) and print the same package digests (hbench tasks digest).
 
 In a version on several images (environment.task_images), each task's docker_image must be its
@@ -179,6 +179,9 @@ def check_version(version_directory, descriptor, output, upstream_cache, hbench=
                 context.base_images.get(task_name),
             )
         ]
+    version_problems = getattr(adapter, "version_problems", None)
+    if version_problems and not problems:
+        problems += [f"{label}: {problem}" for problem in version_problems(version_directory, tasks_directory)]
     if hbench and not problems:
         problems += [f"{label}: {problem}" for problem in hbench_problems(hbench, tasks_directory, digests[0])]
     if not problems:
