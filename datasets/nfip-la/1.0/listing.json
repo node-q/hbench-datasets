@@ -74,7 +74,7 @@
     {
       "kind": "policy-coverage",
       "name": "Policy coverage",
-      "what": "Coverage against replacement cost, cost per $1,000 of coverage by deductible, and premium against full-risk premium.",
+      "what": "Coverage against replacement cost, cost per thousand dollars of coverage by deductible, and premium against full-risk premium.",
       "tasks": 3
     },
     {

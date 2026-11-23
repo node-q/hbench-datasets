@@ -62,7 +62,7 @@
     {
       "kind": "policy-coverage",
       "name": "Policy coverage",
-      "what": "Coverage against replacement cost, cost per $1,000 of coverage by deductible, premium against full-risk premium, and elevated buildings.",
+      "what": "Coverage against replacement cost, cost per thousand dollars of coverage by deductible, premium against full-risk premium, and elevated buildings.",
       "tasks": 4
     },
     {

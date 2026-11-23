@@ -1,7 +1,7 @@
 # What the Actuaria Market Place shows of this version (schema/listing.v1.json). listing.json is
 # generated from it: python scripts/listing.py datasets/us-life-tables/1.0
 title: United States life tables, 2023 and 2024
-summary: 'Actuarial sums on the US life tables of 2023 and 2024: survival, expectation of life, joint lives, insurance
+summary: 'Actuarial calculations with the US life tables of 2023 and 2024: survival, expectation of life, joint lives, insurance
   and annuity values, net premiums and reserves, and checks of the tables against themselves.'
 description: 'Each task hands the AI the 36 complete period life tables that the National Center for Health Statistics
   published for 2023 and 2024, and the AI has to pick the right one by year, population and sex. The question states

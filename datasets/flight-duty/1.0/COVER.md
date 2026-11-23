@@ -16,7 +16,7 @@ We wrote the scenarios. They describe no real person, airline or flight, and nam
 
 - US rules only, for passenger flights under Part 121, as they stood on 12 November 2026. The eCFR shows no change to the part since at least January 2017, but the rules may change.
 - Only the words of Part 117 and the readings the questions state. The FAA's legal interpretations, the rule's preamble and its clarifications were not used and may read a provision differently.
-- Calls that need judgement are not asked, such as fitness for duty or whether a circumstance was unforeseen. Where a task needs one, the question says what to assume.
+- Questions that need a person's call are not asked, such as fitness for duty or whether a circumstance was unforeseen. Where a task needs one, the question says what to assume.
 - Fatigue risk management systems, training, emergency and government operations, the limits for a pilot who is not acclimated, and situations the text does not settle are left out.
 - The scenarios sit close to the limits on purpose, much closer than ordinary schedules. Two to four tasks for each kind of work show where an AI stands. They can't separate two close results.
 - It is not operational or legal advice. Nobody should schedule or fly from these answers.

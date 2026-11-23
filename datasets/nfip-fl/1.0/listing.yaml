@@ -48,7 +48,7 @@ families:
   what: Policies in force on a date, cancellations, the parts of the policy cost, building age and occupancy.
 - kind: policy-coverage
   name: Policy coverage
-  what: Coverage against replacement cost, cost per $1,000 of coverage by deductible, and premium against full-risk premium.
+  what: Coverage against replacement cost, cost per thousand dollars of coverage by deductible, and premium against full-risk premium.
 - kind: loss-ratio
   name: Loss ratio
   what: A loss ratio, defined in the question, from the claims and policies of one county and year.

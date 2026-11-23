@@ -16,7 +16,7 @@ We wrote the scenarios. They describe no real person or employer. Every answer f
 
 - US federal rules only, from one regulation as it stood on 12 November 2026. Part 778 is the Department's reading of the Act, not the Act itself, and it was last amended in November 2022. State and local law are left out.
 - Every task uses the 40-hour week, except one on the daily and weekly standards of section 7(b).
-- Part 778 sets no minimum wage, so no task needs one. Calls that need judgement, such as whether a bonus is discretionary, are given as facts.
+- Part 778 sets no minimum wage, so no task needs one. Questions that need a person's call, such as whether a bonus is discretionary, are given as facts.
 - The alternative methods of section 7(g) and the 14-day period of section 7(j) are left out.
 - Some rules have no worked example in the text, such as spreading a quarterly bonus or a prize. Those answers rest on the general rule and on how the text handles commissions, which is weaker ground.
 - The scenarios are simple on purpose and are not a sample of real payrolls. Two to four tasks for each kind of work show where an AI stands. They can't separate two close results.

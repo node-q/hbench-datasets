@@ -14,7 +14,7 @@ Source: Centers for Disease Control and Prevention, National Center for Health S
 
 ## How the answers were worked out
 
-We wrote the questions. Each one states its facts, formulas and conventions, including the interest rate and how to treat ages 100 and over, so that only one answer follows. Every answer was worked out step by step. One script computed the answer keys with exact fractions from the files. A second script, sharing no code with the first, recomputed all 141 checked fields in ordinary floating point and agreed with every one. Dollar amounts are accepted within $1 or 0.1%, and probabilities and factors within a small stated margin.
+We wrote the questions. Each one states its facts, formulas and conventions, including the interest rate and how to treat ages 100 and over, so that only one answer follows. Every answer was worked out step by step. One script computed the answer keys with exact fractions from the files. A second script, sharing no code with the first, recomputed all 141 checked fields in ordinary floating point and agreed with every one. Dollar amounts are accepted within a dollar or 0.1%, and probabilities and factors within a small stated margin.
 
 ## What it does not cover
 

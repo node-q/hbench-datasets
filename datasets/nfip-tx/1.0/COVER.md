@@ -18,7 +18,7 @@ FEMA's name appears because its terms ask for the citation. No FEMA or DHS logo 
 
 We wrote the questions. Each one states its facts, such as a county, a year, a date or a definition, and covers a group of at least ten rows. None asks about a single claim, policy or property, and figures from different files are combined only as county totals.
 
-One script worked out every answer step by step from the rows supplied. A second script loaded the same files into a database and answered every question again in SQL. All 307 graded fields matched, and so did the size of every group. Each task grades 4 to 8 fields. Money counts as right within $1 or 0.1%, shares and ratios within 0.0005, and counts and codes only when exact.
+One script worked out every answer step by step from the rows supplied. A second script loaded the same files into a database and answered every question again in SQL. All 307 graded fields matched, and so did the size of every group. Each task grades 4 to 8 fields. Money counts as right within a dollar or 0.1%, shares and ratios within 0.0005, and counts and codes only when exact.
 
 ## What it does not cover
 

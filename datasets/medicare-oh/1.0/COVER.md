@@ -19,7 +19,7 @@ The files hold no personal data. Enrollment is CMS's count by plan and county, a
 
 ## How the answers were worked out
 
-We wrote the questions. They describe no real person. Each answer key was worked out step by step from the rows. A separate script read the shipped files again, answered every question with its own code and matched all 250 graded fields. Each task grades 2 to 8 fields. Money counts as right within $1 or 0.1%, ratios within 0.005, and counts, flags, choices and lists only when exact.
+We wrote the questions. They describe no real person. Each answer key was worked out step by step from the rows. A separate script read the shipped files again, answered every question with its own code and matched all 250 graded fields. Each task grades 2 to 8 fields. Money counts as right within a dollar or 0.1%, ratios within 0.005, and counts, flags, choices and lists only when exact.
 
 ## What it does not cover
 

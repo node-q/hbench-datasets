@@ -16,7 +16,7 @@ We wrote the scenarios. They name no organisation or person and describe no real
 
 - US federal rules only, as they stood on 12 November 2026. The penalty amounts change every year, and the rules are amended from time to time. State breach notification laws are left out.
 - The regulations don't say how to count days and years. Each question states one way, and counted another way several answers move by a day.
-- Calls the text leaves to judgement are not asked, such as the risk assessment of whether information was compromised, or whether a fee was reasonable. Where a task needs one, the question gives the outcome.
+- Calls the text leaves open are not asked, such as the risk assessment of whether information was compromised, or whether a fee was reasonable. Where a task needs one, the question gives the outcome.
 - Rules that are not in the text it reads, such as permitted uses and disclosures or the Security Rule, are left out. Where a task depends on one, the question states the fact.
 - The scenarios are short and clean, told in the regulations' own terms, which real incidents are not. Two or three tasks for each kind of work show where an AI stands. They can't separate two close results.
 - It is not legal advice.
