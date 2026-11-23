@@ -152,15 +152,9 @@ or refund real policies.
 Removed for publication
 -----------------------
 
-No private individual's personal data is published. Where a person's name was already withheld, this open version
-also removes their credentials and job title. Each removal, as reason, count and pattern -> replacement:
-
-- a credential of a person whose name is withheld: 450, (\[name redacted\]), ASA, MAAA -> \1
-- a credential of a person whose name is withheld: 45, I am a member of the American Academy of Actuaries -> I am [credentials redacted]
-- a job title of a person whose name is withheld: 45, am an Actuary for \[Company C\] -> am [title redacted] for [Company C]
-- a job title of a person whose name is withheld: 270, ^(Title\s+)Senior Actuary -> \1[title redacted]
-- a job title of a person whose name is withheld: 135, ^(\s*)Senior Actuary[ \t]*$ -> \1[title redacted]
-- a job title of a person whose name is withheld: 45, ^(\s*)Associate Actuary[ \t]*$ -> \1[title redacted]
+No private individual's personal data is published. Where a person's name was already withheld, this open
+version also removes their credentials and job title, each replaced by a marker such as [title redacted]. In
+all copies of the documents across the tasks: credentials: 495 spans; job titles: 495 spans.
 
 How these tasks are published
 -----------------------------
