@@ -30,7 +30,8 @@ def exported_task(name, expected=85.0):
     )
     return {
         "task.toml": f'schema_version = "1.4"\n\n[task]\nname = "node-q/{name}"\n\n[metadata]\nauthor_name = "node-q"\n'
-                     f'category = "legal/wage-and-hour"\ndifficulty = "medium"\ntask_type = "bonuses"\n\n[agent]\n'
+                     f'category = "legal/wage-and-hour"\ndifficulty = "medium"\ntask_type = "bonuses"\n'
+                     f'tags = ["hb-int-flsa-overtime", "bonus"]\n\n[agent]\n'
                      f'timeout_sec = 1800.0\n\n[verifier]\ntimeout_sec = 120.0\n\n[environment]\n'
                      f'docker_image = "ghcr.io/node-q/hbench-internal-envs@sha256:{"0" * 64}"\nworkdir = "/app"\n',
         "instruction.md": f"<!-- {CANARY} -->\n\n# A task\n\nWrite `/app/output/decision.json`.\n",
@@ -77,6 +78,8 @@ class Generate(unittest.TestCase):
         manifest = tomllib.loads((task / "task.toml").read_text(encoding="utf-8"))
         self.assertEqual("flsa-overtime-bonus-01", manifest["task"]["name"])
         self.assertEqual(IMAGE, manifest["environment"]["docker_image"])
+        self.assertEqual(["flsa-overtime", "bonus"], manifest["metadata"]["tags"])
+        self.assertNotIn("hbench-internal", (task / "task.toml").read_text(encoding="utf-8"))
         for path in ("tests/verify.py", "tests/expected.json", "solution/decision.json", "tests/test.sh"):
             self.assertIn(CANARY, (task / path).read_text(encoding="utf-8"), path)
         self.assertEqual("The rule.\n", (task / "environment" / "reference" / "rule.txt").read_text(encoding="utf-8"))

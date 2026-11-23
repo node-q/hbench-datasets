@@ -8,8 +8,9 @@ Each exported task keeps its instruction, its documents (environment/, which hbe
 its answer key (tests/expected.json), its checker (tests/verify.py), its test.sh and its oracle
 (solution/decision.json and solve.sh), byte for byte, except:
 
-- the directory and [task].name lose the "hb-int-" prefix of node-q's own names (hb-int-flsa-overtime-bonus-01
-  becomes flsa-overtime-bonus-01), and [task].name is the bare directory name;
+- the directory, [task].name and every quoted name in task.toml (its tags) lose the "hb-int-" prefix of node-q's
+  own names (hb-int-flsa-overtime-bonus-01 becomes flsa-overtime-bonus-01), and [task].name is the bare directory
+  name;
 - [environment].docker_image is this repository's image for the task, from images.lock.json;
 - tests/verify.py gets the canary as its first line, and tests/expected.json and solution/decision.json a
   "canary" key, so that every file of tests/ and solution/ carries it (the checker reads neither key).
@@ -87,6 +88,7 @@ def task_files(name, exported_files, context):
         raise AdapterError(f"{name}: the version names no image for this task")
     manifest = NAME_LINE.sub(f'name = "{name}"', manifest)
     manifest = IMAGE_LINE.sub(f'docker_image = "{image}"', manifest)
+    manifest = manifest.replace(f'"{EXPORTED_PREFIX}', '"')
     if not text["instruction.md"].startswith(f"<!-- {context.canary} -->\n"):
         raise AdapterError(f"{name}: the instruction does not start with the version's canary")
     files = dict(text)

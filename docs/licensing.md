@@ -344,13 +344,12 @@ images' software.
 
 ## Open Actuaria test sets
 
-node-q's own test sets, written and checked in its private task repository, are published here under CC BY 4.0
-from 2026-11-23: the founder's decision is recorded in [open-test-sets.md](open-test-sets.md). node-q owns the
-tasks, their questions and answer keys and the checker. The documents the tasks read are not node-q's, and each
-NOTICE says what they are. The first six read US federal regulations from the eCFR: works of the US government,
-which have no copyright protection in the United States (17 U.S.C. 105). That covers only what the federal
-government wrote, and only in the United States. The eCFR is an editorial compilation, not an official legal
-edition, and none of the agencies endorses the sets.
+node-q's own test sets ([open-test-sets.md](open-test-sets.md)) are under CC BY 4.0 for node-q's work: the tasks,
+their questions and answer keys and the checker. The documents the tasks read are not node-q's, and each NOTICE
+says what they are. The first six read US federal regulations from the eCFR: works of the US government, which
+have no copyright protection in the United States (17 U.S.C. 105). That covers only what the federal government
+wrote, and only in the United States. The eCFR is an editorial compilation, not an official legal edition, and
+none of the agencies endorses the sets.
 
 ## Datasets from a third-party shared task repository
 

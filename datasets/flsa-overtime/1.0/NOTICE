@@ -99,15 +99,15 @@ How these tasks are published
 -----------------------------
 
 node-q wrote and checked these tasks in its own task repository, where their names start with "hb-int-". This
-version publishes them unchanged except for three things: the names lose that prefix, each task runs in this
-repository's image (ghcr.io/node-q/hbench-envs, tag taskfolders-1.0), and the canary line is added to the checker,
-the answer key and the oracle's answer. The canary GUID is the one the tasks always carried.
+version publishes them unchanged except for three things: the names and tags lose that prefix, each task runs in
+this repository's image (ghcr.io/node-q/hbench-envs, tag taskfolders-1.0), and the canary line is added to the
+checker, the answer key and the oracle's answer. The canary GUID is the one the tasks always carried.
 
 Licence
 -------
 
-node-q's work here (the tasks, their questions and answer keys, the worked derivations and the code) is under
-CC BY 4.0: see LICENSE. The worked derivations stay in node-q's repository and are not shipped with the tasks.
+node-q's work here (the tasks, their questions and answer keys, and the code) is under CC BY 4.0: see LICENSE.
+The step-by-step derivations behind the answer keys are not published.
 
 The regulation's text is not node-q's, and CC BY 4.0 does not cover it. The US Department of Labor's Wage and Hour
 Division wrote it, as part of the US federal government. A work of the US government has no copyright protection in
