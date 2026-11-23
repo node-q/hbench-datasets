@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "name": "aca-fl",
+  "version": "1.0.1",
+  "type": "test-set",
+  "format": "field-graded",
+  "title": "Florida individual health plans, plan year 2026",
+  "summary": "Read Florida's 2026 individual health plan data from CMS's public use files: rates, tobacco loads, rating and service areas, plan attributes, cost sharing and checks of the data itself.",
+  "description": "Each task gives the AI extracts of CMS's public use files for Florida's individual health insurance market and states its facts in the question, such as an age, a rating area or a county. It asks for exact answers: a monthly rate, a tobacco load, a count, a list of plans or counties, or a finding in the data itself. Every field of the answer is checked, and a task passes only when all of them are right. Plan IDs, counts and lists must match exactly.",
+  "domain": "Insurance",
+  "trade": "underwriters",
+  "status": "draft",
+  "pricing": "free",
+  "licence": {
+    "id": "CC-BY-4.0",
+    "name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+    "summary": "Free to use, change and share, commercial use included, if you credit the source. CMS's public use files and the issuers' plan data in them are not covered."
+  },
+  "upstream": {
+    "name": "Health Insurance Exchange Public Use Files, plan year 2026",
+    "by": "Centers for Medicare & Medicaid Services (CMS), Center for Consumer Information & Insurance Oversight",
+    "url": "https://www.cms.gov/marketplace/resources/data/public-use-files"
+  },
+  "tasks": 44,
+  "graded_fields": 250,
+  "difficulty": {
+    "easy": 5,
+    "medium": 32,
+    "hard": 7
+  },
+  "families": [
+    {
+      "kind": "rate-lookup",
+      "name": "Rate lookup",
+      "what": "The monthly rate of the right plan, rating area and age band, among plans with nearly the same name or ID.",
+      "tasks": 4
+    },
+    {
+      "kind": "household-total",
+      "name": "Household total",
+      "what": "A household's total as the sum of each person's listed rate, with tobacco users and the children's band.",
+      "tasks": 3
+    },
+    {
+      "kind": "tobacco-load",
+      "name": "Tobacco load",
+      "what": "Tobacco loads that rise each year, step up by decade or stay flat, read at the right ages and for the right issuers.",
+      "tasks": 4
+    },
+    {
+      "kind": "rating-area",
+      "name": "Rating area",
+      "what": "Which rating areas a plan is rated in, and how a county's plans relate to its rating area.",
+      "tasks": 3
+    },
+    {
+      "kind": "service-area",
+      "name": "Service area",
+      "what": "Which brands, networks and plans serve a county, joining service areas on the right key.",
+      "tasks": 7
+    },
+    {
+      "kind": "plan-attributes",
+      "name": "Plan attributes",
+      "what": "Plan types, metal levels, networks and HSA eligibility, told apart across look-alike plans and variants.",
+      "tasks": 5
+    },
+    {
+      "kind": "cost-sharing",
+      "name": "Cost sharing",
+      "what": "Deductibles, coinsurance and family amounts of the right plan and cost-sharing variant.",
+      "tasks": 5
+    },
+    {
+      "kind": "cross-file",
+      "name": "Joined files",
+      "what": "Rates joined to plan attributes without counting a plan once per variant.",
+      "tasks": 5
+    },
+    {
+      "kind": "counts",
+      "name": "Counts",
+      "what": "How many issuers, brands, plans and rows there are, counted at the right level.",
+      "tasks": 4
+    },
+    {
+      "kind": "document-check",
+      "name": "Checking the data",
+      "what": "Real oddities in the data, told apart from figures that only look wrong.",
+      "tasks": 4
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with the data it needs, its answer key and the check that marks every field right or wrong."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under CC BY 4.0, with credit to the source."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "sample_task": "aca-fl-service-area-06",
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "aca-fl",
+    "access": "public"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "escrow-accounts-cushion-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "cushion-limit"
+  },
+  "escrow-accounts-cushion-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "cushion-limit"
+  },
+  "escrow-accounts-cushion-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "cushion-limit"
+  },
+  "escrow-accounts-deficiency-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "deficiency"
+  },
+  "escrow-accounts-deficiency-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "deficiency"
+  },
+  "escrow-accounts-deficiency-03": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "deficiency"
+  },
+  "escrow-accounts-error-resolution-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "response-deadline"
+  },
+  "escrow-accounts-error-resolution-02": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "response-deadline"
+  },
+  "escrow-accounts-force-placed-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "force-placed-insurance"
+  },
+  "escrow-accounts-force-placed-02": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "force-placed-insurance"
+  },
+  "escrow-accounts-information-request-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "response-deadline"
+  },
+  "escrow-accounts-initial-deposit-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "initial-deposit"
+  },
+  "escrow-accounts-initial-deposit-02": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "initial-deposit"
+  },
+  "escrow-accounts-payment-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "aggregate-analysis"
+  },
+  "escrow-accounts-payment-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "aggregate-analysis"
+  },
+  "escrow-accounts-payment-03": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "aggregate-analysis"
+  },
+  "escrow-accounts-shortage-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "shortage"
+  },
+  "escrow-accounts-shortage-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "shortage"
+  },
+  "escrow-accounts-shortage-03": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "shortage"
+  },
+  "escrow-accounts-shortage-04": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "shortage"
+  },
+  "escrow-accounts-single-item-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "single-item-analysis"
+  },
+  "escrow-accounts-single-item-02": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "single-item-analysis"
+  },
+  "escrow-accounts-statement-deadline-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "statement-deadline"
+  },
+  "escrow-accounts-statement-deadline-02": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "statement-deadline"
+  },
+  "escrow-accounts-statement-deadline-03": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "statement-deadline"
+  },
+  "escrow-accounts-statement-deadline-04": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "statement-deadline"
+  },
+  "escrow-accounts-surplus-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "surplus"
+  },
+  "escrow-accounts-surplus-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "surplus"
+  },
+  "escrow-accounts-surplus-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "surplus"
+  },
+  "escrow-accounts-surplus-04": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "surplus"
+  }
+}

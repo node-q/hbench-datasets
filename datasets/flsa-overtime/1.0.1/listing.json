@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "name": "flsa-overtime",
+  "version": "1.0.1",
+  "type": "test-set",
+  "format": "field-graded",
+  "title": "FLSA overtime and the regular rate",
+  "summary": "Work out overtime pay under the US Department of Labor's overtime regulation: the regular rate, the overtime due, and bonuses and commissions spread back over the weeks they were earned in.",
+  "description": "Each task describes one workweek of an unnamed employee: pay rates, hours, and any bonus, commission, piece rate or salary. The AI reads the regulation on overtime pay, 29 CFR Part 778, and gives exact answers, such as the regular rate, the overtime due, or whether a payment counts toward the regular rate. Every field of the answer is checked, and a task passes only when all of them are right.",
+  "domain": "Employment law",
+  "trade": "payroll specialists",
+  "status": "draft",
+  "pricing": "free",
+  "licence": {
+    "id": "CC-BY-4.0",
+    "name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+    "summary": "Free to use, change and share, commercial use included, if you credit the source. The regulation is a US government work."
+  },
+  "upstream": {
+    "name": "29 CFR Part 778, Overtime Compensation",
+    "by": "US Department of Labor, Wage and Hour Division, as the eCFR shows it",
+    "url": "https://www.ecfr.gov/current/title-29/part-778"
+  },
+  "tasks": 30,
+  "graded_fields": 176,
+  "difficulty": {
+    "easy": 7,
+    "medium": 15,
+    "hard": 8
+  },
+  "families": [
+    {
+      "kind": "hourly-rate",
+      "name": "Hourly pay",
+      "what": "The regular rate and overtime of an hourly employee, with differentials, bonuses, lodging and deductions.",
+      "tasks": 3
+    },
+    {
+      "kind": "salary-fixed-hours",
+      "name": "Salary for fixed hours",
+      "what": "A weekly, monthly or semimonthly salary turned into an hourly rate over the hours it is meant to cover.",
+      "tasks": 3
+    },
+    {
+      "kind": "piecework",
+      "name": "Piecework",
+      "what": "A pieceworker's regular rate over all hours worked, with waiting time, guarantees and bonuses.",
+      "tasks": 3
+    },
+    {
+      "kind": "day-and-job-rates",
+      "name": "Day and job rates",
+      "what": "The regular rate under day rates, job rates and a task-basis pay plan, and the premiums that count as overtime.",
+      "tasks": 2
+    },
+    {
+      "kind": "multiple-rates",
+      "name": "Several rates",
+      "what": "Overtime for an employee paid at two or more rates in one workweek.",
+      "tasks": 3
+    },
+    {
+      "kind": "fluctuating-workweek",
+      "name": "Fluctuating workweek",
+      "what": "Half-time overtime on a fixed salary for hours that vary, and when a fixed weekly sum is not what the books call it.",
+      "tasks": 3
+    },
+    {
+      "kind": "commissions",
+      "name": "Commissions",
+      "what": "A commission in the regular rate, allocated over the weeks or hours it was earned in.",
+      "tasks": 3
+    },
+    {
+      "kind": "bonuses",
+      "name": "Bonuses",
+      "what": "A bonus, prize or retroactive increase allocated over its period, and the extra overtime it brings.",
+      "tasks": 3
+    },
+    {
+      "kind": "exclusions-and-credits",
+      "name": "Exclusions and credits",
+      "what": "Which payments stay out of the regular rate, and which premiums may also be credited toward overtime.",
+      "tasks": 4
+    },
+    {
+      "kind": "workweek-unit",
+      "name": "The workweek",
+      "what": "Each workweek kept apart, a changed start of the workweek, and daily against weekly overtime standards.",
+      "tasks": 3
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with the text of the regulation it needs, its answer key and the check that marks every field right or wrong."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under CC BY 4.0, with credit to the source."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "sample_task": "flsa-overtime-day-rate-01",
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "flsa-overtime",
+    "access": "public"
+  }
+}

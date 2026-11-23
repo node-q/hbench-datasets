@@ -1,0 +1,152 @@
+{
+  "air-passenger-rights-baggage-fee-refund-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "baggage-fee-refund"
+  },
+  "air-passenger-rights-baggage-fee-refund-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "baggage-fee-refund"
+  },
+  "air-passenger-rights-baggage-fee-refund-03": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "baggage-fee-refund"
+  },
+  "air-passenger-rights-baggage-liability-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "baggage-liability"
+  },
+  "air-passenger-rights-baggage-liability-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "baggage-liability"
+  },
+  "air-passenger-rights-baggage-liability-03": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "baggage-liability"
+  },
+  "air-passenger-rights-compensation-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "denied-boarding-compensation"
+  },
+  "air-passenger-rights-compensation-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "denied-boarding-compensation"
+  },
+  "air-passenger-rights-compensation-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "denied-boarding-compensation"
+  },
+  "air-passenger-rights-eligibility-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "denied-boarding-eligibility"
+  },
+  "air-passenger-rights-eligibility-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "denied-boarding-eligibility"
+  },
+  "air-passenger-rights-eligibility-03": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "denied-boarding-eligibility"
+  },
+  "air-passenger-rights-fare-refund-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "fare-refund"
+  },
+  "air-passenger-rights-fare-refund-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "fare-refund"
+  },
+  "air-passenger-rights-fare-refund-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "fare-refund"
+  },
+  "air-passenger-rights-payment-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "denied-boarding-payment"
+  },
+  "air-passenger-rights-payment-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "denied-boarding-payment"
+  },
+  "air-passenger-rights-payment-03": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "denied-boarding-payment"
+  },
+  "air-passenger-rights-refund-deadline-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "refund-deadline"
+  },
+  "air-passenger-rights-refund-deadline-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "refund-deadline"
+  },
+  "air-passenger-rights-refund-deadline-03": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "refund-deadline"
+  },
+  "air-passenger-rights-significant-change-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "significant-change"
+  },
+  "air-passenger-rights-significant-change-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "significant-change"
+  },
+  "air-passenger-rights-significant-change-03": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "significant-change"
+  },
+  "air-passenger-rights-tarmac-delay-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "tarmac-delay"
+  },
+  "air-passenger-rights-tarmac-delay-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "tarmac-delay"
+  },
+  "air-passenger-rights-tarmac-delay-03": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "tarmac-delay"
+  },
+  "air-passenger-rights-travel-credit-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "travel-credit"
+  },
+  "air-passenger-rights-travel-credit-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "travel-credit"
+  },
+  "air-passenger-rights-travel-credit-03": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "travel-credit"
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "irs-inflation-adjustments-amt-exemption-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "amt-exemption"
+  },
+  "irs-inflation-adjustments-amt-exemption-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "amt-exemption"
+  },
+  "irs-inflation-adjustments-amt-exemption-03": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "amt-exemption"
+  },
+  "irs-inflation-adjustments-capital-gains-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "capital-gains"
+  },
+  "irs-inflation-adjustments-capital-gains-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "capital-gains"
+  },
+  "irs-inflation-adjustments-capital-gains-03": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "capital-gains"
+  },
+  "irs-inflation-adjustments-earned-income-credit-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "earned-income-credit"
+  },
+  "irs-inflation-adjustments-earned-income-credit-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "earned-income-credit"
+  },
+  "irs-inflation-adjustments-earned-income-credit-03": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "earned-income-credit"
+  },
+  "irs-inflation-adjustments-estate-exclusion-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "transfer-tax"
+  },
+  "irs-inflation-adjustments-filing-status-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "filing-status-lookup"
+  },
+  "irs-inflation-adjustments-filing-status-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "filing-status-lookup"
+  },
+  "irs-inflation-adjustments-filing-status-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "filing-status-lookup"
+  },
+  "irs-inflation-adjustments-gift-exclusion-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "transfer-tax"
+  },
+  "irs-inflation-adjustments-gift-exclusion-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "transfer-tax"
+  },
+  "irs-inflation-adjustments-kiddie-tax-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "kiddie-tax"
+  },
+  "irs-inflation-adjustments-kiddie-tax-02": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "kiddie-tax"
+  },
+  "irs-inflation-adjustments-marginal-bracket-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "marginal-bracket"
+  },
+  "irs-inflation-adjustments-marginal-bracket-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "marginal-bracket"
+  },
+  "irs-inflation-adjustments-marginal-bracket-03": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "marginal-bracket"
+  },
+  "irs-inflation-adjustments-rate-table-tax-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "rate-table-tax"
+  },
+  "irs-inflation-adjustments-rate-table-tax-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "rate-table-tax"
+  },
+  "irs-inflation-adjustments-rate-table-tax-03": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "rate-table-tax"
+  },
+  "irs-inflation-adjustments-standard-deduction-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "standard-deduction"
+  },
+  "irs-inflation-adjustments-standard-deduction-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "standard-deduction"
+  },
+  "irs-inflation-adjustments-standard-deduction-03": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "standard-deduction"
+  },
+  "irs-inflation-adjustments-year-over-year-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "year-over-year"
+  },
+  "irs-inflation-adjustments-year-over-year-02": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "year-over-year"
+  },
+  "irs-inflation-adjustments-year-over-year-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "year-over-year"
+  }
+}

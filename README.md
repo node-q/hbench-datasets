@@ -90,6 +90,9 @@ new version is a new tag. Each dataset is also mirrored to a second registry, no
 | `medsupp-oh@1.0` | 45 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
 | `underwriting-starter@1.0` | 40 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
 
+Every open Actuaria test set also has a 1.0.1: the same tasks with a short plain description (what `hbench datasets list`
+and Actuaria Studio Essentials show) and no private names; `superseded.yaml` maps each 1.0 to it.
+
 A version that [`superseded.yaml`](superseded.yaml) maps to a successor is left out of the dataset index once
 the successor is in it, so `hbench datasets list` and the interactive run offer only the successor; the
 registry keeps serving it to jobs that name it.

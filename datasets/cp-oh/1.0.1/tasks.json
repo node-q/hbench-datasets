@@ -1,0 +1,377 @@
+{
+  "cp-oh-class-endorsement-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "class-endorsement"
+  },
+  "cp-oh-class-endorsement-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "class-endorsement"
+  },
+  "cp-oh-class-endorsement-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "class-endorsement"
+  },
+  "cp-oh-class-endorsement-04": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "class-endorsement"
+  },
+  "cp-oh-class-endorsement-05": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "class-endorsement"
+  },
+  "cp-oh-class-endorsement-06": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "class-endorsement"
+  },
+  "cp-oh-class-endorsement-07": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "class-endorsement"
+  },
+  "cp-oh-coverage-forms-01": {
+    "difficulty": "easy",
+    "fields": 8,
+    "kind": "general-rule"
+  },
+  "cp-oh-document-check-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "cp-oh-document-check-02": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "cp-oh-document-check-03": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "document-check"
+  },
+  "cp-oh-document-check-04": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "cp-oh-document-check-05": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "cp-oh-document-check-06": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "cp-oh-document-check-07": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "cp-oh-document-check-08": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "cp-oh-document-check-09": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "cp-oh-endorsement-premium-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "endorsement-premium"
+  },
+  "cp-oh-endorsement-premium-02": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "endorsement-premium"
+  },
+  "cp-oh-endorsement-premium-03": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "endorsement-premium"
+  },
+  "cp-oh-endorsement-premium-04": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "endorsement-premium"
+  },
+  "cp-oh-endorsement-premium-05": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "endorsement-premium"
+  },
+  "cp-oh-endorsement-premium-06": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "endorsement-premium"
+  },
+  "cp-oh-factor-product-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "factor-product"
+  },
+  "cp-oh-factor-product-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "factor-product"
+  },
+  "cp-oh-factor-product-03": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "factor-product"
+  },
+  "cp-oh-factor-product-04": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "factor-product"
+  },
+  "cp-oh-factor-product-05": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "factor-product"
+  },
+  "cp-oh-factor-product-06": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "factor-product"
+  },
+  "cp-oh-flood-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "flood"
+  },
+  "cp-oh-flood-02": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "flood"
+  },
+  "cp-oh-flood-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "flood"
+  },
+  "cp-oh-flood-04": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "flood"
+  },
+  "cp-oh-information-security-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "information-security"
+  },
+  "cp-oh-information-security-02": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "information-security"
+  },
+  "cp-oh-information-security-03": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "information-security"
+  },
+  "cp-oh-interpolation-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "interpolation"
+  },
+  "cp-oh-interpolation-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "interpolation"
+  },
+  "cp-oh-interpolation-03": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "interpolation"
+  },
+  "cp-oh-interpolation-04": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "interpolation"
+  },
+  "cp-oh-interpolation-05": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "interpolation"
+  },
+  "cp-oh-minimum-premium-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "minimum-premium"
+  },
+  "cp-oh-minimum-premium-02": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "minimum-premium"
+  },
+  "cp-oh-minimum-premium-03": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "minimum-premium"
+  },
+  "cp-oh-minimum-premium-04": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "minimum-premium"
+  },
+  "cp-oh-ohio-capping-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "ohio-capping"
+  },
+  "cp-oh-ohio-capping-02": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "ohio-capping"
+  },
+  "cp-oh-ohio-capping-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "ohio-capping"
+  },
+  "cp-oh-ohio-capping-04": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "ohio-capping"
+  },
+  "cp-oh-ohio-exception-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "ohio-exception"
+  },
+  "cp-oh-ohio-exception-02": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "ohio-exception"
+  },
+  "cp-oh-ohio-exception-03": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "ohio-exception"
+  },
+  "cp-oh-rule-applicability-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "general-rule"
+  },
+  "cp-oh-schedule-rating-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "schedule-rating"
+  },
+  "cp-oh-schedule-rating-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "schedule-rating"
+  },
+  "cp-oh-schedule-rating-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "schedule-rating"
+  },
+  "cp-oh-schedule-rating-04": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "schedule-rating"
+  },
+  "cp-oh-table-lookup-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "table-lookup"
+  },
+  "cp-oh-table-lookup-02": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "table-lookup"
+  },
+  "cp-oh-table-lookup-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "table-lookup"
+  },
+  "cp-oh-table-lookup-04": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "table-lookup"
+  },
+  "cp-oh-table-lookup-05": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "table-lookup"
+  },
+  "cp-oh-table-lookup-06": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "table-lookup"
+  },
+  "cp-oh-table-lookup-07": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "table-lookup"
+  },
+  "cp-oh-table-lookup-08": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "table-lookup"
+  },
+  "cp-oh-table-lookup-09": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "table-lookup"
+  },
+  "cp-oh-transition-rule-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "general-rule"
+  },
+  "cp-oh-transition-rule-02": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "general-rule"
+  },
+  "cp-oh-versions-01": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "version"
+  },
+  "cp-oh-versions-02": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "version"
+  },
+  "cp-oh-versions-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "version"
+  },
+  "cp-oh-versions-04": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "version"
+  },
+  "cp-oh-versions-05": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "version"
+  },
+  "cp-oh-versions-06": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "version"
+  },
+  "cp-oh-versions-07": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "version"
+  }
+}

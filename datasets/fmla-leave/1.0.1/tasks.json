@@ -1,0 +1,152 @@
+{
+  "fmla-leave-caregiver-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "military-caregiver"
+  },
+  "fmla-leave-caregiver-02": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "military-caregiver"
+  },
+  "fmla-leave-caregiver-03": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "military-caregiver"
+  },
+  "fmla-leave-certification-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "certification"
+  },
+  "fmla-leave-certification-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "certification"
+  },
+  "fmla-leave-coverage-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "employer-coverage"
+  },
+  "fmla-leave-coverage-02": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "employer-coverage"
+  },
+  "fmla-leave-eligibility-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "eligibility"
+  },
+  "fmla-leave-eligibility-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "eligibility"
+  },
+  "fmla-leave-eligibility-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "eligibility"
+  },
+  "fmla-leave-eligibility-04": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "eligibility"
+  },
+  "fmla-leave-flight-crew-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "special-rules"
+  },
+  "fmla-leave-flight-crew-02": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "special-rules"
+  },
+  "fmla-leave-holiday-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "holidays-overtime"
+  },
+  "fmla-leave-leave-year-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "twelve-month-period"
+  },
+  "fmla-leave-leave-year-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "twelve-month-period"
+  },
+  "fmla-leave-leave-year-03": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "twelve-month-period"
+  },
+  "fmla-leave-leave-year-04": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "twelve-month-period"
+  },
+  "fmla-leave-notices-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "notice-deadlines"
+  },
+  "fmla-leave-notices-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "notice-deadlines"
+  },
+  "fmla-leave-notices-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "notice-deadlines"
+  },
+  "fmla-leave-overtime-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "holidays-overtime"
+  },
+  "fmla-leave-part-time-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "workweek-conversion"
+  },
+  "fmla-leave-recertification-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "certification"
+  },
+  "fmla-leave-reduced-schedule-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "workweek-conversion"
+  },
+  "fmla-leave-school-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "special-rules"
+  },
+  "fmla-leave-school-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "special-rules"
+  },
+  "fmla-leave-spouses-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "spouses-same-employer"
+  },
+  "fmla-leave-spouses-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "spouses-same-employer"
+  },
+  "fmla-leave-variable-schedule-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "workweek-conversion"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "noaa-storm-events-casualties-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "casualties"
+  },
+  "noaa-storm-events-casualties-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "casualties"
+  },
+  "noaa-storm-events-casualties-ef-03": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "casualties"
+  },
+  "noaa-storm-events-checks-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "document-check"
+  },
+  "noaa-storm-events-checks-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "document-check"
+  },
+  "noaa-storm-events-concentration-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "concentration"
+  },
+  "noaa-storm-events-damage-by-type-03": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "damage-amounts"
+  },
+  "noaa-storm-events-damage-suffix-02": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "damage-amounts"
+  },
+  "noaa-storm-events-damage-totals-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "damage-amounts"
+  },
+  "noaa-storm-events-durations-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "durations"
+  },
+  "noaa-storm-events-episode-mix-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "event-counts"
+  },
+  "noaa-storm-events-events-episodes-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "event-counts"
+  },
+  "noaa-storm-events-hail-damage-04": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "damage-amounts"
+  },
+  "noaa-storm-events-hail-ranking-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "concentration"
+  },
+  "noaa-storm-events-hail-size-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "magnitudes"
+  },
+  "noaa-storm-events-hhi-03": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "concentration"
+  },
+  "noaa-storm-events-locations-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "location-joins"
+  },
+  "noaa-storm-events-locations-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "location-joins"
+  },
+  "noaa-storm-events-monthly-counts-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "event-counts"
+  },
+  "noaa-storm-events-tornado-continuation-03": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "tornado-paths"
+  },
+  "noaa-storm-events-tornado-ef-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "tornado-paths"
+  },
+  "noaa-storm-events-tornado-paths-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "tornado-paths"
+  },
+  "noaa-storm-events-utc-02": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "durations"
+  },
+  "noaa-storm-events-whole-month-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "durations"
+  },
+  "noaa-storm-events-wind-gusts-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "magnitudes"
+  },
+  "noaa-storm-events-wind-types-03": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "magnitudes"
+  },
+  "noaa-storm-events-yoy-counts-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "year-over-year"
+  },
+  "noaa-storm-events-yoy-season-03": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "year-over-year"
+  },
+  "noaa-storm-events-yoy-tornado-02": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "year-over-year"
+  },
+  "noaa-storm-events-zone-county-01": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "event-counts"
+  }
+}

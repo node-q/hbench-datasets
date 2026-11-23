@@ -1,0 +1,80 @@
+# What the Actuaria Market Place shows of this version (schema/listing.v1.json). listing.json is
+# generated from it: python scripts/listing.py datasets/nfip-fl/1.0
+title: Florida flood insurance claims and policies
+summary: 'Work with FEMA''s public flood insurance data for Florida: claims by storm and flood zone, payments, policies in
+  force, repetitive loss, community ratings and the share of homes insured.'
+description: 'Each task gives the AI extracts of FEMA''s public flood insurance data for Florida, with FEMA''s own field dictionary.
+  The question states its facts, such as a county, a year, a date or a definition, and asks for exact figures: counts, totals,
+  shares, medians and the codes behind them. Every question covers a group of at least ten rows, never a single claim or policy.
+  Every field of the answer is checked, and a task passes only when all of them are right.'
+domain: Insurance
+format: field-graded
+status: draft
+trade: claims analysts
+licence:
+  name: Creative Commons Attribution 4.0 (CC BY 4.0)
+  summary: Free to use, change and share, commercial use included, if you credit the source. FEMA's OpenFEMA data are US government
+    works.
+upstream:
+  name: OpenFEMA, National Flood Insurance Program (NFIP) data
+  by: Federal Emergency Management Agency (FEMA), OpenFEMA
+  url: https://www.fema.gov/about/openfema/data-sets
+families:
+- kind: claims-coding
+  name: Reading FEMA's codes
+  what: 'FEMA''s codes read with its dictionary: cause of damage, reasons for no payment, deductibles, occupancy and settlement
+    basis.'
+- kind: claims-severity
+  name: Claim counts and payments
+  what: Claim counts, insured units and net payments for a year of loss.
+- kind: claims-payment
+  name: Claim payments
+  what: Building, contents and compliance payments kept apart and set against damage, value and coverage.
+- kind: claims-timing
+  name: Claim timing
+  what: The days between the loss and the opening of the claim, and between the loss and the last payment, as medians and
+    shares.
+- kind: named-storm
+  name: Named storms
+  what: Claims grouped by FEMA's flood event name and matched to dates, years and event numbers.
+- kind: coastal-zone
+  name: Coastal zones
+  what: Coastal high hazard V zones against A zones, in claims, causes of loss, premiums and repetitive loss.
+- kind: condominium
+  name: Condominiums and occupancy
+  what: Condominium policies counted per insured unit, and rows coded as condominium master policies checked against the dictionary.
+- kind: policy-portfolio
+  name: Policies on the books
+  what: Policies in force on a date, cancellations, the parts of the policy cost, building age and occupancy.
+- kind: policy-coverage
+  name: Policy coverage
+  what: Coverage against replacement cost, cost per thousand dollars of coverage by deductible, and premium against full-risk premium.
+- kind: loss-ratio
+  name: Loss ratio
+  what: A loss ratio, defined in the question, from the claims and policies of one county and year.
+- kind: county-join
+  name: County totals combined
+  what: Figures from different FEMA files combined at county level, never row by row.
+- kind: multiple-loss
+  name: Repetitive loss
+  what: 'How much repeated flood loss there is: categories, total losses, and the shares insured and mitigated.'
+- kind: community-status
+  name: Community status
+  what: Community map dates read with their codes, and communities that span more than one county.
+- kind: crs-class
+  name: Community rating classes
+  what: How Community Rating System classes and their dates spread, across communities and on policies.
+- kind: penetration
+  name: Share of homes insured
+  what: Residential penetration rates statewide, inside and outside the high-risk flood zone, and by county.
+- kind: document-check
+  name: Checking the rows
+  what: Rows that contradict their own fields or FEMA's definitions, counted. Some checks rightly find none.
+you_get:
+- title: Every test task
+  detail: Each with the data it needs, its answer key and the check that marks every field right or wrong.
+- title: Free to use
+  detail: Under CC BY 4.0, with credit to the source.
+- title: Runs on your machine
+  detail: Run it with the AI you choose in Actuaria Studio Essentials.
+sample_task: nfip-fl-claims-deductible-01

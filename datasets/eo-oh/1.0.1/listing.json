@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "name": "eo-oh",
+  "version": "1.0.1",
+  "type": "test-set",
+  "format": "field-graded",
+  "title": "Ohio professional liability rating",
+  "summary": "Rate one insurer's errors and omissions program in Ohio from its filed manuals and forms: base premiums, rating factors, limits, endorsements, extended reporting, cyber, claims-made coverage and Ohio's own rules.",
+  "description": "Each task gives the AI the rating manuals one insurer filed in Ohio for its professional liability program, for lawyers, accountants, architects and engineers, and other professionals, with the policy forms where a question needs them. The question states the facts, such as a firm's revenue or a claim's dates, and asks for exact values: a premium, a factor, whether a claim is covered, or the errors in the documents themselves. Every field of the answer is checked, and a task passes only when all of them are right.",
+  "domain": "Insurance",
+  "trade": "underwriters",
+  "status": "draft",
+  "pricing": "free",
+  "licence": {
+    "id": "CC-BY-4.0",
+    "name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+    "summary": "Free to use, change and share, commercial use included, if you credit the source. The filings' own text stays the filers' and is not covered."
+  },
+  "upstream": {
+    "name": "Ohio Department of Insurance, public filing records",
+    "by": "the filers, through the Ohio Department of Insurance",
+    "url": "https://filingaccess.serff.com/sfa/home/OH"
+  },
+  "tasks": 67,
+  "graded_fields": 359,
+  "difficulty": {
+    "easy": 17,
+    "medium": 40,
+    "hard": 10
+  },
+  "families": [
+    {
+      "kind": "base-premium",
+      "name": "Base premium",
+      "what": "Base premiums built up by revenue range, rounded per range, from Ohio's rates where they replace the manual's.",
+      "tasks": 4
+    },
+    {
+      "kind": "lawyers-rating",
+      "name": "Lawyers' rating",
+      "what": "The base premium per lawyer with the size of firm factor and support staff, and the prior acts factor averaged over the firm.",
+      "tasks": 2
+    },
+    {
+      "kind": "rating-factor",
+      "name": "Rating factors",
+      "what": "Each profession's rating factors from the right column, including commission, policy length and prior acts from retroactive dates.",
+      "tasks": 7
+    },
+    {
+      "kind": "limit-deductible",
+      "name": "Limits and deductibles",
+      "what": "Per claim and aggregate limit and deductible factors, interpolated where the tables require it.",
+      "tasks": 3
+    },
+    {
+      "kind": "minimum-premium",
+      "name": "Minimum premium",
+      "what": "The minimum premium for each profession, and the step of the premium where it applies.",
+      "tasks": 3
+    },
+    {
+      "kind": "endorsement-premium",
+      "name": "Endorsement premium",
+      "what": "Defense, employment practices, privacy and other endorsement premiums, and the factors of endorsements read from the attached forms.",
+      "tasks": 7
+    },
+    {
+      "kind": "full-premium",
+      "name": "Full premium",
+      "what": "A firm's premium worked through every step, starting with its revenue and ending with the final premium.",
+      "tasks": 10
+    },
+    {
+      "kind": "erp",
+      "name": "Extended reporting",
+      "what": "Extended reporting period factors and premiums from the right table, for a firm, a departing lawyer or a short term.",
+      "tasks": 4
+    },
+    {
+      "kind": "cyber",
+      "name": "Cyber endorsement",
+      "what": "Cyber endorsement premiums by revenue band and limit, its options, and who may buy it.",
+      "tasks": 3
+    },
+    {
+      "kind": "coverage",
+      "name": "Claims-made coverage",
+      "what": "Whether a claim is covered under the claims-made and reported trigger, with retroactive dates, extended reporting and endorsements read from the forms.",
+      "tasks": 8
+    },
+    {
+      "kind": "ohio-exception",
+      "name": "Ohio's own rules",
+      "what": "The rules Ohio's state exceptions replace, such as experience rating and renewal capping, applied in place of the manual's.",
+      "tasks": 3
+    },
+    {
+      "kind": "policy-rule",
+      "name": "Policy rules",
+      "what": "Cancellation, suspension, installment, rate lock and multi-year rules applied as filed.",
+      "tasks": 5
+    },
+    {
+      "kind": "schedule-rating",
+      "name": "Schedule rating",
+      "what": "Ohio's limits for each characteristic and in total, and other states' notes in the manual.",
+      "tasks": 2
+    },
+    {
+      "kind": "document-check",
+      "name": "Checking the documents",
+      "what": "The manuals' own inconsistencies, told apart from worked examples and tables that are right.",
+      "tasks": 6
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with the filed manuals and forms it needs, its answer key and the check that marks every field right or wrong."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under CC BY 4.0, with credit to the source."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "sample_task": "eo-oh-accountants-base-premium-01",
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "eo-oh",
+    "access": "public"
+  }
+}
