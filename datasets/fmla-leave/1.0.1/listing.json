@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "name": "fmla-leave",
+  "version": "1.0.1",
+  "type": "test-set",
+  "format": "field-graded",
+  "title": "FMLA leave administration",
+  "summary": "Apply the US Family and Medical Leave Act regulations to one employee's situation: eligibility, coverage, leave used and left, 12-month periods, military caregiver leave, and notice and certification deadlines.",
+  "description": "Each task gives the facts about one unnamed employee and employer: dates, hours, head counts and leave already taken. The AI reads the Department of Labor's FMLA regulations, 29 CFR Part 825, and answers what they decide: whether the employee is eligible and the employer covered, how much leave is used and left in workweeks and hours, a deadline as a date, or whether a step complies. Every field of the answer is checked, and a task passes only when all of them are right.",
+  "domain": "Employment law",
+  "trade": "leave administrators",
+  "status": "draft",
+  "pricing": "free",
+  "licence": {
+    "id": "CC-BY-4.0",
+    "name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+    "summary": "Free to use, change and share, commercial use included, if you credit the source. The regulation is a US government work."
+  },
+  "upstream": {
+    "name": "29 CFR Part 825, The Family and Medical Leave Act of 1993",
+    "by": "US Department of Labor, Wage and Hour Division, as the eCFR shows it",
+    "url": "https://www.ecfr.gov/current/title-29/part-825"
+  },
+  "tasks": 30,
+  "graded_fields": 168,
+  "difficulty": {
+    "easy": 7,
+    "medium": 16,
+    "hard": 7
+  },
+  "families": [
+    {
+      "kind": "employer-coverage",
+      "name": "Employer coverage",
+      "what": "Whether a private employer is covered, counting employees and workweeks, and how long coverage lasts.",
+      "tasks": 2
+    },
+    {
+      "kind": "eligibility",
+      "name": "Eligibility",
+      "what": "Whether an employee is eligible, on the right date for each test, with hours of service and breaks in service.",
+      "tasks": 4
+    },
+    {
+      "kind": "workweek-conversion",
+      "name": "Leave used",
+      "what": "Intermittent and reduced-schedule leave as a fraction of the employee's own workweek, for part-time and varying schedules.",
+      "tasks": 3
+    },
+    {
+      "kind": "holidays-overtime",
+      "name": "Holidays and overtime",
+      "what": "How holidays, a shutdown and required or voluntary overtime count against the leave.",
+      "tasks": 2
+    },
+    {
+      "kind": "twelve-month-period",
+      "name": "The 12-month period",
+      "what": "The leave left under the calendar-year, fixed-year, forward and rolling methods, and when leave comes back.",
+      "tasks": 4
+    },
+    {
+      "kind": "military-caregiver",
+      "name": "Military caregiver leave",
+      "what": "The single 12-month period and its combined limit with other leave.",
+      "tasks": 3
+    },
+    {
+      "kind": "spouses-same-employer",
+      "name": "Spouses with one employer",
+      "what": "The combined limits for spouses with the same employer, and the leave each keeps.",
+      "tasks": 2
+    },
+    {
+      "kind": "notice-deadlines",
+      "name": "Notice deadlines",
+      "what": "The employer's and the employee's notice deadlines as dates, counted in business or calendar days.",
+      "tasks": 3
+    },
+    {
+      "kind": "certification",
+      "name": "Certification",
+      "what": "Time to return and to cure a medical certification, the effect of a late one, and when recertification may be asked.",
+      "tasks": 3
+    },
+    {
+      "kind": "special-rules",
+      "name": "Special rules",
+      "what": "The rules for school teachers near the end of a term and for airline flight crews.",
+      "tasks": 4
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with the text of the regulation it needs, its answer key and the check that marks every field right or wrong."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under CC BY 4.0, with credit to the source."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "sample_task": "fmla-leave-eligibility-01",
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "fmla-leave",
+    "access": "public"
+  }
+}

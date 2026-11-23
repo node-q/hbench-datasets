@@ -1,0 +1,267 @@
+{
+  "nfip-fl-claims-cause-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-claims-components-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-claims-damage-ratio-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-claims-deductible-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-claims-event-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-claims-icc-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-claims-nonpayment-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-claims-occupancy-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-claims-paid-vs-damage-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-claims-settlement-basis-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-claims-timing-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-claims-year-severity-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-coastal-cause-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-coastal-claims-zone-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-coastal-policy-zone-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-coastal-vzone-policies-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-community-county-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-community-crs-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-community-map-dates-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-condo-association-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-condo-coding-check-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-condo-coding-check-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-crs-history-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-crs-policies-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-crs-spread-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-document-check-claims-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-document-check-claims-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-document-check-communities-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-document-check-penetration-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-document-check-policies-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-join-claims-per-policy-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-join-crs-penetration-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-join-mlp-penetration-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-loss-ratio-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-multiple-loss-categories-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-multiple-loss-county-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-multiple-loss-scale-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-multiple-loss-zone-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-penetration-ranking-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-penetration-sfha-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-penetration-statewide-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-policy-cancellations-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-policy-cost-components-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-policy-coverage-adequacy-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-policy-deductible-rate-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-policy-firm-mix-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-policy-full-risk-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-policy-in-force-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-policy-occupancy-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-policy-residence-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-storm-codes-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-storm-events-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "nfip-fl-storm-ranking-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  }
+}

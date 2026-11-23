@@ -1,0 +1,337 @@
+{
+  "eo-oh-accountants-base-premium-01": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "base-premium"
+  },
+  "eo-oh-accountants-factors-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "rating-factor"
+  },
+  "eo-oh-architects-engineers-factors-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "rating-factor"
+  },
+  "eo-oh-cancellation-return-premium-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "policy-rule"
+  },
+  "eo-oh-claims-made-trigger-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "coverage"
+  },
+  "eo-oh-claims-made-trigger-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "coverage"
+  },
+  "eo-oh-commission-adjustment-01": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "rating-factor"
+  },
+  "eo-oh-cyber-endorsement-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "cyber"
+  },
+  "eo-oh-cyber-endorsement-02": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "cyber"
+  },
+  "eo-oh-cyber-endorsement-03": {
+    "difficulty": "easy",
+    "fields": 8,
+    "kind": "cyber"
+  },
+  "eo-oh-deductible-mediation-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "coverage"
+  },
+  "eo-oh-defense-surcharges-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "endorsement-premium"
+  },
+  "eo-oh-doc-check-cross-references-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "eo-oh-doc-check-erp-and-cyber-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "eo-oh-doc-check-no-false-positives-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "document-check"
+  },
+  "eo-oh-doc-check-overlapping-categories-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "document-check"
+  },
+  "eo-oh-doc-check-state-exceptions-vs-manuals-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "eo-oh-doc-check-tables-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "eo-oh-endorsement-factors-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "endorsement-premium"
+  },
+  "eo-oh-endorsement-provisions-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "coverage"
+  },
+  "eo-oh-epl-defense-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "endorsement-premium"
+  },
+  "eo-oh-erp-factor-tables-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "erp"
+  },
+  "eo-oh-erp-lawyers-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "erp"
+  },
+  "eo-oh-erp-lawyers-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "erp"
+  },
+  "eo-oh-erp-lawyers-03": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "erp"
+  },
+  "eo-oh-experience-rating-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "ohio-exception"
+  },
+  "eo-oh-experience-rating-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "ohio-exception"
+  },
+  "eo-oh-full-premium-accountants-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "full-premium"
+  },
+  "eo-oh-full-premium-accountants-02": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "full-premium"
+  },
+  "eo-oh-full-premium-architects-engineers-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "full-premium"
+  },
+  "eo-oh-full-premium-architects-engineers-02": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "full-premium"
+  },
+  "eo-oh-full-premium-insurance-agent-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "full-premium"
+  },
+  "eo-oh-full-premium-insurance-agent-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "full-premium"
+  },
+  "eo-oh-full-premium-lawyers-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "full-premium"
+  },
+  "eo-oh-full-premium-lawyers-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "full-premium"
+  },
+  "eo-oh-full-premium-real-estate-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "full-premium"
+  },
+  "eo-oh-full-premium-real-estate-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "full-premium"
+  },
+  "eo-oh-funds-transfer-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "endorsement-premium"
+  },
+  "eo-oh-installment-plans-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "policy-rule"
+  },
+  "eo-oh-insurance-agent-base-premium-01": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "base-premium"
+  },
+  "eo-oh-lawyers-base-premium-01": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "lawyers-rating"
+  },
+  "eo-oh-lawyers-factors-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "rating-factor"
+  },
+  "eo-oh-lawyers-prior-acts-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "lawyers-rating"
+  },
+  "eo-oh-limit-deductible-factors-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "limit-deductible"
+  },
+  "eo-oh-limit-deductible-factors-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "limit-deductible"
+  },
+  "eo-oh-limit-deductible-factors-03": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "limit-deductible"
+  },
+  "eo-oh-minimum-premium-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "minimum-premium"
+  },
+  "eo-oh-minimum-premium-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "minimum-premium"
+  },
+  "eo-oh-minimum-premium-03": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "minimum-premium"
+  },
+  "eo-oh-misc-additional-premiums-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "endorsement-premium"
+  },
+  "eo-oh-misc-base-premium-01": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "base-premium"
+  },
+  "eo-oh-multi-year-discount-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "policy-rule"
+  },
+  "eo-oh-nonpracticing-erp-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "coverage"
+  },
+  "eo-oh-ohio-changes-and-exclusions-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "coverage"
+  },
+  "eo-oh-optional-erp-provisions-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "coverage"
+  },
+  "eo-oh-policy-length-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "rating-factor"
+  },
+  "eo-oh-prior-acts-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "rating-factor"
+  },
+  "eo-oh-privacy-network-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "endorsement-premium"
+  },
+  "eo-oh-public-offerings-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "rating-factor"
+  },
+  "eo-oh-rate-lock-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "policy-rule"
+  },
+  "eo-oh-real-estate-base-premium-01": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "base-premium"
+  },
+  "eo-oh-real-estate-surcharges-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "endorsement-premium"
+  },
+  "eo-oh-renewal-capping-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "ohio-exception"
+  },
+  "eo-oh-schedule-rating-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "schedule-rating"
+  },
+  "eo-oh-schedule-rating-02": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "schedule-rating"
+  },
+  "eo-oh-supplemental-payments-01": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "coverage"
+  },
+  "eo-oh-suspension-of-coverage-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "policy-rule"
+  }
+}

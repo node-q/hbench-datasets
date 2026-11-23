@@ -1,0 +1,337 @@
+{
+  "eo-oh-accountants-base-premium-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-accountants-factors-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-architects-engineers-factors-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-cancellation-return-premium-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-claims-made-trigger-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-claims-made-trigger-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-commission-adjustment-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-cyber-endorsement-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-cyber-endorsement-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-cyber-endorsement-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-deductible-mediation-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-defense-surcharges-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-doc-check-cross-references-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-doc-check-erp-and-cyber-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-doc-check-no-false-positives-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-doc-check-overlapping-categories-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-doc-check-state-exceptions-vs-manuals-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-doc-check-tables-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-endorsement-factors-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-endorsement-provisions-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-epl-defense-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-erp-factor-tables-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-erp-lawyers-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-erp-lawyers-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-erp-lawyers-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-experience-rating-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-experience-rating-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-full-premium-accountants-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-full-premium-accountants-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-full-premium-architects-engineers-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-full-premium-architects-engineers-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-full-premium-insurance-agent-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-full-premium-insurance-agent-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-full-premium-lawyers-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-full-premium-lawyers-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-full-premium-real-estate-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-full-premium-real-estate-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-funds-transfer-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-installment-plans-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-insurance-agent-base-premium-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-lawyers-base-premium-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-lawyers-factors-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-lawyers-prior-acts-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-limit-deductible-factors-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-limit-deductible-factors-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-limit-deductible-factors-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-minimum-premium-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-minimum-premium-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-minimum-premium-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-misc-additional-premiums-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-misc-base-premium-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-multi-year-discount-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-nonpracticing-erp-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-ohio-changes-and-exclusions-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-optional-erp-provisions-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-policy-length-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-prior-acts-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-privacy-network-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-public-offerings-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-rate-lock-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-real-estate-base-premium-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-real-estate-surcharges-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-renewal-capping-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-schedule-rating-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-schedule-rating-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-supplemental-payments-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "eo-oh-suspension-of-coverage-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  }
+}

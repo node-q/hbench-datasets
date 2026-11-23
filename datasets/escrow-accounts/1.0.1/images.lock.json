@@ -1,0 +1,152 @@
+{
+  "escrow-accounts-cushion-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-cushion-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-cushion-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-deficiency-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-deficiency-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-deficiency-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-error-resolution-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-error-resolution-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-force-placed-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-force-placed-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-information-request-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-initial-deposit-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-initial-deposit-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-payment-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-payment-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-payment-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-shortage-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-shortage-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-shortage-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-shortage-04": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-single-item-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-single-item-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-statement-deadline-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-statement-deadline-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-statement-deadline-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-statement-deadline-04": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-surplus-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-surplus-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-surplus-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "escrow-accounts-surplus-04": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  }
+}

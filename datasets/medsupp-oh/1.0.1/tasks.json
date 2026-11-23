@@ -1,0 +1,227 @@
+{
+  "medsupp-oh-age-band-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "age-band"
+  },
+  "medsupp-oh-age-band-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "age-band"
+  },
+  "medsupp-oh-age-band-03": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "age-band"
+  },
+  "medsupp-oh-age-band-04": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "age-band"
+  },
+  "medsupp-oh-aggregate-increase-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "aggregate-increase"
+  },
+  "medsupp-oh-aggregate-increase-02": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "aggregate-increase"
+  },
+  "medsupp-oh-area-lookup-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "area-lookup"
+  },
+  "medsupp-oh-area-lookup-02": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "area-lookup"
+  },
+  "medsupp-oh-area-lookup-03": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "area-lookup"
+  },
+  "medsupp-oh-document-check-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "medsupp-oh-document-check-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "medsupp-oh-document-check-03": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "medsupp-oh-document-check-04": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "document-check"
+  },
+  "medsupp-oh-document-check-05": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "document-check"
+  },
+  "medsupp-oh-document-check-06": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "medsupp-oh-document-check-07": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "document-check"
+  },
+  "medsupp-oh-document-check-08": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "medsupp-oh-document-check-09": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "document-check"
+  },
+  "medsupp-oh-document-check-10": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "document-check"
+  },
+  "medsupp-oh-exhibit-iii-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "exhibit-iii"
+  },
+  "medsupp-oh-exhibit-iii-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "exhibit-iii"
+  },
+  "medsupp-oh-exhibit-iii-03": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "exhibit-iii"
+  },
+  "medsupp-oh-exhibit-iii-04": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "exhibit-iii"
+  },
+  "medsupp-oh-payment-mode-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "payment-mode"
+  },
+  "medsupp-oh-payment-mode-02": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "payment-mode"
+  },
+  "medsupp-oh-payment-mode-03": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "payment-mode"
+  },
+  "medsupp-oh-payment-mode-04": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "payment-mode"
+  },
+  "medsupp-oh-plan-availability-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "plan-availability"
+  },
+  "medsupp-oh-rate-lookup-01": {
+    "difficulty": "easy",
+    "fields": 2,
+    "kind": "rate-lookup"
+  },
+  "medsupp-oh-rate-lookup-02": {
+    "difficulty": "medium",
+    "fields": 2,
+    "kind": "rate-lookup"
+  },
+  "medsupp-oh-rate-lookup-03": {
+    "difficulty": "easy",
+    "fields": 2,
+    "kind": "rate-lookup"
+  },
+  "medsupp-oh-rate-lookup-04": {
+    "difficulty": "medium",
+    "fields": 2,
+    "kind": "rate-lookup"
+  },
+  "medsupp-oh-rate-lookup-05": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "rate-lookup"
+  },
+  "medsupp-oh-rate-lookup-06": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "rate-lookup"
+  },
+  "medsupp-oh-rate-lookup-07": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "rate-lookup"
+  },
+  "medsupp-oh-refund-calc-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "refund-calc"
+  },
+  "medsupp-oh-refund-calc-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "refund-calc"
+  },
+  "medsupp-oh-refund-calc-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "refund-calc"
+  },
+  "medsupp-oh-refund-calc-04": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "refund-calc"
+  },
+  "medsupp-oh-refund-calc-05": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "refund-calc"
+  },
+  "medsupp-oh-refund-calc-06": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "refund-calc"
+  },
+  "medsupp-oh-refund-calc-07": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "refund-calc"
+  },
+  "medsupp-oh-relativity-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "relativity"
+  },
+  "medsupp-oh-relativity-02": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "relativity"
+  },
+  "medsupp-oh-relativity-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "relativity"
+  }
+}

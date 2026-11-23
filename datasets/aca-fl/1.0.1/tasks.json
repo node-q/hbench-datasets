@@ -1,0 +1,222 @@
+{
+  "aca-fl-cost-sharing-01": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "cost-sharing"
+  },
+  "aca-fl-cost-sharing-02": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "cost-sharing"
+  },
+  "aca-fl-cost-sharing-03": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "cost-sharing"
+  },
+  "aca-fl-cost-sharing-04": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "cost-sharing"
+  },
+  "aca-fl-cost-sharing-05": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "cost-sharing"
+  },
+  "aca-fl-counts-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "counts"
+  },
+  "aca-fl-counts-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "counts"
+  },
+  "aca-fl-counts-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "counts"
+  },
+  "aca-fl-counts-04": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "counts"
+  },
+  "aca-fl-cross-file-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "cross-file"
+  },
+  "aca-fl-cross-file-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "cross-file"
+  },
+  "aca-fl-cross-file-03": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "cross-file"
+  },
+  "aca-fl-cross-file-04": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "cross-file"
+  },
+  "aca-fl-cross-file-05": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "cross-file"
+  },
+  "aca-fl-document-check-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "aca-fl-document-check-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "aca-fl-document-check-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "aca-fl-document-check-04": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "document-check"
+  },
+  "aca-fl-household-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "household-total"
+  },
+  "aca-fl-household-02": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "household-total"
+  },
+  "aca-fl-household-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "household-total"
+  },
+  "aca-fl-plan-attributes-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "plan-attributes"
+  },
+  "aca-fl-plan-attributes-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "plan-attributes"
+  },
+  "aca-fl-plan-attributes-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "plan-attributes"
+  },
+  "aca-fl-plan-attributes-04": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "plan-attributes"
+  },
+  "aca-fl-plan-attributes-05": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "plan-attributes"
+  },
+  "aca-fl-rate-lookup-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "rate-lookup"
+  },
+  "aca-fl-rate-lookup-02": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "rate-lookup"
+  },
+  "aca-fl-rate-lookup-03": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "rate-lookup"
+  },
+  "aca-fl-rate-lookup-04": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "rate-lookup"
+  },
+  "aca-fl-rating-area-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "rating-area"
+  },
+  "aca-fl-rating-area-02": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "rating-area"
+  },
+  "aca-fl-rating-area-03": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "rating-area"
+  },
+  "aca-fl-service-area-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "service-area"
+  },
+  "aca-fl-service-area-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "service-area"
+  },
+  "aca-fl-service-area-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "service-area"
+  },
+  "aca-fl-service-area-04": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "service-area"
+  },
+  "aca-fl-service-area-05": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "service-area"
+  },
+  "aca-fl-service-area-06": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "service-area"
+  },
+  "aca-fl-service-area-07": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "service-area"
+  },
+  "aca-fl-tobacco-load-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "tobacco-load"
+  },
+  "aca-fl-tobacco-load-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "tobacco-load"
+  },
+  "aca-fl-tobacco-load-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "tobacco-load"
+  },
+  "aca-fl-tobacco-load-04": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "tobacco-load"
+  }
+}

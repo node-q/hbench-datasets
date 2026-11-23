@@ -1,0 +1,147 @@
+{
+  "irs-inflation-adjustments-amt-exemption-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-amt-exemption-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-amt-exemption-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-capital-gains-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-capital-gains-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-capital-gains-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-earned-income-credit-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-earned-income-credit-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-earned-income-credit-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-estate-exclusion-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-filing-status-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-filing-status-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-filing-status-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-gift-exclusion-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-gift-exclusion-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-kiddie-tax-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-kiddie-tax-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-marginal-bracket-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-marginal-bracket-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-marginal-bracket-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-rate-table-tax-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-rate-table-tax-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-rate-table-tax-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-standard-deduction-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-standard-deduction-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-standard-deduction-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-year-over-year-01": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-year-over-year-02": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  },
+  "irs-inflation-adjustments-year-over-year-03": {
+    "source": "ghcr.io/node-q/hbench-envs:taskfolders-1.0",
+    "source_digest": "sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9f920fde2154e44a97009372e5b1f60150dd41ecd7122a2092a80d232d8a5154"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "name": "nfip-tx",
+  "version": "1.0.1",
+  "type": "test-set",
+  "format": "field-graded",
+  "title": "Texas flood insurance claims and policies",
+  "summary": "Work with FEMA's public flood insurance data for Texas: claims after Harvey, Beryl and the July 2025 flood, payments, policies in force, coastal and inland counties, repetitive loss and homes insured.",
+  "description": "Each task gives the AI extracts of FEMA's public flood insurance data for Texas, with FEMA's own field dictionary. The question states its facts, such as a county, a year, a date or a definition, and asks for exact figures: counts, totals, shares, medians and the codes behind them. Every question covers a group of at least ten rows, never a single claim or policy. Every field of the answer is checked, and a task passes only when all of them are right.",
+  "domain": "Insurance",
+  "trade": "claims analysts",
+  "status": "draft",
+  "pricing": "free",
+  "licence": {
+    "id": "CC-BY-4.0",
+    "name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+    "summary": "Free to use, change and share, commercial use included, if you credit the source. FEMA's OpenFEMA data are US government works."
+  },
+  "upstream": {
+    "name": "OpenFEMA, National Flood Insurance Program (NFIP) data",
+    "by": "Federal Emergency Management Agency (FEMA), OpenFEMA",
+    "url": "https://www.fema.gov/about/openfema/data-sets"
+  },
+  "tasks": 52,
+  "graded_fields": 307,
+  "difficulty": {
+    "easy": 3,
+    "medium": 33,
+    "hard": 16
+  },
+  "families": [
+    {
+      "kind": "claims-severity",
+      "name": "Claim counts and payments",
+      "what": "Claim counts, insured units and net payments for a year of loss, a flood zone or a named storm.",
+      "tasks": 7
+    },
+    {
+      "kind": "claims-coding",
+      "name": "Reading FEMA's codes",
+      "what": "FEMA's codes read with its dictionary: cause of damage, reasons for no payment, deductibles, occupancy, settlement basis and event numbers.",
+      "tasks": 6
+    },
+    {
+      "kind": "claims-payment",
+      "name": "Claim payments",
+      "what": "Building, contents and compliance payments kept apart and set against damage, value and coverage.",
+      "tasks": 4
+    },
+    {
+      "kind": "claims-timing",
+      "name": "Claim timing",
+      "what": "The days between the loss and the opening of the claim, and between the loss and the last payment after a storm or flood, as medians and shares.",
+      "tasks": 2
+    },
+    {
+      "kind": "policy-portfolio",
+      "name": "Policies on the books",
+      "what": "Policies in force on a date, cancellations, premium and policy cost by flood zone, building age and occupancy.",
+      "tasks": 7
+    },
+    {
+      "kind": "policy-coverage",
+      "name": "Policy coverage",
+      "what": "Coverage against replacement cost, cost per thousand dollars of coverage by deductible, premium against full-risk premium, and elevated buildings.",
+      "tasks": 4
+    },
+    {
+      "kind": "loss-ratio",
+      "name": "Loss ratio",
+      "what": "A loss ratio, defined in the question, from the claims and policies of one county and year.",
+      "tasks": 1
+    },
+    {
+      "kind": "county-join",
+      "name": "County totals combined",
+      "what": "Figures from different FEMA files combined at county level, coastal and inland, never row by row.",
+      "tasks": 4
+    },
+    {
+      "kind": "multiple-loss",
+      "name": "Repetitive loss",
+      "what": "Properties with repeated flood losses, and severe ones, by category, and coastal counties against inland ones.",
+      "tasks": 3
+    },
+    {
+      "kind": "community-status",
+      "name": "Community status",
+      "what": "Which communities take part in the program and which are sanctioned, map dates read with their codes, and community ratings.",
+      "tasks": 4
+    },
+    {
+      "kind": "penetration",
+      "name": "Share of homes insured",
+      "what": "Residential penetration rates statewide, inside the high-risk flood zone, by county, and coastal against inland.",
+      "tasks": 5
+    },
+    {
+      "kind": "document-check",
+      "name": "Checking the rows",
+      "what": "Rows that contradict their own fields or FEMA's definitions, counted. Some checks rightly find none.",
+      "tasks": 5
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with the data it needs, its answer key and the check that marks every field right or wrong."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under CC BY 4.0, with credit to the source."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "sample_task": "nfip-tx-claims-deductible-01",
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "nfip-tx",
+    "access": "public"
+  }
+}

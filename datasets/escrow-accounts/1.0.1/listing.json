@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "name": "escrow-accounts",
+  "version": "1.0.1",
+  "type": "test-set",
+  "format": "field-graded",
+  "title": "Mortgage escrow accounts under Regulation X",
+  "summary": "Mortgage escrow work under the CFPB's Regulation X: the annual escrow analysis and its cushion, surpluses, shortages and deficiencies, and the deadlines for statements, error notices and force-placed insurance.",
+  "description": "Each task states the facts of an unnamed borrower's escrow account: the bills it will pay, a balance, a date. The AI reads the escrow and servicing sections of Regulation X, 12 CFR Part 1024, with appendix E, and gives exact answers: a monthly escrow payment, a cushion, a surplus, shortage or deficiency and what the servicer must or may do about it, or the last day for a statement or a reply. Every field of the answer is checked, and a task passes only when all of them are right.",
+  "domain": "Finance",
+  "trade": "mortgage servicers",
+  "status": "draft",
+  "pricing": "free",
+  "licence": {
+    "id": "CC-BY-4.0",
+    "name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+    "summary": "Free to use, change and share, commercial use included, if you credit the source. The regulation is a US government work."
+  },
+  "upstream": {
+    "name": "12 CFR Part 1024, Real Estate Settlement Procedures Act (Regulation X)",
+    "by": "Consumer Financial Protection Bureau, as the eCFR shows it",
+    "url": "https://www.ecfr.gov/current/title-12/chapter-X/part-1024"
+  },
+  "tasks": 30,
+  "graded_fields": 168,
+  "difficulty": {
+    "easy": 6,
+    "medium": 16,
+    "hard": 8
+  },
+  "families": [
+    {
+      "kind": "aggregate-analysis",
+      "name": "Escrow analysis",
+      "what": "The monthly escrow payment and the target balances that an aggregate analysis of the year's bills gives.",
+      "tasks": 3
+    },
+    {
+      "kind": "initial-deposit",
+      "name": "Deposit at settlement",
+      "what": "The most a lender may collect for the escrow account at settlement, cushion included.",
+      "tasks": 2
+    },
+    {
+      "kind": "cushion-limit",
+      "name": "Cushion limit",
+      "what": "Whether a cushion is within the limit that applies, set by the regulation or by the mortgage document.",
+      "tasks": 3
+    },
+    {
+      "kind": "single-item-analysis",
+      "name": "Single-item analysis",
+      "what": "What a single-item analysis would collect, set against the aggregate analysis the regulation requires.",
+      "tasks": 2
+    },
+    {
+      "kind": "surplus",
+      "name": "Surplus",
+      "what": "The surplus an analysis finds, whether it must be refunded, and by when.",
+      "tasks": 4
+    },
+    {
+      "kind": "shortage",
+      "name": "Shortage",
+      "what": "The shortage an analysis finds, how the servicer may have it repaid, and the new payment that follows.",
+      "tasks": 4
+    },
+    {
+      "kind": "deficiency",
+      "name": "Deficiency",
+      "what": "A negative balance, and how and over what period the servicer may have it repaid.",
+      "tasks": 3
+    },
+    {
+      "kind": "statement-deadline",
+      "name": "Escrow statements",
+      "what": "The last days for the first and the annual escrow statements, and what is owed when servicing moves to another servicer, when the loan is paid off and in default.",
+      "tasks": 4
+    },
+    {
+      "kind": "response-deadline",
+      "name": "Errors and information requests",
+      "what": "The time limits for acknowledging and answering a notice of error or a request for information, counted as the regulation says.",
+      "tasks": 3
+    },
+    {
+      "kind": "force-placed-insurance",
+      "name": "Force-placed insurance",
+      "what": "The earliest dates of the notices a servicer must send before charging for force-placed insurance, and when it may charge.",
+      "tasks": 2
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with the text of the regulation it needs, its answer key and the check that marks every field right or wrong."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under CC BY 4.0, with credit to the source."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "sample_task": "escrow-accounts-surplus-01",
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "escrow-accounts",
+    "access": "public"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "name": "usgs-earthquakes",
+  "version": "1.0.1",
+  "type": "test-set",
+  "format": "field-graded",
+  "title": "Earthquakes in the USGS catalog, 2024 and 2025",
+  "summary": "Count, sort and measure earthquakes in the US Geological Survey's catalog: magnitude and depth classes, event types, local clocks, distances across the 180-degree meridian, aftershocks, b-values and seismic moment.",
+  "description": "Each task hands the AI one extract of the earthquake catalog, exactly as the US Geological Survey's public web service returned it in November 2026. The question states every measure it needs, such as class bounds, a point and a radius, a time window or a formula. The AI gives exact figures: counts, medians, distances, gaps, b-values and seismic moments. Every field of the answer is checked, and a task passes only when all of them are right.",
+  "domain": "Natural hazards",
+  "trade": "seismologists",
+  "status": "draft",
+  "pricing": "free",
+  "licence": {
+    "id": "CC-BY-4.0",
+    "name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+    "summary": "Free to use, change and share, commercial use included, if you credit the source. The earthquake records come out of the USGS catalog, and their terms of use, and those of its contributing networks, are not yet confirmed."
+  },
+  "upstream": {
+    "name": "ANSS Comprehensive Earthquake Catalog (ComCat)",
+    "by": "U.S. Geological Survey, with data contributed by seismic networks",
+    "url": "https://earthquake.usgs.gov/data/comcat/"
+  },
+  "tasks": 30,
+  "graded_fields": 214,
+  "difficulty": {
+    "easy": 6,
+    "medium": 16,
+    "hard": 8
+  },
+  "families": [
+    {
+      "kind": "magnitude-classes",
+      "name": "Magnitude classes",
+      "what": "Events counted into stated magnitude classes, with whole magnitudes written without a decimal point read right.",
+      "tasks": 3
+    },
+    {
+      "kind": "magnitude-types",
+      "name": "Magnitude types",
+      "what": "Magnitude types kept apart by network and by size, and where moment magnitudes take over.",
+      "tasks": 3
+    },
+    {
+      "kind": "depth-classes",
+      "name": "Depth classes",
+      "what": "Events by depth class, with negative depths and the default depths handled as the question says.",
+      "tasks": 3
+    },
+    {
+      "kind": "event-types-status",
+      "name": "Event types and review status",
+      "what": "Earthquakes told apart from explosions and other events, and automatic records from reviewed ones.",
+      "tasks": 3
+    },
+    {
+      "kind": "time-grouping",
+      "name": "Time grouping",
+      "what": "Events grouped by UTC date and by a stated local clock, and how long after the event a record was last updated.",
+      "tasks": 3
+    },
+    {
+      "kind": "extremes-and-gaps",
+      "name": "Extremes and gaps",
+      "what": "The largest events, the time between large earthquakes, and days with and without events.",
+      "tasks": 3
+    },
+    {
+      "kind": "distance",
+      "name": "Distance",
+      "what": "Great-circle distances, boxes and radii worked out exactly, across the 180-degree meridian too.",
+      "tasks": 3
+    },
+    {
+      "kind": "sequences",
+      "name": "Sequences",
+      "what": "Foreshocks and aftershocks of a large earthquake, in windows that start at its exact origin time.",
+      "tasks": 2
+    },
+    {
+      "kind": "magnitude-frequency",
+      "name": "Magnitude and moment",
+      "what": "Gutenberg-Richter b-values, and seismic moment from the formula the question gives.",
+      "tasks": 4
+    },
+    {
+      "kind": "data-checks",
+      "name": "Data checks",
+      "what": "Empty cells, identifiers checked against networks and sources, and possible double entries, with no false alarms.",
+      "tasks": 3
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with the data it needs, its answer key and the check that marks every field right or wrong."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under CC BY 4.0, with credit to the source."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "sample_task": "usgs-earthquakes-event-types-01",
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "usgs-earthquakes",
+    "access": "public"
+  }
+}
