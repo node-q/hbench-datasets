@@ -117,7 +117,7 @@ rai:
     one brand filing 116 of the 410 medical plans, and stand-alone dental plans.
   personal_sensitive_information:
   - >-
-    Companies pseudonymized, no mapping kept (user decisions of 2026-11-06, as in hb-int-aca-oh): the dataset names
+    Companies pseudonymized, no mapping kept: the dataset names
     no issuer, brand, product line, vendor or state agency anywhere. Every issuer name is a stable pseudonym, one
     per issuer brand ([Company A] to [Company W]); company, brand and product-line words in plan and service-area
     names use the same pseudonyms (plus [Company X] and [Program A] to [Program K]); every company URL is [url redacted].

@@ -108,7 +108,7 @@ rai:
     plans are HMOs, and stand-alone dental plans.
   personal_sensitive_information:
   - >-
-    Companies pseudonymized, no mapping kept (user decisions of 2026-11-06): the dataset names no issuer, brand,
+    Companies pseudonymized, no mapping kept: the dataset names no issuer, brand,
     product line, vendor or state agency anywhere. Every issuer name is a stable pseudonym, one per issuer brand
     ([Company A] to [Company U]); brand and product-line words in plan names use the same pseudonyms (plus [Company
     V] and [Program A] to [Program C]); every company URL is [url redacted]. No mapping to real names is kept anywhere

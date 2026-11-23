@@ -118,7 +118,7 @@ rai:
     one of which files 546 of the 834 medical plans, and stand-alone dental plans.
   personal_sensitive_information:
   - >-
-    Companies pseudonymized, no mapping kept (user decisions of 2026-11-06, as in hb-int-aca-oh): the dataset names
+    Companies pseudonymized, no mapping kept: the dataset names
     no issuer, brand, product line, vendor or state agency anywhere. Every issuer name is a stable pseudonym, one
     per issuer brand ([Company A] to [Company Z]); company, brand and product-line words in plan and service-area
     names use the same pseudonyms (plus [Company AA] to [Company AC] and [Program A] to [Program H]); every company
@@ -135,6 +135,6 @@ rai:
     addresses, phone and fax numbers and signature or credential words, and every free-text and URL value was read;
     the files have no contact fields and no line identifies a person. The finest geography shipped is the county
     code, describing where plans are sold, not where anyone lives; the one ZIP code in CMS's Texas Service Area
-    rows (two cells) is replaced by [zip redacted] (user decision of 2026-11-06). The shipped text equals CMS's
+    rows (two cells) is replaced by [zip redacted]. The shipped text equals CMS's
     text apart from line endings, the byte-order mark, the company pseudonyms above and the ZIP redaction. The NOTICE's
     "Personal data redacted" section records the search.
