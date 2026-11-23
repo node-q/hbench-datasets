@@ -10,7 +10,7 @@ The AI reads one document: 2 CFR Part 200, Uniform Administrative Requirements, 
 
 ## How the answers were worked out
 
-We wrote the scenarios. They describe no real organization, and the agencies in them are called Agency A, B and C. Where the text can be read more than one way, the question states the reading it uses. Three procurement tasks give the Federal Acquisition Regulation's purchase thresholds, $15,000 and $350,000, as facts of the question. We did not check them against that regulation. Each answer was worked out step by step from the facts and the text. A second script, sharing no code with the first, read every amount it used out of the text itself, recomputed every answer and agreed. Both come from the same reading of the text, so they catch slips of arithmetic, not a different reading of a rule.
+We wrote the scenarios. They describe no real organization, and the agencies in them are called Agency A, B and C. Where the text can be read more than one way, the question states the reading it uses. Three procurement tasks give the Federal Acquisition Regulation's purchase thresholds, fifteen thousand and three hundred fifty thousand dollars, as facts of the question. We did not check them against that regulation. Each answer was worked out step by step from the facts and the text. A second script, sharing no code with the first, read every amount it used out of the text itself, recomputed every answer and agreed. Both come from the same reading of the text, so they catch slips of arithmetic, not a different reading of a rule.
 
 ## What it does not cover
 

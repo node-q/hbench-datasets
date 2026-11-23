@@ -17,7 +17,7 @@ We wrote the scenarios. They describe no real situation. Every answer follows fr
 - US federal rules only, as they stood on 12 November 2026. Part 825 was last amended in January 2025 and may change.
 - Only the text of Part 825. The Act itself, court decisions, the Department's opinion letters, state leave laws and collective agreements are left out, and any of them can change a real outcome.
 - Part 825 leaves some counting open, such as what a business day is or whether the day of an event counts. Each question states how to count, and a leave administrator may count differently.
-- Calls that need judgement, such as whether a condition is a serious health condition, are given as facts. Key employees, benefits, reinstatement, joint employers and qualifying exigency leave are left out.
+- Questions that need a person's call, such as whether a condition is a serious health condition, are given as facts. Key employees, benefits, reinstatement, joint employers and qualifying exigency leave are left out.
 - The scenarios are tidy on purpose, with whole weeks and whole days, and are not a sample of real leave requests. Two to four tasks for each kind of work show where an AI stands. They can't separate two close results.
 - It is not legal advice.
 

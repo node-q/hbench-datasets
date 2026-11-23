@@ -14,7 +14,7 @@ CMS's terms say: "The user may not present or otherwise reference data that have
 
 ## How the answers were worked out
 
-We wrote the questions. They describe no real person. Each answer key was worked out step by step from the rows. A separate script read the shipped files again, answered every question with its own code and matched all 229 graded fields. Each task grades 3 to 8 fields. Rates count as right within $1 or 0.1%, loads and ratios within 0.0005, and plan IDs, counts and lists only when exact, so a neighbouring plan with a similar rate can't pass.
+We wrote the questions. They describe no real person. Each answer key was worked out step by step from the rows. A separate script read the shipped files again, answered every question with its own code and matched all 229 graded fields. Each task grades 3 to 8 fields. Rates count as right within a dollar or 0.1%, loads and ratios within 0.0005, and plan IDs, counts and lists only when exact, so a neighbouring plan with a similar rate can't pass.
 
 ## What it does not cover
 

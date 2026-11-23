@@ -17,7 +17,7 @@ We wrote the scenarios. They describe no real person, employer or event. Every a
 - US federal rules only, without the state plans, as they stood on 12 November 2026. Part 1904 was last amended in April 2024 and may change.
 - Only the regulation's text. OSHA's interpretation letters, its recordkeeping handbook and the instructions on the forms were not used, and they may read it differently.
 - Each question states the counting rules the regulation leaves open, such as which days are business days.
-- The scenarios are clear-cut on purpose, so the borderline situations that fill much of real recordkeeping are scarce. Calls that need judgement, such as whether an event significantly aggravated an earlier condition, are not asked.
+- The scenarios are clear-cut on purpose, so the borderline situations that fill much of real recordkeeping are scarce. Questions that need a person's call, such as whether an event significantly aggravated an earlier condition, are not asked.
 - Incidence rates, the age correction tables for hearing tests, the four-hour rule for government requests for records and the variance procedure are left out.
 - Two to four tasks for each kind of work show where an AI stands. They can't separate two close results.
 - It is not legal advice.
