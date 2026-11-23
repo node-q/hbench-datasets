@@ -1,0 +1,27 @@
+# What the Actuaria Market Place shows of this version (schema/listing.v1.json). listing.json is
+# generated from it: python scripts/listing.py datasets/bigcodebench/1.0
+title: BigCodeBench
+summary: Practical Python jobs that call real libraries, such as pandas, NumPy and Matplotlib. The AI writes one
+  function for each.
+description: Each test task gives the AI a function's signature and a docstring that says what it must do and which
+  libraries to use. The AI writes the function. It passes when the task's unit tests all pass within 241 seconds.
+domain: Coding
+format: run-tests
+licence:
+  name: Apache License 2.0
+  summary: Free to use, change and share. Keep the licence and the notice with it.
+upstream:
+  name: BigCodeBench
+  by: Terry Yue Zhuo and 32 other authors, in the BigCode project
+  url: https://huggingface.co/datasets/bigcode/bigcodebench
+families:
+- kind: write-a-function
+  name: Write a function
+  what: A working Python function that uses the libraries its docstring names.
+you_get:
+- title: Every test task
+  detail: Each with its instructions, its environment and the tests that check it.
+- title: Free to use
+  detail: Under the Apache License 2.0, with credit to the original authors.
+- title: Runs on your machine
+  detail: Run it with the AI you choose in Actuaria Studio Essentials.
