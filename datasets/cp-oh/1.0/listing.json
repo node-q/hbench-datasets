@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "name": "cp-oh",
+  "version": "1.0",
+  "type": "test-set",
+  "format": "field-graded",
+  "title": "Ohio commercial property rating",
+  "summary": "Rate one insurer's commercial property program in Ohio from the manual pages it filed: limit factors, table edges, the rating steps, endorsements, flood, Ohio's own rules and the errors in the pages.",
+  "description": "Each task gives the AI the manual pages one insurer filed in Ohio for its commercial property program and states the facts in the question, such as a building's construction and its amount of insurance. It asks for exact values: a factor, a rate or premium after a given step, a rule, or the errors in the pages themselves. Every field of the answer is checked, and a task passes only when all of them are right.",
+  "domain": "Insurance",
+  "trade": "underwriters",
+  "status": "draft",
+  "pricing": "free",
+  "licence": {
+    "id": "CC-BY-4.0",
+    "name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+    "summary": "Free to use, change and share, commercial use included, if you credit the source. The filings' own text stays the filers' and is not covered."
+  },
+  "upstream": {
+    "name": "Ohio Department of Insurance, public filing records",
+    "by": "the filers, through the Ohio Department of Insurance",
+    "url": "https://filingaccess.serff.com/sfa/home/OH"
+  },
+  "tasks": 75,
+  "graded_fields": 424,
+  "difficulty": {
+    "easy": 13,
+    "medium": 41,
+    "hard": 21
+  },
+  "families": [
+    {
+      "kind": "interpolation",
+      "name": "Limit interpolation",
+      "what": "Limit factors worked out between table rows exactly as the rule says, and read straight off the table where it shows the limit.",
+      "tasks": 5
+    },
+    {
+      "kind": "table-lookup",
+      "name": "Table lookup",
+      "what": "The right row of a rating factor table at its edges, including class names printed over two lines and the conditions a factor carries.",
+      "tasks": 9
+    },
+    {
+      "kind": "factor-product",
+      "name": "Rating steps",
+      "what": "The additional rating factors multiplied in the filed order, and a given base rate carried through the filed rounding to the premium.",
+      "tasks": 6
+    },
+    {
+      "kind": "minimum-premium",
+      "name": "Minimum premium",
+      "what": "The minimum premium applied at the right step, pro-rated for short terms, with terrorism added after it.",
+      "tasks": 4
+    },
+    {
+      "kind": "class-endorsement",
+      "name": "Class endorsements",
+      "what": "Which class endorsement applies to a risk, by class and market group, and its charge per location.",
+      "tasks": 7
+    },
+    {
+      "kind": "endorsement-premium",
+      "name": "Endorsement premium",
+      "what": "The charge for an endorsement, flat or per limit, and the deductibles and limits it carries.",
+      "tasks": 6
+    },
+    {
+      "kind": "flood",
+      "name": "Flood",
+      "what": "Flood premiums by zone, primary or excess, with the deductible, sublimit and aggregate factors.",
+      "tasks": 4
+    },
+    {
+      "kind": "information-security",
+      "name": "Information security",
+      "what": "The information security endorsement's premiums by limit and deductible, its tiers, and what the program removes from it.",
+      "tasks": 3
+    },
+    {
+      "kind": "schedule-rating",
+      "name": "Schedule rating",
+      "what": "Debits and credits held to each characteristic's limit and Ohio's total cap, and the state notes that change them.",
+      "tasks": 4
+    },
+    {
+      "kind": "ohio-capping",
+      "name": "Ohio rate capping",
+      "what": "Ohio's rate capping range against the countrywide rule, and where capping does not apply.",
+      "tasks": 4
+    },
+    {
+      "kind": "ohio-exception",
+      "name": "Ohio's own rules",
+      "what": "What the Ohio page changes in the countrywide rules, and the final premium that follows.",
+      "tasks": 3
+    },
+    {
+      "kind": "general-rule",
+      "name": "General rules",
+      "what": "The transition rule, the program's forms, and the bureau rules the program removes or amends.",
+      "tasks": 4
+    },
+    {
+      "kind": "document-check",
+      "name": "Checking the pages",
+      "what": "The pages' own errors, such as wrong cross-references and arithmetic, told apart from passages that are right.",
+      "tasks": 9
+    },
+    {
+      "kind": "version",
+      "name": "Earlier editions",
+      "what": "What a named earlier edition said and what changed, read from a redline next to the clean edition.",
+      "tasks": 7
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with the filed pages it needs, its answer key and the check that marks every field right or wrong."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under CC BY 4.0, with credit to the source."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it with the AI you choose in Actuaria Studio Essentials."
+    }
+  ],
+  "sample_task": "cp-oh-ohio-exception-01",
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "cp-oh",
+    "access": "public"
+  }
+}

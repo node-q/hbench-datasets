@@ -76,6 +76,18 @@ new version is a new tag. Each dataset is also mirrored to a second registry, no
 | `medicare-oh@1.0` | 52 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
 | `icd10cm-coding@1.0` | 30 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
 | `treasury-auctions@1.0` | 27 | CC-BY-4.0 | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `gl-oh@1.0` | 81 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `cp-oh@1.0` | 75 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `eo-oh@1.0` | 67 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `farm-oh@1.0` | 86 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `medmal-oh@1.0` | 50 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `pet-oh@1.0` | 48 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `personal-auto-oh@1.0` | 60 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `ratemaking-oh@1.0` | 27 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `surety-oh@1.0` | 47 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `title-oh@1.0` | 56 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `medsupp-oh@1.0` | 45 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
+| `underwriting-starter@1.0` | 40 | CC-BY-4.0, with the filers' documents under their own rights | Open Actuaria test set, generated from node-q's exported tasks; waits for its image lock |
 
 A version that [`superseded.yaml`](superseded.yaml) maps to a successor is left out of the dataset index once
 the successor is in it, so `hbench datasets list` and the interactive run offer only the successor; the
@@ -391,7 +403,9 @@ licence, in its directory and published with it.
 - **The open Actuaria test sets** (flsa-overtime, fmla-leave, hipaa-breach, osha-recordkeeping, hours-of-service,
   flight-duty, air-passenger-rights, escrow-accounts, federal-grants, food-labeling, irs-inflation-adjustments,
   fdic-banking, usgs-earthquakes, noaa-storm-events, us-life-tables, nist-800-53, nfip-oh, -tx, -la and -fl,
-  aca-fl, -oh and -tx, medicare-oh, icd10cm-coding and treasury-auctions, all @1.0) are node-q's own test sets, published openly under CC BY 4.0 ([`docs/open-test-sets.md`](docs/open-test-sets.md)).
+  aca-fl, -oh and -tx, medicare-oh, icd10cm-coding, treasury-auctions, the twelve insurance filing sets (gl-oh,
+  cp-oh, eo-oh, farm-oh, medmal-oh, pet-oh, personal-auto-oh, ratemaking-oh, surety-oh, title-oh, medsupp-oh and
+  underwriting-starter), all @1.0) are node-q's own test sets, published openly under CC BY 4.0 ([`docs/open-test-sets.md`](docs/open-test-sets.md)).
   The documents and data they read keep their own status, which each NOTICE gives.
 - **livecodebench@6.0** has an unspecified "cc" licence and problems scraped from contest sites. It
   is not republished.

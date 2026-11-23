@@ -1,0 +1,432 @@
+{
+  "farm-oh-age-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "dwelling-rating"
+  },
+  "farm-oh-construction-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "dwelling-rating"
+  },
+  "farm-oh-coverage-a-01": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "coverage-table"
+  },
+  "farm-oh-coverage-a-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "coverage-table"
+  },
+  "farm-oh-coverage-a-03": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "coverage-table"
+  },
+  "farm-oh-coverage-a-04": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "coverage-table"
+  },
+  "farm-oh-coverage-a-05": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "coverage-table"
+  },
+  "farm-oh-coverage-a-06": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "coverage-table"
+  },
+  "farm-oh-coverage-a-07": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "coverage-table"
+  },
+  "farm-oh-coverage-a-08": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "coverage-table"
+  },
+  "farm-oh-coverage-a-09": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "coverage-table"
+  },
+  "farm-oh-credits-order-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "dwelling-rating"
+  },
+  "farm-oh-dairy-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-deductible-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "deductible"
+  },
+  "farm-oh-deductible-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "deductible"
+  },
+  "farm-oh-deductible-03": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "deductible"
+  },
+  "farm-oh-deductible-04": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "deductible"
+  },
+  "farm-oh-doccheck-addons-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-dairy-example-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-f4-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-index-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-memo-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-mobile-home-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-mobile-home-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-no-false-positives-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-no-false-positives-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-reproductive-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-tables-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-tiers-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-toc-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-xref-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "farm-oh-doccheck-xref-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "document-check"
+  },
+  "farm-oh-dwelling-type-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "dwelling-rating"
+  },
+  "farm-oh-eligibility-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "eligibility"
+  },
+  "farm-oh-eligibility-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "eligibility"
+  },
+  "farm-oh-eligibility-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "eligibility"
+  },
+  "farm-oh-eligibility-04": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "eligibility"
+  },
+  "farm-oh-eligibility-05": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "eligibility"
+  },
+  "farm-oh-eligibility-06": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "eligibility"
+  },
+  "farm-oh-endorsement-increases-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "package-rule"
+  },
+  "farm-oh-fpp-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-fpp-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-fpp-03": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-fpp-04": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-fpp-05": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-fpp-06": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-fpp-07": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-fpp-08": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-fpp-09": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-liability-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "liability"
+  },
+  "farm-oh-liability-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "liability"
+  },
+  "farm-oh-liability-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "liability"
+  },
+  "farm-oh-liability-04": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "liability"
+  },
+  "farm-oh-liability-05": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "liability"
+  },
+  "farm-oh-liability-06": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "liability"
+  },
+  "farm-oh-liability-07": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "liability"
+  },
+  "farm-oh-liability-08": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "liability"
+  },
+  "farm-oh-liability-09": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "liability"
+  },
+  "farm-oh-liability-10": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "liability"
+  },
+  "farm-oh-liability-11": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "liability"
+  },
+  "farm-oh-liability-12": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "liability"
+  },
+  "farm-oh-liability-13": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "liability"
+  },
+  "farm-oh-outbuilding-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-outbuilding-02": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-outbuilding-03": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-outbuilding-04": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-outbuilding-05": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "outbuilding-fpp"
+  },
+  "farm-oh-package-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "package-rule"
+  },
+  "farm-oh-package-02": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "package-rule"
+  },
+  "farm-oh-package-03": {
+    "difficulty": "easy",
+    "fields": 8,
+    "kind": "package-rule"
+  },
+  "farm-oh-package-04": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "package-rule"
+  },
+  "farm-oh-package-05": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "package-rule"
+  },
+  "farm-oh-package-06": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "package-rule"
+  },
+  "farm-oh-premium-size-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "premium-size"
+  },
+  "farm-oh-premium-size-02": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "premium-size"
+  },
+  "farm-oh-premium-size-03": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "premium-size"
+  },
+  "farm-oh-protection-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "dwelling-rating"
+  },
+  "farm-oh-rural-homeowner-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "package-rule"
+  },
+  "farm-oh-rural-homeowner-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "package-rule"
+  },
+  "farm-oh-stove-01": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "dwelling-rating"
+  },
+  "farm-oh-tiers-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "package-rule"
+  },
+  "farm-oh-zones-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "zone-territory"
+  },
+  "farm-oh-zones-02": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "zone-territory"
+  },
+  "farm-oh-zones-03": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "zone-territory"
+  },
+  "farm-oh-zones-04": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "zone-territory"
+  },
+  "farm-oh-zones-05": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "zone-territory"
+  }
+}
