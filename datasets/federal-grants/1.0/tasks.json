@@ -1,0 +1,152 @@
+{
+  "federal-grants-allowability-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "cost-allowability"
+  },
+  "federal-grants-allowability-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "cost-allowability"
+  },
+  "federal-grants-allowability-03": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "cost-allowability"
+  },
+  "federal-grants-audit-agency-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "audit-requirement"
+  },
+  "federal-grants-audit-deadline-01": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "audit-deadline"
+  },
+  "federal-grants-audit-deadline-02": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "audit-deadline"
+  },
+  "federal-grants-audit-deadline-03": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "audit-deadline"
+  },
+  "federal-grants-closeout-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "award-dates"
+  },
+  "federal-grants-cost-sharing-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "cost-sharing"
+  },
+  "federal-grants-cost-sharing-02": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "cost-sharing"
+  },
+  "federal-grants-disposition-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "property"
+  },
+  "federal-grants-equipment-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "property"
+  },
+  "federal-grants-equipment-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "property"
+  },
+  "federal-grants-extension-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "award-dates"
+  },
+  "federal-grants-major-program-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "major-programs"
+  },
+  "federal-grants-major-program-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "major-programs"
+  },
+  "federal-grants-major-program-03": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "major-programs"
+  },
+  "federal-grants-mtdc-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "indirect-costs"
+  },
+  "federal-grants-mtdc-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "indirect-costs"
+  },
+  "federal-grants-mtdc-03": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "indirect-costs"
+  },
+  "federal-grants-mtdc-04": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "indirect-costs"
+  },
+  "federal-grants-procurement-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "procurement"
+  },
+  "federal-grants-procurement-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "procurement"
+  },
+  "federal-grants-procurement-03": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "procurement"
+  },
+  "federal-grants-program-income-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "program-income"
+  },
+  "federal-grants-program-income-02": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "program-income"
+  },
+  "federal-grants-reporting-dates-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "award-dates"
+  },
+  "federal-grants-single-audit-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "audit-requirement"
+  },
+  "federal-grants-single-audit-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "audit-requirement"
+  },
+  "federal-grants-supplies-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "property"
+  }
+}

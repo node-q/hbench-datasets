@@ -1,0 +1,152 @@
+{
+  "nist-800-53-active-controls-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "catalog-structure"
+  },
+  "nist-800-53-aggregate-parameters-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "parameters"
+  },
+  "nist-800-53-assessment-methods-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "assessment-procedures"
+  },
+  "nist-800-53-assessment-objectives-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "assessment-procedures"
+  },
+  "nist-800-53-baseline-coverage-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "baseline-consistency"
+  },
+  "nist-800-53-baseline-size-01": {
+    "difficulty": "easy",
+    "fields": 8,
+    "kind": "baseline-comparison"
+  },
+  "nist-800-53-cross-table-check-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "nist-800-53-family-size-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "catalog-structure"
+  },
+  "nist-800-53-high-over-moderate-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "baseline-comparison"
+  },
+  "nist-800-53-implementation-level-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "catalog-structure"
+  },
+  "nist-800-53-label-check-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "nist-800-53-moderate-over-low-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "baseline-comparison"
+  },
+  "nist-800-53-most-referenced-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "control-links"
+  },
+  "nist-800-53-no-baseline-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "baseline-comparison"
+  },
+  "nist-800-53-one-way-links-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "control-links"
+  },
+  "nist-800-53-orphan-enhancements-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "baseline-consistency"
+  },
+  "nist-800-53-parameter-counts-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "parameters"
+  },
+  "nist-800-53-parameter-placeholders-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "control-text"
+  },
+  "nist-800-53-privacy-baseline-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "baseline-comparison"
+  },
+  "nist-800-53-privacy-overlap-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "baseline-comparison"
+  },
+  "nist-800-53-related-links-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "control-links"
+  },
+  "nist-800-53-required-links-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "control-links"
+  },
+  "nist-800-53-selection-parameters-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "parameters"
+  },
+  "nist-800-53-statement-items-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "control-text"
+  },
+  "nist-800-53-tailoring-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "tailoring"
+  },
+  "nist-800-53-tailoring-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "tailoring"
+  },
+  "nist-800-53-tailoring-03": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "tailoring"
+  },
+  "nist-800-53-withdrawn-counts-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "withdrawn-controls"
+  },
+  "nist-800-53-withdrawn-destinations-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "withdrawn-controls"
+  },
+  "nist-800-53-withdrawn-moves-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "withdrawn-controls"
+  }
+}

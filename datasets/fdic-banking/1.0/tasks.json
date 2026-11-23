@@ -1,0 +1,152 @@
+{
+  "fdic-banking-aggregates-check-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "fdic-banking-cagr-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "growth"
+  },
+  "fdic-banking-capital-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "capital"
+  },
+  "fdic-banking-capital-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "capital"
+  },
+  "fdic-banking-charge-offs-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "asset-quality"
+  },
+  "fdic-banking-charter-share-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "charter-comparison"
+  },
+  "fdic-banking-consolidation-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "consolidation"
+  },
+  "fdic-banking-consolidation-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "consolidation"
+  },
+  "fdic-banking-consolidation-03": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "consolidation"
+  },
+  "fdic-banking-coverage-check-04": {
+    "difficulty": "easy",
+    "fields": 8,
+    "kind": "document-check"
+  },
+  "fdic-banking-dividends-01": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "capital"
+  },
+  "fdic-banking-efficiency-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "income-structure"
+  },
+  "fdic-banking-funding-mix-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "funding-liquidity"
+  },
+  "fdic-banking-growth-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "growth"
+  },
+  "fdic-banking-identity-check-03": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "document-check"
+  },
+  "fdic-banking-income-mix-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "income-structure"
+  },
+  "fdic-banking-liquidity-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "funding-liquidity"
+  },
+  "fdic-banking-loans-to-deposits-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "funding-liquidity"
+  },
+  "fdic-banking-long-run-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "growth"
+  },
+  "fdic-banking-margin-01": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "income-structure"
+  },
+  "fdic-banking-noncurrent-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "asset-quality"
+  },
+  "fdic-banking-past-due-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "asset-quality"
+  },
+  "fdic-banking-roa-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "profitability"
+  },
+  "fdic-banking-roe-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "profitability"
+  },
+  "fdic-banking-state-assets-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "state-ranking"
+  },
+  "fdic-banking-state-deposits-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "state-ranking"
+  },
+  "fdic-banking-state-roa-03": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "state-ranking"
+  },
+  "fdic-banking-texas-losses-01": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "profitability"
+  },
+  "fdic-banking-thrift-crisis-01": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "charter-comparison"
+  },
+  "fdic-banking-totals-check-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "document-check"
+  }
+}
