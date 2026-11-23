@@ -1,0 +1,137 @@
+{
+  "treasury-auctions-accrued-interest-01": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "coupon-interest"
+  },
+  "treasury-auctions-award-limit-01": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "award-rules"
+  },
+  "treasury-auctions-bid-to-cover-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "auction-demand"
+  },
+  "treasury-auctions-bid-to-cover-02": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "auction-demand"
+  },
+  "treasury-auctions-bidder-shares-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "bidder-allocation"
+  },
+  "treasury-auctions-bidder-shares-02": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "bidder-allocation"
+  },
+  "treasury-auctions-bill-price-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "bill-pricing"
+  },
+  "treasury-auctions-bill-price-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "bill-pricing"
+  },
+  "treasury-auctions-calendar-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "auction-calendar"
+  },
+  "treasury-auctions-cmb-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "auction-calendar"
+  },
+  "treasury-auctions-document-check-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "document-check"
+  },
+  "treasury-auctions-document-check-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "document-check"
+  },
+  "treasury-auctions-document-check-03": {
+    "difficulty": "easy",
+    "fields": 8,
+    "kind": "document-check"
+  },
+  "treasury-auctions-frn-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "floating-rate"
+  },
+  "treasury-auctions-hit-rate-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "bidder-allocation"
+  },
+  "treasury-auctions-interest-payment-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "coupon-interest"
+  },
+  "treasury-auctions-issuance-01": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "issuance"
+  },
+  "treasury-auctions-maturity-profile-01": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "issuance"
+  },
+  "treasury-auctions-noncompetitive-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "bidder-allocation"
+  },
+  "treasury-auctions-proration-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "award-rules"
+  },
+  "treasury-auctions-proration-02": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "award-rules"
+  },
+  "treasury-auctions-reopenings-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "auction-calendar"
+  },
+  "treasury-auctions-soma-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "issuance"
+  },
+  "treasury-auctions-tips-index-ratio-01": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "tips-indexing"
+  },
+  "treasury-auctions-tips-real-yields-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "tips-indexing"
+  },
+  "treasury-auctions-tips-settlement-01": {
+    "difficulty": "hard",
+    "fields": 3,
+    "kind": "tips-indexing"
+  },
+  "treasury-auctions-yield-dispersion-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "auction-demand"
+  }
+}
