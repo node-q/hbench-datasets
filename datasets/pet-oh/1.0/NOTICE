@@ -1,5 +1,5 @@
-Ohio Pet Insurance 0.1 (hb-int-pet-oh)
-======================================
+Ohio Pet Insurance 1.0 (pet-oh)
+===============================
 
 Nothing in this dataset is synthetic: no document the agent sees was written, generated or mocked up by
 node-q or by an AI system. There are no applications, declarations pages, claims, emails or other invented
@@ -23,7 +23,7 @@ The reference folder of every task (/app/reference) holds:
 - program-b-rate-pages.txt (a cover page and 22 numbered pages): program B's Underwriting Rules and
   Rate Guidelines for Ohio, effective April 2, 2026.
 
-One task (hb-int-pet-oh-program-a-filing-scope-01) also holds, in its own files/reference/, program A's actuarial
+One task (pet-oh-program-a-filing-scope-01) also holds, in its own files/reference/, program A's actuarial
 memorandum (program-a-actuarial-memorandum.txt, 2 pages). Its exhibits are not included. The PDF has a
 text layer, which was used.
 
@@ -65,7 +65,7 @@ are contact markers. Every changed line, by file (a line with two kinds of chang
 - environment/reference/program-b-rate-pages.txt:
   - program (25): lines 54, 67, 72, 91, 98, 107, 109, 123, 126, 138, 140, 154, 157, 159, 160, 168, 171, 172,
     217, 238, 239, 240, 241, 366, 371
-- tasks/hb-int-pet-oh/hb-int-pet-oh-program-a-filing-scope-01/files/reference/program-a-actuarial-memorandum.txt:
+- pet-oh-program-a-filing-scope-01/environment/reference/program-a-actuarial-memorandum.txt:
   - company (2): lines 1, 5
   - id (1): line 59
   - name (2): lines 44, 58
@@ -79,7 +79,7 @@ policy form prints no other filer code, and no document prints a manual, print o
 
 - environment/reference/program-a-policy-form.txt:
   - form code (14): lines 45, 61, 119, 179, 238, 297, 357, 417, 477, 535, 595, 655, 714, 763
-- tasks/hb-int-pet-oh/hb-int-pet-oh-program-a-filing-scope-01/files/reference/program-a-actuarial-memorandum.txt:
+- pet-oh-program-a-filing-scope-01/environment/reference/program-a-actuarial-memorandum.txt:
   - form code (1): line 3
 
 File names: the three shipped files whose names repeated the filed attachment names (a version label and a

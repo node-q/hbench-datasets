@@ -1,5 +1,5 @@
-General liability ratemaking (Ohio) 0.1 (hb-int-ratemaking-oh)
-==============================================================
+General liability ratemaking (Ohio) 1.0 (ratemaking-oh)
+=======================================================
 
 Nothing in this dataset is synthetic. No figure, document, submission or claim was generated, invented
 or perturbed: the agent sees only real documents that an insurer filed.
@@ -36,7 +36,7 @@ Redactions
 ----------
 
 Each span is replaced in place by a marker or the pseudonym; the rest of each line, the line structure
-and every number a task uses are unchanged. In reference/hb-int-ratemaking-oh:
+and every number a task uses are unchanged. In environment/reference (ratemaking-oh):
 
   ohio-lcm-transmittal.txt, line 15: company ([Company A])
   ohio-lcm-transmittal.txt, line 16: address ([address redacted])
