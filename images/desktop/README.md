@@ -2,10 +2,11 @@
 
 `ghcr.io/node-q/hbench-envs:desktop-1.0` (linux/amd64) is the image the tasks of `computer-use-browser` run in. An
 agent that works a desktop through screenshots, mouse and keyboard (hbench's `computer-1`) starts in it what its
-desktop runtime needs: Xvfb on display `:1`, `startxfce4`, `x11vnc` (optional), Chromium at `/usr/bin/chromium`,
+desktop runtime needs: Xvfb on display `:1`, `startxfce4`, Chromium at `/usr/bin/chromium`,
 `xdotool` and `wmctrl` to act and place the window, `import` (ImageMagick) or `scrot` for screenshots and `convert`
 for zoom crops, `curl` for Chromium's readiness probe, and `pgrep`/`pkill`. The Dockerfile is the one node-q builds
-its own desktop image from, on the same pinned base.
+its own desktop image from, on the same pinned base, less x11vnc: computer-1 starts a VNC server only when one is
+installed, and this image leaves it out so that no remote desktop listens in a task container.
 
 | What | Version |
 |---|---|
@@ -18,11 +19,10 @@ its own desktop image from, on the same pinned base.
 | chromium | 156.0.8078.108-1~deb13u1 (its built-in PDF viewer opens `file://` PDFs) |
 | xdotool, wmctrl | 1:3.20160805.1-5.1, 1.07+git20240228.1105759-1 |
 | imagemagick, scrot | 8:7.1.1.43+dfsg1-1+deb13u14, 1.12.1-1 |
-| x11vnc | 0.9.17-1 |
 | fonts-dejavu-core, fonts-liberation | 2.37-8, 1:2.1.5-3 |
 | curl, procps, ca-certificates | 8.14.1-2+deb13u7, 2:4.0.4-9, 20250419+deb13u1 |
 
-About 1.45 GB uncompressed on amd64. Give a task at least 2 CPUs and 4,096 MB: Chromium with a long PDF needs them.
+About 1.43 GB uncompressed on amd64. Give a task at least 2 CPUs and 4,096 MB: Chromium with a long PDF needs them.
 
 ## Licences
 
@@ -31,7 +31,7 @@ archive (the only apt sources are the snapshot's `debian` and `debian-security`,
 software that meets the Debian Free Software Guidelines. Python in the base image is the Python Software Foundation's
 build, under the PSF License. node-q changed none of it.
 
-Checked on 2026-11-25 in an amd64 build: all 362 installed packages keep their licence and copyright notice at
+Checked on 2026-11-25 in an amd64 build: all 349 installed packages keep their licence and copyright notice at
 `/usr/share/doc/<package>/copyright` inside the image. The packages named in the Dockerfile:
 
 | Package | Licence (from its copyright file) |
@@ -45,7 +45,6 @@ Checked on 2026-11-25 in an amd64 build: all 362 installed packages keep their l
 | wmctrl | GPL-2+ |
 | imagemagick | ImageMagick License, with GPL-3+ (Autoconf exception) build files |
 | scrot | MIT-feh, BSD-3-Clause, Unlicense |
-| x11vnc | GPL-2 |
 | fonts-dejavu-core | Bitstream Vera Fonts licence (DejaVu changes public domain) |
 | fonts-liberation | SIL Open Font License 1.1 |
 | curl | curl licence (MIT-style), ISC |
@@ -61,10 +60,10 @@ Chromium here is Debian's build, not Google Chrome.
 
 ## Checked
 
-On 2026-11-25, with an amd64 build of this Dockerfile (`docker build images/desktop`) and hbench 0.5.3: the commands
-`computer-1` runs at start brought up the display, the XFCE session, x11vnc and Chromium (its readiness probe answered
-in 2 s); `wmctrl -l` listed the Chromium window with an IRS PDF open; `import -window root` wrote a 1024x900 PNG; the
-whole desktop with the PDF open peaked at 331 MB. `hbench run -a oracle` on a `computer-use-browser` task scored 1,
-and an empty answer 0. A run with a real model was not made.
+On 2026-11-25, with an amd64 build of this Dockerfile (`docker build images/desktop`) and hbench 0.5.3: Xvfb on `:1`,
+the XFCE session and Chromium came up as `computer-1` starts them (its readiness probe answered in 2 s); `wmctrl -l`
+listed the Chromium window; `import -window root` wrote a 1024x900 PNG; with an IRS PDF open the whole desktop peaked
+at 331 MB (measured on the build with x11vnc). `hbench run -a oracle` on a `computer-use-browser` task scored 1, and an
+empty answer 0. A run with a real model was not made. No VNC server is installed.
 
 When the image changes, add a new tag (`desktop-1.1`, ...) in images/images.yaml: tags are never moved.

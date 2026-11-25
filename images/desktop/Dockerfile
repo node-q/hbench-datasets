@@ -1,7 +1,7 @@
 FROM ghcr.io/node-q/hbench-envs:base-python-3.12-slim@sha256:cb33f7f771ecec2ef1225cf39b159591a040391bd73e4c01f00fdfc4c47611d2
 
 # The desktop for computer-use test sets (computer-use-browser): Xvfb, an XFCE session and Chromium, which hbench's
-# computer-1 agent drives through screenshots, mouse and keyboard. The same Dockerfile as node-q's own desktop image,
+# computer-1 agent drives through screenshots, mouse and keyboard. node-q's own desktop image's Dockerfile, less x11vnc,
 # from the same pinned base; README.md lists what is in it and under which licences.
 
 # Debian's archive as it stood at this moment (snapshot.debian.org), so every package resolves to the same version on
@@ -20,7 +20,7 @@ RUN printf '%s\n' \
         xvfb=2:21.1.16-1.3+deb13u4 xfce4-session=4.20.2-2 xfwm4=4.20.0-1 xfconf=4.20.0-1 \
         chromium=156.0.8078.108-1~deb13u1 \
         xdotool=1:3.20160805.1-5.1 wmctrl=1.07+git20240228.1105759-1 imagemagick=8:7.1.1.43+dfsg1-1+deb13u14 \
-        scrot=1.12.1-1 x11vnc=0.9.17-1 \
+        scrot=1.12.1-1 \
         fonts-dejavu-core=2.37-8 fonts-liberation=1:2.1.5-3 \
     && rm -rf /var/lib/apt/lists/*
 
