@@ -1,0 +1,152 @@
+{
+  "computer-use-browser-edition-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "edition-comparison"
+  },
+  "computer-use-browser-edition-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "edition-comparison"
+  },
+  "computer-use-browser-edition-03": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "edition-comparison"
+  },
+  "computer-use-browser-form-line-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "form-line"
+  },
+  "computer-use-browser-form-line-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "form-line"
+  },
+  "computer-use-browser-html-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "html-find"
+  },
+  "computer-use-browser-html-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "html-find"
+  },
+  "computer-use-browser-html-03": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "html-find"
+  },
+  "computer-use-browser-outline-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "outline"
+  },
+  "computer-use-browser-outline-02": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "outline"
+  },
+  "computer-use-browser-outline-03": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "outline"
+  },
+  "computer-use-browser-percentage-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "percentage-method"
+  },
+  "computer-use-browser-percentage-02": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "percentage-method"
+  },
+  "computer-use-browser-row-count-01": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "row-count"
+  },
+  "computer-use-browser-row-count-02": {
+    "difficulty": "medium",
+    "fields": 5,
+    "kind": "row-count"
+  },
+  "computer-use-browser-row-count-03": {
+    "difficulty": "hard",
+    "fields": 4,
+    "kind": "row-count"
+  },
+  "computer-use-browser-small-print-01": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "small-print"
+  },
+  "computer-use-browser-small-print-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "small-print"
+  },
+  "computer-use-browser-small-print-03": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "small-print"
+  },
+  "computer-use-browser-tax-table-01": {
+    "difficulty": "easy",
+    "fields": 3,
+    "kind": "tax-table"
+  },
+  "computer-use-browser-tax-table-02": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "tax-table"
+  },
+  "computer-use-browser-tax-table-03": {
+    "difficulty": "medium",
+    "fields": 3,
+    "kind": "tax-table"
+  },
+  "computer-use-browser-tax-table-04": {
+    "difficulty": "hard",
+    "fields": 5,
+    "kind": "tax-table"
+  },
+  "computer-use-browser-wage-bracket-01": {
+    "difficulty": "easy",
+    "fields": 4,
+    "kind": "wage-bracket"
+  },
+  "computer-use-browser-wage-bracket-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "wage-bracket"
+  },
+  "computer-use-browser-wage-bracket-03": {
+    "difficulty": "medium",
+    "fields": 6,
+    "kind": "wage-bracket"
+  },
+  "computer-use-browser-worksheet-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "worksheet"
+  },
+  "computer-use-browser-worksheet-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "worksheet"
+  },
+  "computer-use-browser-worksheet-03": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "worksheet"
+  },
+  "computer-use-browser-worksheet-04": {
+    "difficulty": "medium",
+    "fields": 4,
+    "kind": "worksheet"
+  }
+}

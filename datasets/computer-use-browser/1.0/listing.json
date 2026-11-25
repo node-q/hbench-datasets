@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "name": "computer-use-browser",
+  "version": "1.0",
+  "type": "test-set",
+  "format": "field-graded",
+  "title": "IRS documents in a browser, for AIs that use a computer",
+  "summary": "An AI that uses a computer through screenshots, mouse and keyboard opens real IRS PDFs and web pages in Chromium: it finds the right page of a long tax table, follows bookmarks, zooms into small print and carries a worksheet through.",
+  "description": "Each task puts one to three real Internal Revenue Service documents on a Linux desktop, exactly as the IRS publishes them: the 2025 and 2024 tax tables, the 2025 Form 1040 instructions, Publication 15-T for 2026 and 2025, Schedule 1, Publication 501, and the web editions of Publications 501 and 15-T. The AI opens them in Chromium and works from what the screen shows. It pages through a tax table to the right row, figures payroll withholding with stated Form W-4 settings, carries a worksheet through, finds the line of a form that takes an item, reads small print and charts, counts rows on a page, compares two editions and searches long web pages. Every question states its facts, and none describes a real person. The AI writes its answer to a file or gives it as its final answer. Every field of the answer is checked, and a task passes only when all of them are right.",
+  "domain": "Computer use",
+  "trade": "tax preparers and payroll specialists",
+  "status": "draft",
+  "pricing": "free",
+  "licence": {
+    "id": "CC-BY-4.0",
+    "name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+    "summary": "Free to use, change and share, commercial use included, if you credit the source. The documents are US government works."
+  },
+  "upstream": {
+    "name": "IRS forms, instructions and publications, 2024 to 2026 editions",
+    "by": "Internal Revenue Service, US Department of the Treasury",
+    "url": "https://www.irs.gov/forms-instructions"
+  },
+  "tasks": 30,
+  "graded_fields": 158,
+  "difficulty": {
+    "easy": 5,
+    "medium": 18,
+    "hard": 7
+  },
+  "families": [
+    {
+      "kind": "tax-table",
+      "name": "Tax Table lookups",
+      "what": "The row of the 2025 Tax Table for a stated income and filing status, its page, and the Tax Computation Worksheet above $100,000.",
+      "tasks": 4
+    },
+    {
+      "kind": "wage-bracket",
+      "name": "Wage bracket withholding",
+      "what": "Withholding for a pay period from Publication 15-T's wage bracket tables and Worksheet 2, with stated Form W-4 settings.",
+      "tasks": 3
+    },
+    {
+      "kind": "percentage-method",
+      "name": "Percentage method withholding",
+      "what": "Worksheet 1A carried through with the annual percentage method tables.",
+      "tasks": 2
+    },
+    {
+      "kind": "worksheet",
+      "name": "Worksheets",
+      "what": "Standard deduction charts and worksheets, the qualified dividends tax worksheet with two table lookups, and gaming distribution withholding.",
+      "tasks": 4
+    },
+    {
+      "kind": "form-line",
+      "name": "Lines of a form",
+      "what": "Which line of Schedule 1 takes each stated item of income or adjustment.",
+      "tasks": 2
+    },
+    {
+      "kind": "outline",
+      "name": "Bookmarks and sections",
+      "what": "Reaching a named section through the PDF's own bookmarks and reading its page and values.",
+      "tasks": 3
+    },
+    {
+      "kind": "small-print",
+      "name": "Small print and charts",
+      "what": "Values from pie charts, footnotes, side-by-side rate schedules and the dense EIC Table.",
+      "tasks": 3
+    },
+    {
+      "kind": "row-count",
+      "name": "Counting on a page",
+      "what": "Counting the rows or lines on a page that meet a stated condition.",
+      "tasks": 3
+    },
+    {
+      "kind": "edition-comparison",
+      "name": "Two editions",
+      "what": "The same table or worksheet in two years' editions, and what changed for stated facts.",
+      "tasks": 3
+    },
+    {
+      "kind": "html-find",
+      "name": "Long web pages",
+      "what": "Find in page and scrolling through IRS web pages without their usual layout.",
+      "tasks": 3
+    }
+  ],
+  "lines": [],
+  "lines_title": null,
+  "you_get": [
+    {
+      "title": "Every test task",
+      "detail": "Each with the IRS documents it needs, unchanged, its answer key and the check that marks every field right or wrong."
+    },
+    {
+      "title": "Free to use",
+      "detail": "Under CC BY 4.0, with credit to the source."
+    },
+    {
+      "title": "Runs on your machine",
+      "detail": "Run it in Actuaria Studio Essentials with the AI you choose, on a desktop it controls. Each task needs 2 CPUs and 4 GB of memory."
+    }
+  ],
+  "sample_task": "computer-use-browser-tax-table-01",
+  "cover_letter": "COVER.md",
+  "registry": {
+    "url": "oci://ghcr.io/node-q/hbench-datasets",
+    "name": "computer-use-browser",
+    "access": "public"
+  }
+}

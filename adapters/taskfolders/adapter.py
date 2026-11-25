@@ -6,7 +6,8 @@ published as an asset of a GitHub release of this repository and pinned by sha25
 
 Each exported task keeps its instruction, its documents (environment/, which hbench copies into the image's /app),
 its answer key (tests/expected.json), its checker (tests/verify.py), its test.sh and its oracle
-(solution/decision.json and solve.sh), byte for byte, except:
+(solution/decision.json and solve.sh), byte for byte, except as listed below. The documents under environment/ are
+copied as bytes, never decoded, so a PDF or an HTML page ships exactly as exported. Except:
 
 - the directory, [task].name and every quoted name in task.toml (its tags) lose the "hb-int-" prefix of node-q's
   own names (hb-int-flsa-overtime-bonus-01 becomes flsa-overtime-bonus-01), and [task].name is the bare directory
@@ -38,6 +39,7 @@ TASK_FILES = ("task.toml", "instruction.md", "tests/test.sh", "tests/verify.py",
 NAME_LINE = re.compile(r'^name = "[^"\n]*"$', re.M)
 IMAGE_LINE = re.compile(r'^docker_image = "[^"\n]*"$', re.M)
 FACTS_NAME = "tasks.json"
+DOCUMENTS = "environment/"
 
 
 class AdapterError(ValueError):
@@ -79,7 +81,7 @@ def task_files(name, exported_files, context):
     missing = [path for path in TASK_FILES if path not in exported_files]
     if missing:
         raise AdapterError(f"{name}: the export has no {', '.join(missing)}")
-    text = {path: data.decode("utf-8") for path, data in exported_files.items()}
+    text = {path: data.decode("utf-8") for path, data in exported_files.items() if not path.startswith(DOCUMENTS)}
     manifest = text["task.toml"]
     if len(NAME_LINE.findall(manifest)) != 1 or len(IMAGE_LINE.findall(manifest)) != 1:
         raise AdapterError(f"{name}: task.toml does not have exactly one name and one docker_image")
@@ -91,7 +93,7 @@ def task_files(name, exported_files, context):
     manifest = manifest.replace(f'"{EXPORTED_PREFIX}', '"')
     if not text["instruction.md"].startswith(f"<!-- {context.canary} -->\n"):
         raise AdapterError(f"{name}: the instruction does not start with the version's canary")
-    files = dict(text)
+    files = {**text, **{path: data for path, data in exported_files.items() if path.startswith(DOCUMENTS)}}
     files["task.toml"] = manifest
     files["tests/verify.py"] = with_canary(text["tests/verify.py"], context.canary)
     files["tests/expected.json"] = with_canary_key(exported_files["tests/expected.json"], context.canary)
