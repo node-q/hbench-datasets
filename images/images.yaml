@@ -45,3 +45,8 @@ images:
     base: base-python-3.12-slim
     platforms:
       - linux/amd64
+  - tag: desktop-1.0
+    context: images/desktop
+    base: base-python-3.12-slim
+    platforms:
+      - linux/amd64
