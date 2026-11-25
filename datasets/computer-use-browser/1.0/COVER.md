@@ -10,7 +10,7 @@ This is a draft. No tax preparer, payroll specialist or anyone at the IRS has ch
 
 The tasks read nine documents of the Internal Revenue Service, byte for byte as irs.gov served them on 24 November 2026: Publication 1040 with the 2025 tax and earned income credit tables, the 2024 tax tables, the 2025 Instructions for Form 1040, Publication 15-T for 2026 and for 2025, Schedule 1 (Form 1040) for 2025, Publication 501 for 2025, and the web editions of Publications 501 and 15-T. IRS.gov says content made by federal employees in the course of their duties is not subject to copyright, and asks for credit, which we give. This test set is not approved, endorsed or sponsored by, or associated with, the IRS or the Department of the Treasury.
 
-The documents ship unchanged, so nothing in them was cut. We read every one for personal data and found none: the phone numbers are those of agencies and organisations, and the first names in worked examples, such as Lee or Sam, name nobody real. The NOTICE lists what we found.
+The documents ship unchanged, so nothing in them was cut. We read every one for personal data and found none: the phone numbers are those of agencies and organisations, and the names in worked examples, such as Lee, Sam or the Smiths, and the sample check made out by Stella and Bailey Keys, are fictitious examples printed by the IRS. The NOTICE lists what we found, and the parts of the documents, such as some cover artwork, that may not be US government works.
 
 ## How the answers were worked out
 
@@ -19,7 +19,7 @@ We wrote the questions. Each states the facts of an exercise for an unnamed taxp
 ## What it does not cover
 
 - It is not tax advice. It covers US federal income tax and withholding only, in the editions named above. Later editions and the law may differ.
-- The two web pages ship without the site's styling, so they look plainer than on irs.gov.
+- The two web pages ship without the site's styling, so they look plainer than on irs.gov. With network access, the browser also loads the site's Google Tag Manager and AddToAny scripts for them. You can run the tasks with the network off: every document is a local file.
 - The questions test reading and carrying values exactly, not judgement about a real return. The exercises are simple on purpose.
 - Two to four tasks for each kind of work show where an AI stands. They are not enough to rank two close results.
 

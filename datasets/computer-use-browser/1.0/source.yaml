@@ -94,5 +94,7 @@ rai:
   personal_sensitive_information:
   - The questions name no person and no company. The documents were not redacted (they ship unchanged);
     a scan found agency and organization phone numbers, the IRS's phishing address, placeholder first
-    names in worked examples (Lee; Sam, Bobbi and Dani) and two private payment processors named by the
-    IRS, all listed in NOTICE, and no natural person's personal data.
+    names and a sample check in fictitious examples printed by the IRS (Lee; Sam, Bobbi, Dani, Kody, Jordan,
+    Marley, Reid, Gene, Aubrey, Bailey and the Smiths; a check marked SAMPLE from STELLA KEYS and BAILEY KEYS,
+    123 Pear Lane, Anyplace, MI 00000), which name no real person, and two private payment processors named
+    by the IRS, all listed in NOTICE, and no natural person's personal data.

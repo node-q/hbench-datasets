@@ -14,7 +14,8 @@ are works of the US government, which have no copyright protection in the United
 only what the federal government wrote, and only in the United States; elsewhere their status may differ. IRS.gov
 says: "Content on this website that was created or maintained by federal employees in the course of their duties is
 not subject to copyright and may be freely copied. Credit is requested." The documents ship unchanged, byte for byte
-as irs.gov served them.
+as irs.gov served them. Some parts of them, such as cover artwork and an embedded Adobe settings file,
+may not be US government works; node-q makes no claim on them: see the NOTICE.
 
 The NOTICE file says where every document comes from and what was changed in it.
 

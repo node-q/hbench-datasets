@@ -206,7 +206,8 @@ Files, by name
 --------------
 
 - documents.csv (environment/reference/, in every task): derived from the Federal Register API's document records (records filtered to the rules and proposed rules that five agencies published from 2024-01-01 to 2025-12-31, less 5 whose descriptive text names a company, a private organisation or an individual; 20 fields kept and the others dropped; JSON rewritten as CSV; values unchanged). 386 rows under the header row, 371,119 bytes. sha256 22c348f06ce620ba38bd31869543fac198266cd9d000dbd59cbbb3ff54a88383
-- fulltext/<document number>.txt (environment/reference/fulltext/, in every task): derived from the Government Publishing Office's text rendition of each document on govinfo.gov (the text of the HTML page's preformatted block, with the hyperlink tags around web addresses removed; the ADDRESSES section, the FOR FURTHER INFORMATION CONTACT section, each signature block and, in some files, one headed part of the SUPPLEMENTARY INFORMATION dropped whole, each replaced by one marker line; wording and line breaks otherwise unchanged). 89 files, 499,658 bytes together; each is rebuilt byte for byte from its source page by the rules above, and the package digests in digests.lock.json lock them.
+- fulltext/<document number>.txt (environment/reference/fulltext/, in every task): derived from the Government Publishing Office's text rendition of each document on govinfo.gov (the text of the HTML page's preformatted block, with the hyperlink tags around web addresses removed; the ADDRESSES section, the FOR FURTHER INFORMATION CONTACT section, each signature block and, in some files, one headed part of the SUPPLEMENTARY INFORMATION dropped whole, each replaced by one marker line; wording and line breaks otherwise unchanged). 89 files, 499,658 bytes together; each is rebuilt byte for byte from its source page by the rules above, and the sha256 of tasks.tar.xz in this version's source.yaml, with its generated.lock.json, pins the tasks that ship
+them.
 
 Personal data and names
 -----------------------
@@ -257,8 +258,8 @@ version publishes them unchanged except for three things: the names and tags los
 this repository's image (ghcr.io/node-q/hbench-envs, tag taskfolders-1.0), and the canary line is added to the
 checker, the answer key and the oracle's answer. The canary GUID is the one the tasks always carried. Nothing else
 was removed for publication: the personal data listed above had been left out of the files before the tasks were
-built, and a second scan of every exported file on 2026-11-25 (the PDFs' text layers and metadata included) found
-no natural person's name, e-mail address, phone number or signature to remove.
+built, and a second scan of every exported file on 2026-11-25 (the records, the texts and the instructions) found no
+natural person's name, e-mail address, phone number or signature to remove.
 
 Licence
 -------

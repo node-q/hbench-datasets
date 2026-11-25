@@ -73,14 +73,28 @@ the documents ship unchanged:
   small icons, each looked at on its rendered page, and the scan found only that paragraph). The IRS's address phishing@irs.gov (i1040gi.pdf).
 - Names of laws and programs as the IRS writes them (for example the One Big Beautiful Bill Act and "Trump accounts" in
   p501.pdf's What's New), which are statutory names, not personal data.
-- Placeholder first names in worked examples: "Lee" (i1040gi.pdf) and "Sam", "Bobbi" and "Dani" (p501.pdf, and its HTML
-  edition), which name no real person.
+- Fictitious examples printed by the IRS, naming no real person: the first names "Lee" (i1040gi.pdf); "Sam", "Bobbi",
+  "Dani", "Kody", "Jordan", "Marley", "Reid", "Gene", "Aubrey" and "Bailey", and "the Smiths" (p501.pdf and its HTML
+  edition, p501.html); and i1040gi.pdf's sample check, marked SAMPLE, made out by "STELLA KEYS" and "BAILEY KEYS",
+  123 Pear Lane, Anyplace, MI 00000.
 - Private companies named by the IRS itself: two payment processors with their phone numbers on i1040gi.pdf page 64; the
   HTML pages' site template links to social media services (Facebook, Instagram, LinkedIn, X, YouTube) and loads Google
-  Tag Manager and AddToAny scripts.
+  Tag Manager and AddToAny scripts. Opened in a task container that has network access, p501.html and p15t.html make
+  the browser fetch Google Tag Manager and AddToAny from the internet; without network access they load nothing from
+  outside. Operators who want neither can run the tasks with the container's network turned off: the documents are
+  local files and no task needs the network.
 - The PDFs' Author metadata is an IRS office code (W:CAR:MP:FP or C:DC:TS:CAR:MP), not a person; their printers' proof
   line (in the text layer, not printed on the pages) reads "Userid: CPM", the same code in every IRS publication shipped.
 No natural person's name, signature, title tied to a name, credential or personal contact detail was found.
+
+Parts that may not be US government works
+------------------------------------------
+
+The documents ship unchanged, and some parts of them may not be works of the US government: the cover artwork of
+i1040gi.pdf and i1040tt--2024.pdf (a photograph of a compass on a map); the cover artwork of p501.pdf, p15t.pdf and
+p15t--2025.pdf (an eagle, a flag and a building); and the Adobe settings file "Press Quality(1).joboptions" embedded
+in six PDFs (i1040gi.pdf, i1040tt--2024.pdf, p1040.pdf, p15t.pdf, p15t--2025.pdf and p501.pdf). They ship only as part
+of the unchanged documents. node-q makes no claim on them, and CC BY 4.0 does not cover them.
 
 Not reviewed
 ------------
@@ -95,10 +109,9 @@ How these tasks are published
 node-q wrote and checked these tasks in its own task repository, where their names start with "hb-int-". This
 version publishes them unchanged except for three things: the names and tags lose that prefix, each task runs in
 this repository's image (ghcr.io/node-q/hbench-envs, tag desktop-1.0), and the canary line is added to the
-checker, the answer key and the oracle's answer. The canary GUID is the one the tasks always carried. Nothing else
-was removed for publication: the personal data listed above had been left out of the files before the tasks were
-built, and a second scan of every exported file on 2026-11-25 (the PDFs' text layers and metadata included) found
-no natural person's name, e-mail address, phone number or signature to remove.
+checker, the answer key and the oracle's answer. The canary GUID is the one the tasks always carried. Nothing was
+removed from the documents, here or before: they ship unchanged, as irs.gov served them, with everything listed
+under "Personal data and names" above.
 
 Licence
 -------
