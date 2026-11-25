@@ -1,0 +1,152 @@
+{
+  "computer-use-browser-edition-01": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-edition-02": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-edition-03": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-form-line-01": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-form-line-02": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-html-01": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-html-02": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-html-03": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-outline-01": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-outline-02": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-outline-03": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-percentage-01": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-percentage-02": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-row-count-01": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-row-count-02": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-row-count-03": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-small-print-01": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-small-print-02": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-small-print-03": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-tax-table-01": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-tax-table-02": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-tax-table-03": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-tax-table-04": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-wage-bracket-01": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-wage-bracket-02": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-wage-bracket-03": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-worksheet-01": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-worksheet-02": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-worksheet-03": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  },
+  "computer-use-browser-worksheet-04": {
+    "source": "ghcr.io/node-q/hbench-envs:desktop-1.0",
+    "source_digest": "sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5",
+    "pinned": "ghcr.io/node-q/hbench-envs@sha256:9cb00f54cdece894170e3c255df59fc7a5523bbc334cf95070bce417fae9aba5"
+  }
+}

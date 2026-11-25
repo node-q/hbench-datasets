@@ -1,0 +1,142 @@
+{
+  "federal-register-cfr-01": {
+    "difficulty": "easy",
+    "fields": 9,
+    "kind": "cfr-coverage"
+  },
+  "federal-register-cfr-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "cfr-coverage"
+  },
+  "federal-register-cfr-03": {
+    "difficulty": "medium",
+    "fields": 9,
+    "kind": "cfr-coverage"
+  },
+  "federal-register-check-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "document-check"
+  },
+  "federal-register-check-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "document-check"
+  },
+  "federal-register-comment-01": {
+    "difficulty": "easy",
+    "fields": 7,
+    "kind": "comment-periods"
+  },
+  "federal-register-comment-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "comment-periods"
+  },
+  "federal-register-comment-03": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "comment-periods"
+  },
+  "federal-register-corrections-01": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "corrections"
+  },
+  "federal-register-corrections-02": {
+    "difficulty": "hard",
+    "fields": 9,
+    "kind": "corrections"
+  },
+  "federal-register-effective-01": {
+    "difficulty": "easy",
+    "fields": 6,
+    "kind": "effective-dates"
+  },
+  "federal-register-effective-02": {
+    "difficulty": "hard",
+    "fields": 6,
+    "kind": "effective-dates"
+  },
+  "federal-register-effective-03": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "effective-dates"
+  },
+  "federal-register-history-01": {
+    "difficulty": "medium",
+    "fields": 9,
+    "kind": "rulemaking-history"
+  },
+  "federal-register-history-02": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "rulemaking-history"
+  },
+  "federal-register-history-03": {
+    "difficulty": "medium",
+    "fields": 9,
+    "kind": "rulemaking-history"
+  },
+  "federal-register-history-04": {
+    "difficulty": "medium",
+    "fields": 9,
+    "kind": "rulemaking-history"
+  },
+  "federal-register-history-05": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "rulemaking-history"
+  },
+  "federal-register-search-01": {
+    "difficulty": "easy",
+    "fields": 5,
+    "kind": "document-search"
+  },
+  "federal-register-search-02": {
+    "difficulty": "medium",
+    "fields": 7,
+    "kind": "document-search"
+  },
+  "federal-register-search-03": {
+    "difficulty": "hard",
+    "fields": 8,
+    "kind": "document-search"
+  },
+  "federal-register-stats-01": {
+    "difficulty": "easy",
+    "fields": 8,
+    "kind": "corpus-statistics"
+  },
+  "federal-register-stats-02": {
+    "difficulty": "medium",
+    "fields": 9,
+    "kind": "corpus-statistics"
+  },
+  "federal-register-stats-03": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "corpus-statistics"
+  },
+  "federal-register-text-01": {
+    "difficulty": "medium",
+    "fields": 9,
+    "kind": "text-facts"
+  },
+  "federal-register-text-02": {
+    "difficulty": "hard",
+    "fields": 7,
+    "kind": "text-facts"
+  },
+  "federal-register-text-03": {
+    "difficulty": "medium",
+    "fields": 8,
+    "kind": "text-facts"
+  },
+  "federal-register-text-04": {
+    "difficulty": "easy",
+    "fields": 8,
+    "kind": "text-facts"
+  }
+}

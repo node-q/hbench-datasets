@@ -19,7 +19,8 @@ reviewed their answers yet, and each version's NOTICE and COVER.md say so.
    repository named `sources-<name>-<version>`, marked as source data. The version's `source.yaml` pins it by
    sha256 as its one upstream file.
 2. `adapters/taskfolders` writes the tasks from it, unchanged except for their names and tags (without node-q's
-   `hb-int-` prefix), the image they run in (`taskfolders-1.0`, built here from `images/taskfolders`) and the canary
+   `hb-int-` prefix), the image they run in (`taskfolders-1.0`, built here from `images/taskfolders`, or for the computer-use
+   set `desktop-1.0`, from `images/desktop`) and the canary
    added to the checker and the answer files. It records each task's kind of work, difficulty and number of graded
    fields in `tasks.json`, which the listing counts from. `scripts/check_generated_tasks.py` checks `tasks.json`
    and runs each task's checker on its oracle (it must pass) and on an empty answer (it must fail).
