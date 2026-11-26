@@ -4,7 +4,10 @@ Usage: dataset_index.py --namespace ghcr.io/node-q/hbench-datasets --output inde
 
 Resolves <namespace>/<name>:<version> for each datasets/<name>/<version>/source.yaml with `oras resolve`, as an
 anonymous client does, and leaves out a version the registry does not serve (not published yet) or serves only to
-signed-in clients (a package still private), saying which. It also leaves out each version superseded.yaml
+signed-in clients (a package still private), saying which. It lists a served version only once `cosign verify` passes
+on its digest for the identity publish.yml@refs/heads/main: a publish run that pushed a tag but stopped before signing
+it leaves a version that is left out, and any other cosign failure stops the build, so that a passing glitch never
+drops a dataset from the index. It also leaves out each version superseded.yaml
 replaces with another, once that other is in the index: the registry still serves it by name, but hbench no longer
 lists it. The index is the JSON
 layer of <namespace>/index:latest, which hbench reads to list the namespace's datasets
@@ -20,6 +23,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import time
 
 import jsonschema
 
@@ -27,6 +31,15 @@ from source_descriptor import DESCRIPTOR_FILENAME, REPOSITORY_ROOT, load_descrip
 
 INDEX_SCHEMA_PATH = REPOSITORY_ROOT / "schema" / "dataset-index.v1.json"
 UNSERVED = re.compile(r"not found|unauthorized|denied|forbidden|manifest unknown|name unknown", re.IGNORECASE)
+CERTIFICATE_IDENTITY = "https://github.com/node-q/hbench-datasets/.github/workflows/publish.yml@refs/heads/main"
+CERTIFICATE_OIDC_ISSUER = "https://token.actions.githubusercontent.com"
+# What cosign says when the digest carries no signature by that identity, as opposed to a network or registry error.
+UNSIGNED = re.compile(
+    r"no signatures found|no matching signatures|none of the expected identities matched|no matching attestations|"
+    r"no bundle found",
+    re.IGNORECASE,
+)
+VERIFY_ATTEMPTS = 3
 
 
 class DatasetIndexError(Exception):
@@ -48,22 +61,47 @@ def oras_resolve(reference):
     raise DatasetIndexError(f"oras resolve {reference}: {completed.stderr.strip()}")
 
 
-def published_versions(namespace, resolve=None, directories=None, superseded=None):
+def cosign_verify(reference, attempts=VERIFY_ATTEMPTS, sleep=time.sleep):
+    """True when reference (<repository>@<digest>) is signed by publish.yml on main, False when it is not signed so."""
+    command = [
+        "cosign", "verify",
+        "--certificate-identity", CERTIFICATE_IDENTITY,
+        "--certificate-oidc-issuer", CERTIFICATE_OIDC_ISSUER,
+        reference,
+    ]
+    for attempt in range(1, attempts + 1):
+        with tempfile.TemporaryDirectory() as no_credentials:
+            environment = dict(os.environ, DOCKER_CONFIG=no_credentials)
+            completed = subprocess.run(command, capture_output=True, text=True, env=environment)
+        if completed.returncode == 0:
+            return True
+        if UNSIGNED.search(completed.stderr):
+            return False
+        if attempt < attempts:
+            sleep(5 * attempt)
+    raise DatasetIndexError(f"cosign verify {reference}: {completed.stderr.strip()}")
+
+
+def published_versions(namespace, resolve=None, directories=None, superseded=None, verify=None):
+    """The entries to index, the versions the registry does not serve, and those served but not signed by publish.yml."""
     resolve = resolve or oras_resolve
+    verify = verify or cosign_verify
     superseded = load_superseded() if superseded is None else superseded
-    entries, left_out = [], []
+    entries, left_out, unsigned = [], [], []
     for directory in directories if directories is not None else version_directories():
         descriptor = load_descriptor(directory / DESCRIPTOR_FILENAME)
         name, version = descriptor["name"], descriptor["version"]
         digest = resolve(f"{namespace}/{name}:{version}")
         if digest is None:
             left_out.append(f"{name}@{version}")
+        elif not verify(f"{namespace}/{name}@{digest}"):
+            unsigned.append(f"{name}@{version}")
         else:
             entries.append({"name": name, "version": version, "digest": digest})
     indexed = {dataset_reference(entry) for entry in entries}
     entries = [entry for entry in entries if superseded.get(dataset_reference(entry)) not in indexed]
     entries.sort(key=lambda entry: (entry["name"], version_key(entry["version"])))
-    return entries, sorted(left_out)
+    return entries, sorted(left_out), sorted(unsigned)
 
 
 def dataset_reference(entry):
@@ -92,7 +130,7 @@ def main(arguments=None):
     parser.add_argument("--output", required=True, type=pathlib.Path)
     options = parser.parse_args(arguments)
     try:
-        entries, left_out = published_versions(options.namespace.rstrip("/"))
+        entries, left_out, unsigned = published_versions(options.namespace.rstrip("/"))
         index = build_index(entries)
     except DatasetIndexError as error:
         print(f"dataset_index.py: {error}", file=sys.stderr)
@@ -100,6 +138,11 @@ def main(arguments=None):
     options.output.write_text(dump_index(index), encoding="utf-8")
     for dataset in left_out:
         print(f"left out {dataset}: {options.namespace}/{dataset.replace('@', ':')} is not served to anonymous clients")
+    for dataset in unsigned:
+        print(
+            f"left out {dataset}: {options.namespace}/{dataset.replace('@', ':')} is not signed by publish.yml on main; "
+            "delete that package version and publish it again"
+        )
     indexed = {dataset_reference(entry) for entry in entries}
     for dataset, successor in sorted(load_superseded().items()):
         if dataset in indexed:

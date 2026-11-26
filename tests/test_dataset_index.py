@@ -28,6 +28,10 @@ def resolver(served):
     return lambda reference: served.get(reference)
 
 
+def SIGNED(reference):
+    return True
+
+
 class PublishedVersionsTest(unittest.TestCase):
     def test_served_versions_are_listed_sorted_and_the_rest_left_out(self):
         served = {
@@ -35,7 +39,7 @@ class PublishedVersionsTest(unittest.TestCase):
             f"{NAMESPACE}/terminal-bench:2.0": DIGEST_A,
             f"{NAMESPACE}/humaneval-plus:1.0": DIGEST_C,
         }
-        entries, left_out = dataset_index.published_versions(NAMESPACE, resolver(served), DIRECTORIES, superseded={})
+        entries, left_out, unsigned = dataset_index.published_versions(NAMESPACE, resolver(served), DIRECTORIES, superseded={}, verify=SIGNED)
         self.assertEqual(
             entries,
             [
@@ -48,16 +52,16 @@ class PublishedVersionsTest(unittest.TestCase):
 
     def test_a_superseded_version_is_left_out_though_served(self):
         served = {f"{NAMESPACE}/terminal-bench:2.0.1": DIGEST_B, f"{NAMESPACE}/terminal-bench:2.0": DIGEST_A}
-        entries, left_out = dataset_index.published_versions(
-            NAMESPACE, resolver(served), DIRECTORIES[2:3] + DIRECTORIES[:1], superseded=TB_2_0_SUPERSEDED
+        entries, left_out, unsigned = dataset_index.published_versions(
+            NAMESPACE, resolver(served), DIRECTORIES[2:3] + DIRECTORIES[:1], superseded=TB_2_0_SUPERSEDED, verify=SIGNED
         )
         self.assertEqual(entries, [{"name": "terminal-bench", "version": "2.0.1", "digest": DIGEST_B}])
         self.assertEqual(left_out, [])
 
     def test_a_superseded_version_stays_until_its_successor_is_served(self):
         served = {f"{NAMESPACE}/terminal-bench:2.0": DIGEST_A}
-        entries, left_out = dataset_index.published_versions(
-            NAMESPACE, resolver(served), DIRECTORIES[2:3] + DIRECTORIES[:1], superseded=TB_2_0_SUPERSEDED
+        entries, left_out, unsigned = dataset_index.published_versions(
+            NAMESPACE, resolver(served), DIRECTORIES[2:3] + DIRECTORIES[:1], superseded=TB_2_0_SUPERSEDED, verify=SIGNED
         )
         self.assertEqual(entries, [{"name": "terminal-bench", "version": "2.0", "digest": DIGEST_A}])
         self.assertEqual(left_out, ["terminal-bench@2.0.1"])
@@ -102,6 +106,57 @@ class ResolveTest(unittest.TestCase):
                 dataset_index.oras_resolve(f"{NAMESPACE}/x:1.0")
 
 
+class VerifyTest(unittest.TestCase):
+    def completed(self, returncode, stderr=""):
+        return mock.Mock(returncode=returncode, stdout="", stderr=stderr)
+
+    def test_verifies_the_digest_anonymously_for_publish_on_main(self):
+        with mock.patch.object(dataset_index.subprocess, "run", return_value=self.completed(0)) as run:
+            self.assertTrue(dataset_index.cosign_verify(f"{NAMESPACE}/terminal-bench@{DIGEST_A}"))
+        command = run.call_args.args[0]
+        self.assertEqual(command[:2], ["cosign", "verify"])
+        self.assertEqual(
+            command[command.index("--certificate-identity") + 1],
+            "https://github.com/node-q/hbench-datasets/.github/workflows/publish.yml@refs/heads/main",
+        )
+        self.assertNotIn("--certificate-identity-regexp", command)
+        self.assertEqual(command[command.index("--certificate-oidc-issuer") + 1], "https://token.actions.githubusercontent.com")
+        self.assertEqual(command[-1], f"{NAMESPACE}/terminal-bench@{DIGEST_A}")
+        self.assertIsNotNone(run.call_args.kwargs["env"].get("DOCKER_CONFIG"))
+
+    def test_an_unsigned_or_differently_signed_digest_is_not_verified(self):
+        for stderr in (
+            "Error: no signatures found",
+            "Error: no matching signatures: none of the expected identities matched what was in the certificate",
+        ):
+            with mock.patch.object(dataset_index.subprocess, "run", return_value=self.completed(1, stderr)):
+                self.assertFalse(dataset_index.cosign_verify(f"{NAMESPACE}/x@{DIGEST_A}", sleep=lambda seconds: None))
+
+    def test_a_passing_failure_is_retried(self):
+        results = [self.completed(1, "dial tcp: i/o timeout"), self.completed(0)]
+        with mock.patch.object(dataset_index.subprocess, "run", side_effect=results) as run:
+            self.assertTrue(dataset_index.cosign_verify(f"{NAMESPACE}/x@{DIGEST_A}", sleep=lambda seconds: None))
+        self.assertEqual(run.call_count, 2)
+
+    def test_any_other_failure_stops_the_build(self):
+        with mock.patch.object(dataset_index.subprocess, "run", return_value=self.completed(1, "dial tcp: i/o timeout")):
+            with self.assertRaisesRegex(dataset_index.DatasetIndexError, "i/o timeout"):
+                dataset_index.cosign_verify(f"{NAMESPACE}/x@{DIGEST_A}", sleep=lambda seconds: None)
+
+    def test_a_served_but_unsigned_version_is_left_out_and_does_not_supersede(self):
+        served = {f"{NAMESPACE}/terminal-bench:2.0": DIGEST_A, f"{NAMESPACE}/terminal-bench:2.0.1": DIGEST_B}
+        entries, left_out, unsigned = dataset_index.published_versions(
+            NAMESPACE,
+            resolver(served),
+            DIRECTORIES[2:3] + DIRECTORIES[:1],
+            superseded=TB_2_0_SUPERSEDED,
+            verify=lambda reference: not reference.endswith(DIGEST_B),
+        )
+        self.assertEqual(entries, [{"name": "terminal-bench", "version": "2.0", "digest": DIGEST_A}])
+        self.assertEqual(left_out, [])
+        self.assertEqual(unsigned, ["terminal-bench@2.0.1"])
+
+
 class MainTest(unittest.TestCase):
     def test_writes_the_index_and_names_what_it_left_out(self):
         served = {
@@ -115,6 +170,7 @@ class MainTest(unittest.TestCase):
             printed = io.StringIO()
             with (
                 mock.patch.object(dataset_index, "oras_resolve", resolver(served)),
+                mock.patch.object(dataset_index, "cosign_verify", SIGNED),
                 mock.patch.object(dataset_index, "version_directories", lambda: DIRECTORIES),
                 mock.patch.object(dataset_index, "load_superseded", lambda: superseded),
                 contextlib.redirect_stdout(printed),
@@ -131,6 +187,23 @@ class MainTest(unittest.TestCase):
         self.assertIn("left out terminal-bench@2.0: superseded by terminal-bench@2.0.1", printed.getvalue())
         self.assertIn("kept humaneval-plus@1.0: its successor humaneval-plus@1.0.1 is not in the index yet", printed.getvalue())
         self.assertIn("indexed 2 dataset versions", printed.getvalue())
+
+    def test_names_a_served_version_it_left_out_as_unsigned(self):
+        served = {f"{NAMESPACE}/humaneval-plus:1.0": DIGEST_C}
+        with tempfile.TemporaryDirectory() as directory:
+            output = pathlib.Path(directory, "index.json")
+            printed = io.StringIO()
+            with (
+                mock.patch.object(dataset_index, "oras_resolve", resolver(served)),
+                mock.patch.object(dataset_index, "cosign_verify", lambda reference: False),
+                mock.patch.object(dataset_index, "version_directories", lambda: DIRECTORIES[1:2]),
+                mock.patch.object(dataset_index, "load_superseded", lambda: {}),
+                contextlib.redirect_stdout(printed),
+            ):
+                self.assertEqual(dataset_index.main(["--namespace", NAMESPACE, "--output", str(output)]), 0)
+            self.assertEqual(json.loads(output.read_text())["datasets"], [])
+        self.assertIn("left out humaneval-plus@1.0: ", printed.getvalue())
+        self.assertIn("is not signed by publish.yml on main", printed.getvalue())
 
 
 if __name__ == "__main__":

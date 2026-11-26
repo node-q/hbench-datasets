@@ -28,11 +28,16 @@ datasets there are; a wrong entry is refused, not run.
 
 ## How it is built
 
-The **Index** workflow runs after every publish (Publish calls it) and by hand:
+The **Index** workflow runs after a publish (Publish run on its own calls it; Release dataset calls it once after its
+last set) and by hand:
 
 1. `scripts/dataset_index.py` resolves `<name>:<version>` for each `datasets/<name>/<version>/source.yaml`, as an
    anonymous client does, and lists the versions the registry serves, sorted by name and version. A version not
-   published yet, or whose package is still private, is left out and named in the job summary.
+   published yet, or whose package is still private, is left out and named in the job summary. A served version is
+   listed only when `cosign verify --certificate-identity
+   https://github.com/node-q/hbench-datasets/.github/workflows/publish.yml@refs/heads/main` passes on its digest; one
+   that a failed publish pushed but did not sign is left out and named too. Any other cosign failure, after three
+   tries, stops the run, so that the index never drops a dataset because of a network error.
 2. When the index lists the same datasets as `index:latest` already does, nothing is pushed.
 3. Otherwise it pushes the index with oras, signs its digest with cosign keyless, and checks that an anonymous
    client can pull it.

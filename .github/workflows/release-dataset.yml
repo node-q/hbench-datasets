@@ -77,10 +77,15 @@ jobs:
           SETS: ${{ inputs.sets }}
           PYTHONPATH: scripts
         run: |
-          if ! python scripts/release_plan.py --markdown "$RUNNER_TEMP/plan.md" "$SETS" > "$RUNNER_TEMP/plan.json" 2> "$RUNNER_TEMP/problems.txt"; then
+          # "--" keeps a sets input that starts with "-" (such as -h) from being read as an option.
+          if ! python scripts/release_plan.py --markdown "$RUNNER_TEMP/plan.md" -- "$SETS" > "$RUNNER_TEMP/plan.json" 2> "$RUNNER_TEMP/problems.txt"; then
             while read -r problem; do
               echo "::error title=Cannot release::$problem. Nothing was published."
             done < "$RUNNER_TEMP/problems.txt"
+            exit 1
+          fi
+          if ! jq -e '(.sets | type == "array" and length > 0) and all(.sets[]; (.dataset | type == "string") and (.version | type == "string") and (.problems == []))' "$RUNNER_TEMP/plan.json" > /dev/null; then
+            echo "::error title=No plan::release_plan.py did not print a plan with at least one set ready to release. Nothing was published."
             exit 1
           fi
           {
@@ -120,14 +125,16 @@ jobs:
             cat "$RUNNER_TEMP/plan.md" 2>/dev/null || echo "No plan: the inputs were refused."
           } >> "$GITHUB_STEP_SUMMARY"
 
-  sources:
-    name: Check and publish the source releases
+  sources-check:
+    name: Check the source releases
     needs: check
     runs-on: ubuntu-24.04
     timeout-minutes: 20
-    # Draft releases are listed only to a token that can write contents.
+    # This job only reads (GET requests), but GitHub lists draft releases only to a token that can write contents.
     permissions:
       contents: write
+    outputs:
+      releases: ${{ steps.check.outputs.releases }}
     env:
       PLAN: ${{ needs.check.outputs.plan }}
     steps:
@@ -137,27 +144,46 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh api --paginate "repos/$GITHUB_REPOSITORY/releases?per_page=100" --jq '.[]' \
-            | jq -c '{id, tag_name, draft, assets: [.assets[] | {id, name}]}' > "$RUNNER_TEMP/releases.jsonl"
-          : > "$RUNNER_TEMP/drafts.txt"
-          : > "$RUNNER_TEMP/release-states.txt"
+            | jq -c '{id, tag_name, draft, body: (.body // ""), assets: [.assets[] | {id, name, size}]}' > "$RUNNER_TEMP/releases.jsonl"
+          # One line per release the sets download from, with every set that uses it and every pinned asset.
+          jq -c '[.sets[] | "\(.dataset)@\(.version)" as $set_ref | .releases[] | {set: $set_ref, tag, assets}]
+            | group_by(.tag)[] | {tag: .[0].tag, sets: [.[].set] | unique, assets: ([.[].assets[]] | unique_by(.name))}' <<<"$PLAN" > "$RUNNER_TEMP/wanted.jsonl"
+          : > "$RUNNER_TEMP/checked.jsonl"
           problems=0
-          while read -r release; do
-            set_ref="$(jq -r .set <<<"$release")"
-            tag="$(jq -r .tag <<<"$release")"
+          while read -r wanted; do
+            tag="$(jq -r .tag <<<"$wanted")"
+            sets="$(jq -r '.sets | join(", ")' <<<"$wanted")"
             matches="$(jq -c --arg tag "$tag" 'select(.tag_name == $tag)' "$RUNNER_TEMP/releases.jsonl")"
             if [[ -z "$matches" || "$(wc -l <<<"$matches")" != 1 ]]; then
-              echo "::error title=No source release::$set_ref downloads its source from the release $tag, which is not a single draft or published release of $GITHUB_REPOSITORY. Create it as a draft with the tarball from the export. Nothing was published."
+              echo "::error title=No source release::$sets downloads its source from the release $tag, which is not a single draft or published release of $GITHUB_REPOSITORY. Create it as a draft with the tarball from the export. Nothing was published."
               problems=$((problems + 1))
               continue
             fi
-            release_id="$(jq -r .id <<<"$matches")"
             draft="$(jq -r .draft <<<"$matches")"
+            if [[ "$draft" == true ]]; then
+              # A draft is published under this repository's name: it must hold exactly the pinned files and no text.
+              if ! jq -e --argjson wanted "$wanted" '([.assets[].name] | sort) == ([$wanted.assets[].name] | sort)' <<<"$matches" > /dev/null; then
+                echo "::error title=Draft assets differ::The draft $tag holds $(jq -r '[.assets[].name] | join(", ")' <<<"$matches"), but source.yaml pins exactly $(jq -r '[.assets[].name] | join(", ")' <<<"$wanted"). Remove the other assets. Nothing was published."
+                problems=$((problems + 1))
+                continue
+              fi
+              if [[ -n "$(jq -r .body <<<"$matches")" ]]; then
+                echo "::error title=Draft has notes::The draft $tag has release notes. Leave them empty: this workflow writes them when it publishes the draft. Nothing was published."
+                problems=$((problems + 1))
+                continue
+              fi
+              if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$tag" > /dev/null 2>&1; then
+                echo "::error title=Tag exists::The tag $tag already exists, so publishing the draft $tag would not tag $GITHUB_SHA. Nothing was published."
+                problems=$((problems + 1))
+                continue
+              fi
+            fi
             while read -r asset; do
               name="$(jq -r .name <<<"$asset")"
               pinned="$(jq -r .sha256 <<<"$asset")"
               asset_id="$(jq -r --arg name "$name" '[.assets[] | select(.name == $name)] | if length == 1 then .[0].id else empty end' <<<"$matches")"
               if [[ -z "$asset_id" ]]; then
-                echo "::error title=Asset missing::The release $tag has no single asset named $name, which source.yaml of $set_ref downloads. Nothing was published."
+                echo "::error title=Asset missing::The release $tag has no single asset named $name, which source.yaml of $sets downloads. Nothing was published."
                 problems=$((problems + 1))
                 continue
               fi
@@ -165,43 +191,74 @@ jobs:
               actual="$(sha256sum "$RUNNER_TEMP/asset" | cut -d' ' -f1)"
               rm -f "$RUNNER_TEMP/asset"
               if [[ "$actual" != "$pinned" ]]; then
-                echo "::error title=sha256 differs::$name in the release $tag has sha256 $actual, but source.yaml of $set_ref pins $pinned. Nothing was published."
+                echo "::error title=sha256 differs::$name in the release $tag has sha256 $actual, but source.yaml of $sets pins $pinned. Nothing was published."
                 problems=$((problems + 1))
                 continue
               fi
-              echo "$set_ref: $tag/$name matches its pinned sha256 ($([[ "$draft" == true ]] && echo draft || echo published))."
-            done < <(jq -c '.assets[]' <<<"$release")
-            if [[ "$draft" == true ]]; then
-              echo "$release_id $tag" >> "$RUNNER_TEMP/drafts.txt"
-              echo "$tag draft" >> "$RUNNER_TEMP/release-states.txt"
-            else
-              echo "$tag published" >> "$RUNNER_TEMP/release-states.txt"
-            fi
-          done < <(jq -c '.sets[] | "\(.dataset)@\(.version)" as $set_ref | .releases[] | {set: $set_ref, tag, assets}' <<<"$PLAN")
+              echo "$sets: $tag/$name matches its pinned sha256 ($([[ "$draft" == true ]] && echo draft || echo published))."
+            done < <(jq -c '.assets[]' <<<"$wanted")
+            jq -c --argjson release "$matches" '{tag, sets, id: $release.id, draft: $release.draft,
+              assets: [.assets[] | .name as $name | ($release.assets[] | select(.name == $name)) + {sha256}]}' <<<"$wanted" >> "$RUNNER_TEMP/checked.jsonl"
+          done < "$RUNNER_TEMP/wanted.jsonl"
           (( problems == 0 ))
-          # Two sets of one run may share a release: publish it once.
-          awk '!seen[$0]++' "$RUNNER_TEMP/drafts.txt" > "$RUNNER_TEMP/drafts-once.txt"
+          echo "releases=$(jq -sc . "$RUNNER_TEMP/checked.jsonl")" >> "$GITHUB_OUTPUT"
           {
             echo "## Source releases"
             echo
-            if [[ ! -s "$RUNNER_TEMP/release-states.txt" ]]; then
+            if [[ ! -s "$RUNNER_TEMP/checked.jsonl" ]]; then
               echo "None of these sets downloads its source from a release of this repository."
             else
-              awk '!seen[$0]++ { print "- `" $1 "`: " $2 }' "$RUNNER_TEMP/release-states.txt"
+              jq -r '"- `\(.tag)`: \(if .draft then "draft, to publish" else "published" end), for \(.sets | join(", "))"' "$RUNNER_TEMP/checked.jsonl"
             fi
           } >> "$GITHUB_STEP_SUMMARY"
-      - name: Publish the draft source releases
-        if: ${{ !inputs.dry_run }}
+
+  sources-publish:
+    name: Publish the draft source releases
+    needs: [check, sources-check]
+    if: ${{ !inputs.dry_run }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      PLAN: ${{ needs.check.outputs.plan }}
+      RELEASES: ${{ needs.sources-check.outputs.releases }}
+    steps:
+      - name: Publish each draft at this commit, after checking it has not changed since it was checked
         env:
           GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          while read -r release_id tag; do
+          while read -r checked; do
+            release_id="$(jq -r .id <<<"$checked")"
+            tag="$(jq -r .tag <<<"$checked")"
+            current="$(gh api "repos/$GITHUB_REPOSITORY/releases/$release_id" --jq '{tag_name, draft, body: (.body // ""), assets: [.assets[] | {id, name, size}]}')"
+            if ! jq -e --argjson checked "$checked" '.draft == true and .tag_name == $checked.tag and .body == ""
+                and ([.assets[] | {id, name, size}] | sort_by(.name)) == ([$checked.assets[] | {id, name, size}] | sort_by(.name))' <<<"$current" > /dev/null; then
+              echo "::error title=Draft changed::The draft $tag changed after it was checked. Run Release dataset again. Nothing more was published."
+              exit 1
+            fi
+            if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$tag" > /dev/null 2>&1; then
+              echo "::error title=Tag exists::The tag $tag appeared after the check. Nothing more was published."
+              exit 1
+            fi
+            body="$(jq -r --arg run_url "$RUN_URL" '
+              "Source data, not a release of anything: the files that \(.sets | join(", ")) in this repository "
+              + "generate their tasks from (see each version'"'"'s source.yaml and NOTICE). It is not the published dataset, which "
+              + "is in ghcr.io/node-q/hbench-datasets.\n\n"
+              + ([.assets[] | "- \(.name): \(.size) bytes, sha256 \(.sha256)"] | join("\n"))
+              + "\n\nPublished by the Release dataset workflow: \($run_url)"' <<<"$checked")"
             # A source release is never the repository's latest release: that stays a dataset release.
-            gh api -X PATCH "repos/$GITHUB_REPOSITORY/releases/$release_id" -F draft=false -f make_latest=false \
+            gh api -X PATCH "repos/$GITHUB_REPOSITORY/releases/$release_id" \
+              -F draft=false -f make_latest=false -f target_commitish="$GITHUB_SHA" -f body="$body" \
               --jq '"Published \(.tag_name): \(.html_url)"' | tee -a "$GITHUB_STEP_SUMMARY"
-          done < "$RUNNER_TEMP/drafts-once.txt"
+            tagged="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$tag" --jq '.object.sha')"
+            if [[ "$tagged" != "$GITHUB_SHA" ]]; then
+              echo "::error title=Tag elsewhere::The tag $tag points at $tagged, not at $GITHUB_SHA. Nothing was pushed to the registry."
+              exit 1
+            fi
+          done < <(jq -c '.[] | select(.draft)' <<<"$RELEASES")
       - name: Check each source downloads anonymously with its pinned sha256
-        if: ${{ !inputs.dry_run }}
         run: |
           problems=0
           while read -r url pinned; do
@@ -215,7 +272,7 @@ jobs:
 
   publish:
     name: Publish
-    needs: [check, sources]
+    needs: [check, sources-publish]
     if: ${{ !inputs.dry_run }}
     strategy:
       # One set at a time, in the order given; a failed set stops the sets after it.
@@ -246,7 +303,7 @@ jobs:
 
   summary:
     name: Write the release summary
-    needs: [check, sources, publish, index]
+    needs: [check, sources-check, sources-publish, publish, index]
     if: ${{ always() && needs.check.result == 'success' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 10
@@ -255,7 +312,7 @@ jobs:
     env:
       PLAN: ${{ needs.check.outputs.plan }}
       DRY_RUN: ${{ inputs.dry_run }}
-      SOURCES_RESULT: ${{ needs.sources.result }}
+      SOURCES_RESULT: ${{ needs.sources-publish.result }}
       PUBLISH_RESULT: ${{ needs.publish.result }}
       INDEX_RESULT: ${{ needs.index.result }}
     steps:
@@ -301,6 +358,6 @@ jobs:
             done < <(jq -r '.sets[] | "\(.dataset) \(.version)"' <<<"$PLAN")
             if [[ "$DRY_RUN" != true && "$PUBLISH_RESULT" != success ]]; then
               echo
-              echo "**Not every set was published**, so the index was not updated. Sets above with a digest are published. Fix the failed set (its publish job's summary says whether a package version must be deleted), then run Release dataset for the sets that are left, or run Index alone."
+              echo "**Not every set was published**, so the index was not updated. Sets above with a digest are published. If a publish job pushed its tag and then failed, delete the pushed version before any Index run (its publish job's summary names it). Then fix the failed set and run Release dataset for the sets that are left, or run Index alone."
             fi
           } >> "$GITHUB_STEP_SUMMARY"

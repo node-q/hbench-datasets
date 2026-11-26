@@ -132,7 +132,7 @@ The signature, made by this repository's publish workflow:
 
 ```sh
 cosign verify ghcr.io/node-q/hbench-datasets/terminal-bench-2:1.0 \
-  --certificate-identity-regexp '^https://github.com/node-q/hbench-datasets/.github/workflows/publish.yml@' \
+  --certificate-identity https://github.com/node-q/hbench-datasets/.github/workflows/publish.yml@refs/heads/main \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
 
@@ -427,8 +427,9 @@ steps before it are manual:
    datasets/<name> tasks.tar.xz` writes the set's tasks as one reproducible file, applying the set's
    `open-redactions.tsv`; see [`docs/open-test-sets.md`](docs/open-test-sets.md).
 2. **Draft the source release.** Create a draft release `sources-<name>-<version>` here with that
-   file attached, and pin its URL and sha256 in the version's `source.yaml`. A version fetched from
-   upstream has no source release and skips this step.
+   file attached and nothing else, with empty release notes and no existing tag of that name, and pin
+   its URL and sha256 in the version's `source.yaml`. A version fetched from upstream has no source
+   release and skips this step.
 3. **Open the pull request** with `datasets/<name>/<version>`. If the version needs a new task image,
    add it to `images/images.yaml` in the same pull request.
 4. **Fill the images lock.** Once the image is on `main`, run **Build images** for it (or **Mirror
@@ -444,8 +445,10 @@ publishing any: its descriptor is on `main` and passes `validate_sources.py --fo
 images lock is filled (when it is not, the run stops and names the Build images, Mirror images or Pin
 images run to do; it does not start that run, because its lock goes in through a pull request), the
 registry does not serve it yet, and each source release it downloads from exists, as a draft or
-published, with an asset whose sha256 matches `source.yaml`. Then it publishes the draft source
-releases (never marking one as the latest release), checks each source downloads anonymously, runs
+published, with an asset whose sha256 matches `source.yaml`; a draft must hold exactly the pinned
+assets and no release notes. Then, in a separate job that a dry run skips, it checks each draft has not
+changed since, publishes it tagged at the run's commit with notes it writes itself (never marking it as
+the latest release), checks each source downloads anonymously, runs
 **Publish** for each set in the order given, one at a time and stopping at the first failure, and
 runs **Index** once at the end. Its summary lists each set's source release, manifest digest and
 index entry.
@@ -453,8 +456,9 @@ index entry.
 **Publish** can also be run on its own, for one version, with the dataset, the version and the
 node-q/hbench release to pack with; it then updates the index itself, as before. Release dataset
 calls it with `update_index: false`, so that one release updates the index once. Either way the
-signature and the attestation name `publish.yml`, so they verify with the commands under
-[Verifying a dataset](#verifying-a-dataset). Publish runs on GitHub-hosted runners and:
+signature and the attestation name `publish.yml@refs/heads/main`, so they verify with the commands
+under [Verifying a dataset](#verifying-a-dataset), and the index lists a version only once that
+signature verifies. Publish runs on GitHub-hosted runners and:
 
 1. refuses to run unless that hbench release has `hbench datasets push`, installing it only after
    checking `SHA256SUMS` and its build provenance;
@@ -474,7 +478,26 @@ signature and the attestation name `publish.yml`, so they verify with the comman
 A new GHCR package starts private. After the first publish of a dataset, make its package public
 in the package's settings, then re-run the release job. When Release dataset stops partway, the sets
 with a digest in its summary are published and the index was not updated: fix the failed set, then
-run Release dataset for the sets that are left, or run **Index** alone.
+run Release dataset for the sets that are left, or run **Index** alone. If a publish job pushed its
+tag and then failed, delete that package version before any Index run.
+
+### Gating releases behind an environment (repository setting)
+
+Release dataset refuses a run from any ref but `main`, but a workflow file on another branch could be
+edited to skip that check. A `release` environment closes that gap; it is a setting, not in this
+repository's files:
+
+1. Settings, Environments, New environment `release`.
+2. Deployment branches and tags: Selected branches, add `main` only.
+3. Required reviewers: add the maintainers who approve a release; tick "Prevent self-review" if more
+   than one can approve.
+4. Add `environment: release` to the jobs that write: `sources-publish` in `release-dataset.yml`, and
+   the `publish` and `release` jobs of `publish.yml` and the `index` job of `index.yml` (a job that
+   calls a reusable workflow cannot take `environment:` itself, so it goes in the called workflows,
+   which then also gates running Publish or Index on their own).
+
+Each run then waits for a reviewer's approval before it can publish, and no branch but `main` can
+deploy to `release`.
 
 To propose a dataset, see [CONTRIBUTING.md](CONTRIBUTING.md). To report a problem with a published
 dataset, see [SECURITY.md](SECURITY.md).

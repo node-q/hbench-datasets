@@ -59,7 +59,8 @@ env:
   HBENCH_VERSION: ${{ inputs.hbench_version }}
   REGISTRY: ghcr.io
   REPOSITORY: ghcr.io/node-q/hbench-datasets/${{ inputs.dataset }}
-  CERTIFICATE_IDENTITY_REGEXP: ^https://github.com/node-q/hbench-datasets/.github/workflows/publish.yml@
+  # Only main publishes: the signature must name publish.yml at refs/heads/main, as dataset_index.py checks.
+  CERTIFICATE_IDENTITY_REGEXP: ^https://github\.com/node-q/hbench-datasets/\.github/workflows/publish\.yml@refs/heads/main$
   CERTIFICATE_OIDC_ISSUER: https://token.actions.githubusercontent.com
   # hbench datasets push is not released yet: the guard also checks that it takes every flag the push step passes.
   HBENCH_PUSH_FLAGS: --descriptor --to
@@ -254,7 +255,7 @@ jobs:
             --certificate-oidc-issuer "$CERTIFICATE_OIDC_ISSUER" > /dev/null
           gh attestation verify "oci://$REPOSITORY@$DIGEST" \
             --repo "$GITHUB_REPOSITORY" \
-            --signer-workflow "$GITHUB_REPOSITORY/.github/workflows/publish.yml" > /dev/null
+            --signer-workflow "$GITHUB_REPOSITORY/.github/workflows/publish.yml@refs/heads/main" > /dev/null
       - name: Attach the Croissant metadata
         env:
           DIGEST: ${{ steps.push.outputs.digest }}
