@@ -8,6 +8,7 @@
   "summary": "Federal income tax work with the IRS's yearly inflation adjustments: rate tables by filing status, the standard deduction, capital gains rates, the AMT exemption, the earned income credit, the kiddie tax, and gift and estate exclusions.",
   "description": "Each task states an unnamed taxpayer's facts, such as a filing status, a taxable income, an age or a gift. The AI reads the two revenue procedures that set the inflation-adjusted amounts for tax years 2025 and 2026, and gives exact answers: the tax from the rate table, a standard deduction, how a gain splits across the capital gains rates, an exemption as it phases out, a credit, or how an amount changed between the two years. Where a question needs a rule of the Internal Revenue Code that the documents do not restate, it writes the rule out. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Finance",
+  "group": "finance",
   "trade": "tax preparers",
   "status": "draft",
   "pricing": "free",

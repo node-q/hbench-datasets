@@ -12,6 +12,7 @@ description: 'Each task puts one to three real Internal Revenue Service document
   answer to a file or gives it as its final answer. Every field of the answer is checked, and a task passes only when all
   of them are right.'
 domain: Computer use
+group: computer-use
 format: field-graded
 status: draft
 trade: tax preparers and payroll specialists

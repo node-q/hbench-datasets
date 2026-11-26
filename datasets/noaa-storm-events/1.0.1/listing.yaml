@@ -9,6 +9,7 @@ description: 'Each task gives the AI rows of NOAA''s Storm Events Database for 2
   and asks for exact figures: counts, damage totals, shares, rankings, averages and durations. Every field of the answer
   is checked, and a task passes only when all of them are right.'
 domain: Natural hazards
+group: research-data
 format: field-graded
 status: draft
 trade: catastrophe modellers

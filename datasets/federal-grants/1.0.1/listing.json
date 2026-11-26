@@ -8,6 +8,7 @@
   "summary": "Grants accounting under 2 CFR Part 200 at its 2024 amounts: allowable and indirect costs, cost sharing, program income, equipment, procurement, award dates and the single audit.",
   "description": "Each task states the facts of an unnamed recipient's Federal award: a budget, purchases, spending and dates. The AI reads the Office of Management and Budget's rules for Federal awards, 2 CFR Part 200, and gives exact answers: modified total direct costs, which costs are allowable, what counts as cost sharing, a procurement method, whether an audit is required, or a due date. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Finance",
+  "group": "finance",
   "trade": "grants accountants",
   "status": "draft",
   "pricing": "free",

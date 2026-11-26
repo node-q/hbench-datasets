@@ -8,6 +8,7 @@
   "summary": "Read the published ICD-10-CM files exactly: codes valid for submission and headers, how codes are built, the hierarchy, what changed between two annual releases, and whether the files agree with each other.",
   "description": "Each task gives the AI lines of the real ICD-10-CM files as the US government publishes them, with the publisher's own descriptions of their layout. It asks for exact answers, such as whether a code is valid for submission, how many codes sit under a header, which codes a release added or reworded, or where two files disagree. No task asks the AI to code a clinical record or apply a coding guideline. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Health compliance",
+  "group": "law-compliance",
   "trade": "medical coders",
   "status": "draft",
   "pricing": "free",

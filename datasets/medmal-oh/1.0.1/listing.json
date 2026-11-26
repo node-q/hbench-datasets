@@ -8,6 +8,7 @@
   "summary": "Rate Ohio physicians and surgeons from two insurers' filed manuals: classes, territories, limits, claims-made and occurrence rates, tail coverage, credits, schedule rating, full premiums and one doctor at both insurers.",
   "description": "Each task gives the AI the filed rating manuals, rate pages and exhibits of two insurers' medical professional liability programs in Ohio, and states the facts in the question, such as a physician's specialty, county and limits. It asks for exact values: a premium, a factor, a credit, a rule, a territory, or the errors in the documents themselves. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "underwriters",
   "status": "draft",
   "pricing": "free",

@@ -6,6 +6,7 @@ summary: Programming exercises in C++, Go, Java, JavaScript, Python and Rust. Th
 description: Each test task gives the AI an exercise as Exercism ships it, with its instructions, starting files and
   tests. The AI writes the solution. It passes when every test of the exercise passes, run without internet access.
 domain: Coding
+group: coding
 format: run-tests
 licence:
   name: Apache License 2.0

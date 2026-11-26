@@ -8,6 +8,7 @@
   "summary": "Apply the US Family and Medical Leave Act regulations to one employee's situation: eligibility, coverage, leave used and left, 12-month periods, military caregiver leave, and notice and certification deadlines.",
   "description": "Each task gives the facts about one unnamed employee and employer: dates, hours, head counts and leave already taken. The AI reads the Department of Labor's FMLA regulations, 29 CFR Part 825, and answers what they decide: whether the employee is eligible and the employer covered, how much leave is used and left in workweeks and hours, a deadline as a date, or whether a step complies. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Employment law",
+  "group": "law-compliance",
   "trade": "leave administrators",
   "status": "draft",
   "pricing": "free",

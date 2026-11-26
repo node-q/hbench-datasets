@@ -8,6 +8,7 @@
   "summary": "Rate one private passenger auto program in Ohio from its filed rules, rate pages and symbol lists: vehicle symbols, garaging, driver and tier factors, rate steps, limits, discounts, fees and the filing's own errors.",
   "description": "Each task gives the AI the filed rules, rate pages, vehicle symbol lists and policy form of one personal auto program in Ohio, and states the facts in the question, such as a vehicle's model and year, a driver's insurance score or a given tier. It asks for exact values: a symbol, a factor, a partial premium in the filed rate order, a fee, a rule, or the errors in the documents themselves. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "underwriters",
   "status": "draft",
   "pricing": "free",

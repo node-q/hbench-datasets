@@ -8,6 +8,7 @@
   "summary": "Everyday underwriting work on nine lines of business in Ohio: full premiums, table lookups, schedule rating, minimums, endorsements, eligibility, state exceptions, claims-made tails, return premiums and errors in filed manuals.",
   "description": "Each task gives the AI the filed rate and rule documents it needs, from public filings for one line of business, and states its facts in the question. It asks for exact values: a premium, a factor, a rule, or the errors in the documents themselves. The lines run through commercial property, general liability, professional and medical liability, personal auto, pet, farm, contract surety and title. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "underwriters",
   "status": "draft",
   "pricing": "free",

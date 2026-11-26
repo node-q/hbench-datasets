@@ -8,6 +8,7 @@
   "summary": "Research in real Federal Register rules and proposed rules of five agencies: find the documents that meet stated criteria, follow a rulemaking to its final rule, count comment periods and effective dates, and check records against texts.",
   "description": "Every task gives the AI the same files: the Federal Register's records of every rule and proposed rule that five federal agencies published in 2024 and 2025, 386 documents, and the published text of 89 of them. The agencies are the Internal Revenue Service, the Agricultural Marketing Service, the Office of Personnel Management, the Social Security Administration and the Pension Benefit Guaranty Corporation. Each question states its definitions and asks for exact answers, such as which documents meet the criteria, how long a comment period ran, which proposal led to which final rule, what a correction or a withdrawal refers to, what a rule's text says about a budget or a penalty, and where the records and the texts disagree. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Regulatory research",
+  "group": "research-data",
   "trade": "regulatory analysts",
   "status": "draft",
   "pricing": "free",

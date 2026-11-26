@@ -8,6 +8,7 @@
   "summary": "Rate Medicare supplement plans in Ohio and check a refund calculation, from two insurers' filings: rates by plan, age, sex and area, discounts, a rate increase exhibit, the NAIC refund calculation and the filings' own errors.",
   "description": "Each task gives the AI the text of one insurer's filed rate page and actuarial memorandum and another insurer's filed refund calculation, and states its facts in the question, such as an applicant's age, county, plan and way of paying. It asks for exact answers: a monthly rate, a discount, a ratio, a line of an exhibit, whether a refund is due, or the errors in the documents themselves. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "underwriters and actuaries",
   "status": "draft",
   "pricing": "free",

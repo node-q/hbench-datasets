@@ -9,6 +9,7 @@ description: 'Each task gives the AI extracts of four public CMS files on Ohio''
   an enrollment total, or a finding in the files themselves. Every field of the answer is checked, and a task passes only
   when all of them are right.'
 domain: Insurance
+group: insurance
 format: field-graded
 status: draft
 trade: underwriters

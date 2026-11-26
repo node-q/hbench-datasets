@@ -8,6 +8,7 @@
   "summary": "Rate one insurer's errors and omissions program in Ohio from its filed manuals and forms: base premiums, rating factors, limits, endorsements, extended reporting, cyber, claims-made coverage and Ohio's own rules.",
   "description": "Each task gives the AI the rating manuals one insurer filed in Ohio for its professional liability program, for lawyers, accountants, architects and engineers, and other professionals, with the policy forms where a question needs them. The question states the facts, such as a firm's revenue or a claim's dates, and asks for exact values: a premium, a factor, whether a claim is covered, or the errors in the documents themselves. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "underwriters",
   "status": "draft",
   "pricing": "free",

@@ -8,6 +8,7 @@
   "summary": "An AI that uses a computer through screenshots, mouse and keyboard opens real IRS PDFs and web pages in Chromium: it finds the right page of a long tax table, follows bookmarks, zooms into small print and carries a worksheet through.",
   "description": "Each task puts one to three real Internal Revenue Service documents on a Linux desktop, exactly as the IRS publishes them: the 2025 and 2024 tax tables, the 2025 Form 1040 instructions, Publication 15-T for 2026 and 2025, Schedule 1, Publication 501, and the web editions of Publications 501 and 15-T. The AI opens them in Chromium and works from what the screen shows. It pages through a tax table to the right row, figures payroll withholding with stated Form W-4 settings, carries a worksheet through, finds the line of a form that takes an item, reads small print and charts, counts rows on a page, compares two editions and searches long web pages. Every question states its facts, and none describes a real person. The AI writes its answer to a file or gives it as its final answer. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Computer use",
+  "group": "computer-use",
   "trade": "tax preparers and payroll specialists",
   "status": "draft",
   "pricing": "free",

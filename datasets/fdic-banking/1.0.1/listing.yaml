@@ -8,6 +8,7 @@ description: 'Each task gives the AI real yearly totals for FDIC-insured institu
   it asks for, and the AI gives exact figures: a ratio, a growth rate, a ranking, a count, or whether the tables agree
   with themselves. Every field of the answer is checked, and a task passes only when all of them are right.'
 domain: Finance
+group: finance
 format: field-graded
 status: draft
 trade: bank analysts

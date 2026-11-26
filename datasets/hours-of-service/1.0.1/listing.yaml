@@ -9,6 +9,7 @@ description: 'Each task gives an unnamed driver''s record of duty status as a ta
   and on-duty time, the first minute of driving that is not allowed and the limit that forbids it, the time left, or whether
   a rest counts. Every field of the answer is checked to the minute, and a task passes only when all of them are right.'
 domain: Transport
+group: law-compliance
 format: field-graded
 status: draft
 trade: fleet compliance managers

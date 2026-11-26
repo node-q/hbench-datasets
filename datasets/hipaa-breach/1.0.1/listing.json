@@ -8,6 +8,7 @@
   "summary": "Apply the US HIPAA regulations to an incident or a request: whether it is a breach, who must be told and by when, requests for access, amendment and accounting, how long records are kept, and civil money penalties.",
   "description": "Each task says what happened at an unnamed health care provider, health plan or business associate: what information was exposed, who knew what and when, how many people in which States, or what a patient asked for. The AI reads ten parts of the HIPAA regulations in 45 CFR and gives the answer they decide: a date, a yes or no, a choice, a count or an amount. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Health compliance",
+  "group": "law-compliance",
   "trade": "privacy officers",
   "status": "draft",
   "pricing": "free",

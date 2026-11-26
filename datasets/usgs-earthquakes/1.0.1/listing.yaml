@@ -8,6 +8,7 @@ description: 'Each task hands the AI one extract of the earthquake catalog, exac
   and a radius, a time window or a formula. The AI gives exact figures: counts, medians, distances, gaps, b-values and
   seismic moments. Every field of the answer is checked, and a task passes only when all of them are right.'
 domain: Natural hazards
+group: research-data
 format: field-graded
 status: draft
 trade: seismologists

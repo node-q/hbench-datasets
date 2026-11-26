@@ -8,6 +8,7 @@
   "summary": "Work out overtime pay under the US Department of Labor's overtime regulation: the regular rate, the overtime due, and bonuses and commissions spread back over the weeks they were earned in.",
   "description": "Each task describes one workweek of an unnamed employee: pay rates, hours, and any bonus, commission, piece rate or salary. The AI reads the regulation on overtime pay, 29 CFR Part 778, and gives exact answers, such as the regular rate, the overtime due, or whether a payment counts toward the regular rate. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Employment law",
+  "group": "law-compliance",
   "trade": "payroll specialists",
   "status": "draft",
   "pricing": "free",

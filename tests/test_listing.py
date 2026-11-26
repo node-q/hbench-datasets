@@ -40,6 +40,19 @@ class Listing(unittest.TestCase):
             with self.subTest(text=text), self.assertRaisesRegex(listing.ListingError, expected):
                 listing.build_listing(target)
 
+    def test_the_group_is_one_of_the_six_and_required(self):
+        """hbench-studio#390: the Market Place and Essentials file a set under its listing's own group."""
+        self.assertEqual("coding", json.loads(listing.build_listing(SWEBENCH_LITE))["group"])
+        for text, expected in (("group: coding\n", "'group' is a required property"),
+                               ("group: coding\n", "is not one of")):
+            target = self.copy()
+            written = (target / "listing.yaml").read_text(encoding="utf-8")
+            self.assertIn(text, written)
+            changed = written.replace(text, "" if "required" in expected else "group: other\n")
+            (target / "listing.yaml").write_text(changed, encoding="utf-8")
+            with self.subTest(expected=expected), self.assertRaisesRegex(Exception, expected):
+                listing.build_listing(target)
+
     def test_a_stale_listing_json_fails_the_check(self):
         target = self.copy()
         (target / "listing.json").write_text("{}\n", encoding="utf-8")

@@ -8,6 +8,7 @@
   "summary": "Redo a real general liability rate indication filed in Ohio: development factors, ultimate losses, trend, loss ratios, the indicated rate change, Ohio's loss cost multiplier and the places where the exhibits disagree.",
   "description": "Each task gives the AI the filed documents of one real general liability rate filing made in Ohio, as text, and asks it to recompute, check or read exact values: age-to-age and age-to-ultimate factors, chain-ladder and Bornhuetter-Ferguson ultimates, trend factors and regressions, loss ratios and credibility, the indicated rate change and the loss cost multiplier, or the places where the exhibits disagree with each other or with their own notes. Every answer follows from the printed numbers and the formulas the filing states. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "actuaries",
   "status": "draft",
   "pricing": "free",

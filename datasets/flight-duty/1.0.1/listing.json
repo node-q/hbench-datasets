@@ -8,6 +8,7 @@
   "summary": "Check a pilot's schedule against the US FAA's flight and duty limits: flight time, duty periods, augmented crews, time zones, split duty, extensions, reserve, rest and night flying.",
   "description": "Each task gives an unnamed pilot's facts: where the pilot is acclimated, report time, flight legs and block times, the crew and its rest facility, earlier duty and rest, every time with its date and UTC offset. The AI reads the FAA's flight and duty limits for flightcrew members, 14 CFR Part 117, with its Tables A, B and C, and answers what they decide, mostly to the minute: the limit that applies, how much is used and left, or whether a schedule is allowed. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Transport",
+  "group": "law-compliance",
   "trade": "crew schedulers",
   "status": "draft",
   "pricing": "free",

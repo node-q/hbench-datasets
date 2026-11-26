@@ -112,6 +112,7 @@ def build_listing(version_directory):
         "summary": written["summary"],
         "description": written["description"],
         "domain": written["domain"],
+        "group": written["group"],
         **({"trade": written["trade"]} if "trade" in written else {}),
         "status": written.get("status", "published"),
         "pricing": "free",

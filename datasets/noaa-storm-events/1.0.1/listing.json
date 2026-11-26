@@ -8,6 +8,7 @@
   "summary": "Count, total and check NOAA's US storm records for 2024 and 2025: events and episodes, damage written with K, M and B suffixes, deaths and injuries, tornado paths, hail and wind, and time zones.",
   "description": "Each task gives the AI rows of NOAA's Storm Events Database for 2024 or 2025, the National Weather Service's record of storms, floods, hail, wind and other significant weather, with the deaths, injuries and damage estimates entered for each event. The question states its own definitions, such as an area, an event type or how an empty cell counts, and asks for exact figures: counts, damage totals, shares, rankings, averages and durations. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Natural hazards",
+  "group": "research-data",
   "trade": "catastrophe modellers",
   "status": "draft",
   "pricing": "free",

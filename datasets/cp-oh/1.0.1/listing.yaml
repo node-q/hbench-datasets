@@ -8,6 +8,7 @@ description: 'Each task gives the AI the manual pages one insurer filed in Ohio 
   a factor, a rate or premium after a given step, a rule, or the errors in the pages themselves. Every field of the answer
   is checked, and a task passes only when all of them are right.'
 domain: Insurance
+group: insurance
 format: field-graded
 status: draft
 trade: underwriters

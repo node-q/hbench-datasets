@@ -8,6 +8,7 @@ description: 'Each task describes one workweek of an unnamed employee: pay rates
   rate, the overtime due, or whether a payment counts toward the regular rate. Every field of the answer is checked, and
   a task passes only when all of them are right.'
 domain: Employment law
+group: law-compliance
 format: field-graded
 status: draft
 trade: payroll specialists

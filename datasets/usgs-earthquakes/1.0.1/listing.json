@@ -8,6 +8,7 @@
   "summary": "Count, sort and measure earthquakes in the US Geological Survey's catalog: magnitude and depth classes, event types, local clocks, distances across the 180-degree meridian, aftershocks, b-values and seismic moment.",
   "description": "Each task hands the AI one extract of the earthquake catalog, exactly as the US Geological Survey's public web service returned it in November 2026. The question states every measure it needs, such as class bounds, a point and a radius, a time window or a formula. The AI gives exact figures: counts, medians, distances, gaps, b-values and seismic moments. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Natural hazards",
+  "group": "research-data",
   "trade": "seismologists",
   "status": "draft",
   "pricing": "free",

@@ -8,6 +8,7 @@
   "summary": "Check a truck or bus driver's log against the US hours-of-service rules: driving and duty limits, rest breaks, weekly limits and restarts, sleeper berth splits, short-haul and bad weather exceptions.",
   "description": "Each task gives an unnamed driver's record of duty status as a table of time-stamped changes, says whether the vehicle carries goods or passengers, and states the facts of any exception. The AI reads the Federal Motor Carrier Safety Administration's hours-of-service rules, 49 CFR Part 395, subpart A, and answers what they decide: total driving and on-duty time, the first minute of driving that is not allowed and the limit that forbids it, the time left, or whether a rest counts. Every field of the answer is checked to the minute, and a task passes only when all of them are right.",
   "domain": "Transport",
+  "group": "law-compliance",
   "trade": "fleet compliance managers",
   "status": "draft",
   "pricing": "free",

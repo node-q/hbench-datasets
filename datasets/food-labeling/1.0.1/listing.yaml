@@ -10,6 +10,7 @@ description: 'Each task describes an unnamed, made-up food: its laboratory value
   claim meets its numbers, and whether a lab analysis is within the compliance tolerances. Every field of the answer
   is checked, and a wrong rounding step always fails.'
 domain: Health compliance
+group: law-compliance
 format: field-graded
 status: draft
 trade: regulatory specialists

@@ -8,6 +8,7 @@ description: 'Each task gives the AI extracts of FEMA''s public flood insurance 
   counts, totals, shares, medians and the codes behind them. Every question covers a group of at least ten rows, never a single
   claim or policy. Every field of the answer is checked, and a task passes only when all of them are right.'
 domain: Insurance
+group: insurance
 format: field-graded
 status: draft
 trade: claims analysts

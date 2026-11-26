@@ -104,7 +104,7 @@ None of it is published with the dataset.
 
 | File | What | Written by |
 | --- | --- | --- |
-| `listing.yaml` | title, summary, description, domain, how an answer is checked, the licence as a reader reads it, the upstream work with its credit, the kind of work, what a reader gets ([schema](schema/listing.v1.json)) | hand |
+| `listing.yaml` | title, summary, description, domain, its group (one of the six the Actuaria Market Place and Actuaria Studio Essentials show), how an answer is checked, the licence as a reader reads it, the upstream work with its credit, the kind of work, what a reader gets ([schema](schema/listing.v1.json)) | hand |
 | `COVER.md` | the cover letter: what it is, where it comes from, how an answer is checked, what it does not cover, the licence. `## ` headings, `- ` lists and paragraphs only | hand |
 | `listing.json` | `listing.yaml` plus what the dataset says: the task count (`source.yaml`, checked against the lock), each repository's task count where `lines: repository`, the licence id and the registry | `python scripts/listing.py datasets/<name>/<version>` |
 

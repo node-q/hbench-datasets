@@ -9,6 +9,7 @@ description: 'Each task states the facts of an unnamed recipient''s Federal awar
   whether an audit is required, or a due date. Every field of the answer is checked, and a task passes only when all
   of them are right.'
 domain: Finance
+group: finance
 format: field-graded
 status: draft
 trade: grants accountants

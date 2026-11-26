@@ -9,6 +9,7 @@ description: 'Each task states the facts of an unnamed borrower''s escrow accoun
   may do about it, or the last day for a statement or a reply. Every field of the answer is checked, and a task passes
   only when all of them are right.'
 domain: Finance
+group: finance
 format: field-graded
 status: draft
 trade: mortgage servicers

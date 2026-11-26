@@ -10,6 +10,7 @@ description: 'Each task hands the AI the 36 complete period life tables that the
   or something it finds in the tables. Every field of the answer is checked, and a task passes only when all of them
   are right.'
 domain: Insurance
+group: insurance
 format: field-graded
 status: draft
 trade: actuaries

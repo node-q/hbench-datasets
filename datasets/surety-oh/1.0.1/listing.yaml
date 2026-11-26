@@ -8,6 +8,7 @@ description: 'Each task gives the AI one insurer''s filed contract surety rate m
   a premium, a rate, a code, a rule, or the errors in the manual itself. Every field of the answer is checked, and a task
   passes only when all of them are right. Premiums the manual rounds to the dollar must match to the dollar.'
 domain: Insurance
+group: insurance
 format: field-graded
 status: draft
 trade: surety underwriters

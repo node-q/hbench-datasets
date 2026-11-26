@@ -8,6 +8,7 @@
   "summary": "Mortgage escrow work under the CFPB's Regulation X: the annual escrow analysis and its cushion, surpluses, shortages and deficiencies, and the deadlines for statements, error notices and force-placed insurance.",
   "description": "Each task states the facts of an unnamed borrower's escrow account: the bills it will pay, a balance, a date. The AI reads the escrow and servicing sections of Regulation X, 12 CFR Part 1024, with appendix E, and gives exact answers: a monthly escrow payment, a cushion, a surplus, shortage or deficiency and what the servicer must or may do about it, or the last day for a statement or a reply. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Finance",
+  "group": "finance",
   "trade": "mortgage servicers",
   "status": "draft",
   "pricing": "free",

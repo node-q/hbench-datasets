@@ -9,6 +9,7 @@ description: 'Each task says what happened to unnamed employees at an unnamed wo
   how many days count, which deadline applies, or who must keep and submit records. Every field of the answer is checked,
   and a task passes only when all of them are right.'
 domain: Employment law
+group: law-compliance
 format: field-graded
 status: draft
 trade: safety managers

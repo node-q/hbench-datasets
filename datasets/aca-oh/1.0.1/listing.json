@@ -8,6 +8,7 @@
   "summary": "Read Ohio's 2026 individual health plan data from CMS's public use files: rates, tobacco loads, age curves, plan attributes, cost sharing and checks of the data itself.",
   "description": "Each task gives the AI extracts of CMS's public use files for Ohio's individual health insurance market and states its facts in the question, such as an age and a rating area. It asks for exact answers: a monthly rate, a tobacco load, a ratio, a deductible, a count, a list of plans, or a finding in the data itself. Every field of the answer is checked, and a task passes only when all of them are right. Plan IDs, counts and lists must match exactly.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "underwriters",
   "status": "draft",
   "pricing": "free",
