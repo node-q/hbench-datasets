@@ -420,8 +420,41 @@ The details are in [`docs/licensing.md`](docs/licensing.md).
 
 ## Publishing
 
-A maintainer runs the **Publish** workflow from `main` with the dataset, the version and the
-node-q/hbench release to pack with. It runs on GitHub-hosted runners and:
+A maintainer releases one or more versions with the **Release dataset** workflow, from `main`. The
+steps before it are manual:
+
+1. **Export** (open test sets only). In node-q's internal datasets repository, `scripts/export_open.py
+   datasets/<name> tasks.tar.xz` writes the set's tasks as one reproducible file, applying the set's
+   `open-redactions.tsv`; see [`docs/open-test-sets.md`](docs/open-test-sets.md).
+2. **Draft the source release.** Create a draft release `sources-<name>-<version>` here with that
+   file attached, and pin its URL and sha256 in the version's `source.yaml`. A version fetched from
+   upstream has no source release and skips this step.
+3. **Open the pull request** with `datasets/<name>/<version>`. If the version needs a new task image,
+   add it to `images/images.yaml` in the same pull request.
+4. **Fill the images lock.** Once the image is on `main`, run **Build images** for it (or **Mirror
+   images** or **Pin images**, by the version's environment policy), and commit the
+   `images.lock.json` and `generated.lock.json` from its `locks-<image>` artifact in a pull request.
+   Merge it.
+5. **Run Release dataset** with `sets`, such as `federal-register@1.0 computer-use-browser@1.0`, and
+   `hbench_version`, such as `v0.5.0`. Tick `dry_run` first to see the checks and the plan without
+   publishing anything.
+
+Release dataset refuses any ref but `main` and never pushes a commit. It checks every set before
+publishing any: its descriptor is on `main` and passes `validate_sources.py --for-publish`, its
+images lock is filled (when it is not, the run stops and names the Build images, Mirror images or Pin
+images run to do; it does not start that run, because its lock goes in through a pull request), the
+registry does not serve it yet, and each source release it downloads from exists, as a draft or
+published, with an asset whose sha256 matches `source.yaml`. Then it publishes the draft source
+releases (never marking one as the latest release), checks each source downloads anonymously, runs
+**Publish** for each set in the order given, one at a time and stopping at the first failure, and
+runs **Index** once at the end. Its summary lists each set's source release, manifest digest and
+index entry.
+
+**Publish** can also be run on its own, for one version, with the dataset, the version and the
+node-q/hbench release to pack with; it then updates the index itself, as before. Release dataset
+calls it with `update_index: false`, so that one release updates the index once. Either way the
+signature and the attestation name `publish.yml`, so they verify with the commands under
+[Verifying a dataset](#verifying-a-dataset). Publish runs on GitHub-hosted runners and:
 
 1. refuses to run unless that hbench release has `hbench datasets push`, installing it only after
    checking `SHA256SUMS` and its build provenance;
@@ -439,7 +472,9 @@ node-q/hbench release to pack with. It runs on GitHub-hosted runners and:
    and verify it, and its `croissant.json`, `source.yaml`, `LICENSE` and `NOTICE` attached.
 
 A new GHCR package starts private. After the first publish of a dataset, make its package public
-in the package's settings, then re-run the release job.
+in the package's settings, then re-run the release job. When Release dataset stops partway, the sets
+with a digest in its summary are published and the index was not updated: fix the failed set, then
+run Release dataset for the sets that are left, or run **Index** alone.
 
 To propose a dataset, see [CONTRIBUTING.md](CONTRIBUTING.md). To report a problem with a published
 dataset, see [SECURITY.md](SECURITY.md).

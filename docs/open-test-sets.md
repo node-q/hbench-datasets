@@ -24,4 +24,5 @@ reviewed their answers yet, and each version's NOTICE and COVER.md say so.
    added to the checker and the answer files. It records each task's kind of work, difficulty and number of graded
    fields in `tasks.json`, which the listing counts from. `scripts/check_generated_tasks.py` checks `tasks.json`
    and runs each task's checker on its oracle (it must pass) and on an empty answer (it must fail).
-3. From there a set is built, locked and published like any generated dataset here.
+3. From there a set is built, locked and published like any generated dataset here: the Release dataset workflow
+   publishes the draft source release, the set and the index in one run (see the README's Publishing).
