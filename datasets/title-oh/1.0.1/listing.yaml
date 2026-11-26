@@ -8,6 +8,7 @@ description: 'Each task gives the AI the filed schedule of rates of an Ohio titl
   It asks for exact values: a premium, an amount, the rule that applies, a figure in the memorandum, or the errors in the
   filed pages themselves. Every field of the answer is checked, and a task passes only when all of them are right.'
 domain: Insurance
+group: insurance
 format: field-graded
 status: draft
 trade: title underwriters

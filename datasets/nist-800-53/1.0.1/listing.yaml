@@ -9,6 +9,7 @@ description: 'Each task gives the AI tables of NIST''s control catalog, its four
   what one baseline adds over another, a tailored system''s control set, or whether two tables agree. Every field of the
   answer is checked, and a task passes only when all of them are right.'
 domain: Security compliance
+group: law-compliance
 format: field-graded
 status: draft
 trade: security compliance analysts

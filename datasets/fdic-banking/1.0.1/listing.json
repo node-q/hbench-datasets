@@ -8,6 +8,7 @@
   "summary": "Bank analysis on the FDIC's public yearly totals for insured banks: profitability, capital, funding, loan quality, growth, consolidation, state rankings, and checks of the tables against themselves.",
   "description": "Each task gives the AI real yearly totals for FDIC-insured institutions, by year, state and charter class, with the FDIC's own definition of every field. The question states the years and the formula of every ratio it asks for, and the AI gives exact figures: a ratio, a growth rate, a ranking, a count, or whether the tables agree with themselves. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Finance",
+  "group": "finance",
   "trade": "bank analysts",
   "status": "draft",
   "pricing": "free",

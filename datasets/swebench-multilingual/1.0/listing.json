@@ -8,6 +8,7 @@
   "summary": "Real issues from open-source projects in nine languages. The AI must change the code so that the project's own tests pass.",
   "description": "Each test task gives the AI a real GitHub issue and the project's code from before the fix. The AI changes the code. It passes only when the tests for the fix pass and the tests that passed before still pass.",
   "domain": "Software engineering",
+  "group": "coding",
   "status": "published",
   "pricing": "free",
   "licence": {

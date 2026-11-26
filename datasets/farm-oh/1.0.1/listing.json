@@ -8,6 +8,7 @@
   "summary": "Rate one insurer's farmowners program in Ohio from the manual it filed: county zones, dwelling and outbuilding premiums, farm personal property, farm liability, deductibles, package rules and the manual's stale pages.",
   "description": "Each task gives the AI the farm property and liability manual one insurer filed in Ohio, with the filing's actuarial memorandum, and states the facts in the question, such as a dwelling's county and its amount of insurance. It asks for exact values: a zone, a credit, a premium, a rule, or the errors in the manual itself. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "underwriters",
   "status": "draft",
   "pricing": "free",

@@ -11,6 +11,7 @@ description: 'Every task gives the AI the same files: the Federal Register''s re
   correction or a withdrawal refers to, what a rule''s text says about a budget or a penalty, and where the records and the
   texts disagree. Every field of the answer is checked, and a task passes only when all of them are right.'
 domain: Regulatory research
+group: research-data
 format: field-graded
 status: draft
 trade: regulatory analysts

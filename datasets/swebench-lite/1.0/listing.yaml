@@ -6,6 +6,7 @@ summary: Real issues from open-source Python projects. The AI must change the co
 description: Each test task gives the AI a real GitHub issue and the project's code from before the fix. The AI
   changes the code. It passes only when the tests for the fix pass and the tests that passed before still pass.
 domain: Software engineering
+group: coding
 format: run-tests
 licence:
   name: Apache License 2.0

@@ -8,6 +8,7 @@
   "summary": "Work with FEMA's public flood insurance data for Louisiana: claims by storm and flood zone, compliance payments, policies in force, repetitive loss and mitigation, community status and homes insured.",
   "description": "Each task gives the AI extracts of FEMA's public flood insurance data for Louisiana, with FEMA's own field dictionary. The question states its facts, such as a parish, a year, a date or a definition, and asks for exact figures: counts, totals, shares, medians and the codes behind them. Every question covers a group of at least ten rows, never a single claim or policy. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "claims analysts",
   "status": "draft",
   "pricing": "free",

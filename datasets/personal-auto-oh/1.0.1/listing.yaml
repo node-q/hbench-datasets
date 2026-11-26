@@ -9,6 +9,7 @@ description: 'Each task gives the AI the filed rules, rate pages, vehicle symbol
   or the errors in the documents themselves. Every field of the answer is checked, and a task passes only when all of them
   are right.'
 domain: Insurance
+group: insurance
 format: field-graded
 status: draft
 trade: underwriters

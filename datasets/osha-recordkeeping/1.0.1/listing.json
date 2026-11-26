@@ -8,6 +8,7 @@
   "summary": "Keep workplace injury records under the US OSHA recordkeeping regulation: what is recordable, where it goes on the log, day counts, hearing loss, annual summaries, deadlines, severe injury reports and electronic submission.",
   "description": "Each task says what happened to unnamed employees at an unnamed workplace: injuries, treatment, dates, the workplace's size and industry, hearing test results. The AI reads OSHA's regulation on recording and reporting injuries and illnesses, 29 CFR Part 1904, and answers what it decides: whether an injury is recordable, where it goes on the log, how many days count, which deadline applies, or who must keep and submit records. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Employment law",
+  "group": "law-compliance",
   "trade": "safety managers",
   "status": "draft",
   "pricing": "free",

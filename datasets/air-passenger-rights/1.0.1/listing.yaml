@@ -9,6 +9,7 @@ description: 'Each task sets out one passenger''s problem with an unnamed airlin
   what form and by which date, and how the clocks of a tarmac delay run. Every field of the answer is checked, and a
   task passes only when all of them are right.'
 domain: Transport
+group: law-compliance
 format: field-graded
 status: draft
 trade: customer support specialists

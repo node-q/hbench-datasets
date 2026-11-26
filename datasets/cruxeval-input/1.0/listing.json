@@ -8,6 +8,7 @@
   "summary": "Short Python functions, each with a known output. The AI must find an input that gives that output.",
   "description": "Each test task shows a short Python function and an output. The AI writes a call to the function. The call passes when the function returns that output within 3 seconds.",
   "domain": "Coding",
+  "group": "coding",
   "status": "published",
   "pricing": "free",
   "licence": {

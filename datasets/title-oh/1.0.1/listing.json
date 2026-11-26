@@ -8,6 +8,7 @@
   "summary": "Rate title insurance in Ohio from a filed schedule of rates: owner's and loan premiums by band, minimums, reissue, refinance and simultaneous issue, endorsements, the actuarial memorandum and the errors in the filings.",
   "description": "Each task gives the AI the filed schedule of rates of an Ohio title insurance rating organization, with its rate pages and actuarial memorandum, and states its facts in the question, such as the kind of policy and the amount of insurance. It asks for exact values: a premium, an amount, the rule that applies, a figure in the memorandum, or the errors in the filed pages themselves. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "title underwriters",
   "status": "draft",
   "pricing": "free",

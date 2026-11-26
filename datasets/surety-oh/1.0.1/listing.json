@@ -8,6 +8,7 @@
   "summary": "Rate contract surety bonds for Ohio from one insurer's filed rate manual: layered rates, tiers and class columns, duration surcharges, minimum premiums, contract price changes, maintenance guarantees and schedule rating.",
   "description": "Each task gives the AI one insurer's filed contract surety rate manual and states its facts in the question, such as the contractor's rate plan tier, the contract price and how long the work will take. It asks for exact values: a premium, a rate, a code, a rule, or the errors in the manual itself. Every field of the answer is checked, and a task passes only when all of them are right. Premiums the manual rounds to the dollar must match to the dollar.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "surety underwriters",
   "status": "draft",
   "pricing": "free",

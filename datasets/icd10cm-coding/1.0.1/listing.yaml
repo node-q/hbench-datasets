@@ -9,6 +9,7 @@ description: 'Each task gives the AI lines of the real ICD-10-CM files as the US
   code a clinical record or apply a coding guideline. Every field of the answer is checked, and a task passes only when all
   of them are right.'
 domain: Health compliance
+group: law-compliance
 format: field-graded
 status: draft
 trade: medical coders

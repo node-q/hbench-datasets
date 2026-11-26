@@ -8,6 +8,7 @@
   "summary": "Rate one insurer's general liability program in Ohio from the manual pages it filed: minimum premiums, class premiums, endorsements, rating factors, Ohio's own rules and the errors in the pages.",
   "description": "Each task gives the AI the manual pages one insurer filed in Ohio for its commercial general liability program, with its own worked rating examples, and states the facts in the question, such as a contractor's class or the length of a short policy. It asks for exact values: a premium, a factor, a rule, or the errors in the pages themselves. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "underwriters",
   "status": "draft",
   "pricing": "free",

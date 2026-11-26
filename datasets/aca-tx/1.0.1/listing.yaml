@@ -9,6 +9,7 @@ description: 'Each task gives the AI extracts of CMS''s public use files for Tex
   the answer is checked, and a task passes only when all of them are right. Plan IDs, counts and lists must match
   exactly.'
 domain: Insurance
+group: insurance
 format: field-graded
 status: draft
 trade: underwriters

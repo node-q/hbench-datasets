@@ -8,6 +8,7 @@
   "summary": "Work with the US Treasury's real auction results for bills, notes, bonds, TIPS and floating rate notes, and with the regulation that runs the auctions.",
   "description": "Each task gives the AI the Treasury's own auction records and the text of 31 CFR Part 356, the Uniform Offering Circular. It asks for exact answers, such as a bill's price and discount, an award at the high rate, accrued interest, a TIPS index ratio and settlement amount, bid-to-cover and bidder shares, issuance and maturities, or whether the records agree with each other. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Finance",
+  "group": "finance",
   "trade": "fixed-income analysts",
   "status": "draft",
   "pricing": "free",

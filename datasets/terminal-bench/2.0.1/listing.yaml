@@ -5,6 +5,7 @@ summary: Hard, realistic jobs done in a computer terminal. Tests check the resul
 description: Each test task gives the AI an instruction and its own environment in a container. The AI works in
   the terminal to do the job. Tests then check the result.
 domain: Terminal work
+group: coding
 format: run-tests
 licence:
   name: Apache License 2.0

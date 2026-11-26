@@ -8,6 +8,7 @@ description: 'Each task says what happened at an unnamed health care provider, h
   of the HIPAA regulations in 45 CFR and gives the answer they decide: a date, a yes or no, a choice, a count or an amount.
   Every field of the answer is checked, and a task passes only when all of them are right.'
 domain: Health compliance
+group: law-compliance
 format: field-graded
 status: draft
 trade: privacy officers

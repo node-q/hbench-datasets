@@ -11,6 +11,7 @@ description: 'Each task states an unnamed taxpayer''s facts, such as a filing st
   question needs a rule of the Internal Revenue Code that the documents do not restate, it writes the rule out. Every
   field of the answer is checked, and a task passes only when all of them are right.'
 domain: Finance
+group: finance
 format: field-graded
 status: draft
 trade: tax preparers

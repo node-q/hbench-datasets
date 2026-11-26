@@ -8,6 +8,7 @@
   "summary": "Work out a Nutrition Facts label under the FDA's rules: declared values, percent Daily Value, calories, serving sizes, label formats, nutrient content claims and compliance tolerances.",
   "description": "Each task describes an unnamed, made-up food: its laboratory values, product category, serving and package. The AI reads eight sections of the US Food and Drug Administration's food labeling rules, 21 CFR Part 101, and gives exact answers: what the Nutrition Facts label declares after the regulation's rounding, percent Daily Value, calories, serving sizes and servings per container, which label format applies, whether a nutrient content claim meets its numbers, and whether a lab analysis is within the compliance tolerances. Every field of the answer is checked, and a wrong rounding step always fails.",
   "domain": "Health compliance",
+  "group": "law-compliance",
   "trade": "regulatory specialists",
   "status": "draft",
   "pricing": "free",

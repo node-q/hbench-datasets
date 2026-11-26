@@ -8,6 +8,7 @@
   "summary": "Rate one insurer's commercial property program in Ohio from the manual pages it filed: limit factors, table edges, the rating steps, endorsements, flood, Ohio's own rules and the errors in the pages.",
   "description": "Each task gives the AI the manual pages one insurer filed in Ohio for its commercial property program and states the facts in the question, such as a building's construction and its amount of insurance. It asks for exact values: a factor, a rate or premium after a given step, a rule, or the errors in the pages themselves. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "underwriters",
   "status": "draft",
   "pricing": "free",

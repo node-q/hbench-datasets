@@ -8,6 +8,7 @@
   "summary": "Read Ohio's 2026 Medicare Advantage and Part D plan files from CMS: premiums, the Part D benefit, service areas, special needs plans, star ratings, enrollment and the out-of-pocket maximum.",
   "description": "Each task gives the AI extracts of four public CMS files on Ohio's Medicare Advantage and stand-alone Part D plans, and states its facts in the question, including any federal figure it needs, such as the standard Part D deductible. It asks for exact answers: a premium component, a count of plans, a list of plan segments or counties, a star rating, an enrollment total, or a finding in the files themselves. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "underwriters",
   "status": "draft",
   "pricing": "free",

@@ -8,6 +8,7 @@
   "summary": "Rate pet health insurance in Ohio from one insurer's two filed programs: breeds, age, area and plan factors, discounts and fees, full premiums, ways of paying, policy terms and the errors in the filings.",
   "description": "Each task gives the AI the filed rate manuals of one insurer's two pet insurance programs in Ohio and the policy form of one of them, and states the facts in the question, such as a dog's breed, its age and the ZIP code. It asks for exact values: a premium, a factor, a breed group, a discount, a policy term, or the errors in the documents themselves. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "underwriters",
   "status": "draft",
   "pricing": "free",

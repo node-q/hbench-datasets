@@ -8,6 +8,7 @@ description: 'Each task gives the AI the filed rating manuals, rate pages and ex
   It asks for exact values: a premium, a factor, a credit, a rule, a territory, or the errors in the documents themselves.
   Every field of the answer is checked, and a task passes only when all of them are right.'
 domain: Insurance
+group: insurance
 format: field-graded
 status: draft
 trade: underwriters

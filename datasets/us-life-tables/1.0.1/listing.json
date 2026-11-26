@@ -8,6 +8,7 @@
   "summary": "Actuarial calculations with the US life tables of 2023 and 2024: survival, expectation of life, joint lives, insurance and annuity values, net premiums and reserves, and checks of the tables against themselves.",
   "description": "Each task hands the AI the 36 complete period life tables that the National Center for Health Statistics published for 2023 and 2024, and the AI has to pick the right one by year, population and sex. The question states its facts, formulas and conventions, such as the interest rate and how to treat ages 100 and over. The AI gives exact answers: a probability, an expectation of life, a present value, a net premium or reserve, a column rebuilt from another, or something it finds in the tables. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Insurance",
+  "group": "insurance",
   "trade": "actuaries",
   "status": "draft",
   "pricing": "free",

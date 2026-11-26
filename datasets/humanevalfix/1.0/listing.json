@@ -8,6 +8,7 @@
   "summary": "Python functions with one bug each. The AI must fix the bug so that the tests pass.",
   "description": "Each test task shows a Python function with a bug written into it by hand. It also shows the tests that check the function. The AI returns the fixed code. It passes when the tests pass within 10 seconds.",
   "domain": "Coding",
+  "group": "coding",
   "status": "published",
   "pricing": "free",
   "licence": {

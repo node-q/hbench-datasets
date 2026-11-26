@@ -8,6 +8,7 @@
   "summary": "Answer airline passengers' claims from the US Department of Transportation's rules: bumped passengers, refunds, schedule changes, delayed and lost bags, tarmac delays and travel credits.",
   "description": "Each task sets out one passenger's problem with an unnamed airline: a fare, flight times, dates, what was paid and how. The AI reads five parts of the Department of Transportation's rules for air passengers, 14 CFR Parts 250, 254, 259, 260 and 262, and gives exact answers: whether compensation, a refund or a credit is owed, how much, in what form and by which date, and how the clocks of a tarmac delay run. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Transport",
+  "group": "law-compliance",
   "trade": "customer support specialists",
   "status": "draft",
   "pricing": "free",

@@ -9,6 +9,7 @@ description: 'Each task gives an unnamed pilot''s facts: where the pilot is accl
   decide, mostly to the minute: the limit that applies, how much is used and left, or whether a schedule is allowed. Every
   field of the answer is checked, and a task passes only when all of them are right.'
 domain: Transport
+group: law-compliance
 format: field-graded
 status: draft
 trade: crew schedulers

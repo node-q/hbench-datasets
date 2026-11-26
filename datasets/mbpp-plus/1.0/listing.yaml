@@ -5,6 +5,7 @@ summary: Entry-level Python problems with many extra tests. The AI writes one fu
 description: Each test task gives a short description of one Python function and an example of its use. The AI writes
   the function. It passes only when it gives the right result on the original tests and on many extra ones.
 domain: Coding
+group: coding
 format: run-tests
 licence:
   name: Apache License 2.0

@@ -8,6 +8,7 @@ description: 'Each task gives the AI the farm property and liability manual one 
   It asks for exact values: a zone, a credit, a premium, a rule, or the errors in the manual itself. Every field of the
   answer is checked, and a task passes only when all of them are right.'
 domain: Insurance
+group: insurance
 format: field-graded
 status: draft
 trade: underwriters

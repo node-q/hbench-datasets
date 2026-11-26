@@ -8,6 +8,7 @@
   "summary": "Count, compare and cross-check NIST's security and privacy controls in its own machine-readable release: families, withdrawn controls, the LOW, MODERATE, HIGH and privacy baselines, tailoring, parameters and assessment procedures.",
   "description": "Each task gives the AI tables of NIST's control catalog, its four baselines and its assessment procedures, every value as NIST publishes it. The question states its facts, such as a system's impact level, and defines the words it uses. The AI gives exact answers: how many controls and enhancements a family has, where a withdrawn control went, what one baseline adds over another, a tailored system's control set, or whether two tables agree. Every field of the answer is checked, and a task passes only when all of them are right.",
   "domain": "Security compliance",
+  "group": "law-compliance",
   "trade": "security compliance analysts",
   "status": "draft",
   "pricing": "free",
