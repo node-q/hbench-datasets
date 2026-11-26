@@ -26,6 +26,9 @@ env:
 jobs:
   index:
     name: Push the dataset index
+    # Only main pushes and signs the index: its signature names index.yml@refs/heads/main, which the account site's
+    # import and the Market Place verify (node-q/hbench-studio#390), so a run from any other ref is not trusted anyway.
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
