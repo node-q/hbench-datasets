@@ -15,6 +15,32 @@ on:
         description: node-q/hbench release that packs and pushes, such as v0.3.0
         required: true
         type: string
+      update_index:
+        description: Update the dataset index after releasing; Release dataset turns this off and updates it once
+        required: false
+        type: boolean
+        default: true
+  # Release dataset calls this workflow for each set it releases. The signature and the attestation still name
+  # publish.yml, as the job's workflow, so they verify against the same identity either way.
+  workflow_call:
+    inputs:
+      dataset:
+        required: true
+        type: string
+      version:
+        required: true
+        type: string
+      hbench_version:
+        required: true
+        type: string
+      update_index:
+        required: false
+        type: boolean
+        default: true
+    outputs:
+      digest:
+        description: Manifest digest of the published dataset
+        value: ${{ jobs.publish.outputs.digest }}
 
 permissions:
   contents: read
@@ -340,6 +366,9 @@ jobs:
   index:
     name: Update the dataset index
     needs: release
+    # Release dataset passes false and updates the index once after its last set, so that the runs of one release
+    # do not each push an index and cancel one another.
+    if: inputs.update_index
     uses: ./.github/workflows/index.yml
     permissions:
       contents: read

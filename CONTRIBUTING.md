@@ -37,7 +37,8 @@
    the source at its pinned commit and checks its task count and images, as CI does. It downloads
    every task directory.
 5. **Open a pull request.** CI validates the descriptor and fetches the source. After it is merged,
-   a maintainer publishes it.
+   a maintainer releases it with the Release dataset workflow; see
+   [Releasing a version](#releasing-a-version).
 
 ## Adding a generated dataset
 
@@ -109,6 +110,25 @@ When every task needs its own prebuilt environment, as in SWE-bench, the environ
   the lock is committed in the same pull request;
 - `verify_tasks` runs tasks with hbench and Docker, as `adapters/swebench/verification.py` does; the
   Sample tasks workflow runs it on a sample of each such version.
+
+## Releasing a version
+
+A maintainer does this; the README's [Publishing](README.md#publishing) has the details.
+
+1. For an open test set, export it first, by hand, in node-q's internal datasets repository:
+   `scripts/export_open.py datasets/<name> tasks.tar.xz`, with the set's `open-redactions.tsv`.
+2. Create the draft release `sources-<name>-<version>` here with that `tasks.tar.xz`, and pin its URL
+   and sha256 in `source.yaml`.
+3. Open the pull request with `datasets/<name>/<version>` (and its `images/images.yaml` entry when the
+   set needs a new task image), and merge it once CI passes.
+4. If `images.lock.json` is still `{}`, run Build images (or Mirror images, or Pin images) and commit
+   the locks from its artifact in a second pull request. Release dataset refuses an unfilled lock and
+   names the run to do.
+5. Run **Release dataset** from `main` with the sets, as `<name>@<version>` in the order to publish
+   them, and the hbench release. It checks every set, publishes the draft source releases, publishes
+   each set, and updates the index once. Run it with `dry_run` first to see the plan.
+
+No workflow pushes to `main`: every descriptor and lock goes in through a reviewed pull request.
 
 ## Versions are immutable
 
