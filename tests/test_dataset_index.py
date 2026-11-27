@@ -206,5 +206,75 @@ class MainTest(unittest.TestCase):
         self.assertIn("is not signed by publish.yml on main", printed.getvalue())
 
 
+
+class CurrentIndexTest(unittest.TestCase):
+    """A version the published index lists is never dropped for a failed verification; a new one is left out."""
+
+    served = {f"{NAMESPACE}/terminal-bench:2.0.1": DIGEST_B, f"{NAMESPACE}/humaneval-plus:1.0": DIGEST_C}
+
+    def run_main(self, current_datasets, *arguments, verify=lambda reference: not reference.endswith(DIGEST_C)):
+        with tempfile.TemporaryDirectory() as directory:
+            output = pathlib.Path(directory, "index.json")
+            current = pathlib.Path(directory, "current.json")
+            current.write_text(json.dumps({"schema_version": 1, "datasets": current_datasets}))
+            printed, errors = io.StringIO(), io.StringIO()
+            with (
+                mock.patch.object(dataset_index, "oras_resolve", resolver(self.served)),
+                mock.patch.object(dataset_index, "cosign_verify", verify),
+                mock.patch.object(dataset_index, "version_directories", lambda: DIRECTORIES[:2]),
+                mock.patch.object(dataset_index, "load_superseded", lambda: {}),
+                contextlib.redirect_stdout(printed),
+                contextlib.redirect_stderr(errors),
+            ):
+                code = dataset_index.main(
+                    ["--namespace", NAMESPACE, "--current", str(current), *arguments]
+                    + ([] if "--verify-only" in arguments else ["--output", str(output)])
+                )
+            written = json.loads(output.read_text()) if output.exists() else None
+        return code, written, printed.getvalue(), errors.getvalue()
+
+    def test_refuses_to_drop_a_live_version_that_fails_verification(self):
+        live = [{"name": "humaneval-plus", "version": "1.0", "digest": DIGEST_C}]
+        code, written, _, errors = self.run_main(live)
+        self.assertEqual(code, 1)
+        self.assertIsNone(written)
+        self.assertIn("refusing to drop humaneval-plus@1.0", errors)
+
+    def test_a_new_version_that_fails_verification_is_only_left_out(self):
+        live = [{"name": "terminal-bench", "version": "2.0.1", "digest": DIGEST_B}]
+        code, written, printed, _ = self.run_main(live)
+        self.assertEqual(code, 0)
+        self.assertEqual(written["datasets"], [{"name": "terminal-bench", "version": "2.0.1", "digest": DIGEST_B}])
+        self.assertIn("left out humaneval-plus@1.0: ", printed)
+
+    def test_no_current_index_leaves_out_without_failing(self):
+        with tempfile.TemporaryDirectory() as directory:
+            self.assertEqual(dataset_index.load_current(pathlib.Path(directory, "absent.json")), set())
+        self.assertEqual(dataset_index.load_current(None), set())
+
+    def test_a_malformed_current_index_stops_the_build(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory, "current.json")
+            path.write_text("{}")
+            with self.assertRaises(dataset_index.DatasetIndexError):
+                dataset_index.load_current(path)
+
+    def test_verify_only_prints_every_result_and_writes_nothing(self):
+        live = [{"name": "humaneval-plus", "version": "1.0", "digest": DIGEST_C}]
+        code, written, printed, errors = self.run_main(live, "--verify-only")
+        self.assertEqual(code, 1)
+        self.assertIsNone(written)
+        self.assertIn(f"verified terminal-bench@2.0.1: {DIGEST_B}", printed)
+        self.assertIn("not verified humaneval-plus@1.0 (listed in the current index)", printed)
+        self.assertIn("refusing to drop humaneval-plus@1.0", errors)
+
+    def test_verify_only_passes_when_every_live_version_verifies(self):
+        code, written, printed, _ = self.run_main([], "--verify-only", verify=SIGNED)
+        self.assertEqual(code, 0)
+        self.assertIsNone(written)
+        self.assertIn("verified humaneval-plus@1.0", printed)
+        self.assertIn("verified terminal-bench@2.0.1", printed)
+
+
 if __name__ == "__main__":
     unittest.main()

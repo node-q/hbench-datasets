@@ -38,6 +38,9 @@ last set) and by hand:
    https://github.com/node-q/hbench-datasets/.github/workflows/publish.yml@refs/heads/main` passes on its digest; one
    that a failed publish pushed but did not sign is left out and named too. Any other cosign failure, after three
    tries, stops the run, so that the index never drops a dataset because of a network error.
+   A version the published `index:latest` lists today that fails verification is never dropped: the run fails,
+   naming it, and pushes nothing. Running Index by hand with `verify_only` verifies every served version, prints
+   each result in the job summary and pushes no index; it fails on the same condition.
 2. When the index lists the same datasets as `index:latest` already does, nothing is pushed.
 3. Otherwise it pushes the index with oras, signs its digest with cosign keyless, and checks that an anonymous
    client can pull it.
