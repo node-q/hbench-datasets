@@ -2,6 +2,12 @@ name: Index
 
 on:
   workflow_dispatch:
+    inputs:
+      verify_only:
+        description: Only verify every served version's signature and print the results; push no index
+        required: false
+        type: boolean
+        default: false
   workflow_call:
 
 permissions:
@@ -54,12 +60,45 @@ jobs:
         uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
         with:
           cosign-release: v3.0.6
+      # dataset_index.py refuses to drop a version this index lists, so a failure to read it must not pass for "none".
+      - name: Fetch the published index, anonymously
+        run: |
+          no_credentials="$(mktemp -d)"
+          if manifest="$(DOCKER_CONFIG="$no_credentials" oras manifest fetch "$INDEX:latest" 2>"$RUNNER_TEMP/current-fetch.log")"; then
+            DOCKER_CONFIG="$no_credentials" oras blob fetch --output "$RUNNER_TEMP/current.json" "$INDEX@$(jq -r '.layers[0].digest' <<<"$manifest")"
+            echo "The published index lists $(jq '.datasets | length' "$RUNNER_TEMP/current.json") dataset versions."
+          elif grep -qiE 'not found|manifest unknown|name unknown' "$RUNNER_TEMP/current-fetch.log"; then
+            echo "No index is published yet."
+          else
+            cat "$RUNNER_TEMP/current-fetch.log" >&2
+            echo "::error title=Index unreadable::Could not read $INDEX:latest, so this run cannot tell which datasets are live. Nothing was pushed."
+            exit 1
+          fi
+      - name: Verify every served version's signature, without pushing an index
+        if: inputs.verify_only == true
+        run: |
+          set +e
+          python scripts/dataset_index.py --namespace "$NAMESPACE" --current "$RUNNER_TEMP/current.json" --verify-only > "$RUNNER_TEMP/verify.log" 2> "$RUNNER_TEMP/verify-errors.log"
+          status=$?
+          set -e
+          cat "$RUNNER_TEMP/verify.log" "$RUNNER_TEMP/verify-errors.log"
+          {
+            echo "## Signature check (verify only, no index pushed)"
+            echo
+            echo "$(grep -c '^verified ' "$RUNNER_TEMP/verify.log") verified, $(grep -c '^not verified ' "$RUNNER_TEMP/verify.log") not verified, $(grep -c '^not served ' "$RUNNER_TEMP/verify.log") not served."
+            echo
+            grep -v '^verified ' "$RUNNER_TEMP/verify.log" | sed 's/^/- /' || true
+            sed 's/^/- **/; s/$/**/' "$RUNNER_TEMP/verify-errors.log"
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
       - name: Build the index from what an anonymous client can pull
+        if: inputs.verify_only != true
         run: |
           mkdir -p "$RUNNER_TEMP/index"
-          python scripts/dataset_index.py --namespace "$NAMESPACE" --output "$RUNNER_TEMP/index/index.json" | tee "$RUNNER_TEMP/index.log"
+          python scripts/dataset_index.py --namespace "$NAMESPACE" --current "$RUNNER_TEMP/current.json" --output "$RUNNER_TEMP/index/index.json" | tee "$RUNNER_TEMP/index.log"
       - name: Leave the index alone when it lists the same datasets
         id: compare
+        if: inputs.verify_only != true
         run: |
           changed=true
           no_credentials="$(mktemp -d)"
@@ -107,7 +146,7 @@ jobs:
             exit 1
           fi
       - name: Write the index to the job summary
-        if: always()
+        if: always() && inputs.verify_only != true
         env:
           CHANGED: ${{ steps.compare.outputs.changed }}
           DIGEST: ${{ steps.push.outputs.digest }}

@@ -117,8 +117,9 @@ A maintainer does this; the README's [Publishing](README.md#publishing) has the 
 
 1. For an open test set, export it first, by hand, in node-q's internal datasets repository:
    `scripts/export_open.py datasets/<name> tasks.tar.xz`, with the set's `open-redactions.tsv`.
-2. Create the draft release `sources-<name>-<version>` here with that `tasks.tar.xz`, and pin its URL
-   and sha256 in `source.yaml`.
+2. Create the draft release `sources-<name>-<version>` here with that `tasks.tar.xz` as its only
+   asset and empty release notes (Release dataset refuses anything else and writes the notes itself),
+   and pin its URL and sha256 in `source.yaml`.
 3. Open the pull request with `datasets/<name>/<version>` (and its `images/images.yaml` entry when the
    set needs a new task image), and merge it once CI passes.
 4. If `images.lock.json` is still `{}`, run Build images (or Mirror images, or Pin images) and commit
